@@ -1,15 +1,19 @@
+import { localeHref, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import WolfMark from "./WolfMark";
 import styles from "./SiteFooter.module.css";
 
-type Props = { t: Dictionary["footer"] };
+type Props = {
+  locale: Locale;
+  t: Dictionary["footer"];
+};
 
-export default function SiteFooter({ t }: Props) {
+export default function SiteFooter({ locale, t }: Props) {
   return (
     <footer className={styles.footer} id="contact">
       <div className={`container ${styles.inner}`}>
         <div className={styles.brandCol}>
-          <a href="#top" className={styles.brand}>
+          <a href={localeHref(locale)} className={styles.brand}>
             <WolfMark className={styles.mark} />
             <span>
               AlfaHost<span>.eu</span>
@@ -26,16 +30,16 @@ export default function SiteFooter({ t }: Props) {
             <h2>{t.products}</h2>
             <ul>
               <li>
-                <a href="#offer">{t.gameServers}</a>
+                <a href={localeHref(locale, "#offer")}>{t.gameServers}</a>
               </li>
               <li>
-                <a href="#offer">{t.vps}</a>
+                <a href={localeHref(locale, "#offer")}>{t.vps}</a>
               </li>
               <li>
-                <a href="#offer">{t.dedicated}</a>
+                <a href={localeHref(locale, "#offer")}>{t.dedicated}</a>
               </li>
               <li>
-                <a href="#protection">{t.antiddos}</a>
+                <a href={localeHref(locale, "#protection")}>{t.antiddos}</a>
               </li>
             </ul>
           </div>
@@ -43,10 +47,10 @@ export default function SiteFooter({ t }: Props) {
             <h2>{t.company}</h2>
             <ul>
               <li>
-                <a href="#why">{t.why}</a>
+                <a href={localeHref(locale, "#why")}>{t.why}</a>
               </li>
               <li>
-                <a href="#faq">{t.faq}</a>
+                <a href={localeHref(locale, "#faq")}>{t.faq}</a>
               </li>
               <li>
                 <a href="mailto:hello@alfahost.eu">{t.contact}</a>

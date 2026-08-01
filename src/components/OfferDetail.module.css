@@ -1,0 +1,272 @@
+.section {
+  background: var(--black);
+  padding-bottom: 4rem;
+}
+
+.hero {
+  background-color: var(--void);
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid var(--red);
+  padding: 2rem 0 2.75rem;
+}
+
+.heroInner {
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+}
+
+.back {
+  width: fit-content;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.back:hover {
+  color: var(--red-hot);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  flex-shrink: 0;
+  min-width: 2.4rem;
+  padding: 0.28rem 0.5rem;
+  border: 1px solid var(--line-red);
+  background: rgba(196, 0, 26, 0.28);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.summary {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  max-width: 40rem;
+}
+
+.priceRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1.25rem 1.75rem;
+  margin-top: 0.5rem;
+}
+
+.from {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.2rem;
+}
+
+.price span {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.price small {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.order {
+  margin-left: auto;
+}
+
+.body {
+  display: grid;
+  gap: 2rem;
+  padding-top: 2.75rem;
+}
+
+.main {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 46rem;
+}
+
+.ideal {
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 46rem;
+}
+
+.ideal strong {
+  color: var(--red-hot);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-right: 0.35rem;
+}
+
+.cols {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.cols h2,
+.aside h2,
+.others h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  color: var(--red-hot);
+}
+
+.cols ul {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.cols li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.cols li span {
+  color: var(--red);
+  margin-top: 0.15rem;
+}
+
+.aside {
+  padding: 1.35rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  height: fit-content;
+}
+
+.aside dl {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.aside dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.aside dt {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.aside dd {
+  text-align: right;
+  color: var(--text);
+}
+
+.aside .btn {
+  width: 100%;
+}
+
+.others {
+  margin-top: 3rem;
+}
+
+.otherGrid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.otherCard {
+  display: grid;
+  gap: 0.4rem;
+  align-content: end;
+  min-height: 9rem;
+  padding: 1rem;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--red);
+  transition: border-color 0.15s ease;
+}
+
+.otherCard:hover {
+  border-color: var(--red);
+}
+
+.otherCard strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.otherCard > span:last-child {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 720px) {
+  .cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .otherGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .body {
+    grid-template-columns: 1.4fr 0.75fr;
+    align-items: start;
+  }
+
+  .hero {
+    padding: 2.5rem 0 3.25rem;
+  }
+}

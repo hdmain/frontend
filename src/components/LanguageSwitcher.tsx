@@ -3,6 +3,7 @@
 import {
   localeHref,
   localeNames,
+  localePath,
   locales,
   type Locale,
 } from "@/i18n/config";
@@ -11,9 +12,10 @@ import styles from "./LanguageSwitcher.module.css";
 type Props = {
   locale: Locale;
   label: string;
+  path?: string;
 };
 
-export default function LanguageSwitcher({ locale, label }: Props) {
+export default function LanguageSwitcher({ locale, label, path }: Props) {
   return (
     <nav className={styles.row} aria-label={label}>
       {locales.map((code, i) => (
@@ -21,7 +23,7 @@ export default function LanguageSwitcher({ locale, label }: Props) {
           {i > 0 ? <span className={styles.sep} aria-hidden>|</span> : null}
           <a
             className={`${styles.link} ${code === locale ? styles.active : ""}`}
-            href={localeHref(code)}
+            href={path ? localePath(code, path) : localeHref(code)}
             hrefLang={code}
             aria-current={code === locale ? "page" : undefined}
           >

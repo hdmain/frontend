@@ -1,5 +1,22 @@
 import type { Locale } from "./config";
 
+export type OfferPlan = {
+  name: string;
+  /** Key under /offers/{slug}.jpg */
+  slug: string;
+  tag: string;
+  cpu: string;
+  ram: string;
+  disk: string;
+  price: string;
+  premiumPrice: string;
+  summary: string;
+  description: string;
+  idealFor: string;
+  highlights: string[];
+  includes: string[];
+};
+
 export type Dictionary = {
   meta: { title: string; description: string };
   nav: {
@@ -65,17 +82,17 @@ export type Dictionary = {
     perMonth: string;
     goToOffer: string;
     orderSubject: string;
+    backToOffer: string;
+    orderNow: string;
+    hardwareTitle: string;
+    idealForLabel: string;
+    highlightsTitle: string;
+    includesTitle: string;
+    otherOffers: string;
     cpu: string;
     ram: string;
     disk: string;
-    plans: {
-      name: string;
-      cpu: string;
-      ram: string;
-      disk: string;
-      price: string;
-      premiumPrice: string;
-    }[];
+    plans: OfferPlan[];
   };
   faq: {
     eyebrow: string;
@@ -239,57 +256,178 @@ const en: Dictionary = {
     perMonth: "/mo",
     goToOffer: "Go to offer",
     orderSubject: "Order",
+    backToOffer: "Back to offer",
+    orderNow: "Order now",
+    hardwareTitle: "Hardware",
+    idealForLabel: "Ideal for",
+    highlightsTitle: "Key points",
+    includesTitle: "What's included",
+    otherOffers: "Other offers",
     cpu: "CPU",
     ram: "RAM",
     disk: "Disk",
     plans: [
       {
         name: "Minecraft",
+        slug: "minecraft",
+        tag: "Min",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€4",
         premiumPrice: "€7",
+        summary: "Fast Minecraft nodes with instant deploy and anti-DDoS included.",
+        description:
+          "Run Vanilla, Paper, Purpur, Fabric or modpacks on high-clock Ryzen CPUs. Allocate RAM to match your player count, install plugins in a few clicks, and keep the world online under attack thanks to always-on filtering.",
+        idealFor: "Survival, minigames, SMP communities and modded servers.",
+        highlights: [
+          "Instant setup after payment",
+          "One-click mods, plugins and images",
+          "Free subdomain option",
+          "Full console and file access",
+        ],
+        includes: [
+          "Anti-DDoS on every plan",
+          "Automated backups schedule",
+          "Java version switcher",
+          "24/7 panel access",
+          "EU low-latency routing",
+        ],
       },
       {
         name: "Rust",
+        slug: "rust",
+        tag: "Rst",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€9",
         premiumPrice: "€14",
+        summary: "Stable Rust hosting tuned for wipe nights and high player counts.",
+        description:
+          "Rust needs strong single-thread performance and clean networking. Our nodes are tuned for oxide plugins, custom maps and wipe-day spikes — with filtering that stays on so raiders hit your base, not your uplink.",
+        idealFor: "Public wipe servers, clan servers and custom map projects.",
+        highlights: [
+          "High-clock Ryzen for entity-heavy maps",
+          "Oxide / uMod friendly setup",
+          "Fast NVMe for map and blueprint I/O",
+          "DDoS mitigation during wipes",
+        ],
+        includes: [
+          "Anti-DDoS on every plan",
+          "Scheduled restarts and wipe helpers",
+          "FTP / SFTP access",
+          "Live console",
+          "EU peering paths",
+        ],
       },
       {
         name: "Discord Bot",
+        slug: "discord",
+        tag: "Bot",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€2",
         premiumPrice: "€4",
+        summary: "Always-on VPS slices for Discord bots and small Node/Python apps.",
+        description:
+          "Keep bots online without babysitting a home PC. Deploy Node.js, Python or Docker workloads with root access, predictable RAM and enough CPU headroom for music, moderation and ticket bots.",
+        idealFor: "Discord bots, webhooks, small APIs and background workers.",
+        highlights: [
+          "Low monthly entry price",
+          "Full root / SSH access",
+          "Process managers (pm2 / systemd)",
+          "IPv4 ready for Discord gateways",
+        ],
+        includes: [
+          "Anti-DDoS on every plan",
+          "NVMe storage",
+          "OS reinstall from panel",
+          "Outbound network for Discord APIs",
+          "Email support",
+        ],
       },
       {
         name: "VPS",
+        slug: "vps",
+        tag: "VPS",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€8",
         premiumPrice: "€12",
+        summary: "KVM VPS with NVMe, full root and DDoS filtering on every plan.",
+        description:
+          "General-purpose virtual servers for panels, websites, game backends and private services. You get KVM isolation, NVMe disks and the same always-on protection we put in front of game nodes.",
+        idealFor: "Web apps, game panels, databases and multi-purpose hosts.",
+        highlights: [
+          "Full root / admin access",
+          "KVM virtualization",
+          "Instant OS install images",
+          "Predictable CPU and RAM",
+        ],
+        includes: [
+          "Anti-DDoS on every plan",
+          "NVMe SSD storage",
+          "IPv4 address",
+          "Rescue / reinstall tools",
+          "Snapshots on request",
+        ],
       },
       {
         name: "Palworld",
+        slug: "palworld",
+        tag: "Pal",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€12",
         premiumPrice: "€18",
+        summary: "Dedicated Palworld slots with RAM headroom for busy multiplayer worlds.",
+        description:
+          "Palworld worlds grow fast — players, bases and pals eat memory. We size nodes for smooth multiplayer sessions, quick saves and protection that keeps your world reachable during peak hours.",
+        idealFor: "Friends servers, community worlds and public Palworld hosts.",
+        highlights: [
+          "RAM-focused plans for large worlds",
+          "Fast world save / load on NVMe",
+          "Simple restart and config access",
+          "Always-on DDoS filtering",
+        ],
+        includes: [
+          "Anti-DDoS on every plan",
+          "Automated backup option",
+          "Console and file manager",
+          "EU low-latency routing",
+          "Mod / config friendly layout",
+        ],
       },
       {
         name: "Dedicated",
+        slug: "dedicated",
+        tag: "Ded",
         cpu: "Ryzen / Xeon",
         ram: "ECC",
         disk: "NVMe RAID",
         price: "€49",
         premiumPrice: "€79",
+        summary: "Bare-metal machines for high-load communities and custom stacks.",
+        description:
+          "When a VPS is not enough, take the whole box. Modern AMD / Intel CPUs, ECC memory and NVMe storage with remote management — ideal for large game networks, private clouds or latency-sensitive apps.",
+        idealFor: "Large communities, multi-game networks and bare-metal workloads.",
+        highlights: [
+          "Full hardware dedication",
+          "Up to 10 Gbps links available",
+          "Remote management (IPMI / KVM)",
+          "Custom configs on request",
+        ],
+        includes: [
+          "Anti-DDoS options included",
+          "ECC memory",
+          "NVMe RAID storage options",
+          "Tier III+ datacenter",
+          "Priority onboarding help",
+        ],
       },
     ],
   },
@@ -469,57 +607,178 @@ const pl: Dictionary = {
     perMonth: "/mies.",
     goToOffer: "Przejdź do oferty",
     orderSubject: "Zamówienie",
+    backToOffer: "Wróć do oferty",
+    orderNow: "Zamów teraz",
+    hardwareTitle: "Sprzęt",
+    idealForLabel: "Idealne dla",
+    highlightsTitle: "Najważniejsze",
+    includesTitle: "W cenie",
+    otherOffers: "Inne oferty",
     cpu: "CPU",
     ram: "RAM",
     disk: "Dysk",
     plans: [
       {
         name: "Minecraft",
+        slug: "minecraft",
+        tag: "Min",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€4",
         premiumPrice: "€7",
+        summary: "Szybkie węzły Minecraft z natychmiastowym startem i anty-DDoS w cenie.",
+        description:
+          "Uruchom Vanilla, Paper, Purpur, Fabric albo modpacki na Ryzenach z wysokim taktowaniem. Dobierz RAM do liczby graczy, instaluj pluginy w kilka kliknięć i trzymaj świat online dzięki ciągłemu filtrowaniu.",
+        idealFor: "Survival, minigierki, społeczności SMP i serwery z modami.",
+        highlights: [
+          "Start zaraz po płatności",
+          "Mody, pluginy i obrazy jednym kliknięciem",
+          "Opcja darmowej subdomeny",
+          "Pełny dostęp do konsoli i plików",
+        ],
+        includes: [
+          "Anty-DDoS w każdym planie",
+          "Harmonogram kopii zapasowych",
+          "Przełącznik wersji Javy",
+          "Panel 24/7",
+          "Routing EU o niskich opóźnieniach",
+        ],
       },
       {
         name: "Rust",
+        slug: "rust",
+        tag: "Rst",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€9",
         premiumPrice: "€14",
+        summary: "Stabilny hosting Rust pod wipe'y i większą liczbę graczy.",
+        description:
+          "Rust wymaga mocnego single-thread i czystej sieci. Węzły są pod Oxide, custom mapy i skoki ruchu w dniu wipe — z filtrowaniem, które działa non-stop.",
+        idealFor: "Publiczne wipe'y, serwery klanowe i custom mapy.",
+        highlights: [
+          "Wysokie taktowanie Ryzen pod ciężkie mapy",
+          "Przyjazna konfiguracja Oxide / uMod",
+          "Szybkie NVMe pod mapy i blueprinty",
+          "Mitygacja DDoS podczas wipe'ów",
+        ],
+        includes: [
+          "Anty-DDoS w każdym planie",
+          "Restarty i helpery wipe",
+          "Dostęp FTP / SFTP",
+          "Konsola na żywo",
+          "Ścieżki peeringu EU",
+        ],
       },
       {
         name: "Bot Discord",
+        slug: "discord",
+        tag: "Bot",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€2",
         premiumPrice: "€4",
+        summary: "Zawsze włączone slice'y pod boty Discord i małe aplikacje Node/Python.",
+        description:
+          "Trzymaj boty online bez domowego PC. Wdrażaj Node.js, Python albo Dockera z rootem, przewidywalnym RAM-em i zapasem CPU na boty muzyczne, moderacyjne i ticketowe.",
+        idealFor: "Boty Discord, webhooki, małe API i workery w tle.",
+        highlights: [
+          "Niska cena wejścia",
+          "Pełny root / SSH",
+          "pm2 / systemd",
+          "IPv4 pod bramki Discord",
+        ],
+        includes: [
+          "Anty-DDoS w każdym planie",
+          "Dysk NVMe",
+          "Reinstalacja OS z panelu",
+          "Sieć wychodząca do API Discord",
+          "Wsparcie mailowe",
+        ],
       },
       {
         name: "VPS",
+        slug: "vps",
+        tag: "VPS",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€8",
         premiumPrice: "€12",
+        summary: "VPS KVM z NVMe, pełnym rootem i filtrowaniem DDoS w każdym planie.",
+        description:
+          "Uniwersalne maszyny pod panele, strony, backendy gier i prywatne usługi. Izolacja KVM, dyski NVMe i ta sama ochrona, którą stawiamy przed węzłami gier.",
+        idealFor: "Aplikacje web, panele gier, bazy danych i hosty wielozadaniowe.",
+        highlights: [
+          "Pełny root / admin",
+          "Wirtualizacja KVM",
+          "Szybka instalacja obrazów OS",
+          "Przewidywalne CPU i RAM",
+        ],
+        includes: [
+          "Anty-DDoS w każdym planie",
+          "Dysk NVMe SSD",
+          "Adres IPv4",
+          "Narzędzia rescue / reinstall",
+          "Snapshoty na życzenie",
+        ],
       },
       {
         name: "Palworld",
+        slug: "palworld",
+        tag: "Pal",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€12",
         premiumPrice: "€18",
+        summary: "Sloty Palworld z zapasem RAM pod zatłoczone światy multiplayer.",
+        description:
+          "Światy Palworld rosną szybko — gracze, bazy i pale zjadają pamięć. Dobieramy węzły pod płynną rozgrywkę, szybkie save'y i ochronę, która trzyma świat dostępny w peaku.",
+        idealFor: "Serwery ze znajomymi, społeczności i publiczne hosty Palworld.",
+        highlights: [
+          "Plany z naciskiem na RAM",
+          "Szybki zapis/odczyt świata na NVMe",
+          "Prosty restart i dostęp do configu",
+          "Ciągłe filtrowanie DDoS",
+        ],
+        includes: [
+          "Anty-DDoS w każdym planie",
+          "Opcja automatycznych backupów",
+          "Konsola i menedżer plików",
+          "Routing EU o niskich opóźnieniach",
+          "Układ przyjazny modom / configom",
+        ],
       },
       {
         name: "Dedykowany",
+        slug: "dedicated",
+        tag: "Ded",
         cpu: "Ryzen / Xeon",
         ram: "ECC",
         disk: "NVMe RAID",
         price: "€49",
         premiumPrice: "€79",
+        summary: "Maszyny bare-metal pod duże społeczności i własne stacki.",
+        description:
+          "Gdy VPS nie wystarcza — bierzesz cały serwer. Nowoczesne CPU AMD/Intel, pamięć ECC i NVMe ze zdalnym zarządzaniem — pod duże sieci gier, prywatne chmury i aplikacje wrażliwe na latency.",
+        idealFor: "Duże społeczności, sieci multi-game i obciążenia bare-metal.",
+        highlights: [
+          "Cały sprzęt tylko dla Ciebie",
+          "Łącza do 10 Gbps",
+          "Zdalne zarządzanie (IPMI / KVM)",
+          "Konfiguracje na zamówienie",
+        ],
+        includes: [
+          "Opcje anty-DDoS w ofercie",
+          "Pamięć ECC",
+          "Opcje NVMe RAID",
+          "DC Tier III+",
+          "Priorytetowe wdrożenie",
+        ],
       },
     ],
   },
@@ -699,57 +958,178 @@ const ru: Dictionary = {
     perMonth: "/мес.",
     goToOffer: "К тарифу",
     orderSubject: "Заказ",
+    backToOffer: "Назад к тарифам",
+    orderNow: "Заказать",
+    hardwareTitle: "Железо",
+    idealForLabel: "Подходит для",
+    highlightsTitle: "Главное",
+    includesTitle: "Что входит",
+    otherOffers: "Другие тарифы",
     cpu: "CPU",
     ram: "RAM",
     disk: "Диск",
     plans: [
       {
         name: "Minecraft",
+        slug: "minecraft",
+        tag: "Min",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€4",
         premiumPrice: "€7",
+        summary: "Быстрые ноды Minecraft с мгновенным деплоем и anti-DDoS в цене.",
+        description:
+          "Запускайте Vanilla, Paper, Purpur, Fabric или модпаки на Ryzen с высокой частотой. Подберите RAM под онлайн, ставьте плагины в пару кликов и держите мир онлайн благодаря постоянной фильтрации.",
+        idealFor: "Survival, мини-игры, SMP-сообщества и модовые серверы.",
+        highlights: [
+          "Запуск сразу после оплаты",
+          "Моды, плагины и образы в один клик",
+          "Опция бесплатного поддомена",
+          "Полный доступ к консоли и файлам",
+        ],
+        includes: [
+          "Anti-DDoS в каждом тарифе",
+          "Расписание бэкапов",
+          "Переключатель версии Java",
+          "Панель 24/7",
+          "EU-маршруты с низкой задержкой",
+        ],
       },
       {
         name: "Rust",
+        slug: "rust",
+        tag: "Rst",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€9",
         premiumPrice: "€14",
+        summary: "Стабильный хостинг Rust под вайпы и высокий онлайн.",
+        description:
+          "Rust требует сильный single-thread и чистую сеть. Ноды заточены под Oxide, кастомные карты и пики в день вайпа — с фильтрацией, которая всегда включена.",
+        idealFor: "Публичные вайпы, клановые серверы и кастомные карты.",
+        highlights: [
+          "Высокая частота Ryzen под тяжёлые карты",
+          "Удобный сетап Oxide / uMod",
+          "Быстрый NVMe под карты и blueprint'ы",
+          "Митигация DDoS во время вайпов",
+        ],
+        includes: [
+          "Anti-DDoS в каждом тарифе",
+          "Рестарты и хелперы вайпа",
+          "FTP / SFTP",
+          "Живая консоль",
+          "EU peering",
+        ],
       },
       {
         name: "Discord Bot",
+        slug: "discord",
+        tag: "Bot",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€2",
         premiumPrice: "€4",
+        summary: "Постоянно онлайн срезы под Discord-ботов и небольшие Node/Python-приложения.",
+        description:
+          "Держите ботов онлайн без домашнего ПК. Деплойте Node.js, Python или Docker с root, предсказуемой RAM и запасом CPU для music-, mod- и ticket-ботов.",
+        idealFor: "Discord-боты, вебхуки, небольшие API и фоновые воркеры.",
+        highlights: [
+          "Низкая цена входа",
+          "Полный root / SSH",
+          "pm2 / systemd",
+          "IPv4 для Discord gateway",
+        ],
+        includes: [
+          "Anti-DDoS в каждом тарифе",
+          "NVMe-хранилище",
+          "Переустановка ОС из панели",
+          "Исходящая сеть к Discord API",
+          "Поддержка по email",
+        ],
       },
       {
         name: "VPS",
+        slug: "vps",
+        tag: "VPS",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€8",
         premiumPrice: "€12",
+        summary: "KVM VPS с NVMe, полным root и фильтрацией DDoS в каждом тарифе.",
+        description:
+          "Универсальные виртуальные серверы для панелей, сайтов, игровых бэкендов и частных сервисов. Изоляция KVM, диски NVMe и та же защита, что стоит перед игровыми нодами.",
+        idealFor: "Веб-приложения, игровые панели, БД и многоцелевые хосты.",
+        highlights: [
+          "Полный root / admin",
+          "Виртуализация KVM",
+          "Быстрая установка образов ОС",
+          "Предсказуемые CPU и RAM",
+        ],
+        includes: [
+          "Anti-DDoS в каждом тарифе",
+          "NVMe SSD",
+          "Адрес IPv4",
+          "Rescue / reinstall",
+          "Снапшоты по запросу",
+        ],
       },
       {
         name: "Palworld",
+        slug: "palworld",
+        tag: "Pal",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "€12",
         premiumPrice: "€18",
+        summary: "Слоты Palworld с запасом RAM под загруженные мультиплеерные миры.",
+        description:
+          "Миры Palworld растут быстро — игроки, базы и палы съедают память. Мы подбираем ноды под плавный мультиплеер, быстрые сейвы и защиту, которая держит мир доступным в пик.",
+        idealFor: "Серверы с друзьями, комьюнити и публичные хосты Palworld.",
+        highlights: [
+          "Тарифы с упором на RAM",
+          "Быстрый save/load мира на NVMe",
+          "Простой рестарт и доступ к конфигу",
+          "Постоянная фильтрация DDoS",
+        ],
+        includes: [
+          "Anti-DDoS в каждом тарифе",
+          "Опция автобэкапов",
+          "Консоль и файловый менеджер",
+          "EU-маршруты с низкой задержкой",
+          "Удобная раскладка под моды/конфиги",
+        ],
       },
       {
         name: "Dedicated",
+        slug: "dedicated",
+        tag: "Ded",
         cpu: "Ryzen / Xeon",
         ram: "ECC",
         disk: "NVMe RAID",
         price: "€49",
         premiumPrice: "€79",
+        summary: "Bare-metal машины для высоконагруженных сообществ и своих стеков.",
+        description:
+          "Когда VPS мало — берёте весь сервер. Современные CPU AMD/Intel, ECC и NVMe с удалённым управлением — для крупных игровых сетей, частных облаков и latency-sensitive приложений.",
+        idealFor: "Крупные сообщества, multi-game сети и bare-metal нагрузки.",
+        highlights: [
+          "Всё железо только ваше",
+          "Каналы до 10 Гбит/с",
+          "Удалённое управление (IPMI / KVM)",
+          "Кастомные конфигурации",
+        ],
+        includes: [
+          "Опции Anti-DDoS в тарифе",
+          "Память ECC",
+          "Опции NVMe RAID",
+          "ДЦ Tier III+",
+          "Приоритетный онбординг",
+        ],
       },
     ],
   },
@@ -791,6 +1171,12 @@ const ru: Dictionary = {
 
 const dictionaries: Record<Locale, Dictionary> = { en, pl, ru };
 
+export const planSlugs = en.offer.plans.map((p) => p.slug);
+
 export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale];
+}
+
+export function getPlan(locale: Locale, slug: string): OfferPlan | undefined {
+  return getDictionary(locale).offer.plans.find((p) => p.slug === slug);
 }

@@ -29,12 +29,12 @@ export default async function HomePage({
         <div className={styles.stack}>
           <WhyUs t={t.why} />
           <Services t={t.services} />
-          <Offer t={t.offer} />
+          <Offer locale={locale} t={t.offer} />
           <Protection t={t.protection} />
           <Faq t={t.faq} />
         </div>
       </main>
-      <SiteFooter t={t.footer} />
+      <SiteFooter locale={locale} t={t.footer} />
     </div>
   );
 }

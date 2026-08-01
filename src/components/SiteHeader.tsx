@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Locale } from "@/i18n/config";
+import { localeHref, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Icons } from "./Icons";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -11,25 +11,28 @@ import styles from "./SiteHeader.module.css";
 type Props = {
   locale: Locale;
   t: Dictionary["nav"];
+  /** Current subpath for language switch, e.g. offer/minecraft */
+  path?: string;
 };
 
-export default function SiteHeader({ locale, t }: Props) {
+export default function SiteHeader({ locale, t, path }: Props) {
   const [open, setOpen] = useState(false);
+  const home = localeHref(locale);
 
   const links = [
-    { href: "#top", label: t.home },
-    { href: "#why", label: t.why },
-    { href: "#services", label: t.services },
-    { href: "#offer", label: t.offer },
-    { href: "#protection", label: t.antiddos },
-    { href: "#faq", label: t.faq },
-    { href: "#contact", label: t.contact },
+    { href: localeHref(locale, "#top"), label: t.home },
+    { href: localeHref(locale, "#why"), label: t.why },
+    { href: localeHref(locale, "#services"), label: t.services },
+    { href: localeHref(locale, "#offer"), label: t.offer },
+    { href: localeHref(locale, "#protection"), label: t.antiddos },
+    { href: localeHref(locale, "#faq"), label: t.faq },
+    { href: localeHref(locale, "#contact"), label: t.contact },
   ];
 
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <a href="#top" className={styles.brand} onClick={() => setOpen(false)}>
+        <a href={home} className={styles.brand} onClick={() => setOpen(false)}>
           <WolfMark className={styles.mark} />
           <span className={styles.word}>
             AlfaHost<span>.eu</span>
@@ -45,7 +48,7 @@ export default function SiteHeader({ locale, t }: Props) {
         </nav>
 
         <div className={styles.actions}>
-          <LanguageSwitcher locale={locale} label={t.language} />
+          <LanguageSwitcher locale={locale} label={t.language} path={path} />
           <a className={styles.panel} href="mailto:hello@alfahost.eu">
             {t.panel}
           </a>
@@ -74,7 +77,7 @@ export default function SiteHeader({ locale, t }: Props) {
             </a>
           ))}
           <div className={styles.mobileMeta}>
-            <LanguageSwitcher locale={locale} label={t.language} />
+            <LanguageSwitcher locale={locale} label={t.language} path={path} />
             <a
               className={styles.panel}
               href="mailto:hello@alfahost.eu"
