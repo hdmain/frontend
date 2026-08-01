@@ -1,0 +1,9 @@
+.type {
+  display: inline;
+}
+
+.cursor {
+  margin-left: 2px;
+  animation: blink 1.05s step-start infinite;
+  color: var(--text);
+}

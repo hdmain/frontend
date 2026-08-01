@@ -1,0 +1,140 @@
+.hero {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100svh - var(--nav-h));
+  padding: 2rem 0 2.5rem;
+  background: var(--black);
+  overflow: clip;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, transparent 40%, rgba(196, 0, 26, 0.12) 100%);
+  pointer-events: none;
+}
+
+.layout {
+  display: grid;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.copy {
+  animation: rise 0.65s var(--ease) both;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 9vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-bottom: 1rem;
+}
+
+.brand span {
+  color: var(--red-hot);
+}
+
+.typed {
+  min-height: 1.6rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red-hot);
+  line-height: 1.15;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  max-width: 34rem;
+  margin-bottom: 1.85rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.positives {
+  animation: rise 0.75s var(--ease) 0.08s both;
+}
+
+.positivesLabel {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.85rem;
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  gap: 0;
+  border-left: 3px solid var(--red);
+}
+
+.chip {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1.05rem 1rem 1.05rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(196, 0, 26, 0.1), transparent 75%);
+}
+
+.chip span {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  padding-top: 0.15rem;
+}
+
+.chip strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.chip p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  max-width: 28rem;
+}
+
+@media (min-width: 960px) {
+  .hero {
+    padding-block: 2.5rem;
+  }
+
+  .layout {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+}

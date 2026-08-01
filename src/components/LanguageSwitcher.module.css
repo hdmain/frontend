@@ -1,0 +1,33 @@
+.row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.sep {
+  color: var(--dim);
+  margin: 0 0.2rem;
+}
+
+.link {
+  color: var(--dim);
+  padding: 0.15rem 0.1rem;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+.active {
+  color: var(--red-hot);
+}

@@ -1,0 +1,103 @@
+.footer {
+  position: relative;
+  z-index: 2;
+  padding: 3.25rem 0 1.5rem;
+  background: #050505;
+  border-top: 2px solid var(--red);
+}
+
+.inner {
+  display: grid;
+  gap: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mark {
+  color: var(--red);
+  width: 3.5rem !important;
+  height: auto !important;
+}
+
+.brand span span {
+  color: var(--red-hot);
+}
+
+.brandCol p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 26rem;
+  margin-bottom: 1.1rem;
+}
+
+.mail {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red-hot);
+  border-bottom: 1px solid transparent;
+}
+
+.mail:hover {
+  border-bottom-color: var(--red-hot);
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.cols h2 {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1rem;
+}
+
+.cols ul {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.cols a {
+  color: var(--muted);
+  font-size: 0.95rem;
+  transition: color 0.15s ease;
+}
+
+.cols a:hover {
+  color: var(--red-hot);
+}
+
+.bottom {
+  padding-top: 1.15rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+  }
+}
