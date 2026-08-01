@@ -2,7 +2,7 @@
 
 Next.js static marketing site for [AlfaHost](https://github.com), configured for **GitHub Pages**.
 
-## Local development
+## Local development sdadasd
 
 ```bash
 npm install
