@@ -1,18 +1,31 @@
 "use client";
 
-import { useEffect } from "react";
-import { defaultLocale, localeHref } from "@/i18n/config";
+import { useEffect, useMemo, useState } from "react";
+import {
+  defaultLocale,
+  detectBrowserLocale,
+  localeHref,
+  type Locale,
+} from "@/i18n/config";
 
 export default function RootPage() {
-  const href = localeHref(defaultLocale);
+  const [locale, setLocale] = useState<Locale>(defaultLocale);
 
   useEffect(() => {
-    window.location.replace(href);
-  }, [href]);
+    const preferred = detectBrowserLocale(navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language]);
+    setLocale(preferred);
+    window.location.replace(localeHref(preferred));
+  }, []);
+
+  const href = useMemo(() => localeHref(locale), [locale]);
+  const label =
+    locale === "pl" ? "PL" : locale === "ru" ? "RU" : "EN";
 
   return (
     <main style={{ minHeight: "100svh", display: "grid", placeItems: "center" }}>
-      <a href={href}>AlfaHost → EN</a>
+      <a href={href}>AlfaHost → {label}</a>
     </main>
   );
 }

@@ -12,6 +12,29 @@ export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
 
+/** Map a BCP-47 tag (e.g. pl-PL, ru-RU, en-US) to a supported locale. */
+export function localeFromTag(tag: string): Locale | null {
+  const primary = tag.trim().toLowerCase().split("-")[0];
+  if (primary === "pl") return "pl";
+  if (primary === "ru") return "ru";
+  if (primary === "en") return "en";
+  return null;
+}
+
+/**
+ * Pick locale from browser language preferences.
+ * Works in the browser only — falls back to defaultLocale on server.
+ */
+export function detectBrowserLocale(
+  languages: readonly string[] = [],
+): Locale {
+  for (const tag of languages) {
+    const match = localeFromTag(tag);
+    if (match) return match;
+  }
+  return defaultLocale;
+}
+
 function basePrefix(): string {
   return process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") || "";
 }
