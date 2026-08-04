@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, Oswald } from "next/font/google";
+import { IBM_Plex_Sans, Oswald, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const display = Oswald({
   variable: "--font-oswald",
@@ -33,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${display.variable} ${sans.variable}`}
+      className={cn(display.variable, sans.variable, "font-sans", geist.variable)}
       suppressHydrationWarning
     >
       <body className={sans.className}>{children}</body>

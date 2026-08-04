@@ -11,12 +11,24 @@
   overflow: clip;
 }
 
+.auroraWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  background:
+    radial-gradient(90% 60% at 20% 10%, rgba(196, 0, 26, 0.25), transparent 60%),
+    radial-gradient(70% 50% at 85% 30%, rgba(53, 0, 94, 0.22), transparent 65%);
+}
+
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(125deg, transparent 40%, rgba(196, 0, 26, 0.12) 100%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .layout {
@@ -39,6 +51,23 @@
   text-transform: uppercase;
   line-height: 0.9;
   margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.05em;
+}
+
+.brandText {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.brandShine {
+  color: var(--red-hot);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
 }
 
 .brand span {
@@ -46,15 +75,26 @@
 }
 
 .typed {
-  min-height: 1.6rem;
-  margin-bottom: 1.1rem;
+  min-height: 1.8rem;
+  margin-bottom: 0.35rem;
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 4vw, 2.25rem);
+  font-size: clamp(1.35rem, 3.7vw, 2rem);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--red-hot);
   line-height: 1.15;
+}
+
+.typedSub {
+  min-height: 1.35rem;
+  margin-bottom: 1.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.92rem, 2.4vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .lede {

@@ -21,6 +21,14 @@
   overflow: hidden;
 }
 
+.electric {
+  width: 100%;
+}
+
+.count {
+  font: inherit;
+}
+
 .block {
   padding: 1.75rem 1.35rem;
 }

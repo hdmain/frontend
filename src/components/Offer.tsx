@@ -4,6 +4,7 @@ import { useState } from "react";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
+import GlareHover from "./GlareHover";
 import { Icons } from "./Icons";
 import styles from "./Offer.module.css";
 
@@ -48,9 +49,19 @@ export default function Offer({ locale, t }: Props) {
           {t.plans.map((plan) => {
             const href = localePath(locale, `offer/${plan.slug}`);
             return (
-              <article
+              <GlareHover
                 key={plan.slug}
                 className={styles.card}
+                width="100%"
+                height="auto"
+                background="var(--black)"
+                borderRadius="0"
+                borderColor="transparent"
+                glareColor="#e30928"
+                glareOpacity={0.4}
+                glareAngle={-40}
+                glareSize={260}
+                transitionDuration={700}
                 style={{
                   backgroundImage: `linear-gradient(180deg, rgba(7,7,7,0.55) 0%, rgba(7,7,7,0.82) 45%, rgba(7,7,7,0.96) 100%), url(${asset(`/offers/${plan.slug}.jpg`)})`,
                 }}
@@ -91,7 +102,7 @@ export default function Offer({ locale, t }: Props) {
                     {t.goToOffer} {Icons.arrow}
                   </a>
                 </div>
-              </article>
+              </GlareHover>
             );
           })}
         </div>

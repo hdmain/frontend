@@ -1,4 +1,10 @@
+"use client";
+
 import type { Dictionary } from "@/i18n/dictionaries";
+import AnimatedContent from "./AnimatedContent";
+import BlurText from "./BlurText";
+import DecryptedText from "./DecryptedText";
+import Magnet from "./Magnet";
 import { Icons } from "./Icons";
 import Typewriter from "./Typewriter";
 import styles from "./Hero.module.css";
@@ -8,40 +14,74 @@ type Props = { t: Dictionary["hero"] };
 export default function Hero({ t }: Props) {
   return (
     <section className={styles.hero} id="top">
+      <div className={styles.auroraWrap} aria-hidden />
       <div className={`container ${styles.layout}`}>
-        <div className={styles.copy}>
+        <AnimatedContent
+          className={styles.copy}
+          distance={40}
+          direction="vertical"
+          duration={0.6}
+          ease="power3.out"
+        >
           <h1 className={styles.brand}>
-            AlfaHost
-            <span>.eu</span>
+            <DecryptedText
+              text="AlfaHost"
+              animateOn="view"
+              sequential
+              speed={40}
+              className={styles.brandText}
+              parentClassName={styles.brandText}
+            />
+            <span className={styles.brandShine}>.eu</span>
           </h1>
-          <p className={styles.typed}>
+          <BlurText
+            text={t.phrases[0]}
+            className={styles.typed}
+            animateBy="words"
+            direction="top"
+            delay={110}
+          />
+          <p className={styles.typedSub}>
             <Typewriter phrases={t.phrases} />
           </p>
           <p className={styles.lede}>{t.lede}</p>
           <div className={styles.actions}>
-            <a className="btn btnPrimary" href="#offer">
-              {t.ctaOffer} {Icons.arrow}
-            </a>
-            <a className="btn btnGhost" href="#contact">
-              {t.ctaContact}
-            </a>
+            <Magnet padding={32} magnetStrength={3.5}>
+              <a className="btn btnPrimary" href="#offer">
+                {t.ctaOffer} {Icons.arrow}
+              </a>
+            </Magnet>
+            <Magnet padding={32} magnetStrength={3.5}>
+              <a className="btn btnGhost" href="#contact">
+                {t.ctaContact}
+              </a>
+            </Magnet>
           </div>
-        </div>
+        </AnimatedContent>
 
-        <aside className={styles.positives} aria-label={t.positivesLabel}>
-          <p className={styles.positivesLabel}>{t.positivesLabel}</p>
-          <ul className={styles.list}>
-            {t.positives.map((item, i) => (
-              <li key={item.title} className={styles.chip}>
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <strong>{item.title}</strong>
-                  <p>{item.copy}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </aside>
+        <AnimatedContent
+          className={styles.positives}
+          distance={50}
+          direction="horizontal"
+          reverse
+          delay={0.06}
+          duration={0.65}
+        >
+          <aside aria-label={t.positivesLabel}>
+            <p className={styles.positivesLabel}>{t.positivesLabel}</p>
+            <ul className={styles.list}>
+              {t.positives.map((item, i) => (
+                <li key={item.title} className={styles.chip}>
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <p>{item.copy}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </AnimatedContent>
       </div>
     </section>
   );

@@ -1,4 +1,8 @@
+"use client";
+
 import type { Dictionary } from "@/i18n/dictionaries";
+import FadeContent from "./FadeContent";
+import Magnet from "./Magnet";
 import { Icons } from "./Icons";
 import styles from "./Services.module.css";
 
@@ -16,26 +20,30 @@ export default function Services({ t }: Props) {
 
         <div className={styles.stack}>
           {t.items.map((service, i) => (
-            <article key={service.title} className={styles.row}>
-              <div className={styles.meta}>
-                <span className={styles.index}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{service.title}</h3>
-                <p>{service.desc}</p>
-              </div>
-              <ul className={styles.points}>
-                {service.points.map((point) => (
-                  <li key={point}>
-                    <span className={styles.tick}>{Icons.check}</span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <a className="btn btnGhost" href="#offer">
-                {t.learnMore} {Icons.arrow}
-              </a>
-            </article>
+            <FadeContent key={service.title} duration={0.55} delay={i * 0.06}>
+              <article className={styles.row}>
+                <div className={styles.meta}>
+                  <span className={styles.index}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3>{service.title}</h3>
+                  <p>{service.desc}</p>
+                </div>
+                <ul className={styles.points}>
+                  {service.points.map((point) => (
+                    <li key={point}>
+                      <span className={styles.tick}>{Icons.check}</span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <Magnet padding={28} magnetStrength={3.5}>
+                  <a className="btn btnGhost" href="#offer">
+                    {t.learnMore} {Icons.arrow}
+                  </a>
+                </Magnet>
+              </article>
+            </FadeContent>
           ))}
         </div>
       </div>
