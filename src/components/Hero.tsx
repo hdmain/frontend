@@ -42,7 +42,7 @@ export default function Hero({ t }: Props) {
             delay={110}
           />
           <p className={styles.typedSub}>
-            <Typewriter phrases={t.phrases} />
+            <Typewriter phrases={t.phrases.slice(1)} />
           </p>
           <p className={styles.lede}>{t.lede}</p>
           <div className={styles.actions}>
