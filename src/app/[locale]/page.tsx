@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
 import Offer from "@/components/Offer";
@@ -9,6 +10,7 @@ import SiteHeader from "@/components/SiteHeader";
 import WhyUs from "@/components/WhyUs";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { SITE_NAME, absoluteUrl } from "@/lib/seo";
 import styles from "../page.module.css";
 
 export default async function HomePage({
@@ -35,6 +37,21 @@ export default async function HomePage({
         </div>
       </main>
       <SiteFooter locale={locale} t={t.footer} />
+      <Script
+        id="faq-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: t.faq.items.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: { "@type": "Answer", text: item.a },
+            })),
+          }),
+        }}
+      />
     </div>
   );
 }

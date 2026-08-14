@@ -9,6 +9,13 @@ import {
   getPlan,
   planSlugs,
 } from "@/i18n/dictionaries";
+import {
+  SITE_NAME,
+  SITE_URL,
+  alternatesForLocale,
+  canonicalForLocale,
+  ogLocale,
+} from "@/lib/seo";
 import styles from "../../../page.module.css";
 
 export function generateStaticParams() {
@@ -26,9 +33,23 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const plan = getPlan(raw, slug);
   if (!plan) return {};
+  const locale = raw as Locale;
+  const subpath = `offer/${slug}`;
   return {
-    title: `${plan.name} — AlfaHost`,
+    title: `${plan.name} hosting — AlfaHost`,
     description: plan.summary,
+    alternates: {
+      canonical: canonicalForLocale(locale, subpath),
+      languages: alternatesForLocale(locale, subpath),
+    },
+    openGraph: {
+      type: "website",
+      locale: ogLocale(locale),
+      siteName: SITE_NAME,
+      title: `${plan.name} hosting — AlfaHost`,
+      description: plan.summary,
+      images: [`${SITE_URL}/icon-512.png`],
+    },
   };
 }
 

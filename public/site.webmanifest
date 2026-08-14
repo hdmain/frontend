@@ -1,0 +1,25 @@
+{
+  "name": "AlfaHost — VPS, Game Servers & Anti-DDoS Hosting",
+  "short_name": "AlfaHost",
+  "description": "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan.",
+  "start_url": "/en/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
