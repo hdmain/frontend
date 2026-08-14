@@ -31,11 +31,16 @@ jobs:
         id: base
         shell: bash
         run: |
-          REPO="${{ github.event.repository.name }}"
-          if [[ "$REPO" == *.github.io ]]; then
+          if [ -f "public/CNAME" ] || [ -f "CNAME" ]; then
             echo "path=" >> "$GITHUB_OUTPUT"
+            echo "Custom domain (CNAME) detected — using empty basePath"
           else
-            echo "path=/$REPO" >> "$GITHUB_OUTPUT"
+            REPO="${{ github.event.repository.name }}"
+            if [[ "$REPO" == *.github.io ]]; then
+              echo "path=" >> "$GITHUB_OUTPUT"
+            else
+              echo "path=/$REPO" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
       - name: Install
@@ -45,6 +50,9 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.base.outputs.path }}
+
+      - name: Add .nojekyll
+        run: touch out/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
