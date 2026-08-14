@@ -1,71 +1,62 @@
-import type { Metadata } from "next";
 import Script from "next/script";
-import { defaultLocale, localeHref, locales } from "@/i18n/config";
-import { SITE_NAME, SITE_URL, alternatesForLocale } from "@/lib/seo";
+import Faq from "@/components/Faq";
+import Hero from "@/components/Hero";
+import Offer from "@/components/Offer";
+import Protection from "@/components/Protection";
+import Services from "@/components/Services";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
+import WhyUs from "@/components/WhyUs";
+import { localeHref } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
+import { SITE_NAME, alternatesForLocale } from "@/lib/seo";
+import styles from "./page.module.css";
 
 export const dynamic = "force-static";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: `${SITE_NAME} — VPS, Game Servers & Anti-DDoS Hosting`,
   description:
-    "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan. Choose your language: English, Polski, Русский.",
+    "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan. EU nodes, modern hardware and always-on filtering.",
   alternates: {
     canonical: "/",
-    languages: alternatesForLocale(defaultLocale),
+    languages: alternatesForLocale("en"),
   },
 };
 
-export function generateStaticParams() {
-  return [];
-}
-
-const title = "AlfaHost.eu — VPS, Game Servers & Anti-DDoS hosting";
-
 export default function RootPage() {
+  const t = getDictionary("en");
+
   return (
-    <main
-      style={{
-        minHeight: "100svh",
-        display: "grid",
-        placeItems: "center",
-        textAlign: "center",
-        color: "var(--text)",
-        background: "var(--void)",
-        padding: "2rem",
-      }}
-    >
-      <section aria-label="Language selection">
-        <h1>{title}</h1>
-        <p
-          style={{
-            color: "var(--muted)",
-            margin: "1rem 0 2rem",
-            maxWidth: "34rem",
-          }}
-        >
-          Fast VPS, game servers and dedicated machines with DDoS protection on
-          every plan. Select your language.
-        </p>
-        <nav aria-label="Choose language" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-          {locales.map((l) => (
-            <a
-              key={l}
-              href={localeHref(l)}
-              style={{
-                display: "inline-block",
-                padding: "0.6rem 1.2rem",
-                border: "1px solid rgba(242,242,242,0.2)",
-                color: "var(--text)",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                fontWeight: 600,
-              }}
-            >
-              {l === "pl" ? "Polski" : l === "ru" ? "Русский" : "English"}
-            </a>
-          ))}
-        </nav>
-      </section>
+    <div className={styles.page}>
+      <SiteHeader locale="en" t={t.nav} />
+      <main>
+        <Hero t={t.hero} />
+        <div className={styles.stack}>
+          <WhyUs t={t.why} />
+          <Services t={t.services} />
+          <Offer locale="en" t={t.offer} />
+          <Protection t={t.protection} />
+          <Faq t={t.faq} />
+        </div>
+      </main>
+      <SiteFooter locale="en" t={t.footer} />
+
+      <Script
+        id="faq-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: t.faq.items.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: { "@type": "Answer", text: item.a },
+            })),
+          }),
+        }}
+      />
 
       <Script
         id="locale-redirect"
@@ -74,18 +65,16 @@ export default function RootPage() {
           __html: `(function(){
             try{
               var prefs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language];
-              var target=null;
               for(var i=0;i<prefs.length;i++){
                 var p=(prefs[i]||"").toLowerCase().split("-")[0];
-                if(p==="pl"){target="${localeHref("pl")}";break;}
-                if(p==="ru"){target="${localeHref("ru")}";break;}
-                if(p==="en"){target="${localeHref("en")}";break;}
+                if(p==="pl"){location.replace("${localeHref("pl")}");return;}
+                if(p==="ru"){location.replace("${localeHref("ru")}");return;}
+                if(p==="en")return; // first preference is English -> stay on / (already English)
               }
-              if(target)location.replace(target);
             }catch(e){}
           })();`,
         }}
       />
-    </main>
+    </div>
   );
 }
