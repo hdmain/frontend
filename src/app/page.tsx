@@ -15,7 +15,7 @@ import styles from "./page.module.css";
 export const dynamic = "force-static";
 
 export const metadata = {
-  title: `${SITE_NAME} — VPS, Game Servers & Anti-DDoS Hosting`,
+  title: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS Hosting`,
   description:
     "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan. EU nodes, modern hardware and always-on filtering.",
   alternates: {

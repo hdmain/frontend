@@ -36,7 +36,7 @@ export async function generateMetadata({
   const locale = raw as Locale;
   const subpath = `offer/${slug}`;
   return {
-    title: `${plan.name} hosting — AlfaHost`,
+    title: `${plan.name} hosting - AlfaHost`,
     description: plan.summary,
     alternates: {
       canonical: canonicalForLocale(locale, subpath),
@@ -46,7 +46,7 @@ export async function generateMetadata({
       type: "website",
       locale: ogLocale(locale),
       siteName: SITE_NAME,
-      title: `${plan.name} hosting — AlfaHost`,
+      title: `${plan.name} hosting - AlfaHost`,
       description: plan.summary,
       images: [`${SITE_URL}/icon-512.png`],
     },

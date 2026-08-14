@@ -24,7 +24,7 @@ const sans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   metadataBase,
   title: {
-    default: `${SITE_NAME} — VPS, Game Servers & Anti-DDoS Hosting`,
+    default: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS Hosting`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_US",
-    title: `${SITE_NAME} — VPS, Game Servers & Anti-DDoS Hosting`,
+    title: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS Hosting`,
     description:
       "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan.",
     images: [
@@ -46,14 +46,14 @@ export const metadata: Metadata = {
         url: OG_IMAGE_FALLBACK,
         width: 512,
         height: 512,
-        alt: `${SITE_NAME} — hosting with anti-DDoS on every plan`,
+        alt: `${SITE_NAME} - hosting with anti-DDoS on every plan`,
       },
     ],
   },
   twitter: {
     card: "summary",
     site: "@alfahost",
-    title: `${SITE_NAME} — VPS, Game Servers & Anti-DDoS Hosting`,
+    title: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS Hosting`,
     description:
       "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan.",
     images: [OG_IMAGE_FALLBACK],
@@ -136,7 +136,7 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  name: `${SITE_NAME} — VPS, Game Servers & Anti-DDoS`,
+                  name: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS`,
                   url: SITE_URL,
                   inLanguage: ["en", "pl", "ru"],
                   publisher: { "@type": "Organization", name: SITE_NAME },
