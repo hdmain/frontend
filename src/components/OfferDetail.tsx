@@ -134,7 +134,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
                 className={styles.otherCard}
                 href={localePath(locale, `offer/${item.slug}`)}
                 style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(7,7,7,0.18), rgba(7,7,7,0.7)), url(${asset(`/offers/${item.slug}.jpg`)})`,
+                  backgroundImage: `linear-gradient(180deg, rgba(7,7,7,0.05), rgba(7,7,7,0.55)), url(${asset(`/offers/${item.slug}.jpg`)})`,
                 }}
               >
                 <span className={styles.tag}>{item.tag}</span>

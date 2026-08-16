@@ -63,7 +63,7 @@ export default function Offer({ locale, t }: Props) {
                 glareSize={260}
                 transitionDuration={700}
                 style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(7,7,7,0.22) 0%, rgba(7,7,7,0.42) 50%, rgba(7,7,7,0.68) 100%), url(${asset(`/offers/${plan.slug}.jpg`)})`,
+                  backgroundImage: `linear-gradient(180deg, rgba(7,7,7,0.05) 0%, rgba(7,7,7,0.25) 55%, rgba(7,7,7,0.62) 100%), url(${asset(`/offers/${plan.slug}.jpg`)})`,
                 }}
               >
                 <a href={href} className={styles.cardLink} aria-label={plan.name}>
