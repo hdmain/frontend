@@ -78,7 +78,6 @@ export type Dictionary = {
     standard: string;
     premium: string;
     toggleAria: string;
-    popular: string;
     from: string;
     perMonth: string;
     goToOffer: string;
@@ -253,7 +252,6 @@ const en: Dictionary = {
     standard: "Standard",
     premium: "Premium",
     toggleAria: "Toggle premium offer",
-    popular: "Most popular",
     from: "From",
     perMonth: "/mo",
     goToOffer: "Go to offer",
@@ -605,7 +603,6 @@ const pl: Dictionary = {
     standard: "Standard",
     premium: "Premium",
     toggleAria: "Przełącz ofertę premium",
-    popular: "Najczęściej wybierany",
     from: "Od",
     perMonth: "/mies.",
     goToOffer: "Przejdź do oferty",
@@ -957,7 +954,6 @@ const ru: Dictionary = {
     standard: "Standard",
     premium: "Premium",
     toggleAria: "Переключить премиум-тариф",
-    popular: "Самый популярный",
     from: "От",
     perMonth: "/мес.",
     goToOffer: "К тарифу",
