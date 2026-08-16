@@ -78,18 +78,6 @@
   pointer-events: none;
 }
 
-.cardHead {
-  background: linear-gradient(180deg, rgba(7, 7, 7, 0.72), rgba(7, 7, 7, 0.15));
-  margin: -1.25rem -1.25rem 0;
-  padding: 1.25rem 1.25rem 0.9rem;
-}
-
-.cardFoot {
-  background: linear-gradient(0deg, rgba(7, 7, 7, 0.85), rgba(7, 7, 7, 0.35));
-  margin: 0 -1.25rem -1.25rem;
-  padding: 0.9rem 1.25rem 1.25rem;
-}
-
 .cta {
   pointer-events: auto;
 }
@@ -222,22 +210,6 @@
   .card {
     min-height: 19rem;
     padding: 1.4rem;
-  }
-
-  .cardHead,
-  .cardFoot {
-    margin-left: -1.4rem;
-    margin-right: -1.4rem;
-    padding-left: 1.4rem;
-    padding-right: 1.4rem;
-  }
-
-  .cardHead {
-    margin-top: -1.4rem;
-  }
-
-  .cardFoot {
-    margin-bottom: -1.4rem;
   }
 
   .amount {
