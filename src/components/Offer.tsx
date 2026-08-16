@@ -4,6 +4,7 @@ import { useState } from "react";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Icons } from "./Icons";
+import GlareHover from "./GlareHover";
 import styles from "./Offer.module.css";
 
 type Props = {
@@ -13,7 +14,7 @@ type Props = {
 
 const FEATURED_SLUG = "minecraft";
 
-/** Vibrant service/game marks keyed by offer slug. */
+/** Service mark SVG */
 function ServiceMark({ slug }: { slug: string }) {
   switch (slug) {
     case "minecraft":
@@ -175,7 +176,6 @@ export default function Offer({ locale, t }: Props) {
                     {t.popular}
                   </span>
                 )}
-
                 <header className={styles.cardHead}>
                   <div className={styles.titleRow}>
                     <span className={styles.mark} aria-hidden>
@@ -184,7 +184,6 @@ export default function Offer({ locale, t }: Props) {
                     <h3>{plan.name}</h3>
                   </div>
                   <p className={styles.cardSummary}>{plan.summary}</p>
-
                   <dl className={styles.specs}>
                     <div>
                       <dt>{t.cpu}</dt>
@@ -200,7 +199,6 @@ export default function Offer({ locale, t }: Props) {
                     </div>
                   </dl>
                 </header>
-
                 <footer className={styles.cardFoot}>
                   <p className={styles.price}>
                     <span className={styles.amount}>
@@ -213,6 +211,7 @@ export default function Offer({ locale, t }: Props) {
                     {Icons.arrow}
                   </a>
                 </footer>
+              </article>
               </article>
             );
           })}
