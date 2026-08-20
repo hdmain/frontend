@@ -17,12 +17,12 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
 
   return (
     <section className={styles.section}>
-      <div
-        className={styles.hero}
-        style={{
-          backgroundImage: `linear-gradient(115deg, rgba(7,7,7,0.92) 0%, rgba(7,7,7,0.78) 45%, rgba(7,7,7,0.55) 100%), url(${bg})`,
-        }}
-      >
+      <div className={styles.hero}>
+        <div
+          className={styles.heroMedia}
+          style={{ backgroundImage: `url(${bg})` }}
+          aria-hidden
+        />
         <div className={`container ${styles.heroInner}`}>
           <a className={styles.back} href={localeHref(locale, "#offer")}>
             ← {t.backToOffer}
@@ -133,10 +133,14 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
                 key={item.slug}
                 className={styles.otherCard}
                 href={localePath(locale, `offer/${item.slug}`)}
-                style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(7,7,7,0.05), rgba(7,7,7,0.55)), url(${asset(`/offers/${item.slug}.jpg`)})`,
-                }}
               >
+                <span
+                  className={styles.otherMedia}
+                  style={{
+                    backgroundImage: `url(${asset(`/offers/${item.slug}.jpg`)})`,
+                  }}
+                  aria-hidden
+                />
                 <span className={styles.tag}>{item.tag}</span>
                 <strong>{item.name}</strong>
                 <span>

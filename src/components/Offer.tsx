@@ -54,22 +54,26 @@ export default function Offer({ locale, t }: Props) {
                 className={styles.card}
                 width="100%"
                 height="auto"
-                background="var(--black)"
+                background="transparent"
                 borderRadius="0"
                 borderColor="transparent"
                 glareColor="#e30928"
-                glareOpacity={0.4}
+                glareOpacity={0.35}
                 glareAngle={-40}
                 glareSize={260}
                 transitionDuration={700}
-                style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(7,7,7,0.05) 0%, rgba(7,7,7,0.25) 55%, rgba(7,7,7,0.62) 100%), url(${asset(`/offers/${plan.slug}.jpg`)})`,
-                }}
               >
+                <div
+                  className={styles.cardMedia}
+                  style={{
+                    backgroundImage: `url(${asset(`/offers/${plan.slug}.jpg`)})`,
+                  }}
+                  aria-hidden
+                />
                 <a href={href} className={styles.cardLink} aria-label={plan.name}>
                   <span className="sr-only">{plan.name}</span>
                 </a>
-                <header className={styles.cardHead}>
+                <div className={styles.cardBody}>
                   <div className={styles.titleRow}>
                     <span className={styles.tag}>{plan.tag}</span>
                     <h3>{plan.name}</h3>
@@ -89,7 +93,7 @@ export default function Offer({ locale, t }: Props) {
                       <dd>{plan.disk}</dd>
                     </div>
                   </dl>
-                </header>
+                </div>
                 <div className={styles.cardFoot}>
                   <p className={styles.price}>
                     <span className={styles.from}>{t.from}</span>

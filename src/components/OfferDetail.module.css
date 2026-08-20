@@ -4,14 +4,39 @@
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   background-color: var(--void);
-  background-size: cover;
-  background-position: center;
   border-bottom: 2px solid var(--red);
   padding: 2rem 0 2.75rem;
 }
 
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--void);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.heroMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(7, 7, 7, 0.72) 0%,
+    rgba(7, 7, 7, 0.55) 45%,
+    rgba(7, 7, 7, 0.35) 100%
+  );
+}
+
 .heroInner {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 1rem;
   max-width: 52rem;
@@ -222,16 +247,40 @@
 }
 
 .otherCard {
+  position: relative;
   display: grid;
   gap: 0.4rem;
   align-content: end;
   min-height: 9rem;
   padding: 1rem;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+  background-color: #1a1a1a;
   border: 1px solid var(--line);
   border-left: 3px solid var(--red);
   transition: border-color 0.15s ease;
+}
+
+.otherMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #1a1a1a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.otherMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 7, 7, 0.12), rgba(7, 7, 7, 0.55));
+}
+
+.otherCard > :not(.otherMedia) {
+  position: relative;
+  z-index: 1;
 }
 
 .otherCard:hover {
