@@ -31,6 +31,7 @@ export type Dictionary = {
     openMenu: string;
     closeMenu: string;
     language: string;
+    currency: string;
   };
   hero: {
     lede: string;
@@ -134,6 +135,7 @@ const en: Dictionary = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     language: "Language",
+    currency: "Currency",
   },
   hero: {
     lede: "Fast VPS, game servers and dedicated machines, with DDoS protection on every plan and a panel built for operators.",
@@ -274,8 +276,8 @@ const en: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€4",
-        premiumPrice: "€7",
+        price: "17 zł",
+        premiumPrice: "30 zł",
         summary: "Fast Minecraft nodes with instant deploy and anti-DDoS included.",
         description:
           "Run Vanilla, Paper, Purpur, Fabric or modpacks on high-clock Ryzen CPUs. Allocate RAM to match your player count, install plugins in a few clicks, and keep the world online under attack thanks to always-on filtering.",
@@ -301,8 +303,8 @@ const en: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€9",
-        premiumPrice: "€14",
+        price: "39 zł",
+        premiumPrice: "60 zł",
         summary: "Stable Rust hosting tuned for wipe nights and high player counts.",
         description:
           "Rust needs strong single-thread performance and clean networking. Our nodes are tuned for oxide plugins, custom maps and wipe-day spikes, with filtering that stays on so raiders hit your base, not your uplink.",
@@ -328,8 +330,8 @@ const en: Dictionary = {
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€2",
-        premiumPrice: "€4",
+        price: "9 zł",
+        premiumPrice: "17 zł",
         summary: "Always-on VPS slices for Discord bots and small Node/Python apps.",
         description:
           "Keep bots online without babysitting a home PC. Deploy Node.js, Python or Docker workloads with root access, predictable RAM and enough CPU headroom for music, moderation and ticket bots.",
@@ -355,8 +357,8 @@ const en: Dictionary = {
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€8",
-        premiumPrice: "€12",
+        price: "34 zł",
+        premiumPrice: "52 zł",
         summary: "KVM VPS with NVMe, full root and DDoS filtering on every plan.",
         description:
           "General-purpose virtual servers for panels, websites, game backends and private services. You get KVM isolation, NVMe disks and the same always-on protection we put in front of game nodes.",
@@ -382,8 +384,8 @@ const en: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€12",
-        premiumPrice: "€18",
+        price: "52 zł",
+        premiumPrice: "77 zł",
         summary: "Dedicated Palworld slots with RAM headroom for busy multiplayer worlds.",
         description:
           "Palworld worlds grow fast, players, bases and pals eat memory. We size nodes for smooth multiplayer sessions, quick saves and protection that keeps your world reachable during peak hours.",
@@ -409,8 +411,8 @@ const en: Dictionary = {
         cpu: "Ryzen / Xeon",
         ram: "ECC",
         disk: "NVMe RAID",
-        price: "€49",
-        premiumPrice: "€79",
+        price: "211 zł",
+        premiumPrice: "340 zł",
         summary: "Bare-metal machines for high-load communities and custom stacks.",
         description:
           "When a VPS is not enough, take the whole box. Modern AMD / Intel CPUs, ECC memory and NVMe storage with remote management, ideal for large game networks, private clouds or latency-sensitive apps.",
@@ -485,6 +487,7 @@ const pl: Dictionary = {
     openMenu: "Otwórz menu",
     closeMenu: "Zamknij menu",
     language: "Język",
+    currency: "Waluta",
   },
   hero: {
     lede: "Szybkie VPS-y, serwery gier i maszyny dedykowane, z ochroną DDoS w każdym planie i panelem stworzonym dla operatorów.",
@@ -625,8 +628,8 @@ const pl: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€4",
-        premiumPrice: "€7",
+        price: "17 zł",
+        premiumPrice: "30 zł",
         summary: "Szybkie węzły Minecraft z natychmiastowym startem i anty-DDoS w cenie.",
         description:
           "Uruchom Vanilla, Paper, Purpur, Fabric albo modpacki na Ryzenach z wysokim taktowaniem. Dobierz RAM do liczby graczy, instaluj pluginy w kilka kliknięć i trzymaj świat online dzięki ciągłemu filtrowaniu.",
@@ -652,8 +655,8 @@ const pl: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€9",
-        premiumPrice: "€14",
+        price: "39 zł",
+        premiumPrice: "60 zł",
         summary: "Stabilny hosting Rust pod wipe'y i większą liczbę graczy.",
         description:
           "Rust wymaga mocnego single-thread i czystej sieci. Węzły są pod Oxide, custom mapy i skoki ruchu w dniu wipe, z filtrowaniem, które działa non-stop.",
@@ -679,8 +682,8 @@ const pl: Dictionary = {
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€2",
-        premiumPrice: "€4",
+        price: "9 zł",
+        premiumPrice: "17 zł",
         summary: "Zawsze włączone slice'y pod boty Discord i małe aplikacje Node/Python.",
         description:
           "Trzymaj boty online bez domowego PC. Wdrażaj Node.js, Python albo Dockera z rootem, przewidywalnym RAM-em i zapasem CPU na boty muzyczne, moderacyjne i ticketowe.",
@@ -706,8 +709,8 @@ const pl: Dictionary = {
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€8",
-        premiumPrice: "€12",
+        price: "34 zł",
+        premiumPrice: "52 zł",
         summary: "VPS KVM z NVMe, pełnym rootem i filtrowaniem DDoS w każdym planie.",
         description:
           "Uniwersalne maszyny pod panele, strony, backendy gier i prywatne usługi. Izolacja KVM, dyski NVMe i ta sama ochrona, którą stawiamy przed węzłami gier.",
@@ -733,8 +736,8 @@ const pl: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€12",
-        premiumPrice: "€18",
+        price: "52 zł",
+        premiumPrice: "77 zł",
         summary: "Sloty Palworld z zapasem RAM pod zatłoczone światy multiplayer.",
         description:
           "Światy Palworld rosną szybko, gracze, bazy i pale zjadają pamięć. Dobieramy węzły pod płynną rozgrywkę, szybkie save'y i ochronę, która trzyma świat dostępny w peaku.",
@@ -760,8 +763,8 @@ const pl: Dictionary = {
         cpu: "Ryzen / Xeon",
         ram: "ECC",
         disk: "NVMe RAID",
-        price: "€49",
-        premiumPrice: "€79",
+        price: "211 zł",
+        premiumPrice: "340 zł",
         summary: "Maszyny bare-metal pod duże społeczności i własne stacki.",
         description:
           "Gdy VPS nie wystarcza, bierzesz cały serwer. Nowoczesne CPU AMD/Intel, pamięć ECC i NVMe ze zdalnym zarządzaniem, pod duże sieci gier, prywatne chmury i aplikacje wrażliwe na latency.",
@@ -836,6 +839,7 @@ const ru: Dictionary = {
     openMenu: "Открыть меню",
     closeMenu: "Закрыть меню",
     language: "Язык",
+    currency: "Валюта",
   },
   hero: {
     lede: "Быстрые VPS, игровые и выделенные серверы, с защитой от DDoS в каждом тарифе и панелью для операторов.",
@@ -976,8 +980,8 @@ const ru: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€4",
-        premiumPrice: "€7",
+        price: "17 zł",
+        premiumPrice: "30 zł",
         summary: "Быстрые ноды Minecraft с мгновенным деплоем и anti-DDoS в цене.",
         description:
           "Запускайте Vanilla, Paper, Purpur, Fabric или модпаки на Ryzen с высокой частотой. Подберите RAM под онлайн, ставьте плагины в пару кликов и держите мир онлайн благодаря постоянной фильтрации.",
@@ -1003,8 +1007,8 @@ const ru: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€9",
-        premiumPrice: "€14",
+        price: "39 zł",
+        premiumPrice: "60 zł",
         summary: "Стабильный хостинг Rust под вайпы и высокий онлайн.",
         description:
           "Rust требует сильный single-thread и чистую сеть. Ноды заточены под Oxide, кастомные карты и пики в день вайпа, с фильтрацией, которая всегда включена.",
@@ -1030,8 +1034,8 @@ const ru: Dictionary = {
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€2",
-        premiumPrice: "€4",
+        price: "9 zł",
+        premiumPrice: "17 zł",
         summary: "Постоянно онлайн срезы под Discord-ботов и небольшие Node/Python-приложения.",
         description:
           "Держите ботов онлайн без домашнего ПК. Деплойте Node.js, Python или Docker с root, предсказуемой RAM и запасом CPU для music-, mod- и ticket-ботов.",
@@ -1057,8 +1061,8 @@ const ru: Dictionary = {
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€8",
-        premiumPrice: "€12",
+        price: "34 zł",
+        premiumPrice: "52 zł",
         summary: "KVM VPS с NVMe, полным root и фильтрацией DDoS в каждом тарифе.",
         description:
           "Универсальные виртуальные серверы для панелей, сайтов, игровых бэкендов и частных сервисов. Изоляция KVM, диски NVMe и та же защита, что стоит перед игровыми нодами.",
@@ -1084,8 +1088,8 @@ const ru: Dictionary = {
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "€12",
-        premiumPrice: "€18",
+        price: "52 zł",
+        premiumPrice: "77 zł",
         summary: "Слоты Palworld с запасом RAM под загруженные мультиплеерные миры.",
         description:
           "Миры Palworld растут быстро, игроки, базы и палы съедают память. Мы подбираем ноды под плавный мультиплеер, быстрые сейвы и защиту, которая держит мир доступным в пик.",
@@ -1111,8 +1115,8 @@ const ru: Dictionary = {
         cpu: "Ryzen / Xeon",
         ram: "ECC",
         disk: "NVMe RAID",
-        price: "€49",
-        premiumPrice: "€79",
+        price: "211 zł",
+        premiumPrice: "340 zł",
         summary: "Bare-metal машины для высоконагруженных сообществ и своих стеков.",
         description:
           "Когда VPS мало, берёте весь сервер. Современные CPU AMD/Intel, ECC и NVMe с удалённым управлением, для крупных игровых сетей, частных облаков и latency-sensitive приложений.",

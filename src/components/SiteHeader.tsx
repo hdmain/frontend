@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { localeHref, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import CurrencySwitcher from "./CurrencySwitcher";
 import { Icons } from "./Icons";
 import LanguageSwitcher from "./LanguageSwitcher";
 import WolfMark from "./WolfMark";
@@ -48,7 +49,13 @@ export default function SiteHeader({ locale, t, path }: Props) {
         </nav>
 
         <div className={styles.actions}>
-          <LanguageSwitcher locale={locale} label={t.language} path={path} />
+          <div className={styles.switchers}>
+            <LanguageSwitcher locale={locale} label={t.language} path={path} />
+            <span className={styles.switcherSep} aria-hidden>
+              ·
+            </span>
+            <CurrencySwitcher label={t.currency} />
+          </div>
           <a className={styles.panel} href="mailto:hello@alfahost.eu">
             {t.panel}
           </a>
@@ -77,7 +84,13 @@ export default function SiteHeader({ locale, t, path }: Props) {
             </a>
           ))}
           <div className={styles.mobileMeta}>
-            <LanguageSwitcher locale={locale} label={t.language} path={path} />
+            <div className={styles.switchers}>
+              <LanguageSwitcher locale={locale} label={t.language} path={path} />
+              <span className={styles.switcherSep} aria-hidden>
+                ·
+              </span>
+              <CurrencySwitcher label={t.currency} />
+            </div>
             <a
               className={styles.panel}
               href="mailto:hello@alfahost.eu"

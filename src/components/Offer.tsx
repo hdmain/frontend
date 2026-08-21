@@ -4,6 +4,7 @@ import { useState } from "react";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
+import { useOptionalCurrency } from "./CurrencyProvider";
 import GlareHover from "./GlareHover";
 import { Icons } from "./Icons";
 import styles from "./Offer.module.css";
@@ -15,6 +16,7 @@ type Props = {
 
 export default function Offer({ locale, t }: Props) {
   const [premium, setPremium] = useState(false);
+  const currency = useOptionalCurrency();
 
   return (
     <section className={styles.section} id="offer">
@@ -48,6 +50,10 @@ export default function Offer({ locale, t }: Props) {
         <div className={styles.grid}>
           {t.plans.map((plan) => {
             const href = localePath(locale, `offer/${plan.slug}`);
+            const live = currency?.prices[plan.slug];
+            const amount = premium
+              ? live?.premium || plan.premiumPrice
+              : live?.standard || plan.price;
             return (
               <GlareHover
                 key={plan.slug}
@@ -97,9 +103,7 @@ export default function Offer({ locale, t }: Props) {
                 <div className={styles.cardFoot}>
                   <p className={styles.price}>
                     <span className={styles.from}>{t.from}</span>
-                    <span className={styles.amount}>
-                      {premium ? plan.premiumPrice : plan.price}
-                    </span>
+                    <span className={styles.amount}>{amount}</span>
                     <span className={styles.period}>{t.perMonth}</span>
                   </p>
                   <a className={`btn btnPrimary ${styles.cta}`} href={href}>

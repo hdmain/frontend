@@ -1,7 +1,10 @@
+"use client";
+
 import type { Locale } from "@/i18n/config";
 import { localeHref, localePath } from "@/i18n/config";
 import type { Dictionary, OfferPlan } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
+import { useOptionalCurrency } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import styles from "./OfferDetail.module.css";
 
@@ -14,6 +17,10 @@ type Props = {
 
 export default function OfferDetail({ locale, t, plan, others }: Props) {
   const bg = asset(`/offers/${plan.slug}.jpg`);
+  const currency = useOptionalCurrency();
+  const live = currency?.prices[plan.slug];
+  const standardPrice = live?.standard || plan.price;
+  const premiumPrice = live?.premium || plan.premiumPrice;
 
   return (
     <section className={styles.section}>
@@ -36,7 +43,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
             <div>
               <span className={styles.from}>{t.from}</span>
               <p className={styles.price}>
-                <span>{plan.price}</span>
+                <span>{standardPrice}</span>
                 <small>
                   {t.standard} · {t.perMonth}
                 </small>
@@ -45,7 +52,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
             <div>
               <span className={styles.from}>{t.premium}</span>
               <p className={styles.price}>
-                <span>{plan.premiumPrice}</span>
+                <span>{premiumPrice}</span>
                 <small>{t.perMonth}</small>
               </p>
             </div>
@@ -118,7 +125,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
               `${t.orderSubject} ${plan.name} Premium`,
             )}`}
           >
-            {t.premium}: {plan.premiumPrice}
+            {t.premium}: {premiumPrice}
             {t.perMonth}
           </a>
         </aside>
@@ -128,27 +135,31 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
         <div className={`container ${styles.others}`}>
           <h2>{t.otherOffers}</h2>
           <div className={styles.otherGrid}>
-            {others.map((item) => (
-              <a
-                key={item.slug}
-                className={styles.otherCard}
-                href={localePath(locale, `offer/${item.slug}`)}
-              >
-                <span
-                  className={styles.otherMedia}
-                  style={{
-                    backgroundImage: `url(${asset(`/offers/${item.slug}.jpg`)})`,
-                  }}
-                  aria-hidden
-                />
-                <span className={styles.tag}>{item.tag}</span>
-                <strong>{item.name}</strong>
-                <span>
-                  {t.from} {item.price}
-                  {t.perMonth}
-                </span>
-              </a>
-            ))}
+            {others.map((item) => {
+              const otherLive = currency?.prices[item.slug];
+              const otherPrice = otherLive?.standard || item.price;
+              return (
+                <a
+                  key={item.slug}
+                  className={styles.otherCard}
+                  href={localePath(locale, `offer/${item.slug}`)}
+                >
+                  <span
+                    className={styles.otherMedia}
+                    style={{
+                      backgroundImage: `url(${asset(`/offers/${item.slug}.jpg`)})`,
+                    }}
+                    aria-hidden
+                  />
+                  <span className={styles.tag}>{item.tag}</span>
+                  <strong>{item.name}</strong>
+                  <span>
+                    {t.from} {otherPrice}
+                    {t.perMonth}
+                  </span>
+                </a>
+              );
+            })}
           </div>
         </div>
       ) : null}

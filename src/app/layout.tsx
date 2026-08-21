@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { IBM_Plex_Sans, Oswald, Geist } from "next/font/google";
+import Providers from "@/components/Providers";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { OG_IMAGE_FALLBACK, SITE_NAME, SITE_URL } from "@/lib/seo";
@@ -113,7 +114,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={sans.className}>
-        {children}
+        <Providers>{children}</Providers>
         <Script
           id="website-jsonld"
           type="application/ld+json"
