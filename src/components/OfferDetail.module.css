@@ -92,149 +92,138 @@
   max-width: 40rem;
 }
 
-.priceRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: end;
-  gap: 1.25rem 1.75rem;
-  margin-top: 0.5rem;
+.toggle {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  width: fit-content;
+  margin-top: 0.35rem;
 }
 
-.from {
-  display: block;
+.tab,
+.tabOn {
+  padding: 0.65rem 1.1rem;
   font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--dim);
-  margin-bottom: 0.2rem;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
-.price span {
-  font-family: var(--font-display);
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1;
+.tabOn {
+  background: var(--red);
+  color: #fff;
 }
 
-.price small {
-  display: block;
-  margin-top: 0.25rem;
+.catalog {
+  padding-top: 2.25rem;
+}
+
+.loading,
+.fallback {
   color: var(--muted);
-  font-size: 0.85rem;
+  padding: 1rem 0 2rem;
 }
 
-.order {
-  margin-left: auto;
-}
-
-.body {
-  display: grid;
-  gap: 2rem;
-  padding-top: 2.75rem;
-}
-
-.main {
+.fallback {
   display: grid;
   gap: 1.25rem;
+  max-width: 40rem;
 }
 
-.description {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text);
-  max-width: 46rem;
-}
-
-.ideal {
-  color: var(--muted);
-  line-height: 1.55;
-  max-width: 46rem;
-}
-
-.ideal strong {
-  color: var(--red-hot);
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  margin-right: 0.35rem;
-}
-
-.cols {
+.packageGrid {
   display: grid;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
 }
 
-.cols h2,
-.aside h2,
-.others h2 {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.85rem;
-  color: var(--red-hot);
-}
-
-.cols ul {
-  list-style: none;
-  display: grid;
-  gap: 0.55rem;
-}
-
-.cols li {
+.packageCard {
   display: flex;
-  gap: 0.55rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--red);
+  transition:
+    border-color 0.15s ease,
+    transform 0.2s var(--ease);
+}
+
+.packageCard:hover {
+  border-color: var(--red);
+  transform: translateY(-2px);
+}
+
+.packageHead h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.packageHead p {
   color: var(--muted);
+  font-size: 0.95rem;
   line-height: 1.45;
 }
 
-.cols li span {
-  color: var(--red);
-  margin-top: 0.15rem;
+.packagePrice {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
 }
 
-.aside {
-  padding: 1.35rem;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--red);
-  height: fit-content;
+.packagePrice strong {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
 }
 
-.aside dl {
+.packagePrice span {
+  color: var(--dim);
+  font-size: 0.9rem;
+}
+
+.packageSpecs {
+  list-style: none;
   display: grid;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  gap: 0.45rem;
+  flex: 1;
 }
 
-.aside dl div {
+.packageSpecs li {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  padding-bottom: 0.65rem;
-  border-bottom: 1px solid var(--line);
+  gap: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.92rem;
 }
 
-.aside dt {
+.packageSpecs span {
+  color: var(--dim);
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--dim);
 }
 
-.aside dd {
-  text-align: right;
+.packageSpecs strong {
   color: var(--text);
+  text-align: right;
+  font-weight: 600;
 }
 
-.aside .btn {
+.buy {
   width: 100%;
+  margin-top: 0.25rem;
 }
 
 .others {
@@ -299,9 +288,18 @@
   font-size: 0.9rem;
 }
 
+.others h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  color: var(--red-hot);
+}
+
 @media (min-width: 720px) {
-  .cols {
-    grid-template-columns: 1fr 1fr;
+  .packageGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .otherGrid {
@@ -309,10 +307,9 @@
   }
 }
 
-@media (min-width: 960px) {
-  .body {
-    grid-template-columns: 1.4fr 0.75fr;
-    align-items: start;
+@media (min-width: 1024px) {
+  .packageGrid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .hero {

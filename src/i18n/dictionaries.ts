@@ -93,6 +93,13 @@ export type Dictionary = {
     cpu: string;
     ram: string;
     disk: string;
+    backups: string;
+    databases: string;
+    ports: string;
+    players: string;
+    antiddos: string;
+    buyPackage: string;
+    loadingOffer: string;
     plans: OfferPlan[];
   };
   faq: {
@@ -268,6 +275,13 @@ const en: Dictionary = {
     cpu: "CPU",
     ram: "RAM",
     disk: "Disk",
+    backups: "Backups",
+    databases: "Databases",
+    ports: "Extra ports",
+    players: "Player limit",
+    antiddos: "Anti-DDoS",
+    buyPackage: "Order package",
+    loadingOffer: "Loading offer…",
     plans: [
       {
         name: "Minecraft",
@@ -620,6 +634,13 @@ const pl: Dictionary = {
     cpu: "CPU",
     ram: "RAM",
     disk: "Dysk",
+    backups: "Backupy",
+    databases: "Bazy danych",
+    ports: "Dodatkowe porty",
+    players: "Limit graczy",
+    antiddos: "Anti-DDoS",
+    buyPackage: "Zamów pakiet",
+    loadingOffer: "Ładowanie oferty…",
     plans: [
       {
         name: "Minecraft",
@@ -972,6 +993,13 @@ const ru: Dictionary = {
     cpu: "CPU",
     ram: "RAM",
     disk: "Диск",
+    backups: "Бэкапы",
+    databases: "Базы данных",
+    ports: "Доп. порты",
+    players: "Лимит игроков",
+    antiddos: "Anti-DDoS",
+    buyPackage: "Заказать пакет",
+    loadingOffer: "Загрузка тарифа…",
     plans: [
       {
         name: "Minecraft",
