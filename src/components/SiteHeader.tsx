@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { localeHref, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import CurrencySwitcher from "./CurrencySwitcher";
+import { useSyncCurrencyLocale } from "./CurrencyProvider";
 import { Icons } from "./Icons";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LocaleControls from "./LocaleControls";
 import WolfMark from "./WolfMark";
 import styles from "./SiteHeader.module.css";
 
@@ -19,6 +19,7 @@ type Props = {
 export default function SiteHeader({ locale, t, path }: Props) {
   const [open, setOpen] = useState(false);
   const home = localeHref(locale);
+  useSyncCurrencyLocale(locale);
 
   const links = [
     { href: localeHref(locale, "#top"), label: t.home },
@@ -49,13 +50,12 @@ export default function SiteHeader({ locale, t, path }: Props) {
         </nav>
 
         <div className={styles.actions}>
-          <div className={styles.switchers}>
-            <LanguageSwitcher locale={locale} label={t.language} path={path} />
-            <span className={styles.switcherSep} aria-hidden>
-              ·
-            </span>
-            <CurrencySwitcher label={t.currency} />
-          </div>
+          <LocaleControls
+            locale={locale}
+            languageLabel={t.language}
+            currencyLabel={t.currency}
+            path={path}
+          />
           <a className={styles.panel} href="mailto:hello@alfahost.eu">
             {t.panel}
           </a>
@@ -84,13 +84,12 @@ export default function SiteHeader({ locale, t, path }: Props) {
             </a>
           ))}
           <div className={styles.mobileMeta}>
-            <div className={styles.switchers}>
-              <LanguageSwitcher locale={locale} label={t.language} path={path} />
-              <span className={styles.switcherSep} aria-hidden>
-                ·
-              </span>
-              <CurrencySwitcher label={t.currency} />
-            </div>
+            <LocaleControls
+              locale={locale}
+              languageLabel={t.language}
+              currencyLabel={t.currency}
+              path={path}
+            />
             <a
               className={styles.panel}
               href="mailto:hello@alfahost.eu"

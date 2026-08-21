@@ -2,15 +2,18 @@
 
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
   type ReactNode,
 } from "react";
+import type { Locale } from "@/i18n/config";
 import {
   defaultCurrency,
+  defaultCurrencyForLocale,
   papiBaseUrl,
-  readStoredCurrency,
+  resolveCurrency,
   storeCurrency,
   type Currency,
 } from "@/lib/currency";
@@ -24,6 +27,7 @@ export type PlanPrices = {
 type CurrencyContextValue = {
   currency: Currency;
   setCurrency: (c: Currency) => void;
+  syncLocale: (locale: Locale) => void;
   prices: Record<string, PlanPrices>;
   ready: boolean;
 };
@@ -42,11 +46,13 @@ type PricesResponse = {
 
 export function CurrencyProvider({ children }: { children: ReactNode }) {
   const [currency, setCurrencyState] = useState<Currency>(defaultCurrency);
+  const [locale, setLocale] = useState<Locale | null>(null);
   const [prices, setPrices] = useState<Record<string, PlanPrices>>({});
   const [ready, setReady] = useState(false);
 
-  useEffect(() => {
-    setCurrencyState(readStoredCurrency());
+  const syncLocale = useCallback((next: Locale) => {
+    setLocale(next);
+    setCurrencyState(resolveCurrency(next));
   }, []);
 
   useEffect(() => {
@@ -82,11 +88,13 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
 
   const setCurrency = (c: Currency) => {
     setCurrencyState(c);
-    storeCurrency(c);
+    storeCurrency(c, locale ?? undefined);
   };
 
   return (
-    <CurrencyContext.Provider value={{ currency, setCurrency, prices, ready }}>
+    <CurrencyContext.Provider
+      value={{ currency, setCurrency, syncLocale, prices, ready }}
+    >
       {children}
     </CurrencyContext.Provider>
   );
@@ -103,3 +111,13 @@ export function useCurrency() {
 export function useOptionalCurrency() {
   return useContext(CurrencyContext);
 }
+
+/** Keep currency defaults in sync with active page locale. */
+export function useSyncCurrencyLocale(locale: Locale) {
+  const syncLocale = useOptionalCurrency()?.syncLocale;
+  useEffect(() => {
+    syncLocale?.(locale);
+  }, [locale, syncLocale]);
+}
+
+export { defaultCurrencyForLocale };
