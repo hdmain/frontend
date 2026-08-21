@@ -66,6 +66,6 @@ export function resolveCurrency(locale: Locale): Currency {
 export function papiBaseUrl(): string {
   return (
     process.env.NEXT_PUBLIC_PAPI_URL?.replace(/\/$/, "") ||
-    "https://papi.alfahostu.eu"
+    "https://papi.alfahost.eu"
   );
 }
