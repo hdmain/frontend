@@ -130,7 +130,7 @@ export default function RootLayout({
                   sameAs: [],
                   contactPoint: {
                     "@type": "ContactPoint",
-                    email: "hello@alfahost.eu",
+                    email: "support@alfahost.eu",
                     contactType: "customer support",
                     availableLanguage: ["en", "pl", "ru"],
                   },

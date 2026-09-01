@@ -56,7 +56,7 @@ export default function SiteHeader({ locale, t, path }: Props) {
             currencyLabel={t.currency}
             path={path}
           />
-          <a className={styles.panel} href="mailto:hello@alfahost.eu">
+          <a className={styles.panel} href="mailto:support@alfahost.eu">
             {t.panel}
           </a>
           <button
@@ -92,7 +92,7 @@ export default function SiteHeader({ locale, t, path }: Props) {
             />
             <a
               className={styles.panel}
-              href="mailto:hello@alfahost.eu"
+              href="mailto:support@alfahost.eu"
               onClick={() => setOpen(false)}
             >
               {t.panel}

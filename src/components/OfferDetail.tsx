@@ -124,7 +124,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
           <div className={styles.packageGrid}>
             {packages.map((pkg) => {
               const price = premium ? pkg.premium_formatted : pkg.price_formatted;
-              const orderHref = `mailto:hello@alfahost.eu?subject=${encodeURIComponent(
+              const orderHref = `mailto:support@alfahost.eu?subject=${encodeURIComponent(
                 `${t.orderSubject} ${title} ${pkg.name}${premium ? ` (${t.premium})` : ""}`,
               )}`;
               return (
@@ -187,7 +187,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
             <p>{description}</p>
             <a
               className="btn btnPrimary"
-              href={`mailto:hello@alfahost.eu?subject=${encodeURIComponent(
+              href={`mailto:support@alfahost.eu?subject=${encodeURIComponent(
                 `${t.orderSubject} ${plan.name}`,
               )}`}
             >

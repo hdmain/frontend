@@ -20,8 +20,8 @@ export default function SiteFooter({ locale, t }: Props) {
             </span>
           </a>
           <p>{t.about}</p>
-          <a className={styles.mail} href="mailto:hello@alfahost.eu">
-            hello@alfahost.eu
+          <a className={styles.mail} href="mailto:support@alfahost.eu">
+            support@alfahost.eu
           </a>
         </div>
 
@@ -53,7 +53,7 @@ export default function SiteFooter({ locale, t }: Props) {
                 <a href={localeHref(locale, "#faq")}>{t.faq}</a>
               </li>
               <li>
-                <a href="mailto:hello@alfahost.eu">{t.contact}</a>
+                <a href="mailto:support@alfahost.eu">{t.contact}</a>
               </li>
             </ul>
           </div>
