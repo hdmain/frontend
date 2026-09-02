@@ -5,8 +5,14 @@
   background: var(--void);
 }
 
-/* Scrolls over the sticky first screen */
+/* Scrolls over the sticky first screen on desktop */
 .stack {
   position: relative;
   z-index: 2;
+}
+
+@media (max-width: 959px) {
+  .stack {
+    z-index: 1;
+  }
 }
