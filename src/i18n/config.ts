@@ -51,3 +51,14 @@ export function localePath(locale: Locale, subpath = ""): string {
   if (!clean) return localeHref(locale);
   return `${basePrefix()}/${locale}/${clean}/`;
 }
+
+export const comingSoonSubpath = "coming-soon";
+
+export function comingSoonPath(locale: Locale): string {
+  return localePath(locale, comingSoonSubpath);
+}
+
+/** When not `live`, show construction banner and route orders/panel to coming-soon. */
+export function isComingSoon(): boolean {
+  return (process.env.NEXT_PUBLIC_LAUNCH_MODE ?? "coming_soon") !== "live";
+}

@@ -25,7 +25,7 @@ export default async function HomePage({
 
   return (
     <div className={styles.page}>
-      <SiteHeader locale={locale} t={t.nav} />
+      <SiteHeader locale={locale} t={t.nav} bannerT={t.banner} />
       <main>
         <Hero t={t.hero} />
         <div className={styles.stack}>

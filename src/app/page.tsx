@@ -29,7 +29,7 @@ export default function RootPage() {
 
   return (
     <div className={styles.page}>
-      <SiteHeader locale="en" t={t.nav} />
+      <SiteHeader locale="en" t={t.nav} bannerT={t.banner} />
       <main>
         <Hero t={t.hero} />
         <div className={styles.stack}>

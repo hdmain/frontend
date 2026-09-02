@@ -69,7 +69,12 @@ export default async function OfferPage({
 
   return (
     <div className={styles.page}>
-      <SiteHeader locale={locale} t={t.nav} path={`offer/${slug}`} />
+      <SiteHeader
+        locale={locale}
+        t={t.nav}
+        bannerT={t.banner}
+        path={`offer/${slug}`}
+      />
       <main>
         <OfferDetail
           locale={locale}

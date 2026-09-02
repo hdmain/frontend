@@ -122,6 +122,22 @@ export type Dictionary = {
     contact: string;
     rights: string;
   };
+  banner: {
+    message: string;
+    link: string;
+  };
+  comingSoon: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    lead: string;
+    body: string;
+    points: string[];
+    contactLabel: string;
+    backHome: string;
+    viewOffer: string;
+  };
 };
 
 const en: Dictionary = {
@@ -480,6 +496,27 @@ const en: Dictionary = {
     faq: "FAQ",
     contact: "Contact",
     rights: "All rights reserved.",
+  },
+  banner: {
+    message: "Hosting is under construction — orders and the client panel are not available yet.",
+    link: "Learn more",
+  },
+  comingSoon: {
+    metaTitle: "Coming soon - AlfaHost",
+    metaDescription:
+      "AlfaHost is launching soon. Client panel and orders will open when infrastructure is ready.",
+    eyebrow: "Launch status",
+    title: "We're still building",
+    lead: "Our hosting platform isn't live yet. You can browse the offer, but ordering and the client panel will open soon.",
+    body: "We're finishing the last pieces of infrastructure, billing and the client panel. Leave us a message if you want to be notified at launch.",
+    points: [
+      "Offer pages are previews — prices may change before launch",
+      "Orders and client panel are temporarily disabled",
+      "Support is available for questions before go-live",
+    ],
+    contactLabel: "Contact support",
+    backHome: "Back to homepage",
+    viewOffer: "Browse offer",
   },
 };
 
@@ -840,6 +877,28 @@ const pl: Dictionary = {
     contact: "Kontakt",
     rights: "Wszelkie prawa zastrzeżone.",
   },
+  banner: {
+    message:
+      "Hosting w budowie — zamówienia i panel klienta nie są jeszcze dostępne.",
+    link: "Dowiedz się więcej",
+  },
+  comingSoon: {
+    metaTitle: "Wkrótce - AlfaHost",
+    metaDescription:
+      "AlfaHost startuje wkrótce. Panel klienta i zamówienia otworzą się po uruchomieniu infrastruktury.",
+    eyebrow: "Status startu",
+    title: "Jeszcze budujemy",
+    lead: "Nasza platforma hostingowa nie jest jeszcze uruchomiona. Możesz przeglądać ofertę, ale zamówienia i panel klienta pojawią się wkrótce.",
+    body: "Kończymy ostatnie elementy infrastruktury, płatności i panelu klienta. Napisz do nas, jeśli chcesz dostać info o starcie.",
+    points: [
+      "Strony ofert to podgląd — ceny mogą się zmienić przed startem",
+      "Zamówienia i panel klienta są tymczasowo wyłączone",
+      "Support odpowiada na pytania przed startem usług",
+    ],
+    contactLabel: "Napisz do supportu",
+    backHome: "Wróć na stronę główną",
+    viewOffer: "Przeglądaj ofertę",
+  },
 };
 
 const ru: Dictionary = {
@@ -1198,6 +1257,28 @@ const ru: Dictionary = {
     faq: "FAQ",
     contact: "Контакты",
     rights: "Все права защищены.",
+  },
+  banner: {
+    message:
+      "Хостинг в разработке — заказы и панель клиента пока недоступны.",
+    link: "Подробнее",
+  },
+  comingSoon: {
+    metaTitle: "Скоро - AlfaHost",
+    metaDescription:
+      "AlfaHost скоро запустится. Панель клиента и заказы откроются после готовности инфраструктуры.",
+    eyebrow: "Статус запуска",
+    title: "Мы ещё строим",
+    lead: "Наша платформа хостинга ещё не запущена. Тарифы можно смотреть, но заказы и панель клиента откроются позже.",
+    body: "Завершаем инфраструктуру, биллинг и панель клиента. Напишите нам, если хотите узнать о старте.",
+    points: [
+      "Страницы тарифов — превью, цены могут измениться до запуска",
+      "Заказы и панель клиента временно отключены",
+      "Поддержка отвечает на вопросы до запуска",
+    ],
+    contactLabel: "Написать в поддержку",
+    backHome: "На главную",
+    viewOffer: "Смотреть тарифы",
   },
 };
 

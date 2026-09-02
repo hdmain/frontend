@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Locale } from "@/i18n/config";
-import { localeHref, localePath } from "@/i18n/config";
+import { comingSoonPath, isComingSoon, localeHref, localePath } from "@/i18n/config";
 import type { Dictionary, OfferPlan } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
 import { papiBaseUrl } from "@/lib/currency";
@@ -80,6 +80,19 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const cpu = offer?.cpu || plan.cpu;
   const packages = offer?.packages ?? [];
 
+  const packageOrderHref = (pkgName: string) => {
+    if (isComingSoon()) return comingSoonPath(locale);
+    return `mailto:support@alfahost.eu?subject=${encodeURIComponent(
+      `${t.orderSubject} ${title} ${pkgName}${premium ? ` (${t.premium})` : ""}`,
+    )}`;
+  };
+
+  const fallbackOrderHref = isComingSoon()
+    ? comingSoonPath(locale)
+    : `mailto:support@alfahost.eu?subject=${encodeURIComponent(
+        `${t.orderSubject} ${plan.name}`,
+      )}`;
+
   return (
     <section className={styles.section}>
       <div className={styles.hero}>
@@ -124,9 +137,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
           <div className={styles.packageGrid}>
             {packages.map((pkg) => {
               const price = premium ? pkg.premium_formatted : pkg.price_formatted;
-              const orderHref = `mailto:support@alfahost.eu?subject=${encodeURIComponent(
-                `${t.orderSubject} ${title} ${pkg.name}${premium ? ` (${t.premium})` : ""}`,
-              )}`;
+              const orderHref = packageOrderHref(pkg.name);
               return (
                 <article key={pkg.id} className={styles.packageCard}>
                   <div className={styles.packageHead}>
@@ -185,12 +196,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
         ) : (
           <div className={styles.fallback}>
             <p>{description}</p>
-            <a
-              className="btn btnPrimary"
-              href={`mailto:support@alfahost.eu?subject=${encodeURIComponent(
-                `${t.orderSubject} ${plan.name}`,
-              )}`}
-            >
+            <a className="btn btnPrimary" href={fallbackOrderHref}>
               {t.orderNow} {Icons.arrow}
             </a>
           </div>

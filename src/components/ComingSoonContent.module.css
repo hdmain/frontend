@@ -1,0 +1,86 @@
+.section {
+  min-height: calc(100vh - var(--nav-h) - 8rem);
+  display: grid;
+  align-items: center;
+  padding: 3.5rem 0 4rem;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(196, 0, 26, 0.12), transparent),
+    var(--black);
+}
+
+.inner {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.body {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.points {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+
+.points li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.points li span {
+  color: var(--red);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 1rem;
+}
+
+.back {
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-top: 0.25rem;
+}
+
+.back:hover {
+  color: var(--red-hot);
+}
+
+@media (min-width: 640px) {
+  .back {
+    width: auto;
+    margin-top: 0;
+    margin-left: 0.25rem;
+  }
+}
