@@ -1,6 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries";
-import { localeHref, type Locale } from "@/i18n/config";
-import { Icons } from "./Icons";
+import type { Locale } from "@/i18n/config";
 import WaitlistForm from "./WaitlistForm";
 import styles from "./ComingSoonContent.module.css";
 
@@ -23,30 +22,7 @@ export default function ComingSoonContent({ locale, t }: Props) {
           <p className={styles.body}>{t.body}</p>
         </div>
 
-        <ul className={styles.points}>
-          {t.points.map((point) => (
-            <li key={point}>
-              <span className={styles.check} aria-hidden>
-                {Icons.check}
-              </span>
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
-
         <WaitlistForm locale={locale} t={t.waitlist} />
-
-        <div className={styles.actions}>
-          <a className="btn btnPrimary" href="mailto:support@alfahost.eu">
-            {t.contactLabel} {Icons.arrow}
-          </a>
-          <a className="btn btnGhost" href={localeHref(locale, "#offer")}>
-            {t.viewOffer}
-          </a>
-          <a className={styles.back} href={localeHref(locale)}>
-            ← {t.backHome}
-          </a>
-        </div>
       </div>
     </section>
   );

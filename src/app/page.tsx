@@ -31,7 +31,7 @@ export default function RootPage() {
     <div className={styles.page}>
       <SiteHeader locale="en" t={t.nav} />
       <main>
-        <Hero t={t.hero} />
+        <Hero t={t.hero} locale="en" launchPromo={t.launch.promo} />
         <div className={styles.stack}>
           <WhyUs t={t.why} />
           <Services t={t.services} />

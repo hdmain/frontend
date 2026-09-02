@@ -125,6 +125,12 @@ export type Dictionary = {
   launch: {
     notice: string;
     moreInfo: string;
+    promo: {
+      badge: string;
+      title: string;
+      body: string;
+      cta: string;
+    };
   };
   comingSoon: {
     metaTitle: string;
@@ -144,10 +150,12 @@ export type Dictionary = {
       duplicate: string;
       error: string;
       captchaError: string;
+      emailError: string;
     };
     contactLabel: string;
     backHome: string;
     viewOffer: string;
+    secondaryNavLabel: string;
   };
 };
 
@@ -512,6 +520,12 @@ const en: Dictionary = {
     notice:
       "Orders and the client panel are not yet available. The platform is being prepared for launch.",
     moreInfo: "Service status",
+    promo: {
+      badge: "Launch offer",
+      title: "15% off your first order",
+      body: "Register on the waitlist before we go live and receive a preferential rate on your first purchase. Promotion details will be sent to your inbox at launch.",
+      cta: "Join the waitlist",
+    },
   },
   comingSoon: {
     metaTitle: "Service availability | AlfaHost",
@@ -539,10 +553,13 @@ const en: Dictionary = {
       error:
         "Registration could not be completed. Please try again or contact support@alfahost.eu.",
       captchaError: "Please complete the security verification.",
+      emailError:
+        "Please enter a valid email address (e.g. name@example.com).",
     },
     contactLabel: "Contact support",
     backHome: "Return to homepage",
     viewOffer: "View offer",
+    secondaryNavLabel: "Additional links",
   },
 };
 
@@ -907,6 +924,12 @@ const pl: Dictionary = {
     notice:
       "Zamówienia oraz panel klienta nie są jeszcze dostępne. Trwa przygotowanie platformy do uruchomienia.",
     moreInfo: "Status usługi",
+    promo: {
+      badge: "Oferta startowa",
+      title: "15% rabatu na pierwsze zamówienie",
+      body: "Zapisz się na listę oczekujących przed uruchomieniem platformy i skorzystaj z preferencyjnej stawki przy pierwszym zakupie. Szczegóły promocji otrzymasz e-mailem w dniu startu.",
+      cta: "Zapisz się na listę",
+    },
   },
   comingSoon: {
     metaTitle: "Dostępność usług | AlfaHost",
@@ -934,10 +957,13 @@ const pl: Dictionary = {
       error:
         "Rejestracja nie powiodła się. Spróbuj ponownie lub skontaktuj się z nami: support@alfahost.eu.",
       captchaError: "Uzupełnij weryfikację bezpieczeństwa.",
+      emailError:
+        "Podaj prawidłowy adres e-mail (np. imię@domena.pl).",
     },
     contactLabel: "Skontaktuj się ze wsparciem",
     backHome: "Powrót do strony głównej",
     viewOffer: "Przeglądaj ofertę",
+    secondaryNavLabel: "Dodatkowe linki",
   },
 };
 
@@ -1302,6 +1328,12 @@ const ru: Dictionary = {
     notice:
       "Заказы и панель клиента пока недоступны. Платформа готовится к запуску.",
     moreInfo: "Статус услуги",
+    promo: {
+      badge: "Стартовое предложение",
+      title: "Скидка 15% на первый заказ",
+      body: "Зарегистрируйтесь в списке ожидания до запуска платформы и получите льготную ставку на первую покупку. Подробности акции придут на вашу почту в день старта.",
+      cta: "Записаться в список",
+    },
   },
   comingSoon: {
     metaTitle: "Доступность услуг | AlfaHost",
@@ -1328,10 +1360,13 @@ const ru: Dictionary = {
       error:
         "Регистрация не удалась. Попробуйте снова или обратитесь в support@alfahost.eu.",
       captchaError: "Пройдите проверку безопасности.",
+      emailError:
+        "Укажите корректный адрес электронной почты (например, имя@example.com).",
     },
     contactLabel: "Связаться с поддержкой",
     backHome: "На главную страницу",
     viewOffer: "Смотреть тарифы",
+    secondaryNavLabel: "Дополнительные ссылки",
   },
 };
 

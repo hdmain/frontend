@@ -27,7 +27,7 @@ export default async function HomePage({
     <div className={styles.page}>
       <SiteHeader locale={locale} t={t.nav} />
       <main>
-        <Hero t={t.hero} />
+        <Hero t={t.hero} locale={locale} launchPromo={t.launch.promo} />
         <div className={styles.stack}>
           <WhyUs t={t.why} />
           <Services t={t.services} />

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { capEndpoint } from "@/lib/cap";
+import { isValidEmail } from "@/lib/email";
 import { submitWaitlist } from "@/lib/waitlist";
 import styles from "./WaitlistForm.module.css";
 
@@ -19,6 +20,7 @@ export default function WaitlistForm({ locale, t }: Props) {
     "idle",
   );
   const [message, setMessage] = useState("");
+  const [emailInvalid, setEmailInvalid] = useState(false);
 
   useEffect(() => {
     void import("cap-widget");
@@ -28,20 +30,31 @@ export default function WaitlistForm({ locale, t }: Props) {
     event.preventDefault();
     if (status === "loading") return;
 
+    const trimmedEmail = email.trim();
+
+    if (!isValidEmail(trimmedEmail)) {
+      setStatus("error");
+      setEmailInvalid(true);
+      setMessage(t.emailError);
+      return;
+    }
+
     const form = event.currentTarget;
     const formData = new FormData(form);
     const capToken = String(formData.get("cap-token") ?? "").trim();
 
     if (!capToken) {
       setStatus("error");
+      setEmailInvalid(false);
       setMessage(t.captchaError);
       return;
     }
 
     setStatus("loading");
     setMessage("");
+    setEmailInvalid(false);
 
-    const result = await submitWaitlist(email.trim(), locale, capToken);
+    const result = await submitWaitlist(trimmedEmail, locale, capToken);
 
     if (result.ok) {
       setStatus("success");
@@ -54,6 +67,9 @@ export default function WaitlistForm({ locale, t }: Props) {
     setStatus("error");
     if (result.reason === "captcha") {
       setMessage(t.captchaError);
+    } else if (result.reason === "invalid") {
+      setEmailInvalid(true);
+      setMessage(t.emailError);
     } else {
       setMessage(t.error);
     }
@@ -76,15 +92,27 @@ export default function WaitlistForm({ locale, t }: Props) {
           </label>
           <input
             id="waitlist-email"
-            className={styles.input}
+            className={`${styles.input} ${emailInvalid ? styles.inputInvalid : ""}`}
             type="email"
             name="email"
             autoComplete="email"
+            inputMode="email"
             required
             value={email}
             placeholder={t.emailPlaceholder}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => {
+              setEmail(event.target.value);
+              if (emailInvalid) {
+                setEmailInvalid(false);
+                if (status === "error") {
+                  setStatus("idle");
+                  setMessage("");
+                }
+              }
+            }}
             disabled={status === "loading"}
+            aria-invalid={emailInvalid}
+            aria-describedby={message && emailInvalid ? "waitlist-email-error" : undefined}
           />
         </div>
 
@@ -106,6 +134,7 @@ export default function WaitlistForm({ locale, t }: Props) {
 
         {message ? (
           <p
+            id={emailInvalid ? "waitlist-email-error" : undefined}
             className={`${styles.message} ${
               status === "success" ? styles.success : styles.error
             }`}
