@@ -29,7 +29,7 @@ export default function RootPage() {
 
   return (
     <div className={styles.page}>
-      <SiteHeader locale="en" t={t.nav} bannerT={t.banner} />
+      <SiteHeader locale="en" t={t.nav} />
       <main>
         <Hero t={t.hero} />
         <div className={styles.stack}>
@@ -40,7 +40,7 @@ export default function RootPage() {
           <Faq t={t.faq} />
         </div>
       </main>
-      <SiteFooter locale="en" t={t.footer} />
+      <SiteFooter locale="en" t={t.footer} launchT={t.launch} />
 
       <Script
         id="faq-jsonld"

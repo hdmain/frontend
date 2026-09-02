@@ -8,7 +8,6 @@ import {
   type Locale,
 } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import ComingSoonBanner from "./ComingSoonBanner";
 import { useSyncCurrencyLocale } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import LocaleControls from "./LocaleControls";
@@ -18,12 +17,11 @@ import styles from "./SiteHeader.module.css";
 type Props = {
   locale: Locale;
   t: Dictionary["nav"];
-  bannerT: Dictionary["banner"];
   /** Current subpath for language switch, e.g. offer/minecraft */
   path?: string;
 };
 
-export default function SiteHeader({ locale, t, bannerT, path }: Props) {
+export default function SiteHeader({ locale, t, path }: Props) {
   const [open, setOpen] = useState(false);
   const home = localeHref(locale);
   const panelHref = isComingSoon()
@@ -110,8 +108,6 @@ export default function SiteHeader({ locale, t, bannerT, path }: Props) {
           </div>
         </div>
       ) : null}
-
-      <ComingSoonBanner locale={locale} t={bannerT} />
     </header>
   );
 }

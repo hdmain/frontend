@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
+    "cap-widget": "^0.1.57",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.15.0",

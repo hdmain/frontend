@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localeHref, type Locale } from "@/i18n/config";
 import { Icons } from "./Icons";
+import WaitlistForm from "./WaitlistForm";
 import styles from "./ComingSoonContent.module.css";
 
 type Props = {
@@ -12,19 +13,28 @@ export default function ComingSoonContent({ locale, t }: Props) {
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
-        <span className="eyebrow">{t.eyebrow}</span>
-        <h1 className={styles.title}>{t.title}</h1>
-        <p className={styles.lead}>{t.lead}</p>
-        <p className={styles.body}>{t.body}</p>
+        <header className={styles.head}>
+          <span className="eyebrow">{t.eyebrow}</span>
+          <h1 className={styles.title}>{t.title}</h1>
+        </header>
+
+        <div className={styles.intro}>
+          <p className={styles.lead}>{t.lead}</p>
+          <p className={styles.body}>{t.body}</p>
+        </div>
 
         <ul className={styles.points}>
           {t.points.map((point) => (
             <li key={point}>
-              <span aria-hidden>{Icons.check}</span>
-              {point}
+              <span className={styles.check} aria-hidden>
+                {Icons.check}
+              </span>
+              <span>{point}</span>
             </li>
           ))}
         </ul>
+
+        <WaitlistForm locale={locale} t={t.waitlist} />
 
         <div className={styles.actions}>
           <a className="btn btnPrimary" href="mailto:support@alfahost.eu">

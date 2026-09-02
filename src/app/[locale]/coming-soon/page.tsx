@@ -59,13 +59,12 @@ export default async function ComingSoonPage({
       <SiteHeader
         locale={locale}
         t={t.nav}
-        bannerT={t.banner}
         path={comingSoonSubpath}
       />
       <main>
         <ComingSoonContent locale={locale} t={t.comingSoon} />
       </main>
-      <SiteFooter locale={locale} t={t.footer} />
+      <SiteFooter locale={locale} t={t.footer} launchT={t.launch} />
     </div>
   );
 }

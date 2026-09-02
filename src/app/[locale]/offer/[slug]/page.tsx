@@ -72,7 +72,6 @@ export default async function OfferPage({
       <SiteHeader
         locale={locale}
         t={t.nav}
-        bannerT={t.banner}
         path={`offer/${slug}`}
       />
       <main>
@@ -83,7 +82,7 @@ export default async function OfferPage({
           others={others}
         />
       </main>
-      <SiteFooter locale={locale} t={t.footer} />
+      <SiteFooter locale={locale} t={t.footer} launchT={t.launch} />
     </div>
   );
 }

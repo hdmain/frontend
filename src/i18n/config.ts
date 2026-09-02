@@ -58,7 +58,7 @@ export function comingSoonPath(locale: Locale): string {
   return localePath(locale, comingSoonSubpath);
 }
 
-/** When not `live`, show construction banner and route orders/panel to coming-soon. */
+/** When not `live`, show launch notice and route orders/panel to coming-soon. */
 export function isComingSoon(): boolean {
   return (process.env.NEXT_PUBLIC_LAUNCH_MODE ?? "coming_soon") !== "live";
 }

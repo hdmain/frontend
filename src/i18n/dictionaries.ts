@@ -122,9 +122,9 @@ export type Dictionary = {
     contact: string;
     rights: string;
   };
-  banner: {
-    message: string;
-    link: string;
+  launch: {
+    notice: string;
+    moreInfo: string;
   };
   comingSoon: {
     metaTitle: string;
@@ -134,6 +134,17 @@ export type Dictionary = {
     lead: string;
     body: string;
     points: string[];
+    waitlist: {
+      title: string;
+      lead: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      submit: string;
+      success: string;
+      duplicate: string;
+      error: string;
+      captchaError: string;
+    };
     contactLabel: string;
     backHome: string;
     viewOffer: string;
@@ -497,26 +508,41 @@ const en: Dictionary = {
     contact: "Contact",
     rights: "All rights reserved.",
   },
-  banner: {
-    message: "Hosting is under construction — orders and the client panel are not available yet.",
-    link: "Learn more",
+  launch: {
+    notice:
+      "Orders and the client panel are not yet available. The platform is being prepared for launch.",
+    moreInfo: "Service status",
   },
   comingSoon: {
-    metaTitle: "Coming soon - AlfaHost",
+    metaTitle: "Service availability | AlfaHost",
     metaDescription:
-      "AlfaHost is launching soon. Client panel and orders will open when infrastructure is ready.",
-    eyebrow: "Launch status",
-    title: "We're still building",
-    lead: "Our hosting platform isn't live yet. You can browse the offer, but ordering and the client panel will open soon.",
-    body: "We're finishing the last pieces of infrastructure, billing and the client panel. Leave us a message if you want to be notified at launch.",
+      "Information on AlfaHost service availability and the platform launch schedule.",
+    eyebrow: "Service availability",
+    title: "Platform launch in preparation",
+    lead: "Our hosting services are not yet available for purchase. The published offer is for reference only; sales and the client panel will be enabled with the official launch.",
+    body: "We are finalising infrastructure, billing systems and the client panel. For pre-launch enquiries, please contact our support team.",
     points: [
-      "Offer pages are previews — prices may change before launch",
-      "Orders and client panel are temporarily disabled",
-      "Support is available for questions before go-live",
+      "Published pricing is indicative and may change prior to launch",
+      "Order placement and client panel access are currently unavailable",
+      "Early registrants receive a 15% discount on their first order at launch",
     ],
+    waitlist: {
+      title: "Early access registration",
+      lead: "Leave your email address to secure a 15% discount on your first order once the platform goes live.",
+      emailLabel: "Email address",
+      emailPlaceholder: "you@example.com",
+      submit: "Join the waitlist",
+      success:
+        "Thank you. A confirmation email has been sent to your inbox.",
+      duplicate:
+        "This address is already registered. If you need assistance, contact support@alfahost.eu.",
+      error:
+        "Registration could not be completed. Please try again or contact support@alfahost.eu.",
+      captchaError: "Please complete the security verification.",
+    },
     contactLabel: "Contact support",
-    backHome: "Back to homepage",
-    viewOffer: "Browse offer",
+    backHome: "Return to homepage",
+    viewOffer: "View offer",
   },
 };
 
@@ -877,26 +903,40 @@ const pl: Dictionary = {
     contact: "Kontakt",
     rights: "Wszelkie prawa zastrzeżone.",
   },
-  banner: {
-    message:
-      "Hosting w budowie — zamówienia i panel klienta nie są jeszcze dostępne.",
-    link: "Dowiedz się więcej",
+  launch: {
+    notice:
+      "Zamówienia oraz panel klienta nie są jeszcze dostępne. Trwa przygotowanie platformy do uruchomienia.",
+    moreInfo: "Status usługi",
   },
   comingSoon: {
-    metaTitle: "Wkrótce - AlfaHost",
+    metaTitle: "Dostępność usług | AlfaHost",
     metaDescription:
-      "AlfaHost startuje wkrótce. Panel klienta i zamówienia otworzą się po uruchomieniu infrastruktury.",
-    eyebrow: "Status startu",
-    title: "Jeszcze budujemy",
-    lead: "Nasza platforma hostingowa nie jest jeszcze uruchomiona. Możesz przeglądać ofertę, ale zamówienia i panel klienta pojawią się wkrótce.",
-    body: "Kończymy ostatnie elementy infrastruktury, płatności i panelu klienta. Napisz do nas, jeśli chcesz dostać info o starcie.",
+      "Informacje o dostępności usług AlfaHost oraz harmonogramie uruchomienia platformy.",
+    eyebrow: "Dostępność usług",
+    title: "Przygotowanie platformy do uruchomienia",
+    lead: "Usługi hostingowe nie są jeszcze dostępne do zakupu. Opublikowana oferta ma charakter informacyjny; sprzedaż oraz panel klienta zostaną udostępnione wraz z oficjalnym startem.",
+    body: "Finalizujemy infrastrukturę, system rozliczeń oraz panel klienta. W sprawach przedstartowych prosimy o kontakt z działem wsparcia.",
     points: [
-      "Strony ofert to podgląd — ceny mogą się zmienić przed startem",
-      "Zamówienia i panel klienta są tymczasowo wyłączone",
-      "Support odpowiada na pytania przed startem usług",
+      "Opublikowane ceny mają charakter orientacyjny i mogą ulec zmianie przed startem",
+      "Składanie zamówień oraz dostęp do panelu klienta są obecnie niedostępne",
+      "Osoby zapisane na listę oczekujących otrzymają 15% rabatu na pierwsze zamówienie po starcie",
     ],
-    contactLabel: "Napisz do supportu",
-    backHome: "Wróć na stronę główną",
+    waitlist: {
+      title: "Zapis na listę oczekujących",
+      lead: "Podaj adres e-mail, aby otrzymać 15% rabatu na pierwsze zamówienie po uruchomieniu platformy.",
+      emailLabel: "Adres e-mail",
+      emailPlaceholder: "adres@example.com",
+      submit: "Zapisz się na listę",
+      success:
+        "Dziękujemy. Wiadomość potwierdzająca została wysłana na podany adres.",
+      duplicate:
+        "Ten adres jest już zapisany. W razie pytań prosimy o kontakt: support@alfahost.eu.",
+      error:
+        "Rejestracja nie powiodła się. Spróbuj ponownie lub skontaktuj się z nami: support@alfahost.eu.",
+      captchaError: "Uzupełnij weryfikację bezpieczeństwa.",
+    },
+    contactLabel: "Skontaktuj się ze wsparciem",
+    backHome: "Powrót do strony głównej",
     viewOffer: "Przeglądaj ofertę",
   },
 };
@@ -1258,26 +1298,39 @@ const ru: Dictionary = {
     contact: "Контакты",
     rights: "Все права защищены.",
   },
-  banner: {
-    message:
-      "Хостинг в разработке — заказы и панель клиента пока недоступны.",
-    link: "Подробнее",
+  launch: {
+    notice:
+      "Заказы и панель клиента пока недоступны. Платформа готовится к запуску.",
+    moreInfo: "Статус услуги",
   },
   comingSoon: {
-    metaTitle: "Скоро - AlfaHost",
+    metaTitle: "Доступность услуг | AlfaHost",
     metaDescription:
-      "AlfaHost скоро запустится. Панель клиента и заказы откроются после готовности инфраструктуры.",
-    eyebrow: "Статус запуска",
-    title: "Мы ещё строим",
-    lead: "Наша платформа хостинга ещё не запущена. Тарифы можно смотреть, но заказы и панель клиента откроются позже.",
-    body: "Завершаем инфраструктуру, биллинг и панель клиента. Напишите нам, если хотите узнать о старте.",
+      "Информация о доступности услуг AlfaHost и графике запуска платформы.",
+    eyebrow: "Доступность услуг",
+    title: "Подготовка платформы к запуску",
+    lead: "Услуги хостинга пока недоступны для заказа. Опубликованные тарифы носят информационный характер; продажи и панель клиента будут открыты с официальным запуском.",
+    body: "Мы завершаем работу над инфраструктурой, биллингом и панелью клиента. По вопросам до запуска обращайтесь в службу поддержки.",
     points: [
-      "Страницы тарифов — превью, цены могут измениться до запуска",
-      "Заказы и панель клиента временно отключены",
-      "Поддержка отвечает на вопросы до запуска",
+      "Опубликованные цены ориентировочны и могут измениться до запуска",
+      "Оформление заказов и доступ к панели клиента временно недоступны",
+      "Участники списка ожидания получат скидку 15% на первый заказ после запуска",
     ],
-    contactLabel: "Написать в поддержку",
-    backHome: "На главную",
+    waitlist: {
+      title: "Регистрация в списке ожидания",
+      lead: "Укажите адрес электронной почты, чтобы получить скидку 15% на первый заказ после запуска платформы.",
+      emailLabel: "Адрес электронной почты",
+      emailPlaceholder: "you@example.com",
+      submit: "Записаться в список",
+      success: "Спасибо. Подтверждение отправлено на указанный адрес.",
+      duplicate:
+        "Этот адрес уже зарегистрирован. По вопросам: support@alfahost.eu.",
+      error:
+        "Регистрация не удалась. Попробуйте снова или обратитесь в support@alfahost.eu.",
+      captchaError: "Пройдите проверку безопасности.",
+    },
+    contactLabel: "Связаться с поддержкой",
+    backHome: "На главную страницу",
     viewOffer: "Смотреть тарифы",
   },
 };

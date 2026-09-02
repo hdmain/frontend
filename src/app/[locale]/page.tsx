@@ -25,7 +25,7 @@ export default async function HomePage({
 
   return (
     <div className={styles.page}>
-      <SiteHeader locale={locale} t={t.nav} bannerT={t.banner} />
+      <SiteHeader locale={locale} t={t.nav} />
       <main>
         <Hero t={t.hero} />
         <div className={styles.stack}>
@@ -36,7 +36,7 @@ export default async function HomePage({
           <Faq t={t.faq} />
         </div>
       </main>
-      <SiteFooter locale={locale} t={t.footer} />
+      <SiteFooter locale={locale} t={t.footer} launchT={t.launch} />
       <Script
         id="faq-jsonld"
         type="application/ld+json"

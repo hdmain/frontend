@@ -1,0 +1,99 @@
+.card {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--red);
+}
+
+.head {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.2s var(--ease);
+}
+
+.input::placeholder {
+  color: var(--dim);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--red);
+}
+
+.captcha {
+  min-height: 3.25rem;
+}
+
+.submit {
+  justify-self: start;
+}
+
+.submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.message {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.success {
+  color: #8fd4a8;
+}
+
+.error {
+  color: var(--red-hot);
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 2rem 1.75rem;
+  }
+}
