@@ -58,12 +58,14 @@ export default function SiteHeader({ locale, t, path }: Props) {
         </nav>
 
         <div className={styles.actions}>
-          <LocaleControls
-            locale={locale}
-            languageLabel={t.language}
-            currencyLabel={t.currency}
-            path={path}
-          />
+          <div className={styles.desktopLocale}>
+            <LocaleControls
+              locale={locale}
+              languageLabel={t.language}
+              currencyLabel={t.currency}
+              path={path}
+            />
+          </div>
           <a className={styles.panel} href={panelHref}>
             {t.panel}
           </a>
