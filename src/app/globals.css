@@ -13,11 +13,17 @@
   --line: rgba(242, 242, 242, 0.12);
   --line-red: rgba(196, 0, 26, 0.55);
   --max: 1160px;
-  --nav-h: 5rem;
+  --nav-h: 4.25rem;
   --font-display: var(--font-oswald), "Oswald", Impact, "Arial Narrow", sans-serif;
   --font-sans: var(--font-plex), "IBM Plex Sans", system-ui, sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --cut: 28px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --nav-h: 5rem;
+  }
 }
 
 *,
@@ -31,6 +37,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  overflow-x: clip;
 }
 
 body {
@@ -39,7 +46,7 @@ body {
   color: var(--text);
   background: var(--void);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body::before {
@@ -104,9 +111,15 @@ ol {
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.25rem;
+  }
 }
 
 .eyebrow {

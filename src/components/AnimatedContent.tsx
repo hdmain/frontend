@@ -19,6 +19,7 @@ interface AnimatedContentProps extends React.HTMLAttributes<HTMLDivElement> {
   scale?: number;
   threshold?: number;
   delay?: number;
+  immediate?: boolean;
   disappearAfter?: number;
   disappearDuration?: number;
   disappearEase?: string;
@@ -39,6 +40,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   scale = 1,
   threshold = 0.1,
   delay = 0,
+  immediate = false,
   disappearAfter = 0,
   disappearDuration = 0.5,
   disappearEase = 'power3.in',
@@ -97,16 +99,22 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       ease
     });
 
-    const st = ScrollTrigger.create({
-      trigger: el,
-      scroller: scrollerTarget || window,
-      start: `top ${startPct}%`,
-      once: true,
-      onEnter: () => tl.play()
-    });
+    const st = immediate
+      ? null
+      : ScrollTrigger.create({
+          trigger: el,
+          scroller: scrollerTarget || window,
+          start: `top ${startPct}%`,
+          once: true,
+          onEnter: () => tl.play()
+        });
+
+    if (immediate) {
+      tl.play(0);
+    }
 
     return () => {
-      st.kill();
+      st?.kill();
       tl.kill();
     };
   }, [
@@ -121,6 +129,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     scale,
     threshold,
     delay,
+    immediate,
     disappearAfter,
     disappearDuration,
     disappearEase,

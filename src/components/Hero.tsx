@@ -6,7 +6,6 @@ import AnimatedContent from "./AnimatedContent";
 import BlurText from "./BlurText";
 import DecryptedText from "./DecryptedText";
 import LaunchPromo from "./LaunchPromo";
-import Magnet from "./Magnet";
 import { Icons } from "./Icons";
 import Typewriter from "./Typewriter";
 import styles from "./Hero.module.css";
@@ -24,10 +23,11 @@ export default function Hero({ t, locale, launchPromo }: Props) {
       <div className={`container ${styles.layout}`}>
         <AnimatedContent
           className={styles.copy}
-          distance={40}
+          distance={24}
           direction="vertical"
           duration={0.6}
           ease="power3.out"
+          immediate
         >
           <h1 className={styles.brand}>
             <DecryptedText
@@ -46,6 +46,7 @@ export default function Hero({ t, locale, launchPromo }: Props) {
             animateBy="words"
             direction="top"
             delay={110}
+            animationFrom={{ filter: "blur(6px)", opacity: 0, y: -12 }}
           />
           <p className={styles.typedSub}>
             <Typewriter phrases={t.phrases.slice(1)} />
@@ -53,26 +54,22 @@ export default function Hero({ t, locale, launchPromo }: Props) {
           <p className={styles.lede}>{t.lede}</p>
           <LaunchPromo locale={locale} t={launchPromo} />
           <div className={styles.actions}>
-            <Magnet padding={32} magnetStrength={3.5}>
-              <a className="btn btnPrimary" href="#offer">
-                {t.ctaOffer} {Icons.arrow}
-              </a>
-            </Magnet>
-            <Magnet padding={32} magnetStrength={3.5}>
-              <a className="btn btnGhost" href="#contact">
-                {t.ctaContact}
-              </a>
-            </Magnet>
+            <a className="btn btnPrimary" href="#offer">
+              {t.ctaOffer} {Icons.arrow}
+            </a>
+            <a className="btn btnGhost" href="#contact">
+              {t.ctaContact}
+            </a>
           </div>
         </AnimatedContent>
 
         <AnimatedContent
           className={styles.positives}
-          distance={50}
-          direction="horizontal"
-          reverse
+          distance={24}
+          direction="vertical"
           delay={0.06}
           duration={0.65}
+          immediate
         >
           <aside aria-label={t.positivesLabel}>
             <p className={styles.positivesLabel}>{t.positivesLabel}</p>

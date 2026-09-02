@@ -5,10 +5,10 @@
   --cs-surface: #121212;
   --cs-border: rgba(242, 242, 242, 0.16);
 
-  min-height: calc(100vh - var(--nav-h) - 8rem);
+  min-height: calc(100vh - var(--nav-h) - 4rem);
   display: grid;
   align-items: center;
-  padding: 5rem 0 6rem;
+  padding: 2.5rem 0 3.5rem;
   background:
     radial-gradient(ellipse 80% 50% at 50% 0%, rgba(196, 0, 26, 0.08), transparent),
     var(--black);
@@ -16,8 +16,10 @@
 
 .inner {
   display: grid;
-  gap: 3.25rem;
+  gap: 2.25rem;
   max-width: 40rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .head {
