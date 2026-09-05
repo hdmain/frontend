@@ -37,7 +37,7 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
               rel="noopener noreferrer"
             >
               {Icons.discord}
-              <span>{t.discord}</span>
+              <span>dc.alfahost.eu</span>
             </a>
           </div>
         </div>
