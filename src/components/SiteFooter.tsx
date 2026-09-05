@@ -1,8 +1,11 @@
 import { localeHref, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { Icons } from "./Icons";
 import LaunchNotice from "./LaunchNotice";
 import WolfMark from "./WolfMark";
 import styles from "./SiteFooter.module.css";
+
+const DISCORD_URL = "https://dc.alfahost.eu";
 
 type Props = {
   locale: Locale;
@@ -23,9 +26,20 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
           </a>
           <p>{t.about}</p>
           <LaunchNotice locale={locale} t={launchT} />
-          <a className={styles.mail} href="mailto:support@alfahost.eu">
-            support@alfahost.eu
-          </a>
+          <div className={styles.contacts}>
+            <a className={styles.mail} href="mailto:support@alfahost.eu">
+              support@alfahost.eu
+            </a>
+            <a
+              className={styles.discord}
+              href={DISCORD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {Icons.discord}
+              <span>{t.discord}</span>
+            </a>
+          </div>
         </div>
 
         <div className={styles.cols}>
@@ -57,6 +71,11 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
               </li>
               <li>
                 <a href="mailto:support@alfahost.eu">{t.contact}</a>
+              </li>
+              <li>
+                <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
+                  {t.discord}
+                </a>
               </li>
             </ul>
           </div>

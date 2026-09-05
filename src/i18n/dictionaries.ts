@@ -120,6 +120,7 @@ export type Dictionary = {
     why: string;
     faq: string;
     contact: string;
+    discord: string;
     rights: string;
   };
   launch: {
@@ -514,6 +515,7 @@ const en: Dictionary = {
     why: "Why AlfaHost",
     faq: "FAQ",
     contact: "Contact",
+    discord: "Discord",
     rights: "All rights reserved.",
   },
   launch: {
@@ -918,6 +920,7 @@ const pl: Dictionary = {
     why: "Dlaczego AlfaHost",
     faq: "FAQ",
     contact: "Kontakt",
+    discord: "Discord",
     rights: "Wszelkie prawa zastrzeżone.",
   },
   launch: {
@@ -1322,6 +1325,7 @@ const ru: Dictionary = {
     why: "Почему AlfaHost",
     faq: "FAQ",
     contact: "Контакты",
+    discord: "Discord",
     rights: "Все права защищены.",
   },
   launch: {
