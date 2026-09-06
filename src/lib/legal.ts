@@ -136,12 +136,12 @@ function privacy(locale: Locale): LegalDocument {
         {
           heading: "3. Odbiorcy danych",
           paragraphs: [
-            "Dane mogą być przekazywane podmiotom przetwarzającym je w naszym imieniu, wyłącznie w zakresie niezbędnym:",
+            "Dane mogą być przekazywane zaufanym podmiotom przetwarzającym je w naszym imieniu, wyłącznie w zakresie niezbędnym do działania Serwisu:",
           ],
           list: [
-            "Dostawca poczty (Mailcow / mail.alfahost.eu) – wysyłka wiadomości systemowych",
-            "Dostawca Cap captcha (captcha.buchy.pl) – weryfikacja antybotowa",
-            "Dostawca hostingu i infrastruktury API – utrzymanie serwisu",
+            "dostawca poczty elektronicznej – wysyłka wiadomości systemowych",
+            "dostawca weryfikacji antybotowej (captcha) – ochrona formularzy",
+            "dostawcy hostingu i infrastruktury technicznej – utrzymanie Serwisu",
           ],
         },
         {
@@ -215,11 +215,13 @@ function privacy(locale: Locale): LegalDocument {
         },
         {
           heading: "3. Получатели данных",
-          paragraphs: ["Данные могут передаваться обработчикам только в необходимом объёме:"],
+          paragraphs: [
+            "Данные могут передаваться доверенным обработчикам только в объёме, необходимом для работы Сервиса:",
+          ],
           list: [
-            "Почтовый сервис (Mailcow / mail.alfahost.eu)",
-            "Сервис Cap captcha (captcha.buchy.pl)",
-            "Хостинг и инфраструктура API",
+            "провайдер электронной почты — системные уведомления",
+            "провайдер антибот-проверки (captcha) — защита форм",
+            "провайдеры хостинга и технической инфраструктуры — поддержка Сервиса",
           ],
         },
         {
@@ -291,12 +293,12 @@ function privacy(locale: Locale): LegalDocument {
       {
         heading: "3. Recipients",
         paragraphs: [
-          "Data may be shared with processors acting on our behalf, only as needed:",
+          "Data may be shared with trusted processors acting on our behalf, only as needed to operate the Service:",
         ],
         list: [
-          "Email provider (Mailcow / mail.alfahost.eu)",
-          "Cap captcha provider (captcha.buchy.pl)",
-          "Hosting and API infrastructure providers",
+          "email service provider – system notifications",
+          "anti-bot verification (captcha) provider – form protection",
+          "hosting and technical infrastructure providers – service operations",
         ],
       },
       {

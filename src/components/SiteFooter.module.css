@@ -43,18 +43,8 @@
   margin-bottom: 1.1rem;
 }
 
-.contacts {
-  display: grid;
-  gap: 0.65rem;
-  justify-items: start;
-}
-
-.mail,
-.discord {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 1.5rem;
+.mail {
+  display: inline-block;
   font-family: var(--font-display);
   font-size: 0.95rem;
   letter-spacing: 0.08em;
@@ -67,16 +57,9 @@
     border-bottom-color 0.15s ease;
 }
 
-.mail:hover,
-.discord:hover {
+.mail:hover {
   color: #fff;
   border-bottom-color: var(--red-hot);
-}
-
-.discord svg {
-  flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
 }
 
 .cols {

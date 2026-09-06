@@ -1,6 +1,5 @@
 import { localeHref, localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { Icons } from "./Icons";
 import LaunchNotice from "./LaunchNotice";
 import WolfMark from "./WolfMark";
 import styles from "./SiteFooter.module.css";
@@ -26,20 +25,9 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
           </a>
           <p>{t.about}</p>
           <LaunchNotice locale={locale} t={launchT} />
-          <div className={styles.contacts}>
-            <a className={styles.mail} href="mailto:support@alfahost.eu">
-              support@alfahost.eu
-            </a>
-            <a
-              className={styles.discord}
-              href={DISCORD_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {Icons.discord}
-              <span>dc.alfahost.eu</span>
-            </a>
-          </div>
+          <a className={styles.mail} href="mailto:support@alfahost.eu">
+            support@alfahost.eu
+          </a>
         </div>
 
         <div className={styles.cols}>
