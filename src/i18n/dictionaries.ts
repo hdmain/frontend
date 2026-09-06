@@ -113,6 +113,7 @@ export type Dictionary = {
     about: string;
     products: string;
     company: string;
+    legal: string;
     gameServers: string;
     vps: string;
     dedicated: string;
@@ -121,6 +122,9 @@ export type Dictionary = {
     faq: string;
     contact: string;
     discord: string;
+    privacy: string;
+    terms: string;
+    cookies: string;
     rights: string;
   };
   launch: {
@@ -132,6 +136,16 @@ export type Dictionary = {
       body: string;
       cta: string;
     };
+  };
+  legal: {
+    updated: string;
+  };
+  cookies: {
+    title: string;
+    body: string;
+    accept: string;
+    policyLink: string;
+    privacyLink: string;
   };
   comingSoon: {
     metaTitle: string;
@@ -152,6 +166,8 @@ export type Dictionary = {
       error: string;
       captchaError: string;
       emailError: string;
+      consentLabel: string;
+      consentError: string;
     };
     contactLabel: string;
     backHome: string;
@@ -508,6 +524,7 @@ const en: Dictionary = {
       "AlfaHost delivers premium game hosting, VPS and dedicated servers with anti-DDoS included on every plan.",
     products: "Products",
     company: "Company",
+    legal: "Legal",
     gameServers: "Game servers",
     vps: "VPS",
     dedicated: "Dedicated",
@@ -516,7 +533,20 @@ const en: Dictionary = {
     faq: "FAQ",
     contact: "Contact",
     discord: "Discord",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
+    cookies: "Cookie Policy",
     rights: "All rights reserved.",
+  },
+  legal: {
+    updated: "Last updated",
+  },
+  cookies: {
+    title: "Cookies & privacy",
+    body: "We use necessary technologies to run the site securely (including preferences and captcha). No marketing trackers are used.",
+    accept: "Got it",
+    policyLink: "Cookie Policy",
+    privacyLink: "Privacy Policy",
   },
   launch: {
     notice:
@@ -557,6 +587,9 @@ const en: Dictionary = {
       captchaError: "Please complete the security verification.",
       emailError:
         "Please enter a valid email address (e.g. name@example.com).",
+      consentLabel:
+        "I agree to the processing of my email address for waitlist registration and launch notifications, as described in the Privacy Policy.",
+      consentError: "Please accept the privacy notice to continue.",
     },
     contactLabel: "Contact support",
     backHome: "Return to homepage",
@@ -913,6 +946,7 @@ const pl: Dictionary = {
       "AlfaHost oferuje hosting gier, VPS i serwery dedykowane z anty-DDoS w każdym planie.",
     products: "Produkty",
     company: "Firma",
+    legal: "Informacje prawne",
     gameServers: "Serwery gier",
     vps: "VPS",
     dedicated: "Dedykowane",
@@ -921,7 +955,20 @@ const pl: Dictionary = {
     faq: "FAQ",
     contact: "Kontakt",
     discord: "Discord",
+    privacy: "Polityka prywatności",
+    terms: "Regulamin",
+    cookies: "Polityka cookies",
     rights: "Wszelkie prawa zastrzeżone.",
+  },
+  legal: {
+    updated: "Ostatnia aktualizacja",
+  },
+  cookies: {
+    title: "Cookies i prywatność",
+    body: "Stosujemy niezbędne technologie do bezpiecznego działania strony (preferencje i captcha). Nie używamy trackerów marketingowych.",
+    accept: "Rozumiem",
+    policyLink: "Polityka cookies",
+    privacyLink: "Polityka prywatności",
   },
   launch: {
     notice:
@@ -962,6 +1009,9 @@ const pl: Dictionary = {
       captchaError: "Uzupełnij weryfikację bezpieczeństwa.",
       emailError:
         "Podaj prawidłowy adres e-mail (np. imię@domena.pl).",
+      consentLabel:
+        "Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu zapisu na listę oczekujących oraz powiadomień o starcie usług, zgodnie z Polityką prywatności.",
+      consentError: "Aby kontynuować, zaakceptuj informację o prywatności.",
     },
     contactLabel: "Skontaktuj się ze wsparciem",
     backHome: "Powrót do strony głównej",
@@ -1318,6 +1368,7 @@ const ru: Dictionary = {
       "AlfaHost предоставляет игровой хостинг, VPS и выделенные серверы с anti-DDoS в каждом тарифе.",
     products: "Продукты",
     company: "Компания",
+    legal: "Правовая информация",
     gameServers: "Игровые серверы",
     vps: "VPS",
     dedicated: "Выделенные",
@@ -1326,7 +1377,20 @@ const ru: Dictionary = {
     faq: "FAQ",
     contact: "Контакты",
     discord: "Discord",
+    privacy: "Политика конфиденциальности",
+    terms: "Условия использования",
+    cookies: "Политика cookie",
     rights: "Все права защищены.",
+  },
+  legal: {
+    updated: "Последнее обновление",
+  },
+  cookies: {
+    title: "Cookie и конфиденциальность",
+    body: "Мы используем необходимые технологии для безопасной работы сайта (предпочтения и captcha). Маркетинговые трекеры не применяются.",
+    accept: "Понятно",
+    policyLink: "Политика cookie",
+    privacyLink: "Политика конфиденциальности",
   },
   launch: {
     notice:
@@ -1366,6 +1430,9 @@ const ru: Dictionary = {
       captchaError: "Пройдите проверку безопасности.",
       emailError:
         "Укажите корректный адрес электронной почты (например, имя@example.com).",
+      consentLabel:
+        "Я согласен(на) на обработку адреса электронной почты для регистрации в списке ожидания и уведомлений о запуске в соответствии с Политикой конфиденциальности.",
+      consentError: "Чтобы продолжить, примите уведомление о конфиденциальности.",
     },
     contactLabel: "Связаться с поддержкой",
     backHome: "На главную страницу",

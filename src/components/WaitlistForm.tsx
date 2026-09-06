@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Locale } from "@/i18n/config";
+import { localePath } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { capEndpoint } from "@/lib/cap";
 import { isValidEmail } from "@/lib/email";
@@ -13,9 +14,16 @@ type Props = {
   t: Dictionary["comingSoon"]["waitlist"];
 };
 
+function privacyLabel(locale: Locale): string {
+  if (locale === "pl") return "Polityka prywatności";
+  if (locale === "ru") return "Политика конфиденциальности";
+  return "Privacy Policy";
+}
+
 export default function WaitlistForm({ locale, t }: Props) {
   const [widgetKey, setWidgetKey] = useState(0);
   const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle",
   );
@@ -36,6 +44,13 @@ export default function WaitlistForm({ locale, t }: Props) {
       setStatus("error");
       setEmailInvalid(true);
       setMessage(t.emailError);
+      return;
+    }
+
+    if (!consent) {
+      setStatus("error");
+      setEmailInvalid(false);
+      setMessage(t.consentError);
       return;
     }
 
@@ -60,6 +75,7 @@ export default function WaitlistForm({ locale, t }: Props) {
       setStatus("success");
       setMessage(result.existing ? t.duplicate : t.success);
       setEmail("");
+      setConsent(false);
       setWidgetKey((key) => key + 1);
       return;
     }
@@ -112,7 +128,9 @@ export default function WaitlistForm({ locale, t }: Props) {
             }}
             disabled={status === "loading"}
             aria-invalid={emailInvalid}
-            aria-describedby={message && emailInvalid ? "waitlist-email-error" : undefined}
+            aria-describedby={
+              message && emailInvalid ? "waitlist-email-error" : undefined
+            }
           />
         </div>
 
@@ -123,6 +141,26 @@ export default function WaitlistForm({ locale, t }: Props) {
             data-cap-api-endpoint={capEndpoint()}
           />
         </div>
+
+        <label className={styles.consent}>
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={(event) => {
+              setConsent(event.target.checked);
+              if (status === "error" && message === t.consentError) {
+                setStatus("idle");
+                setMessage("");
+              }
+            }}
+            disabled={status === "loading"}
+            required
+          />
+          <span>
+            {t.consentLabel}{" "}
+            <a href={localePath(locale, "privacy")}>{privacyLabel(locale)}</a>
+          </span>
+        </label>
 
         <button
           type="submit"

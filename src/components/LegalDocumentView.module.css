@@ -1,0 +1,61 @@
+.article {
+  --legal-text: #ececec;
+  --legal-muted: #b8b8b8;
+  max-width: 42rem;
+  display: grid;
+  gap: 2rem;
+  padding: 3rem 0 4.5rem;
+}
+
+.head {
+  display: grid;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--legal-text);
+}
+
+.updated {
+  font-size: 0.9rem;
+  color: var(--legal-muted);
+}
+
+.section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--legal-text);
+}
+
+.p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--legal-muted);
+}
+
+.list {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.15rem;
+  color: var(--legal-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.list li {
+  list-style: disc;
+}

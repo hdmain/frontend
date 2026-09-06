@@ -43,6 +43,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: { languages: langAlternates(`offer/${slug}`) },
       });
     }
+
+    for (const legal of ["privacy", "terms", "cookies"] as const) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/${legal}/`,
+        lastModified: new Date(),
+        changeFrequency: "yearly",
+        priority: 0.3,
+        alternates: { languages: langAlternates(legal) },
+      });
+    }
   }
 
   return entries;

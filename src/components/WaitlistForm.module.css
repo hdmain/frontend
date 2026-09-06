@@ -106,6 +106,33 @@
   box-shadow: none;
 }
 
+.consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.7rem;
+  align-items: start;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--cs-muted);
+}
+
+.consent input {
+  margin-top: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--red);
+}
+
+.consent a {
+  color: var(--cs-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.consent a:hover {
+  color: var(--red-hot);
+}
+
 .message {
   font-size: 0.9375rem;
   line-height: 1.65;

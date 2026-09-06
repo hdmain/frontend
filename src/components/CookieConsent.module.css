@@ -1,0 +1,72 @@
+.banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.inner {
+  pointer-events: auto;
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.15rem 1.25rem;
+  background: #121212;
+  border: 1px solid rgba(242, 242, 242, 0.16);
+  border-left: 3px solid var(--red);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.copy {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red-hot);
+}
+
+.body {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #b8b8b8;
+}
+
+.body a {
+  color: #ececec;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.body a:hover {
+  color: var(--red-hot);
+}
+
+.btn {
+  justify-self: start;
+  min-height: 2.75rem;
+  padding-inline: 1.25rem;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 720px) {
+  .inner {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .btn {
+    justify-self: end;
+  }
+}

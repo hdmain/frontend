@@ -118,9 +118,15 @@
   color: var(--dim);
 }
 
+@media (min-width: 640px) {
+  .cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (min-width: 900px) {
   .inner {
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1.2fr 1.4fr;
     gap: 4rem;
   }
 }

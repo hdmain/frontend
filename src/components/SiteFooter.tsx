@@ -1,4 +1,4 @@
-import { localeHref, type Locale } from "@/i18n/config";
+import { localeHref, localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Icons } from "./Icons";
 import LaunchNotice from "./LaunchNotice";
@@ -76,6 +76,20 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
                 <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
                   {t.discord}
                 </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>{t.legal}</h2>
+            <ul>
+              <li>
+                <a href={localePath(locale, "privacy")}>{t.privacy}</a>
+              </li>
+              <li>
+                <a href={localePath(locale, "terms")}>{t.terms}</a>
+              </li>
+              <li>
+                <a href={localePath(locale, "cookies")}>{t.cookies}</a>
               </li>
             </ul>
           </div>
