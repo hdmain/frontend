@@ -1,17 +1,29 @@
 import type { Locale } from "@/i18n/config";
 
-/** Fill via env before go-live — required for full EU imprint compliance. */
+/** Controller and covered properties — override address/NIP via env when available. */
 export const legalEntity = {
   brand: "AlfaHost",
   website: "https://alfahost.eu",
+  panel: "https://cp.alfahost.eu",
   email: "support@alfahost.eu",
-  name:
-    process.env.NEXT_PUBLIC_LEGAL_NAME?.trim() ||
-    "AlfaHost (dane administratora dostępne pod adresem e-mail)",
+  name: process.env.NEXT_PUBLIC_LEGAL_NAME?.trim() || "Tomasz Wiśniewski",
   address: process.env.NEXT_PUBLIC_LEGAL_ADDRESS?.trim() || "",
   nip: process.env.NEXT_PUBLIC_LEGAL_NIP?.trim() || "",
   country: "Poland / EU",
 };
+
+/** Public sites covered by these policies. */
+export const coveredServices = ["alfahost.eu", "cp.alfahost.eu"] as const;
+
+function servicesPhrase(locale: Locale): string {
+  if (locale === "pl") {
+    return "serwisów alfahost.eu oraz cp.alfahost.eu (panel klienta)";
+  }
+  if (locale === "ru") {
+    return "сервисов alfahost.eu и cp.alfahost.eu (панель клиента)";
+  }
+  return "the alfahost.eu website and cp.alfahost.eu (client panel)";
+}
 
 export const CONSENT_STORAGE_KEY = "alfahost-cookie-consent";
 export const CONSENT_VERSION = "1";
@@ -95,10 +107,10 @@ function entityLines(locale: Locale): string[] {
   );
   lines.push(
     locale === "pl"
-      ? `Strona: ${legalEntity.website}`
+      ? `Serwisy: ${legalEntity.website}, ${legalEntity.panel}`
       : locale === "ru"
-        ? `Сайт: ${legalEntity.website}`
-        : `Website: ${legalEntity.website}`,
+        ? `Сервисы: ${legalEntity.website}, ${legalEntity.panel}`
+        : `Services: ${legalEntity.website}, ${legalEntity.panel}`,
   );
   return lines;
 }
@@ -110,14 +122,14 @@ function privacy(locale: Locale): LegalDocument {
       id: "privacy",
       metaTitle: "Polityka prywatności | AlfaHost",
       metaDescription:
-        "Informacje o przetwarzaniu danych osobowych zgodnie z RODO na stronie AlfaHost.",
+        "Informacje o przetwarzaniu danych osobowych zgodnie z RODO w serwisach AlfaHost (alfahost.eu, cp.alfahost.eu).",
       title: "Polityka prywatności",
       updated: "5 września 2026",
       sections: [
         {
           heading: "1. Administrator danych",
           paragraphs: [
-            "Administratorem danych osobowych przetwarzanych w związku z korzystaniem z serwisu alfahost.eu jest:",
+            `Administratorem danych osobowych przetwarzanych w związku z korzystaniem z ${servicesPhrase("pl")} jest:`,
             ...entity,
           ],
         },
@@ -190,14 +202,14 @@ function privacy(locale: Locale): LegalDocument {
       id: "privacy",
       metaTitle: "Политика конфиденциальности | AlfaHost",
       metaDescription:
-        "Информация об обработке персональных данных в соответствии с GDPR на сайте AlfaHost.",
+        "Информация об обработке персональных данных в соответствии с GDPR в сервисах AlfaHost (alfahost.eu, cp.alfahost.eu).",
       title: "Политика конфиденциальности",
       updated: "5 сентября 2026",
       sections: [
         {
           heading: "1. Контроллер данных",
           paragraphs: [
-            "Контроллером персональных данных, обрабатываемых при использовании сервиса alfahost.eu, является:",
+            `Контроллером персональных данных, обрабатываемых при использовании ${servicesPhrase("ru")}, является:`,
             ...entity,
           ],
         },
@@ -267,14 +279,14 @@ function privacy(locale: Locale): LegalDocument {
     id: "privacy",
     metaTitle: "Privacy Policy | AlfaHost",
     metaDescription:
-      "How AlfaHost processes personal data in line with the GDPR / EU data protection rules.",
+      "How AlfaHost processes personal data under the GDPR for alfahost.eu and cp.alfahost.eu.",
     title: "Privacy Policy",
     updated: "5 September 2026",
     sections: [
       {
         heading: "1. Data controller",
         paragraphs: [
-          "The controller of personal data processed in connection with alfahost.eu is:",
+          `The controller of personal data processed in connection with ${servicesPhrase("en")} is:`,
           ...entity,
         ],
       },
@@ -347,7 +359,7 @@ function cookies(locale: Locale): LegalDocument {
       id: "cookies",
       metaTitle: "Polityka cookies | AlfaHost",
       metaDescription:
-        "Informacje o plikach cookie i podobnych technologiach stosowanych na alfahost.eu.",
+        "Informacje o plikach cookie i podobnych technologiach stosowanych w serwisach AlfaHost.",
       title: "Polityka cookies",
       updated: "5 września 2026",
       sections: [
@@ -360,7 +372,7 @@ function cookies(locale: Locale): LegalDocument {
         {
           heading: "2. Jakie technologie wykorzystujemy",
           paragraphs: [
-            "Obecnie nie stosujemy marketingowych ani analitycznych plików cookie stron trzecich. Korzystamy wyłącznie z technologii niezbędnych lub funkcjonalnych:",
+            `Niniejsza polityka dotyczy ${servicesPhrase("pl")}. Obecnie nie stosujemy marketingowych ani analitycznych plików cookie stron trzecich. Korzystamy wyłącznie z technologii niezbędnych lub funkcjonalnych:`,
           ],
           list: [
             "localStorage – zapis preferencji języka/waluty oraz statusu zgody na cookies",
@@ -393,7 +405,7 @@ function cookies(locale: Locale): LegalDocument {
     return {
       id: "cookies",
       metaTitle: "Политика cookie | AlfaHost",
-      metaDescription: "Информация о cookie и аналогичных технологиях на alfahost.eu.",
+      metaDescription: "Информация о cookie и аналогичных технологиях в сервисах AlfaHost.",
       title: "Политика cookie",
       updated: "5 сентября 2026",
       sections: [
@@ -406,7 +418,7 @@ function cookies(locale: Locale): LegalDocument {
         {
           heading: "2. Какие технологии мы используем",
           paragraphs: [
-            "Мы не используем маркетинговые или аналитические cookie третьих сторон. Только необходимые/функциональные технологии:",
+            `Настоящая политика распространяется на ${servicesPhrase("ru")}. Мы не используем маркетинговые или аналитические cookie третьих сторон. Только необходимые/функциональные технологии:`,
           ],
           list: [
             "localStorage — язык, валюта, статус согласия",
@@ -438,7 +450,7 @@ function cookies(locale: Locale): LegalDocument {
   return {
     id: "cookies",
     metaTitle: "Cookie Policy | AlfaHost",
-    metaDescription: "How alfahost.eu uses cookies and similar technologies.",
+    metaDescription: "How AlfaHost uses cookies and similar technologies.",
     title: "Cookie Policy",
     updated: "5 September 2026",
     sections: [
@@ -451,7 +463,7 @@ function cookies(locale: Locale): LegalDocument {
       {
         heading: "2. Technologies we use",
         paragraphs: [
-          "We do not currently use third-party marketing or analytics cookies. We only use necessary or functional technologies:",
+          `This policy covers ${servicesPhrase("en")}. We do not currently use third-party marketing or analytics cookies. We only use necessary or functional technologies:`,
         ],
         list: [
           "localStorage – language/currency preferences and cookie-consent status",
@@ -487,15 +499,15 @@ function terms(locale: Locale): LegalDocument {
       id: "terms",
       metaTitle: "Regulamin | AlfaHost",
       metaDescription:
-        "Regulamin korzystania z serwisu alfahost.eu oraz listy oczekujących.",
+        "Regulamin korzystania z serwisów AlfaHost, w tym panelu klienta i listy oczekujących.",
       title: "Regulamin serwisu",
       updated: "5 września 2026",
       sections: [
         {
           heading: "1. Postanowienia ogólne",
           paragraphs: [
-            `Serwis internetowy alfahost.eu („Serwis”) prowadzony jest przez ${legalEntity.name}. Kontakt: ${legalEntity.email}.`,
-            "Niniejszy regulamin określa zasady korzystania z Serwisu, w tym z formularza listy oczekujących, w okresie przed uruchomieniem sprzedaży usług hostingowych.",
+            `Serwisy internetowe alfahost.eu oraz cp.alfahost.eu (panel klienta), łącznie „Serwis”, prowadzone są przez ${legalEntity.name}. Kontakt: ${legalEntity.email}.`,
+            "Niniejszy regulamin określa zasady korzystania z Serwisu, w tym z formularza listy oczekujących oraz panelu klienta, w okresie przed uruchomieniem sprzedaży usług hostingowych oraz po jego uruchomieniu w zakresie korzystania z panelu.",
           ],
         },
         {
@@ -548,15 +560,15 @@ function terms(locale: Locale): LegalDocument {
     return {
       id: "terms",
       metaTitle: "Условия использования | AlfaHost",
-      metaDescription: "Условия использования сайта alfahost.eu и списка ожидания.",
+      metaDescription: "Условия использования сервисов AlfaHost, включая панель клиента.",
       title: "Условия использования",
       updated: "5 сентября 2026",
       sections: [
         {
           heading: "1. Общие положения",
           paragraphs: [
-            `Сайт alfahost.eu («Сервис») поддерживается ${legalEntity.name}. Контакт: ${legalEntity.email}.`,
-            "Настоящие условия регулируют использование Сервиса, включая форму списка ожидания, до запуска продаж.",
+            `Сервисы alfahost.eu и cp.alfahost.eu (панель клиента), совместно «Сервис», поддерживаются ${legalEntity.name}. Контакт: ${legalEntity.email}.`,
+            "Настоящие условия регулируют использование Сервиса, включая форму списка ожидания и панель клиента, до запуска продаж и после запуска в части использования панели.",
           ],
         },
         {
@@ -608,15 +620,15 @@ function terms(locale: Locale): LegalDocument {
   return {
     id: "terms",
     metaTitle: "Terms of Use | AlfaHost",
-    metaDescription: "Terms of use for alfahost.eu and the waitlist.",
+    metaDescription: "Terms of use for AlfaHost services, including the client panel.",
     title: "Terms of Use",
     updated: "5 September 2026",
     sections: [
       {
         heading: "1. General",
         paragraphs: [
-          `The website alfahost.eu (“Service”) is operated by ${legalEntity.name}. Contact: ${legalEntity.email}.`,
-          "These terms govern use of the Service, including the waitlist form, before hosting sales are launched.",
+          `The websites alfahost.eu and cp.alfahost.eu (client panel), together the “Service”, are operated by ${legalEntity.name}. Contact: ${legalEntity.email}.`,
+          "These terms govern use of the Service, including the waitlist form and the client panel, before hosting sales are launched and after launch insofar as the panel is used.",
         ],
       },
       {
