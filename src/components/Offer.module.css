@@ -49,13 +49,22 @@
   gap: 1.5rem;
   min-height: 17.5rem;
   padding: 1.25rem;
-  background-color: #1a1a1a;
+  background-color: var(--panel-2);
   border: 1px solid var(--line);
   border-left: 3px solid var(--red);
   overflow: hidden;
   transition:
     border-color 0.15s ease,
     transform 0.2s var(--ease);
+}
+
+.cardUnavailable .cardMedia::after {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 7, 0.28) 0%,
+    rgba(7, 7, 7, 0.48) 48%,
+    rgba(7, 7, 7, 0.88) 100%
+  );
 }
 
 .card:hover {
@@ -67,7 +76,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-color: #1a1a1a;
+  background-color: var(--panel-2);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -135,6 +144,38 @@
   text-transform: uppercase;
   color: #fff;
   text-align: center;
+}
+
+.available,
+.unavailable {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 1.6rem;
+  padding: 0.25rem 0.55rem;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.available {
+  color: #fff;
+  background: var(--red-deep);
+}
+
+.unavailable {
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(40, 40, 40, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.disabledCta {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: rgba(255, 255, 255, 0.68) !important;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .card h3 {

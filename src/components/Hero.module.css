@@ -21,6 +21,11 @@
     radial-gradient(70% 50% at 85% 30%, rgba(53, 0, 94, 0.22), transparent 65%);
 }
 
+:global(:root[data-theme="light"]) .auroraWrap {
+  opacity: 0.3;
+  background: radial-gradient(90% 60% at 20% 10%, rgba(189, 16, 38, 0.1), transparent 60%);
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -28,6 +33,10 @@
   background: linear-gradient(125deg, transparent 40%, rgba(196, 0, 26, 0.12) 100%);
   pointer-events: none;
   z-index: 0;
+}
+
+:global(:root[data-theme="light"]) .hero::after {
+  background: linear-gradient(125deg, transparent 40%, rgba(189, 16, 38, 0.04) 100%);
 }
 
 .layout {
@@ -212,8 +221,7 @@
 
 @media (min-width: 960px) {
   .hero {
-    position: sticky;
-    top: var(--nav-h);
+    position: relative;
     justify-content: center;
     min-height: calc(100svh - var(--nav-h));
     padding-block: 2.5rem;

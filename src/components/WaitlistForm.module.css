@@ -1,9 +1,9 @@
 .card {
-  --cs-text: #ececec;
-  --cs-muted: #b8b8b8;
-  --cs-dim: #8a8a8a;
-  --cs-surface: #121212;
-  --cs-border: rgba(242, 242, 242, 0.16);
+  --cs-text: var(--text);
+  --cs-muted: var(--muted);
+  --cs-dim: var(--dim);
+  --cs-surface: var(--black);
+  --cs-border: var(--line);
 
   display: grid;
   gap: 1.5rem;
@@ -11,6 +11,7 @@
   background: var(--cs-surface);
   border: 1px solid var(--cs-border);
   border-left: 3px solid var(--red);
+  box-shadow: var(--surface-shadow);
 }
 
 .head {
@@ -57,7 +58,7 @@
   width: 100%;
   min-height: 3rem;
   padding: 0.8rem 1rem;
-  background: #0e0e0e;
+  background: var(--void);
   border: 1px solid var(--cs-border);
   color: var(--cs-text);
   font: inherit;
@@ -83,15 +84,15 @@
 }
 
 .captcha cap-widget {
-  --cap-background: #0e0e0e;
-  --cap-border-color: rgba(242, 242, 242, 0.16);
+  --cap-background: var(--void);
+  --cap-border-color: var(--line);
   --cap-border-radius: 0;
-  --cap-color: #ececec;
-  --cap-checkbox-background: #161616;
-  --cap-checkbox-border: 1px solid rgba(242, 242, 242, 0.2);
+  --cap-color: var(--text);
+  --cap-checkbox-background: var(--panel-2);
+  --cap-checkbox-border: 1px solid var(--line);
   --cap-checkbox-border-radius: 0;
   --cap-spinner-color: #e30928;
-  --cap-spinner-background-color: #2a2a2a;
+  --cap-spinner-background-color: var(--panel-2);
   --cap-font: var(--font-sans), system-ui, sans-serif;
 }
 

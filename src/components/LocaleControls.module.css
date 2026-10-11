@@ -38,13 +38,13 @@
 .select:hover,
 .select:focus-visible {
   border-color: var(--red);
-  color: #fff;
+  color: var(--text);
   outline: none;
 }
 
 .select option {
-  background: #111;
-  color: #fff;
+  background: var(--panel);
+  color: var(--text);
 }
 
 @media (min-width: 640px) {

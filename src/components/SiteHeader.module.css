@@ -1,9 +1,9 @@
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 50;
-  background: rgba(7, 7, 7, 0.94);
-  border-bottom: 2px solid var(--red);
+  background: color-mix(in srgb, var(--black) 94%, transparent);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.08);
 }
 
 .inner {
@@ -72,6 +72,24 @@
   align-items: center;
   gap: 0.45rem;
   flex-shrink: 0;
+}
+
+.themeToggle {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--text);
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.themeToggle:hover {
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--panel);
 }
 
 .desktopLocale {

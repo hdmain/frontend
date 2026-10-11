@@ -11,6 +11,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { useSyncCurrencyLocale } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import LocaleControls from "./LocaleControls";
+import ThemeToggle from "./ThemeToggle";
 import WolfMark from "./WolfMark";
 import styles from "./SiteHeader.module.css";
 
@@ -66,6 +67,7 @@ export default function SiteHeader({ locale, t, path }: Props) {
               path={path}
             />
           </div>
+          <ThemeToggle locale={locale} />
           <a className={styles.panel} href={panelHref}>
             {t.panel}
           </a>

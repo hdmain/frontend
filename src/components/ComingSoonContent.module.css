@@ -1,9 +1,9 @@
 .section {
-  --cs-text: #ececec;
-  --cs-muted: #b8b8b8;
-  --cs-dim: #8a8a8a;
-  --cs-surface: #121212;
-  --cs-border: rgba(242, 242, 242, 0.16);
+  --cs-text: var(--text);
+  --cs-muted: var(--muted);
+  --cs-dim: var(--dim);
+  --cs-surface: var(--black);
+  --cs-border: var(--line);
 
   min-height: calc(100vh - var(--nav-h) - 4rem);
   display: grid;
@@ -11,6 +11,12 @@
   padding: 2.5rem 0 3.5rem;
   background:
     radial-gradient(ellipse 80% 50% at 50% 0%, rgba(196, 0, 26, 0.08), transparent),
+    var(--black);
+}
+
+:global(:root[data-theme="light"]) .section {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(189, 16, 38, 0.045), transparent),
     var(--black);
 }
 

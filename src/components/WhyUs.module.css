@@ -25,6 +25,7 @@
   background: var(--black);
   border: 1px solid var(--line);
   border-top: 3px solid var(--red);
+  box-shadow: var(--surface-shadow);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
 }
 

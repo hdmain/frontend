@@ -1,6 +1,6 @@
 .article {
-  --legal-text: #ececec;
-  --legal-muted: #b8b8b8;
+  --legal-text: var(--text);
+  --legal-muted: var(--muted);
   max-width: 42rem;
   display: grid;
   gap: 2rem;

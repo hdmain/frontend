@@ -20,6 +20,7 @@ import {
 
 export type PlanPrices = {
   slug: string;
+  available: boolean;
   standard: string;
   premium: string;
 };
@@ -37,6 +38,7 @@ const CurrencyContext = createContext<CurrencyContextValue | null>(null);
 type PricesResponse = {
   plans: Array<{
     slug: string;
+    available: boolean;
     formatted: {
       standard: Record<string, string>;
       premium: Record<string, string>;
@@ -69,6 +71,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
         for (const plan of data.plans ?? []) {
           map[plan.slug] = {
             slug: plan.slug,
+            available: plan.available,
             standard: plan.formatted.standard[currency] ?? "",
             premium: plan.formatted.premium[currency] ?? "",
           };

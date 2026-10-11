@@ -76,7 +76,7 @@
 
 .cut {
   height: var(--cut);
-  background: #050505;
+  background: var(--void);
   clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 

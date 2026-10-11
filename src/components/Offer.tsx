@@ -49,6 +49,8 @@ export default function Offer({ locale, t }: Props) {
 
         <div className={styles.grid}>
           {t.plans.map((plan) => {
+            const available =
+              currency?.prices[plan.slug]?.available ?? plan.available ?? false;
             const href = localePath(locale, `offer/${plan.slug}`);
             const live = currency?.prices[plan.slug];
             const amount = premium
@@ -57,7 +59,7 @@ export default function Offer({ locale, t }: Props) {
             return (
               <GlareHover
                 key={plan.slug}
-                className={styles.card}
+                className={`${styles.card} ${!available ? styles.cardUnavailable : ""}`}
                 width="100%"
                 height="auto"
                 background="transparent"
@@ -84,15 +86,20 @@ export default function Offer({ locale, t }: Props) {
                     <span className={styles.tag}>{plan.tag}</span>
                     <h3>{plan.name}</h3>
                   </div>
+                  <span className={available ? styles.available : styles.unavailable}>
+                    {available ? t.available : t.unavailable}
+                  </span>
                   <p className={styles.cardSummary}>{plan.summary}</p>
                   <dl className={styles.specs}>
-                    <div>
-                      <dt>{t.cpu}</dt>
-                      <dd>{plan.cpu}</dd>
-                    </div>
+                    {plan.cpu ? (
+                      <div>
+                        <dt>{t.cpu}</dt>
+                        <dd>{plan.cpu}</dd>
+                      </div>
+                    ) : null}
                     <div>
                       <dt>{t.ram}</dt>
-                      <dd>{premium ? "DDR5" : plan.ram}</dd>
+                      <dd>{premium && plan.slug !== "vps-nat" ? "DDR5" : plan.ram}</dd>
                     </div>
                     <div>
                       <dt>{t.disk}</dt>
@@ -106,9 +113,15 @@ export default function Offer({ locale, t }: Props) {
                     <span className={styles.amount}>{amount}</span>
                     <span className={styles.period}>{t.perMonth}</span>
                   </p>
-                  <a className={`btn btnPrimary ${styles.cta}`} href={href}>
-                    {t.goToOffer} {Icons.arrow}
-                  </a>
+                  {available ? (
+                    <a className={`btn btnPrimary ${styles.cta}`} href={href}>
+                      {t.goToOffer} {Icons.arrow}
+                    </a>
+                  ) : (
+                    <span className={`btn btnGhost ${styles.cta} ${styles.disabledCta}`}>
+                      {t.unavailable}
+                    </span>
+                  )}
                 </div>
               </GlareHover>
             );

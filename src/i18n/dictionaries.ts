@@ -4,6 +4,7 @@ export type OfferPlan = {
   name: string;
   /** Key under /offers/{slug}.jpg */
   slug: string;
+  available?: boolean;
   tag: string;
   cpu: string;
   ram: string;
@@ -81,6 +82,8 @@ export type Dictionary = {
     toggleAria: string;
     from: string;
     perMonth: string;
+    available: string;
+    unavailable: string;
     goToOffer: string;
     orderSubject: string;
     backToOffer: string;
@@ -315,6 +318,8 @@ const en: Dictionary = {
     toggleAria: "Toggle premium offer",
     from: "From",
     perMonth: "/mo",
+    available: "Available",
+    unavailable: "Currently unavailable",
     goToOffer: "Go to offer",
     orderSubject: "Order",
     backToOffer: "Back to offer",
@@ -392,8 +397,9 @@ const en: Dictionary = {
       {
         name: "Discord Bot",
         slug: "discord",
+        available: true,
         tag: "Bot",
-        cpu: "Ryzen 9 5950X",
+        cpu: "",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "9 zł",
@@ -414,6 +420,32 @@ const en: Dictionary = {
           "OS reinstall from panel",
           "Outbound network for Discord APIs",
           "Email support",
+        ],
+      },
+      {
+        name: "VPS NAT",
+        slug: "vps-nat",
+        available: true,
+        tag: "NAT",
+        cpu: "",
+        ram: "256 MB–1 GB",
+        disk: "5–10 GB",
+        price: "5 zł",
+        premiumPrice: "5 zł",
+        summary: "Affordable NAT VPS for lightweight services and private projects.",
+        description:
+          "A compact virtual server for small applications, test environments and services that do not require a dedicated public IPv4 address.",
+        idealFor: "Small services, development environments and private projects.",
+        highlights: [
+          "NAT network access",
+          "Up to 1 GB RAM",
+          "Up to 1 vCPU",
+          "Storage up to 10 GB",
+        ],
+        includes: [
+          "Root access",
+          "Anti-DDoS protection",
+          "Two compact configurations",
         ],
       },
       {
@@ -737,6 +769,8 @@ const pl: Dictionary = {
     toggleAria: "Przełącz ofertę premium",
     from: "Od",
     perMonth: "/mies.",
+    available: "Dostępne",
+    unavailable: "Obecnie niedostępne",
     goToOffer: "Przejdź do oferty",
     orderSubject: "Zamówienie",
     backToOffer: "Wróć do oferty",
@@ -814,8 +848,9 @@ const pl: Dictionary = {
       {
         name: "Bot Discord",
         slug: "discord",
+        available: true,
         tag: "Bot",
-        cpu: "Ryzen 9 5950X",
+        cpu: "",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "9 zł",
@@ -836,6 +871,32 @@ const pl: Dictionary = {
           "Reinstalacja OS z panelu",
           "Sieć wychodząca do API Discord",
           "Wsparcie mailowe",
+        ],
+      },
+      {
+        name: "VPS NAT",
+        slug: "vps-nat",
+        available: true,
+        tag: "NAT",
+        cpu: "",
+        ram: "256 MB–1 GB",
+        disk: "5–10 GB",
+        price: "5 zł",
+        premiumPrice: "5 zł",
+        summary: "Ekonomiczny VPS NAT do lekkich usług i prywatnych projektów.",
+        description:
+          "Kompaktowy serwer wirtualny pod małe aplikacje, środowiska testowe i usługi, które nie wymagają własnego publicznego adresu IPv4.",
+        idealFor: "Małe usługi, środowiska deweloperskie i prywatne projekty.",
+        highlights: [
+          "Dostęp do sieci przez NAT",
+          "Do 1 GB pamięci RAM",
+          "Do 1 vCPU",
+          "Dysk do 10 GB",
+        ],
+        includes: [
+          "Dostęp root",
+          "Ochrona anty-DDoS",
+          "Dwie kompaktowe konfiguracje",
         ],
       },
       {
@@ -1159,6 +1220,8 @@ const ru: Dictionary = {
     toggleAria: "Переключить премиум-тариф",
     from: "От",
     perMonth: "/мес.",
+    available: "Доступно",
+    unavailable: "Временно недоступно",
     goToOffer: "К тарифу",
     orderSubject: "Заказ",
     backToOffer: "Назад к тарифам",
@@ -1236,8 +1299,9 @@ const ru: Dictionary = {
       {
         name: "Discord Bot",
         slug: "discord",
+        available: true,
         tag: "Bot",
-        cpu: "Ryzen 9 5950X",
+        cpu: "",
         ram: "DDR4",
         disk: "NVMe SSD",
         price: "9 zł",
@@ -1258,6 +1322,32 @@ const ru: Dictionary = {
           "Переустановка ОС из панели",
           "Исходящая сеть к Discord API",
           "Поддержка по email",
+        ],
+      },
+      {
+        name: "VPS NAT",
+        slug: "vps-nat",
+        available: true,
+        tag: "NAT",
+        cpu: "",
+        ram: "256 MB–1 GB",
+        disk: "5–10 GB",
+        price: "5 zł",
+        premiumPrice: "5 zł",
+        summary: "Доступный VPS NAT для лёгких сервисов и личных проектов.",
+        description:
+          "Компактный виртуальный сервер для небольших приложений, тестовых сред и сервисов, которым не нужен собственный публичный IPv4-адрес.",
+        idealFor: "Небольшие сервисы, тестовые среды и личные проекты.",
+        highlights: [
+          "Доступ к сети через NAT",
+          "До 1 GB RAM",
+          "До 1 vCPU",
+          "Диск до 10 GB",
+        ],
+        includes: [
+          "Root-доступ",
+          "Защита от DDoS",
+          "Две компактные конфигурации",
         ],
       },
       {

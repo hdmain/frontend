@@ -5,7 +5,6 @@
   background: var(--void);
 }
 
-/* Scrolls over the sticky first screen on desktop */
 .stack {
   position: relative;
   z-index: 2;

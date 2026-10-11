@@ -12,12 +12,31 @@
   --dim: #6b6b6b;
   --line: rgba(242, 242, 242, 0.12);
   --line-red: rgba(196, 0, 26, 0.55);
+  --surface-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
   --max: 1160px;
   --nav-h: 4.25rem;
   --font-display: var(--font-oswald), "Oswald", Impact, "Arial Narrow", sans-serif;
   --font-sans: var(--font-plex), "IBM Plex Sans", system-ui, sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --cut: 28px;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --void: #f6f5f3;
+  --black: #ffffff;
+  --panel: #eeece9;
+  --panel-2: #f2f0ed;
+  --red: #bd1026;
+  --red-hot: #a90d21;
+  --red-deep: #850b1c;
+  --red-glow: rgba(189, 16, 38, 0.08);
+  --text: #202124;
+  --muted: #51545a;
+  --dim: #656970;
+  --line: rgba(32, 33, 36, 0.13);
+  --line-red: rgba(189, 16, 38, 0.38);
+  --surface-shadow: 0 14px 36px rgba(37, 30, 26, 0.08);
 }
 
 @media (min-width: 640px) {
@@ -65,6 +84,12 @@ body::before {
       rgba(255, 255, 255, 0.015) 46px,
       rgba(255, 255, 255, 0.015) 47px
     );
+}
+
+:root[data-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse 70% 45% at 85% -5%, var(--red-glow), transparent 58%),
+    radial-gradient(ellipse 50% 35% at 0% 100%, rgba(91, 103, 117, 0.035), transparent 55%);
 }
 
 img {

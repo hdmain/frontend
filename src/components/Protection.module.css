@@ -18,6 +18,7 @@
   border: 1px solid var(--line);
   border-top: 3px solid var(--red);
   background: var(--panel);
+  box-shadow: var(--surface-shadow);
   overflow: hidden;
 }
 

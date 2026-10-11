@@ -28,6 +28,7 @@ type ApiPackage = {
 
 type ApiOffer = {
   slug: string;
+  available: boolean;
   tag: string;
   cpu: string;
   name: string;
@@ -77,8 +78,16 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const title = offer?.name || plan.name;
   const summary = offer?.summary || plan.summary;
   const description = offer?.description || plan.description;
-  const cpu = offer?.cpu || plan.cpu;
+  // Prefer API value even when empty (e.g. Discord plans hide CPU model).
+  const cpu = offer ? (offer.cpu ?? "") : plan.cpu;
+  const available = offer?.available ?? plan.available ?? false;
   const packages = offer?.packages ?? [];
+  const formatRam = (ramGB: number) => {
+    if (plan.slug === "vps-nat") {
+      return ramGB < 1 ? `${Math.round(ramGB * 1024)} MB` : `${ramGB} GB`;
+    }
+    return `${ramGB} GB ${premium ? "DDR5" : "DDR4"}`;
+  };
 
   const packageOrderHref = (pkgName: string) => {
     if (isComingSoon()) return comingSoonPath(locale);
@@ -152,43 +161,57 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
                     <li>
                       <span>{t.cpu}</span>
                       <strong>
-                        {pkg.vcpu} {cpu}
+                        {cpu ? `${pkg.vcpu} ${cpu}` : pkg.vcpu}
                       </strong>
                     </li>
                     <li>
                       <span>{t.ram}</span>
-                      <strong>
-                        {pkg.ram_gb} GB {premium ? "DDR5" : "DDR4"}
-                      </strong>
+                      <strong>{formatRam(pkg.ram_gb)}</strong>
                     </li>
                     <li>
                       <span>{t.disk}</span>
-                      <strong>{pkg.disk_gb} GB NVMe</strong>
+                      <strong>
+                        {pkg.disk_gb} GB{plan.slug === "vps-nat" ? "" : " NVMe"}
+                      </strong>
                     </li>
-                    <li>
-                      <span>{t.backups}</span>
-                      <strong>{pkg.backups}</strong>
-                    </li>
-                    <li>
-                      <span>{t.databases}</span>
-                      <strong>{pkg.databases}</strong>
-                    </li>
-                    <li>
-                      <span>{t.ports}</span>
-                      <strong>{pkg.ports}</strong>
-                    </li>
+                    {pkg.backups > 0 ? (
+                      <li>
+                        <span>{t.backups}</span>
+                        <strong>{pkg.backups}</strong>
+                      </li>
+                    ) : null}
+                    {pkg.databases > 0 ? (
+                      <li>
+                        <span>{t.databases}</span>
+                        <strong>{pkg.databases}</strong>
+                      </li>
+                    ) : null}
+                    {pkg.ports > 0 ? (
+                      <li>
+                        <span>{t.ports}</span>
+                        <strong>{pkg.ports}</strong>
+                      </li>
+                    ) : null}
                     <li>
                       <span>{t.antiddos}</span>
                       <strong>✓</strong>
                     </li>
-                    <li>
-                      <span>{t.players}</span>
-                      <strong>{pkg.players}</strong>
-                    </li>
+                    {pkg.players && pkg.players !== "—" && pkg.players !== "-" ? (
+                      <li>
+                        <span>{t.players}</span>
+                        <strong>{pkg.players}</strong>
+                      </li>
+                    ) : null}
                   </ul>
-                  <a className={`btn btnPrimary ${styles.buy}`} href={orderHref}>
-                    {t.buyPackage} {Icons.arrow}
-                  </a>
+                  {available ? (
+                    <a className={`btn btnPrimary ${styles.buy}`} href={orderHref}>
+                      {t.buyPackage} {Icons.arrow}
+                    </a>
+                  ) : (
+                    <span className={`btn btnGhost ${styles.buy}`} aria-disabled="true">
+                      {t.unavailable}
+                    </span>
+                  )}
                 </article>
               );
             })}
@@ -196,9 +219,15 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
         ) : (
           <div className={styles.fallback}>
             <p>{description}</p>
-            <a className="btn btnPrimary" href={fallbackOrderHref}>
-              {t.orderNow} {Icons.arrow}
-            </a>
+            {available ? (
+              <a className="btn btnPrimary" href={fallbackOrderHref}>
+                {t.orderNow} {Icons.arrow}
+              </a>
+            ) : (
+              <span className="btn btnGhost" aria-disabled="true">
+                {t.unavailable}
+              </span>
+            )}
           </div>
         )}
       </div>

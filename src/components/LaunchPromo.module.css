@@ -5,9 +5,10 @@
   max-width: 34rem;
   margin-bottom: 1.5rem;
   padding: 1.15rem 1.2rem 1.2rem;
-  background: linear-gradient(135deg, rgba(196, 0, 26, 0.14), rgba(17, 17, 17, 0.95));
+  background: linear-gradient(135deg, var(--red-glow), var(--panel));
   border: 1px solid var(--line);
   border-left: 3px solid var(--red);
+  box-shadow: var(--surface-shadow);
   overflow-wrap: anywhere;
 }
 
