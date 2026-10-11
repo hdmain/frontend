@@ -99,6 +99,7 @@ export type Dictionary = {
     backups: string;
     databases: string;
     ports: string;
+    publicPorts: string;
     players: string;
     antiddos: string;
     buyPackage: string;
@@ -335,6 +336,7 @@ const en: Dictionary = {
     backups: "Backups",
     databases: "Databases",
     ports: "Extra ports",
+    publicPorts: "Public ports",
     players: "Player limit",
     antiddos: "Anti-DDoS",
     buyPackage: "Order package",
@@ -432,12 +434,13 @@ const en: Dictionary = {
         disk: "5–10 GB",
         price: "5 zł",
         premiumPrice: "5 zł",
-        summary: "Affordable NAT VPS for lightweight services and private projects.",
+        summary: "Affordable NAT VPS with 20 public ports for lightweight services and private projects.",
         description:
-          "A compact virtual server for small applications, test environments and services that do not require a dedicated public IPv4 address.",
+          "A compact virtual server with 20 public ports for small applications, test environments and services that do not require a dedicated public IPv4 address.",
         idealFor: "Small services, development environments and private projects.",
         highlights: [
           "NAT network access",
+          "20 public ports",
           "Up to 1 GB RAM",
           "Up to 1 vCPU",
           "Storage up to 10 GB",
@@ -786,6 +789,7 @@ const pl: Dictionary = {
     backups: "Backupy",
     databases: "Bazy danych",
     ports: "Dodatkowe porty",
+    publicPorts: "Porty publiczne",
     players: "Limit graczy",
     antiddos: "Anti-DDoS",
     buyPackage: "Zamów pakiet",
@@ -883,12 +887,13 @@ const pl: Dictionary = {
         disk: "5–10 GB",
         price: "5 zł",
         premiumPrice: "5 zł",
-        summary: "Ekonomiczny VPS NAT do lekkich usług i prywatnych projektów.",
+        summary: "Ekonomiczny VPS NAT z 20 publicznymi portami do lekkich usług i prywatnych projektów.",
         description:
-          "Kompaktowy serwer wirtualny pod małe aplikacje, środowiska testowe i usługi, które nie wymagają własnego publicznego adresu IPv4.",
+          "Kompaktowy serwer wirtualny z 20 publicznymi portami pod małe aplikacje, środowiska testowe i usługi, które nie wymagają własnego publicznego adresu IPv4.",
         idealFor: "Małe usługi, środowiska deweloperskie i prywatne projekty.",
         highlights: [
           "Dostęp do sieci przez NAT",
+          "20 portów publicznych",
           "Do 1 GB pamięci RAM",
           "Do 1 vCPU",
           "Dysk do 10 GB",
@@ -1237,6 +1242,7 @@ const ru: Dictionary = {
     backups: "Бэкапы",
     databases: "Базы данных",
     ports: "Доп. порты",
+    publicPorts: "Публичные порты",
     players: "Лимит игроков",
     antiddos: "Anti-DDoS",
     buyPackage: "Заказать пакет",
@@ -1334,12 +1340,13 @@ const ru: Dictionary = {
         disk: "5–10 GB",
         price: "5 zł",
         premiumPrice: "5 zł",
-        summary: "Доступный VPS NAT для лёгких сервисов и личных проектов.",
+        summary: "Доступный VPS NAT с 20 публичными портами для лёгких сервисов и личных проектов.",
         description:
-          "Компактный виртуальный сервер для небольших приложений, тестовых сред и сервисов, которым не нужен собственный публичный IPv4-адрес.",
+          "Компактный виртуальный сервер с 20 публичными портами для небольших приложений, тестовых сред и сервисов, которым не нужен собственный публичный IPv4-адрес.",
         idealFor: "Небольшие сервисы, тестовые среды и личные проекты.",
         highlights: [
           "Доступ к сети через NAT",
+          "20 публичных портов",
           "До 1 GB RAM",
           "До 1 vCPU",
           "Диск до 10 GB",

@@ -188,7 +188,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
                     ) : null}
                     {pkg.ports > 0 ? (
                       <li>
-                        <span>{t.ports}</span>
+                        <span>{plan.slug === "vps-nat" ? t.publicPorts : t.ports}</span>
                         <strong>{pkg.ports}</strong>
                       </li>
                     ) : null}
