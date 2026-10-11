@@ -82,6 +82,11 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const cpu = offer ? (offer.cpu ?? "") : plan.cpu;
   const available = offer?.available ?? plan.available ?? false;
   const packages = offer?.packages ?? [];
+  const hasPremium = offer
+    ? packages.some(
+        (pkg) => pkg.premium_formatted && pkg.premium_formatted !== pkg.price_formatted,
+      )
+    : plan.premiumPrice !== plan.price;
   const formatRam = (ramGB: number) => {
     if (plan.slug === "vps-nat") {
       return ramGB < 1 ? `${Math.round(ramGB * 1024)} MB` : `${ramGB} GB`;
@@ -119,23 +124,26 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
             <h1>{title}</h1>
           </div>
           <p className={styles.summary}>{summary}</p>
-          <div className={styles.toggle} role="group" aria-label={t.toggleAria}>
-            <button
-              type="button"
-              className={!premium ? styles.tabOn : styles.tab}
-              onClick={() => setPremium(false)}
-            >
-              {t.standard}
-            </button>
-            <button
-              type="button"
-              className={premium ? styles.tabOn : styles.tab}
-              onClick={() => setPremium(true)}
-              aria-pressed={premium}
-            >
-              {t.premium}
-            </button>
-          </div>
+          {hasPremium ? (
+            <div className={styles.toggle} role="group" aria-label={t.toggleAria}>
+              <button
+                type="button"
+                className={!premium ? styles.tabOn : styles.tab}
+                onClick={() => setPremium(false)}
+                aria-pressed={!premium}
+              >
+                {t.standard}
+              </button>
+              <button
+                type="button"
+                className={premium ? styles.tabOn : styles.tab}
+                onClick={() => setPremium(true)}
+                aria-pressed={premium}
+              >
+                {t.premium}
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
 
