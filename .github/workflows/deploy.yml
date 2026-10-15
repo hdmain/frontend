@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main, master]
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
@@ -53,6 +55,16 @@ jobs:
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
+
+      - name: Package release distribution
+        if: github.event_name == 'release'
+        run: cd out && zip -qr ../dist.zip .
+
+      - name: Attach distribution to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist.zip
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
