@@ -1,0 +1,51 @@
+.main {
+  min-height: 100vh;
+  margin: 0;
+  padding: 1.5rem clamp(1rem, 4vw, 2.5rem) 3rem;
+  background: #0c0e12;
+  color: #e8eaef;
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", Menlo, Consolas,
+    monospace;
+}
+
+.header {
+  max-width: 52rem;
+  margin-bottom: 1.25rem;
+}
+
+.header h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.header p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #9aa3b2;
+}
+
+.header a {
+  color: #7eb6ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.header a:hover {
+  color: #b5d4ff;
+}
+
+.key {
+  max-width: 52rem;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border: 1px solid #2a3140;
+  border-radius: 6px;
+  background: #12161e;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  white-space: pre;
+  word-break: normal;
+}
