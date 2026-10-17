@@ -37,6 +37,7 @@ export default function SiteHeader({ locale, t, path }: Props) {
     { href: localeHref(locale, "#offer"), label: t.offer },
     { href: localeHref(locale, "#protection"), label: t.antiddos },
     { href: localeHref(locale, "#faq"), label: t.faq },
+    { href: "https://docs.alfahost.eu/", label: t.docs },
     { href: localeHref(locale, "#contact"), label: t.contact },
   ];
 

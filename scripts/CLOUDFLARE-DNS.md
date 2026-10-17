@@ -1,7 +1,9 @@
 # Cloudflare DNS — alfahost.eu → VPS
 
 **Origin IP:** `5.83.150.237`  
-**SSL/TLS mode in Cloudflare:** **Full** (not Flexible; not Full Strict unless you install a CF Origin Certificate)
+**SSL/TLS mode in Cloudflare:** **Full** (required).  
+Do **not** use Flexible — it causes an HTTPS redirect loop with the origin.  
+Full Strict only after you install a Cloudflare Origin Certificate.
 
 ## Records to set (Proxy = ON / orange cloud)
 

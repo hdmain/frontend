@@ -27,6 +27,7 @@ export type Dictionary = {
     antiddos: string;
     offer: string;
     faq: string;
+    docs: string;
     contact: string;
     panel: string;
     openMenu: string;
@@ -124,6 +125,7 @@ export type Dictionary = {
     antiddos: string;
     why: string;
     faq: string;
+    docs: string;
     contact: string;
     discord: string;
     privacy: string;
@@ -193,6 +195,7 @@ const en: Dictionary = {
     antiddos: "Anti-DDoS",
     offer: "Offer",
     faq: "FAQ",
+    docs: "Docs",
     contact: "Contact",
     panel: "Client Panel",
     openMenu: "Open menu",
@@ -566,6 +569,7 @@ const en: Dictionary = {
     antiddos: "Anti-DDoS",
     why: "Why AlfaHost",
     faq: "FAQ",
+    docs: "Docs",
     contact: "Contact",
     discord: "Discord",
     privacy: "Privacy Policy",
@@ -646,6 +650,7 @@ const pl: Dictionary = {
     antiddos: "AntyDDoS",
     offer: "Oferta",
     faq: "FAQ",
+    docs: "Dokumentacja",
     contact: "Kontakt",
     panel: "Panel klienta",
     openMenu: "Otwórz menu",
@@ -1019,6 +1024,7 @@ const pl: Dictionary = {
     antiddos: "Anty-DDoS",
     why: "Dlaczego AlfaHost",
     faq: "FAQ",
+    docs: "Dokumentacja",
     contact: "Kontakt",
     discord: "Discord",
     privacy: "Polityka prywatności",
@@ -1099,6 +1105,7 @@ const ru: Dictionary = {
     antiddos: "Anti-DDoS",
     offer: "Тарифы",
     faq: "FAQ",
+    docs: "Документация",
     contact: "Контакты",
     panel: "Панель клиента",
     openMenu: "Открыть меню",
@@ -1472,6 +1479,7 @@ const ru: Dictionary = {
     antiddos: "Anti-DDoS",
     why: "Почему AlfaHost",
     faq: "FAQ",
+    docs: "Документация",
     contact: "Контакты",
     discord: "Discord",
     privacy: "Политика конфиденциальности",

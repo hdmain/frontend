@@ -58,6 +58,9 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
                 <a href={localeHref(locale, "#faq")}>{t.faq}</a>
               </li>
               <li>
+                <a href="https://docs.alfahost.eu/">{t.docs}</a>
+              </li>
+              <li>
                 <a href="mailto:support@alfahost.eu">{t.contact}</a>
               </li>
               <li>
