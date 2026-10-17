@@ -1,0 +1,8 @@
+---
+description: Always push commits to GitHub after creating them
+alwaysApply: true
+---
+
+# Always push to GitHub
+
+After every successful `git commit` in this repo, immediately `git push` to `origin` (usually `main`). Do not leave commits local-only unless the user explicitly says not to push.
