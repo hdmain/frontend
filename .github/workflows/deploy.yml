@@ -37,36 +37,63 @@ jobs:
       - name: Setup SSH
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_HOSTS: ${{ secrets.DEPLOY_HOSTS }}
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
           DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
         run: |
           set -euo pipefail
-          if [ -z "${DEPLOY_HOST:-}" ] || [ -z "${DEPLOY_SSH_KEY:-}" ]; then
-            echo "DEPLOY_HOST / DEPLOY_SSH_KEY secrets required" >&2
+          if [ -z "${DEPLOY_SSH_KEY:-}" ]; then
+            echo "DEPLOY_SSH_KEY secret required" >&2
             exit 1
           fi
+          HOSTS="${DEPLOY_HOSTS:-}"
+          if [ -z "$HOSTS" ]; then
+            HOSTS="${DEPLOY_HOST:-}"
+          fi
+          if [ -z "$HOSTS" ]; then
+            echo "DEPLOY_HOSTS or DEPLOY_HOST secret required" >&2
+            exit 1
+          fi
+          echo "$HOSTS" > /tmp/deploy_hosts.txt
           install -m 700 -d ~/.ssh
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           if [ -n "${DEPLOY_KNOWN_HOSTS:-}" ]; then
             printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
           else
-            ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+            IFS=',' read -ra ADDR <<< "$HOSTS"
+            for h in "${ADDR[@]}"; do
+              h="$(echo "$h" | xargs)"
+              [ -n "$h" ] || continue
+              ssh-keyscan -H "$h" >> ~/.ssh/known_hosts 2>/dev/null
+            done
           fi
           chmod 644 ~/.ssh/known_hosts
 
-      - name: Rsync to VPS
+      - name: Rsync to all origins
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_HOSTS: ${{ secrets.DEPLOY_HOSTS }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           set -euo pipefail
           USER="${DEPLOY_USER:-root}"
           PATH_REMOTE="${DEPLOY_PATH:-/var/www/alfahost.eu}"
-          rsync -az --delete \
-            -e "ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes" \
-            out/ "${USER}@${DEPLOY_HOST}:${PATH_REMOTE}/"
-          ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes \
-            "${USER}@${DEPLOY_HOST}" \
-            "chown -R www-data:www-data '${PATH_REMOTE}' 2>/dev/null || true; find '${PATH_REMOTE}' -type d -exec chmod 755 {} \; ; find '${PATH_REMOTE}' -type f -exec chmod 644 {} \;"
+          HOSTS="${DEPLOY_HOSTS:-}"
+          if [ -z "$HOSTS" ]; then
+            HOSTS="${DEPLOY_HOST:-}"
+          fi
+          IFS=',' read -ra ADDR <<< "$HOSTS"
+          for h in "${ADDR[@]}"; do
+            h="$(echo "$h" | xargs)"
+            [ -n "$h" ] || continue
+            echo "::group::Deploy to ${h}"
+            rsync -az --delete \
+              -e "ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes" \
+              out/ "${USER}@${h}:${PATH_REMOTE}/"
+            ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes \
+              "${USER}@${h}" \
+              "chown -R www-data:www-data '${PATH_REMOTE}' 2>/dev/null || true; find '${PATH_REMOTE}' -type d -exec chmod 755 {} \; ; find '${PATH_REMOTE}' -type f -exec chmod 644 {} \;"
+            echo "::endgroup::"
+          done

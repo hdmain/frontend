@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-4agent-alfahost.txt
+4agent*
+
 # dependencies
 /node_modules
 /.pnp
