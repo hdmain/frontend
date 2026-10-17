@@ -1,23 +1,16 @@
-name: Deploy to GitHub Pages
+name: Deploy to VPS
 
 on:
   push:
     branches: [main, master]
-  release:
-    types: [published]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: pages
+  group: deploy-vps
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,55 +22,51 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Resolve base path
-        id: base
-        shell: bash
-        run: |
-          if [ -f "public/CNAME" ] || [ -f "CNAME" ]; then
-            echo "path=" >> "$GITHUB_OUTPUT"
-            echo "Custom domain (CNAME) detected — using empty basePath"
-          else
-            REPO="${{ github.event.repository.name }}"
-            if [[ "$REPO" == *.github.io ]]; then
-              echo "path=" >> "$GITHUB_OUTPUT"
-            else
-              echo "path=/$REPO" >> "$GITHUB_OUTPUT"
-            fi
-          fi
-
       - name: Install
         run: npm ci
 
       - name: Build static export
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.base.outputs.path }}
+          # Apex site on custom domain — no GitHub Pages basePath
+          NEXT_PUBLIC_BASE_PATH: ""
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
 
-      - name: Package release distribution
-        if: github.event_name == 'release'
-        run: cd out && zip -qr ../dist.zip .
+      - name: Setup SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DEPLOY_HOST:-}" ] || [ -z "${DEPLOY_SSH_KEY:-}" ]; then
+            echo "DEPLOY_HOST / DEPLOY_SSH_KEY secrets required" >&2
+            exit 1
+          fi
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          if [ -n "${DEPLOY_KNOWN_HOSTS:-}" ]; then
+            printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          fi
+          chmod 644 ~/.ssh/known_hosts
 
-      - name: Attach distribution to GitHub Release
-        if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v2
-        with:
-          files: dist.zip
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: out
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Rsync to VPS
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+          USER="${DEPLOY_USER:-root}"
+          PATH_REMOTE="${DEPLOY_PATH:-/var/www/alfahost.eu}"
+          rsync -az --delete \
+            -e "ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes" \
+            out/ "${USER}@${DEPLOY_HOST}:${PATH_REMOTE}/"
+          ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes \
+            "${USER}@${DEPLOY_HOST}" \
+            "chown -R www-data:www-data '${PATH_REMOTE}' 2>/dev/null || true; find '${PATH_REMOTE}' -type d -exec chmod 755 {} \; ; find '${PATH_REMOTE}' -type f -exec chmod 644 {} \;"
