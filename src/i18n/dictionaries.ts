@@ -447,11 +447,13 @@ const en: Dictionary = {
           "Up to 1 GB RAM",
           "Up to 1 vCPU",
           "Storage up to 10 GB",
+          "Ubuntu 24.04, Ubuntu 22.04, Debian 12",
         ],
         includes: [
           "Root access",
           "Anti-DDoS protection",
           "Two compact configurations",
+          "OS: Ubuntu 24.04, Ubuntu 22.04, Debian 12",
         ],
       },
       {
@@ -903,11 +905,13 @@ const pl: Dictionary = {
           "Do 1 GB pamięci RAM",
           "Do 1 vCPU",
           "Dysk do 10 GB",
+          "Ubuntu 24.04, Ubuntu 22.04, Debian 12",
         ],
         includes: [
           "Dostęp root",
           "Ochrona anty-DDoS",
           "Dwie kompaktowe konfiguracje",
+          "Systemy: Ubuntu 24.04, Ubuntu 22.04, Debian 12",
         ],
       },
       {
@@ -1359,11 +1363,13 @@ const ru: Dictionary = {
           "До 1 GB RAM",
           "До 1 vCPU",
           "Диск до 10 GB",
+          "Ubuntu 24.04, Ubuntu 22.04, Debian 12",
         ],
         includes: [
           "Root-доступ",
           "Защита от DDoS",
           "Две компактные конфигурации",
+          "ОС: Ubuntu 24.04, Ubuntu 22.04, Debian 12",
         ],
       },
       {
