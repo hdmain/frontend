@@ -1,22 +1,11 @@
 import { localeHref, localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import LaunchNotice from "./LaunchNotice";
+import TrustpilotBadge, { TRUSTPILOT_URL } from "./TrustpilotBadge";
 import WolfMark from "./WolfMark";
 import styles from "./SiteFooter.module.css";
 
 const DISCORD_URL = "https://dc.alfahost.eu";
-const TRUSTPILOT_URL = "https://www.trustpilot.com/review/alfahost.eu";
-
-function TrustpilotStar() {
-  return (
-    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden>
-      <path
-        fill="currentColor"
-        d="M12 1.5l2.9 6.7 7.3.7-5.5 4.8 1.7 7.1L12 17.5 5.6 20.8l1.7-7.1L1.8 8.9l7.3-.7L12 1.5z"
-      />
-    </svg>
-  );
-}
 
 type Props = {
   locale: Locale;
@@ -40,21 +29,13 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
           <a className={styles.mail} href="mailto:support@alfahost.eu">
             support@alfahost.eu
           </a>
-          <a
-            className={styles.trustpilot}
-            href={TRUSTPILOT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.trustpilotStars} aria-hidden>
-              <TrustpilotStar />
-              <TrustpilotStar />
-              <TrustpilotStar />
-              <TrustpilotStar />
-              <TrustpilotStar />
-            </span>
-            <span>{t.trustpilotCta}</span>
-          </a>
+          <TrustpilotBadge
+            locale={locale}
+            label={t.trustpilotCta}
+            reviewsLabel={(count) =>
+              t.trustpilotReviews.replace("{count}", String(count))
+            }
+          />
         </div>
 
         <div className={styles.cols}>

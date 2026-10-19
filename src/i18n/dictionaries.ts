@@ -129,6 +129,7 @@ export type Dictionary = {
     discord: string;
     trustpilot: string;
     trustpilotCta: string;
+    trustpilotReviews: string;
     privacy: string;
     terms: string;
     cookies: string;
@@ -576,6 +577,7 @@ const en: Dictionary = {
     discord: "Discord",
     trustpilot: "Trustpilot",
     trustpilotCta: "Review us on Trustpilot",
+    trustpilotReviews: "{count} reviews on Trustpilot",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
     cookies: "Cookie Policy",
@@ -1034,6 +1036,7 @@ const pl: Dictionary = {
     discord: "Discord",
     trustpilot: "Trustpilot",
     trustpilotCta: "Oceń nas na Trustpilot",
+    trustpilotReviews: "{count} opinie na Trustpilot",
     privacy: "Polityka prywatności",
     terms: "Regulamin",
     cookies: "Polityka cookies",
@@ -1492,6 +1495,7 @@ const ru: Dictionary = {
     discord: "Discord",
     trustpilot: "Trustpilot",
     trustpilotCta: "Оцените нас на Trustpilot",
+    trustpilotReviews: "{count} отзывов на Trustpilot",
     privacy: "Политика конфиденциальности",
     terms: "Условия использования",
     cookies: "Политика cookie",

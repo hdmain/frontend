@@ -62,26 +62,6 @@
   border-bottom-color: var(--red-hot);
 }
 
-.trustpilot {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-top: 1rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  transition: color 0.15s ease;
-}
-
-.trustpilot:hover {
-  color: #fff;
-}
-
-.trustpilotStars {
-  display: inline-flex;
-  gap: 0.12rem;
-  color: #00b67a;
-}
-
 .cols {
   display: grid;
   grid-template-columns: 1fr 1fr;

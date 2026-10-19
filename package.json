@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
+    "build": "node scripts/fetch-trustpilot.mjs && next build --webpack",
+    "trustpilot": "node scripts/fetch-trustpilot.mjs",
     "start": "next start",
     "lint": "eslint",
     "preview": "npx --yes serve out"
