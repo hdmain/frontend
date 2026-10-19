@@ -1,0 +1,89 @@
+name: Refresh Trustpilot score
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: trustpilot-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape Trustpilot
+        run: node scripts/fetch-trustpilot.mjs
+
+      - name: Setup SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_HOSTS: ${{ secrets.DEPLOY_HOSTS }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DEPLOY_SSH_KEY:-}" ]; then
+            echo "DEPLOY_SSH_KEY secret required" >&2
+            exit 1
+          fi
+          HOSTS="${DEPLOY_HOSTS:-${DEPLOY_HOST:-}}"
+          if [ -z "$HOSTS" ]; then
+            echo "DEPLOY_HOSTS or DEPLOY_HOST secret required" >&2
+            exit 1
+          fi
+          echo "$HOSTS" > /tmp/deploy_hosts.txt
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          if [ -n "${DEPLOY_KNOWN_HOSTS:-}" ]; then
+            printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            IFS=',' read -ra ADDR <<< "$HOSTS"
+            for h in "${ADDR[@]}"; do
+              h="$(echo "$h" | xargs)"
+              [ -n "$h" ] || continue
+              ssh-keyscan -H "$h" >> ~/.ssh/known_hosts 2>/dev/null
+            done
+          fi
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Upload trustpilot.json to origins
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_HOSTS: ${{ secrets.DEPLOY_HOSTS }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+          USER="${DEPLOY_USER:-root}"
+          PATH_REMOTE="${DEPLOY_PATH:-/var/www/alfahost.eu}"
+          HOSTS="${DEPLOY_HOSTS:-${DEPLOY_HOST:-}}"
+          IFS=',' read -ra ADDR <<< "$HOSTS"
+          for h in "${ADDR[@]}"; do
+            h="$(echo "$h" | xargs)"
+            [ -n "$h" ] || continue
+            echo "::group::Trustpilot → ${h}"
+            scp -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes \
+              public/trustpilot.json "${USER}@${h}:${PATH_REMOTE}/trustpilot.json"
+            ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes \
+              "${USER}@${h}" \
+              "chown www-data:www-data '${PATH_REMOTE}/trustpilot.json' 2>/dev/null || true; chmod 644 '${PATH_REMOTE}/trustpilot.json'"
+            echo "::endgroup::"
+          done
