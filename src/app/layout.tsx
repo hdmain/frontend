@@ -1,26 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { IBM_Plex_Sans, Oswald, Geist } from "next/font/google";
 import Providers from "@/components/Providers";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import { OG_IMAGE_FALLBACK, SITE_NAME, SITE_URL } from "@/lib/seo";
 
+import "@fontsource/oswald/500.css";
+import "@fontsource/oswald/600.css";
+import "@fontsource/oswald/700.css";
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-sans/700.css";
+
 export const metadataBase = new URL(SITE_URL);
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const display = Oswald({
-  variable: "--font-oswald",
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  weight: ["500", "600", "700"],
-});
-
-const sans = IBM_Plex_Sans({
-  variable: "--font-plex",
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   metadataBase,
@@ -108,12 +100,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn(display.variable, sans.variable, "font-sans", geist.variable)}
-      suppressHydrationWarning
-    >
-      <body className={sans.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body>
         <Providers>{children}</Providers>
         <Script
           id="website-jsonld"
@@ -127,7 +115,7 @@ export default function RootLayout({
                   name: SITE_NAME,
                   url: SITE_URL,
                   logo: `${SITE_URL}/icon-512.png`,
-                  sameAs: [],
+                  sameAs: ["https://www.trustpilot.com/review/alfahost.eu"],
                   contactPoint: {
                     "@type": "ContactPoint",
                     email: "support@alfahost.eu",

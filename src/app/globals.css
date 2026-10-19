@@ -15,8 +15,8 @@
   --surface-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
   --max: 1160px;
   --nav-h: 4.25rem;
-  --font-display: var(--font-oswald), "Oswald", Impact, "Arial Narrow", sans-serif;
-  --font-sans: var(--font-plex), "IBM Plex Sans", system-ui, sans-serif;
+  --font-display: "Oswald", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --cut: 28px;
 }

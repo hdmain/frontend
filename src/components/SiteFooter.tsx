@@ -29,13 +29,7 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
           <a className={styles.mail} href="mailto:support@alfahost.eu">
             support@alfahost.eu
           </a>
-          <TrustpilotBadge
-            locale={locale}
-            label={t.trustpilotCta}
-            reviewsLabel={(count) =>
-              t.trustpilotReviews.replace("{count}", String(count))
-            }
-          />
+          <TrustpilotBadge locale={locale} label={t.trustpilotCta} />
         </div>
 
         <div className={styles.cols}>
