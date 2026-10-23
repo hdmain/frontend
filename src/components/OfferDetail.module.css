@@ -62,20 +62,6 @@
   flex-wrap: wrap;
 }
 
-.tag {
-  flex-shrink: 0;
-  min-width: 2.4rem;
-  padding: 0.28rem 0.5rem;
-  border: 1px solid var(--line-red);
-  background: rgba(196, 0, 26, 0.28);
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 7vw, 4rem);
@@ -90,31 +76,6 @@
   font-size: 1.1rem;
   line-height: 1.55;
   max-width: 40rem;
-}
-
-.toggle {
-  display: inline-flex;
-  border: 1px solid var(--line);
-  width: fit-content;
-  margin-top: 0.35rem;
-}
-
-.tab,
-.tabOn {
-  padding: 0.65rem 1.1rem;
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--dim);
-  transition:
-    background 0.15s ease,
-    color 0.15s ease;
-}
-
-.tabOn {
-  background: var(--red);
-  color: #fff;
 }
 
 .catalog {

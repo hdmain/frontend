@@ -4,13 +4,11 @@ export type OfferPlan = {
   name: string;
   /** Key under /offers/{slug}.jpg */
   slug: string;
-  available?: boolean;
-  tag: string;
+  available?: boolean;
   cpu: string;
   ram: string;
   disk: string;
-  price: string;
-  premiumPrice: string;
+  price: string;
   summary: string;
   description: string;
   idealFor: string;
@@ -76,10 +74,7 @@ export type Dictionary = {
   offer: {
     eyebrow: string;
     title: string;
-    lead: string;
-    standard: string;
-    premium: string;
-    toggleAria: string;
+    lead: string;
     from: string;
     perMonth: string;
     available: string;
@@ -306,10 +301,7 @@ const en: Dictionary = {
   offer: {
     eyebrow: "Explore the catalog",
     title: "Our offer",
-    lead: "Sample configurations, switch Premium to compare hardware tiers.",
-    standard: "Standard",
-    premium: "Premium",
-    toggleAria: "Toggle premium offer",
+    lead: "Sample configurations across our hosting catalog.",
     from: "From",
     perMonth: "/mo",
     available: "Available",
@@ -337,13 +329,11 @@ const en: Dictionary = {
     plans: [
       {
         name: "Minecraft",
-        slug: "minecraft",
-        tag: "Min",
+        slug: "minecraft",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "17 zł",
-        premiumPrice: "30 zł",
+        price: "17 zł",
         summary: "Fast Minecraft nodes with instant deploy and anti-DDoS included.",
         description:
           "Run Vanilla, Paper, Purpur, Fabric or modpacks on high-clock Ryzen CPUs. Allocate RAM to match your player count, install plugins in a few clicks, and keep the world online under attack thanks to always-on filtering.",
@@ -364,13 +354,11 @@ const en: Dictionary = {
       },
       {
         name: "Rust",
-        slug: "rust",
-        tag: "Rst",
+        slug: "rust",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "39 zł",
-        premiumPrice: "60 zł",
+        price: "39 zł",
         summary: "Stable Rust hosting tuned for wipe nights and high player counts.",
         description:
           "Rust needs strong single-thread performance and clean networking. Our nodes are tuned for oxide plugins, custom maps and wipe-day spikes, with filtering that stays on so raiders hit your base, not your uplink.",
@@ -392,13 +380,11 @@ const en: Dictionary = {
       {
         name: "Discord Bot",
         slug: "discord",
-        available: true,
-        tag: "Bot",
+        available: true,
         cpu: "",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "9 zł",
-        premiumPrice: "17 zł",
+        price: "9 zł",
         summary: "Always-on VPS slices for Discord bots and small Node/Python apps.",
         description:
           "Keep bots online without babysitting a home PC. Deploy Node.js, Python or Docker workloads with root access, predictable RAM and enough CPU headroom for music, moderation and ticket bots.",
@@ -420,13 +406,11 @@ const en: Dictionary = {
       {
         name: "VPS NAT",
         slug: "vps-nat",
-        available: true,
-        tag: "NAT",
+        available: true,
         cpu: "",
         ram: "256 MB–1 GB",
         disk: "5–10 GB",
-        price: "5 zł",
-        premiumPrice: "5 zł",
+        price: "5 zł",
         summary: "Affordable NAT VPS with 20 public ports for lightweight services and private projects.",
         description:
           "A compact virtual server with 20 public ports for small applications, test environments and services that do not require a dedicated public IPv4 address.",
@@ -448,13 +432,11 @@ const en: Dictionary = {
       },
       {
         name: "VPS",
-        slug: "vps",
-        tag: "VPS",
+        slug: "vps",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "34 zł",
-        premiumPrice: "52 zł",
+        price: "34 zł",
         summary: "KVM VPS with NVMe, full root and DDoS filtering on every plan.",
         description:
           "General-purpose virtual servers for panels, websites, game backends and private services. You get KVM isolation, NVMe disks and the same always-on protection we put in front of game nodes.",
@@ -475,13 +457,11 @@ const en: Dictionary = {
       },
       {
         name: "Palworld",
-        slug: "palworld",
-        tag: "Pal",
+        slug: "palworld",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "52 zł",
-        premiumPrice: "77 zł",
+        price: "52 zł",
         summary: "Dedicated Palworld slots with RAM headroom for busy multiplayer worlds.",
         description:
           "Palworld worlds grow fast, players, bases and pals eat memory. We size nodes for smooth multiplayer sessions, quick saves and protection that keeps your world reachable during peak hours.",
@@ -727,10 +707,7 @@ const pl: Dictionary = {
   offer: {
     eyebrow: "Poznaj ofertę",
     title: "Nasza oferta",
-    lead: "Przykładowe konfiguracje, przełącz Premium, aby porównać warianty sprzętu.",
-    standard: "Standard",
-    premium: "Premium",
-    toggleAria: "Przełącz ofertę premium",
+    lead: "Przykładowe konfiguracje z naszego katalogu hostingu.",
     from: "Od",
     perMonth: "/mies.",
     available: "Dostępne",
@@ -758,13 +735,11 @@ const pl: Dictionary = {
     plans: [
       {
         name: "Minecraft",
-        slug: "minecraft",
-        tag: "Min",
+        slug: "minecraft",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "17 zł",
-        premiumPrice: "30 zł",
+        price: "17 zł",
         summary: "Szybkie węzły Minecraft z natychmiastowym startem i anty-DDoS w cenie.",
         description:
           "Uruchom Vanilla, Paper, Purpur, Fabric albo modpacki na Ryzenach z wysokim taktowaniem. Dobierz RAM do liczby graczy, instaluj pluginy w kilka kliknięć i trzymaj świat online dzięki ciągłemu filtrowaniu.",
@@ -785,13 +760,11 @@ const pl: Dictionary = {
       },
       {
         name: "Rust",
-        slug: "rust",
-        tag: "Rst",
+        slug: "rust",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "39 zł",
-        premiumPrice: "60 zł",
+        price: "39 zł",
         summary: "Stabilny hosting Rust pod wipe'y i większą liczbę graczy.",
         description:
           "Rust wymaga mocnego single-thread i czystej sieci. Węzły są pod Oxide, custom mapy i skoki ruchu w dniu wipe, z filtrowaniem, które działa non-stop.",
@@ -813,13 +786,11 @@ const pl: Dictionary = {
       {
         name: "Bot Discord",
         slug: "discord",
-        available: true,
-        tag: "Bot",
+        available: true,
         cpu: "",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "9 zł",
-        premiumPrice: "17 zł",
+        price: "9 zł",
         summary: "Zawsze włączone slice'y pod boty Discord i małe aplikacje Node/Python.",
         description:
           "Trzymaj boty online bez domowego PC. Wdrażaj Node.js, Python albo Dockera z rootem, przewidywalnym RAM-em i zapasem CPU na boty muzyczne, moderacyjne i ticketowe.",
@@ -841,13 +812,11 @@ const pl: Dictionary = {
       {
         name: "VPS NAT",
         slug: "vps-nat",
-        available: true,
-        tag: "NAT",
+        available: true,
         cpu: "",
         ram: "256 MB–1 GB",
         disk: "5–10 GB",
-        price: "5 zł",
-        premiumPrice: "5 zł",
+        price: "5 zł",
         summary: "Ekonomiczny VPS NAT z 20 publicznymi portami do lekkich usług i prywatnych projektów.",
         description:
           "Kompaktowy serwer wirtualny z 20 publicznymi portami pod małe aplikacje, środowiska testowe i usługi, które nie wymagają własnego publicznego adresu IPv4.",
@@ -869,13 +838,11 @@ const pl: Dictionary = {
       },
       {
         name: "VPS",
-        slug: "vps",
-        tag: "VPS",
+        slug: "vps",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "34 zł",
-        premiumPrice: "52 zł",
+        price: "34 zł",
         summary: "VPS KVM z NVMe, pełnym rootem i filtrowaniem DDoS w każdym planie.",
         description:
           "Uniwersalne maszyny pod panele, strony, backendy gier i prywatne usługi. Izolacja KVM, dyski NVMe i ta sama ochrona, którą stawiamy przed węzłami gier.",
@@ -896,13 +863,11 @@ const pl: Dictionary = {
       },
       {
         name: "Palworld",
-        slug: "palworld",
-        tag: "Pal",
+        slug: "palworld",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "52 zł",
-        premiumPrice: "77 zł",
+        price: "52 zł",
         summary: "Sloty Palworld z zapasem RAM pod zatłoczone światy multiplayer.",
         description:
           "Światy Palworld rosną szybko, gracze, bazy i pale zjadają pamięć. Dobieramy węzły pod płynną rozgrywkę, szybkie save'y i ochronę, która trzyma świat dostępny w peaku.",
@@ -1148,10 +1113,7 @@ const ru: Dictionary = {
   offer: {
     eyebrow: "Смотрите каталог",
     title: "Наши тарифы",
-    lead: "Примеры конфигураций, переключите Premium, чтобы сравнить железо.",
-    standard: "Standard",
-    premium: "Premium",
-    toggleAria: "Переключить премиум-тариф",
+    lead: "Примеры конфигураций из нашего каталога хостинга.",
     from: "От",
     perMonth: "/мес.",
     available: "Доступно",
@@ -1179,13 +1141,11 @@ const ru: Dictionary = {
     plans: [
       {
         name: "Minecraft",
-        slug: "minecraft",
-        tag: "Min",
+        slug: "minecraft",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "17 zł",
-        premiumPrice: "30 zł",
+        price: "17 zł",
         summary: "Быстрые ноды Minecraft с мгновенным деплоем и anti-DDoS в цене.",
         description:
           "Запускайте Vanilla, Paper, Purpur, Fabric или модпаки на Ryzen с высокой частотой. Подберите RAM под онлайн, ставьте плагины в пару кликов и держите мир онлайн благодаря постоянной фильтрации.",
@@ -1206,13 +1166,11 @@ const ru: Dictionary = {
       },
       {
         name: "Rust",
-        slug: "rust",
-        tag: "Rst",
+        slug: "rust",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "39 zł",
-        premiumPrice: "60 zł",
+        price: "39 zł",
         summary: "Стабильный хостинг Rust под вайпы и высокий онлайн.",
         description:
           "Rust требует сильный single-thread и чистую сеть. Ноды заточены под Oxide, кастомные карты и пики в день вайпа, с фильтрацией, которая всегда включена.",
@@ -1234,13 +1192,11 @@ const ru: Dictionary = {
       {
         name: "Discord Bot",
         slug: "discord",
-        available: true,
-        tag: "Bot",
+        available: true,
         cpu: "",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "9 zł",
-        premiumPrice: "17 zł",
+        price: "9 zł",
         summary: "Постоянно онлайн срезы под Discord-ботов и небольшие Node/Python-приложения.",
         description:
           "Держите ботов онлайн без домашнего ПК. Деплойте Node.js, Python или Docker с root, предсказуемой RAM и запасом CPU для music-, mod- и ticket-ботов.",
@@ -1262,13 +1218,11 @@ const ru: Dictionary = {
       {
         name: "VPS NAT",
         slug: "vps-nat",
-        available: true,
-        tag: "NAT",
+        available: true,
         cpu: "",
         ram: "256 MB–1 GB",
         disk: "5–10 GB",
-        price: "5 zł",
-        premiumPrice: "5 zł",
+        price: "5 zł",
         summary: "Доступный VPS NAT с 20 публичными портами для лёгких сервисов и личных проектов.",
         description:
           "Компактный виртуальный сервер с 20 публичными портами для небольших приложений, тестовых сред и сервисов, которым не нужен собственный публичный IPv4-адрес.",
@@ -1290,13 +1244,11 @@ const ru: Dictionary = {
       },
       {
         name: "VPS",
-        slug: "vps",
-        tag: "VPS",
+        slug: "vps",
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "34 zł",
-        premiumPrice: "52 zł",
+        price: "34 zł",
         summary: "KVM VPS с NVMe, полным root и фильтрацией DDoS в каждом тарифе.",
         description:
           "Универсальные виртуальные серверы для панелей, сайтов, игровых бэкендов и частных сервисов. Изоляция KVM, диски NVMe и та же защита, что стоит перед игровыми нодами.",
@@ -1317,13 +1269,11 @@ const ru: Dictionary = {
       },
       {
         name: "Palworld",
-        slug: "palworld",
-        tag: "Pal",
+        slug: "palworld",
         cpu: "Ryzen 9 5900X",
         ram: "DDR4",
         disk: "NVMe SSD",
-        price: "52 zł",
-        premiumPrice: "77 zł",
+        price: "52 zł",
         summary: "Слоты Palworld с запасом RAM под загруженные мультиплеерные миры.",
         description:
           "Миры Palworld растут быстро, игроки, базы и палы съедают память. Мы подбираем ноды под плавный мультиплеер, быстрые сейвы и защиту, которая держит мир доступным в пик.",

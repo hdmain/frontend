@@ -11,32 +11,6 @@
   padding-bottom: 0.5rem;
 }
 
-.toggle {
-  display: inline-flex;
-  border: 1px solid var(--line);
-  padding: .3rem;
-  border-radius: var(--radius-sm);
-  background: var(--panel);
-  width: fit-content;
-}
-
-.tab,
-.tabOn {
-  padding: 0.7rem 1.15rem;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--dim);
-  transition: background 0.15s ease,
-    color 0.15s ease;
-}
-
-.tabOn {
-  background: var(--red);
-  color: #fff;
-}
-
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -124,23 +98,6 @@
   align-items: center;
   gap: 0.65rem;
   margin-bottom: 0.95rem;
-}
-
-.tag {
-  flex-shrink: 0;
-  min-width: 2.4rem;
-  padding: 0.28rem 0.45rem;
-  border: 1px solid rgba(227, 9, 40, 0.85);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--red-hot);
-  background: var(--panel-2);
-  border-color: var(--line);
-  border-radius: 6px;
 }
 
 .available,

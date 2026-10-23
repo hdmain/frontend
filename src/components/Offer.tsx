@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
@@ -16,14 +15,7 @@ type Props = {
 };
 
 export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props) {
-  const [premium, setPremium] = useState(false);
   const currency = useOptionalCurrency();
-  const hasPremium = t.plans.some((plan) => {
-    const live = currency?.prices[plan.slug];
-    const standard = live?.standard || plan.price;
-    const premiumPrice = live?.premium || plan.premiumPrice;
-    return premiumPrice !== standard;
-  });
 
   return (
     <section className={styles.section} id="offer">
@@ -34,27 +26,6 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
             <Heading className="sectionTitle">{t.title}</Heading>
             <p className="sectionLead">{t.lead}</p>
           </div>
-
-          {hasPremium ? (
-            <div className={styles.toggle} role="group" aria-label={t.toggleAria}>
-              <button
-                type="button"
-                className={!premium ? styles.tabOn : styles.tab}
-                onClick={() => setPremium(false)}
-                aria-pressed={!premium}
-              >
-                {t.standard}
-              </button>
-              <button
-                type="button"
-                className={premium ? styles.tabOn : styles.tab}
-                onClick={() => setPremium(true)}
-                aria-pressed={premium}
-              >
-                {t.premium}
-              </button>
-            </div>
-          ) : null}
         </div>
 
         <div className={styles.grid}>
@@ -63,12 +34,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
               currency?.prices[plan.slug]?.available ?? plan.available ?? false;
             const href = localePath(locale, `offer/${plan.slug}`);
             const live = currency?.prices[plan.slug];
-            const planHasPremium = live
-              ? Boolean(live.premium) && live.premium !== live.standard
-              : plan.premiumPrice !== plan.price;
-            const amount = premium && planHasPremium
-              ? live?.premium || plan.premiumPrice
-              : live?.standard || plan.price;
+            const amount = live?.standard || plan.price;
             return (
               <GlareHover
                 key={plan.slug}
@@ -95,7 +61,6 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
                 </a>
                 <div className={styles.cardBody}>
                   <div className={styles.titleRow}>
-                    <span className={styles.tag}>{plan.tag}</span>
                     <h3>{plan.name}</h3>
                   </div>
                   <span className={available ? styles.available : styles.unavailable}>
@@ -111,7 +76,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
                     ) : null}
                     <div>
                       <dt>{t.ram}</dt>
-                      <dd>{premium && plan.slug !== "vps-nat" ? "DDR5" : plan.ram}</dd>
+                      <dd>{plan.ram}</dd>
                     </div>
                     <div>
                       <dt>{t.disk}</dt>

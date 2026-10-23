@@ -22,7 +22,6 @@ export type PlanPrices = {
   slug: string;
   available: boolean;
   standard: string;
-  premium: string;
 };
 
 type CurrencyContextValue = {
@@ -41,7 +40,6 @@ type PricesResponse = {
     available: boolean;
     formatted: {
       standard: Record<string, string>;
-      premium: Record<string, string>;
     };
   }>;
 };
@@ -73,7 +71,6 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
             slug: plan.slug,
             available: plan.available,
             standard: plan.formatted.standard[currency] ?? "",
-            premium: plan.formatted.premium[currency] ?? "",
           };
         }
         setPrices(map);

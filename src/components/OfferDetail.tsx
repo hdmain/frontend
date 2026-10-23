@@ -23,13 +23,11 @@ type ApiPackage = {
   players: string;
   antiddos: boolean;
   price_formatted: string;
-  premium_formatted: string;
 };
 
 type ApiOffer = {
   slug: string;
   available: boolean;
-  tag: string;
   cpu: string;
   name: string;
   summary: string;
@@ -48,7 +46,6 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const bg = asset(`/offers/${plan.slug}.jpg`);
   const currencyCtx = useOptionalCurrency();
   const currency = currencyCtx?.currency ?? "PLN";
-  const [premium, setPremium] = useState(false);
   const [offer, setOffer] = useState<ApiOffer | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -82,22 +79,17 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const cpu = offer ? (offer.cpu ?? "") : plan.cpu;
   const available = offer?.available ?? plan.available ?? false;
   const packages = offer?.packages ?? [];
-  const hasPremium = offer
-    ? packages.some(
-        (pkg) => pkg.premium_formatted && pkg.premium_formatted !== pkg.price_formatted,
-      )
-    : plan.premiumPrice !== plan.price;
   const formatRam = (ramGB: number) => {
     if (plan.slug === "vps-nat") {
       return ramGB < 1 ? `${Math.round(ramGB * 1024)} MB` : `${ramGB} GB`;
     }
-    return `${ramGB} GB ${premium ? "DDR5" : "DDR4"}`;
+    return `${ramGB} GB DDR4`;
   };
 
   const packageOrderHref = (pkgName: string) => {
     if (isComingSoon()) return comingSoonPath(locale);
     return `mailto:support@alfahost.eu?subject=${encodeURIComponent(
-      `${t.orderSubject} ${title} ${pkgName}${premium ? ` (${t.premium})` : ""}`,
+      `${t.orderSubject} ${title} ${pkgName}`,
     )}`;
   };
 
@@ -120,30 +112,9 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
             ← {t.backToOffer}
           </a>
           <div className={styles.titleRow}>
-            <span className={styles.tag}>{plan.tag}</span>
             <h1>{title}</h1>
           </div>
           <p className={styles.summary}>{summary}</p>
-          {hasPremium ? (
-            <div className={styles.toggle} role="group" aria-label={t.toggleAria}>
-              <button
-                type="button"
-                className={!premium ? styles.tabOn : styles.tab}
-                onClick={() => setPremium(false)}
-                aria-pressed={!premium}
-              >
-                {t.standard}
-              </button>
-              <button
-                type="button"
-                className={premium ? styles.tabOn : styles.tab}
-                onClick={() => setPremium(true)}
-                aria-pressed={premium}
-              >
-                {t.premium}
-              </button>
-            </div>
-          ) : null}
         </div>
       </div>
 
@@ -153,7 +124,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
         ) : packages.length > 0 ? (
           <div className={styles.packageGrid}>
             {packages.map((pkg) => {
-              const price = premium ? pkg.premium_formatted : pkg.price_formatted;
+              const price = pkg.price_formatted;
               const orderHref = packageOrderHref(pkg.name);
               return (
                 <article key={pkg.id} className={styles.packageCard}>
@@ -260,7 +231,6 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
                     }}
                     aria-hidden
                   />
-                  <span className={styles.tag}>{item.tag}</span>
                   <strong>{item.name}</strong>
                   <span>
                     {t.from} {otherPrice}
