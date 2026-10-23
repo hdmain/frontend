@@ -64,7 +64,7 @@ export default async function ComingSoonPage({
       <main>
         <ComingSoonContent locale={locale} t={t.comingSoon} />
       </main>
-      <SiteFooter locale={locale} t={t.footer} launchT={t.launch} />
+      <SiteFooter locale={locale} t={t.footer} />
     </div>
   );
 }

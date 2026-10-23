@@ -84,7 +84,7 @@ export default async function OfferPage({
           others={others}
         />
       </main>
-      <SiteFooter locale={locale} t={t.footer} launchT={t.launch} />
+      <SiteFooter locale={locale} t={t.footer} />
     </div>
   );
 }

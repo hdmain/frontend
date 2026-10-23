@@ -5,7 +5,6 @@ import type { Locale } from "@/i18n/config";
 import AnimatedContent from "./AnimatedContent";
 import BlurText from "./BlurText";
 import DecryptedText from "./DecryptedText";
-import LaunchPromo from "./LaunchPromo";
 import { Icons } from "./Icons";
 import Typewriter from "./Typewriter";
 import styles from "./Hero.module.css";
@@ -13,10 +12,9 @@ import styles from "./Hero.module.css";
 type Props = {
   t: Dictionary["hero"];
   locale: Locale;
-  launchPromo: Dictionary["launch"]["promo"];
 };
 
-export default function Hero({ t, locale, launchPromo }: Props) {
+export default function Hero({ t }: Props) {
   return (
     <section className={styles.hero} id="top">
       <div className={styles.auroraWrap} aria-hidden />
@@ -52,7 +50,6 @@ export default function Hero({ t, locale, launchPromo }: Props) {
             <Typewriter phrases={t.phrases.slice(1)} />
           </p>
           <p className={styles.lede}>{t.lede}</p>
-          <LaunchPromo locale={locale} t={launchPromo} />
           <div className={styles.actions}>
             <a className="btn btnPrimary" href="#offer">
               {t.ctaOffer} {Icons.arrow}

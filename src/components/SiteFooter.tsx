@@ -1,6 +1,5 @@
 import { localeHref, localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import LaunchNotice from "./LaunchNotice";
 import TrustpilotBadge, { TRUSTPILOT_URL } from "./TrustpilotBadge";
 import WolfMark from "./WolfMark";
 import styles from "./SiteFooter.module.css";
@@ -10,10 +9,9 @@ const DISCORD_URL = "https://dc.alfahost.eu";
 type Props = {
   locale: Locale;
   t: Dictionary["footer"];
-  launchT: Dictionary["launch"];
 };
 
-export default function SiteFooter({ locale, t, launchT }: Props) {
+export default function SiteFooter({ locale, t }: Props) {
   return (
     <footer className={styles.footer} id="contact">
       <div className={`container ${styles.inner}`}>
@@ -25,7 +23,6 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
             </span>
           </a>
           <p>{t.about}</p>
-          <LaunchNotice locale={locale} t={launchT} />
           <a className={styles.mail} href="mailto:support@alfahost.eu">
             support@alfahost.eu
           </a>

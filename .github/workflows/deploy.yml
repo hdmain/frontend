@@ -37,6 +37,7 @@ jobs:
         env:
           # Apex site on custom domain — no GitHub Pages basePath
           NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_LAUNCH_MODE: live
 
       - name: Add .nojekyll
         run: touch out/.nojekyll

@@ -31,7 +31,7 @@ export default function RootPage() {
     <div className={styles.page}>
       <SiteHeader locale="en" t={t.nav} />
       <main>
-        <Hero t={t.hero} locale="en" launchPromo={t.launch.promo} />
+        <Hero t={t.hero} locale="en" />
         <div className={styles.stack}>
           <WhyUs t={t.why} />
           <Services t={t.services} />
@@ -40,7 +40,7 @@ export default function RootPage() {
           <Faq t={t.faq} />
         </div>
       </main>
-      <SiteFooter locale="en" t={t.footer} launchT={t.launch} />
+      <SiteFooter locale="en" t={t.footer} />
 
       <Script
         id="faq-jsonld"

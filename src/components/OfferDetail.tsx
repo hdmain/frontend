@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import type { Locale } from "@/i18n/config";
-import { comingSoonPath, isComingSoon, localeHref, localePath } from "@/i18n/config";
+import { localeHref, localePath } from "@/i18n/config";
 import type { Dictionary, OfferPlan } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
 import { papiBaseUrl } from "@/lib/currency";
+import { legalEntity } from "@/lib/legal";
 import { useOptionalCurrency } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import styles from "./OfferDetail.module.css";
@@ -83,18 +84,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
     return `${ramGB} GB DDR4`;
   };
 
-  const packageOrderHref = (pkgName: string) => {
-    if (isComingSoon()) return comingSoonPath(locale);
-    return `mailto:support@alfahost.eu?subject=${encodeURIComponent(
-      `${t.orderSubject} ${title} ${pkgName}`,
-    )}`;
-  };
-
-  const fallbackOrderHref = isComingSoon()
-    ? comingSoonPath(locale)
-    : `mailto:support@alfahost.eu?subject=${encodeURIComponent(
-        `${t.orderSubject} ${plan.name}`,
-      )}`;
+  const orderHref = legalEntity.panel;
 
   return (
     <section className={styles.section}>
@@ -122,7 +112,6 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
           <div className={styles.packageGrid}>
             {packages.map((pkg) => {
               const price = pkg.price_formatted;
-              const orderHref = packageOrderHref(pkg.name);
               return (
                 <article key={pkg.id} className={styles.packageCard}>
                   <div className={styles.packageHead}>
@@ -194,7 +183,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
           <div className={styles.fallback}>
             <p>{description}</p>
             {available ? (
-              <a className="btn btnPrimary" href={fallbackOrderHref}>
+              <a className="btn btnPrimary" href={orderHref}>
                 {t.orderNow} {Icons.arrow}
               </a>
             ) : (

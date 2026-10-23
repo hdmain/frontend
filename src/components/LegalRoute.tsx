@@ -57,7 +57,7 @@ export default async function LegalRoute({
       <main className="container">
         <LegalDocumentView doc={doc} updatedLabel={t.legal.updated} />
       </main>
-      <SiteFooter locale={locale} t={t.footer} launchT={t.launch} />
+      <SiteFooter locale={locale} t={t.footer} />
     </div>
   );
 }
