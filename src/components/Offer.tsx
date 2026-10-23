@@ -68,12 +68,6 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
                   </span>
                   <p className={styles.cardSummary}>{plan.summary}</p>
                   <dl className={styles.specs}>
-                    {plan.cpu ? (
-                      <div>
-                        <dt>{t.cpu}</dt>
-                        <dd>{plan.cpu}</dd>
-                      </div>
-                    ) : null}
                     <div>
                       <dt>{t.ram}</dt>
                       <dd>{plan.ram}</dd>

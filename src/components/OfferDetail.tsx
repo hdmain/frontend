@@ -28,7 +28,6 @@ type ApiPackage = {
 type ApiOffer = {
   slug: string;
   available: boolean;
-  cpu: string;
   name: string;
   summary: string;
   description: string;
@@ -75,8 +74,6 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const title = offer?.name || plan.name;
   const summary = offer?.summary || plan.summary;
   const description = offer?.description || plan.description;
-  // Prefer API value even when empty (e.g. Discord plans hide CPU model).
-  const cpu = offer ? (offer.cpu ?? "") : plan.cpu;
   const available = offer?.available ?? plan.available ?? true;
   const packages = offer?.packages ?? [];
   const formatRam = (ramGB: number) => {
@@ -139,9 +136,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
                   <ul className={styles.packageSpecs}>
                     <li>
                       <span>{t.cpu}</span>
-                      <strong>
-                        {cpu ? `${pkg.vcpu} ${cpu}` : pkg.vcpu}
-                      </strong>
+                      <strong>{pkg.vcpu}</strong>
                     </li>
                     <li>
                       <span>{t.ram}</span>
