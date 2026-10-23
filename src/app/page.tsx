@@ -17,7 +17,7 @@ export const dynamic = "force-static";
 export const metadata = {
   title: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS Hosting`,
   description:
-    "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan. EU nodes, modern hardware and always-on filtering.",
+    "Fast VPS and game servers with DDoS protection included on every plan. EU nodes, modern hardware and always-on filtering.",
   alternates: {
     canonical: "/",
     languages: alternatesForLocale("en"),

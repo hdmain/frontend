@@ -46,9 +46,6 @@ export default function SiteFooter({ locale, t, launchT }: Props) {
                 <a href={localeHref(locale, "#offer")}>{t.vps}</a>
               </li>
               <li>
-                <a href={localeHref(locale, "#offer")}>{t.dedicated}</a>
-              </li>
-              <li>
                 <a href={localeHref(locale, "#protection")}>{t.antiddos}</a>
               </li>
             </ul>

@@ -13,6 +13,8 @@
   --line: rgba(242, 242, 242, 0.12);
   --line-red: rgba(196, 0, 26, 0.55);
   --surface-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+  --radius: 16px;
+  --radius-sm: 10px;
   --max: 1160px;
   --nav-h: 4.25rem;
   --font-display: "Oswald", Impact, "Arial Narrow", sans-serif;

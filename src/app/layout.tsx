@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan. EU nodes, modern hardware and always-on filtering.",
+    "Fast VPS and game servers with DDoS protection included on every plan. EU nodes, modern hardware and always-on filtering.",
   applicationName: SITE_NAME,
   alternates: {
     canonical: "/",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS Hosting`,
     description:
-      "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan.",
+      "Fast VPS and game servers with DDoS protection included on every plan.",
     images: [
       {
         url: OG_IMAGE_FALLBACK,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     site: "@alfahost",
     title: `${SITE_NAME} - VPS, Game Servers & Anti-DDoS Hosting`,
     description:
-      "Fast VPS, game servers and dedicated machines with DDoS protection included on every plan.",
+      "Fast VPS and game servers with DDoS protection included on every plan.",
     images: [OG_IMAGE_FALLBACK],
   },
   robots: {
@@ -84,7 +84,6 @@ export const metadata: Metadata = {
     "anti-DDoS",
     "Minecraft hosting",
     "Rust hosting",
-    "dedicated servers",
     "EU data center",
     "AlfaHost",
   ],

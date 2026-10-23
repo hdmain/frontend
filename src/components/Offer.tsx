@@ -11,10 +11,11 @@ import styles from "./Offer.module.css";
 
 type Props = {
   locale: Locale;
+  headingLevel?: "h1" | "h2";
   t: Dictionary["offer"];
 };
 
-export default function Offer({ locale, t }: Props) {
+export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props) {
   const [premium, setPremium] = useState(false);
   const currency = useOptionalCurrency();
   const hasPremium = t.plans.some((plan) => {
@@ -30,7 +31,7 @@ export default function Offer({ locale, t }: Props) {
         <div className={styles.head}>
           <div>
             <span className="eyebrow">{t.eyebrow}</span>
-            <h2 className="sectionTitle">{t.title}</h2>
+            <Heading className="sectionTitle">{t.title}</Heading>
             <p className="sectionLead">{t.lead}</p>
           </div>
 
@@ -74,11 +75,10 @@ export default function Offer({ locale, t }: Props) {
                 className={`${styles.card} ${!available ? styles.cardUnavailable : ""}`}
                 width="100%"
                 height="auto"
-                background="transparent"
-                borderRadius="0"
-                borderColor="transparent"
-                glareColor="#e30928"
-                glareOpacity={0.35}
+                background="var(--panel)"
+                borderRadius="var(--radius)"
+                glareColor="var(--red-glow)"
+                glareOpacity={0.12}
                 glareAngle={-40}
                 glareSize={260}
                 transitionDuration={700}

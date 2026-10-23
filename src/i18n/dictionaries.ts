@@ -120,7 +120,6 @@ export type Dictionary = {
     legal: string;
     gameServers: string;
     vps: string;
-    dedicated: string;
     antiddos: string;
     why: string;
     faq: string;
@@ -188,7 +187,7 @@ const en: Dictionary = {
   meta: {
     title: "AlfaHost - VPS, Game Servers & Anti-DDoS",
     description:
-      "Fast VPS, game servers and dedicated machines with DDoS protection included.",
+      "Fast VPS and game servers with DDoS protection included.",
   },
   nav: {
     home: "Home",
@@ -205,7 +204,7 @@ const en: Dictionary = {
     currency: "Currency",
   },
   hero: {
-    lede: "Fast VPS, game servers and dedicated machines, with DDoS protection on every plan and a panel built for operators.",
+    lede: "Fast VPS and game servers, with DDoS protection on every plan and a panel built for operators.",
     ctaOffer: "Our offer",
     ctaContact: "Contact",
     positivesLabel: "Why operators choose us",
@@ -232,7 +231,7 @@ const en: Dictionary = {
   services: {
     eyebrow: "What we offer",
     title: "Our services",
-    lead: "Game servers, VPS and dedicated machines, all with protection in every plan.",
+    lead: "Game servers and VPS, all with protection in every plan.",
     learnMore: "Learn more",
     items: [
       {
@@ -253,16 +252,6 @@ const en: Dictionary = {
           "NVMe SSD storage",
           "Instant OS install",
           "DDoS filtering on every plan",
-        ],
-      },
-      {
-        title: "Dedicated Servers",
-        desc: "Bare-metal Ryzen and Xeon machines for high-load communities and apps.",
-        points: [
-          "Modern AMD / Intel CPUs",
-          "Up to 10 Gbps links",
-          "Remote management",
-          "Custom configs on request",
         ],
       },
     ],
@@ -511,33 +500,6 @@ const en: Dictionary = {
           "Mod / config friendly layout",
         ],
       },
-      {
-        name: "Dedicated",
-        slug: "dedicated",
-        tag: "Ded",
-        cpu: "Ryzen / Xeon",
-        ram: "ECC",
-        disk: "NVMe RAID",
-        price: "211 zł",
-        premiumPrice: "340 zł",
-        summary: "Bare-metal machines for high-load communities and custom stacks.",
-        description:
-          "When a VPS is not enough, take the whole box. Modern AMD / Intel CPUs, ECC memory and NVMe storage with remote management, ideal for large game networks, private clouds or latency-sensitive apps.",
-        idealFor: "Large communities, multi-game networks and bare-metal workloads.",
-        highlights: [
-          "Full hardware dedication",
-          "Up to 10 Gbps links available",
-          "Remote management (IPMI / KVM)",
-          "Custom configs on request",
-        ],
-        includes: [
-          "Anti-DDoS options included",
-          "ECC memory",
-          "NVMe RAID storage options",
-          "Atman Warsaw Tier III+ datacenter",
-          "Priority onboarding help",
-        ],
-      },
     ],
   },
   faq: {
@@ -562,13 +524,12 @@ const en: Dictionary = {
   },
   footer: {
     about:
-      "AlfaHost delivers premium game hosting, VPS and dedicated servers with anti-DDoS included on every plan.",
+      "AlfaHost delivers premium game hosting and VPS with anti-DDoS included on every plan.",
     products: "Products",
     company: "Company",
     legal: "Legal",
     gameServers: "Game servers",
     vps: "VPS",
-    dedicated: "Dedicated",
     antiddos: "Anti-DDoS",
     why: "Why AlfaHost",
     faq: "FAQ",
@@ -647,7 +608,7 @@ const pl: Dictionary = {
   meta: {
     title: "AlfaHost - VPS, serwery gier i Anty-DDoS",
     description:
-      "Szybkie VPS-y, serwery gier i maszyny dedykowane z ochroną DDoS w standardzie.",
+      "Szybkie VPS-y i serwery gier z ochroną DDoS w standardzie.",
   },
   nav: {
     home: "Strona główna",
@@ -664,7 +625,7 @@ const pl: Dictionary = {
     currency: "Waluta",
   },
   hero: {
-    lede: "Szybkie VPS-y, serwery gier i maszyny dedykowane, z ochroną DDoS w każdym planie i panelem stworzonym dla operatorów.",
+    lede: "Szybkie VPS-y i serwery gier, z ochroną DDoS w każdym planie i panelem stworzonym dla operatorów.",
     ctaOffer: "Nasza oferta",
     ctaContact: "Kontakt",
     positivesLabel: "Dlaczego wybierają nas",
@@ -691,7 +652,7 @@ const pl: Dictionary = {
   services: {
     eyebrow: "Co oferujemy",
     title: "Nasze usługi",
-    lead: "Serwery gier, VPS i maszyny dedykowane, ochrona w każdym planie.",
+    lead: "Serwery gier i VPS, ochrona w każdym planie.",
     learnMore: "Dowiedz się więcej",
     items: [
       {
@@ -712,16 +673,6 @@ const pl: Dictionary = {
           "Dyski NVMe SSD",
           "Natychmiastowa instalacja systemu",
           "Filtrowanie DDoS w każdym planie",
-        ],
-      },
-      {
-        title: "Serwery dedykowane",
-        desc: "Bare-metal Ryzen i Xeon pod wymagające społeczności i aplikacje.",
-        points: [
-          "Nowoczesne CPU AMD / Intel",
-          "Łącza do 10 Gbps",
-          "Zdalne zarządzanie",
-          "Konfiguracje na zamówienie",
         ],
       },
     ],
@@ -970,33 +921,6 @@ const pl: Dictionary = {
           "Układ przyjazny modom / configom",
         ],
       },
-      {
-        name: "Dedykowany",
-        slug: "dedicated",
-        tag: "Ded",
-        cpu: "Ryzen / Xeon",
-        ram: "ECC",
-        disk: "NVMe RAID",
-        price: "211 zł",
-        premiumPrice: "340 zł",
-        summary: "Maszyny bare-metal pod duże społeczności i własne stacki.",
-        description:
-          "Gdy VPS nie wystarcza, bierzesz cały serwer. Nowoczesne CPU AMD/Intel, pamięć ECC i NVMe ze zdalnym zarządzaniem, pod duże sieci gier, prywatne chmury i aplikacje wrażliwe na latency.",
-        idealFor: "Duże społeczności, sieci multi-game i obciążenia bare-metal.",
-        highlights: [
-          "Cały sprzęt tylko dla Ciebie",
-          "Łącza do 10 Gbps",
-          "Zdalne zarządzanie (IPMI / KVM)",
-          "Konfiguracje na zamówienie",
-        ],
-        includes: [
-          "Opcje anty-DDoS w ofercie",
-          "Pamięć ECC",
-          "Opcje NVMe RAID",
-          "DC Atman Tier III+ w Warszawie",
-          "Priorytetowe wdrożenie",
-        ],
-      },
     ],
   },
   faq: {
@@ -1021,13 +945,12 @@ const pl: Dictionary = {
   },
   footer: {
     about:
-      "AlfaHost oferuje hosting gier, VPS i serwery dedykowane z anty-DDoS w każdym planie.",
+      "AlfaHost oferuje hosting gier i VPS z anty-DDoS w każdym planie.",
     products: "Produkty",
     company: "Firma",
     legal: "Informacje prawne",
     gameServers: "Serwery gier",
     vps: "VPS",
-    dedicated: "Dedykowane",
     antiddos: "Anty-DDoS",
     why: "Dlaczego AlfaHost",
     faq: "FAQ",
@@ -1106,7 +1029,7 @@ const ru: Dictionary = {
   meta: {
     title: "AlfaHost - VPS, игровые серверы и Anti-DDoS",
     description:
-      "Быстрые VPS, игровые и выделенные серверы с защитой от DDoS в каждом тарифе.",
+      "Быстрые VPS и игровые серверы с защитой от DDoS в каждом тарифе.",
   },
   nav: {
     home: "Главная",
@@ -1123,7 +1046,7 @@ const ru: Dictionary = {
     currency: "Валюта",
   },
   hero: {
-    lede: "Быстрые VPS, игровые и выделенные серверы, с защитой от DDoS в каждом тарифе и панелью для операторов.",
+    lede: "Быстрые VPS и игровые серверы, с защитой от DDoS в каждом тарифе и панелью для операторов.",
     ctaOffer: "Наши тарифы",
     ctaContact: "Контакты",
     positivesLabel: "Почему выбирают нас",
@@ -1150,7 +1073,7 @@ const ru: Dictionary = {
   services: {
     eyebrow: "Что мы предлагаем",
     title: "Наши услуги",
-    lead: "Игровые серверы, VPS и выделенные машины, защита в каждом тарифе.",
+    lead: "Игровые серверы и VPS, защита в каждом тарифе.",
     learnMore: "Подробнее",
     items: [
       {
@@ -1171,16 +1094,6 @@ const ru: Dictionary = {
           "Диски NVMe SSD",
           "Мгновенная установка ОС",
           "Фильтрация DDoS в каждом тарифе",
-        ],
-      },
-      {
-        title: "Выделенные серверы",
-        desc: "Bare-metal Ryzen и Xeon для высоконагруженных проектов.",
-        points: [
-          "Современные CPU AMD / Intel",
-          "Каналы до 10 Гбит/с",
-          "Удалённое управление",
-          "Кастомные конфигурации",
         ],
       },
     ],
@@ -1429,33 +1342,6 @@ const ru: Dictionary = {
           "Удобная раскладка под моды/конфиги",
         ],
       },
-      {
-        name: "Dedicated",
-        slug: "dedicated",
-        tag: "Ded",
-        cpu: "Ryzen / Xeon",
-        ram: "ECC",
-        disk: "NVMe RAID",
-        price: "211 zł",
-        premiumPrice: "340 zł",
-        summary: "Bare-metal машины для высоконагруженных сообществ и своих стеков.",
-        description:
-          "Когда VPS мало, берёте весь сервер. Современные CPU AMD/Intel, ECC и NVMe с удалённым управлением, для крупных игровых сетей, частных облаков и latency-sensitive приложений.",
-        idealFor: "Крупные сообщества, multi-game сети и bare-metal нагрузки.",
-        highlights: [
-          "Всё железо только ваше",
-          "Каналы до 10 Гбит/с",
-          "Удалённое управление (IPMI / KVM)",
-          "Кастомные конфигурации",
-        ],
-        includes: [
-          "Опции Anti-DDoS в тарифе",
-          "Память ECC",
-          "Опции NVMe RAID",
-          "ДЦ Atman Tier III+ в Варшаве",
-          "Приоритетный онбординг",
-        ],
-      },
     ],
   },
   faq: {
@@ -1480,13 +1366,12 @@ const ru: Dictionary = {
   },
   footer: {
     about:
-      "AlfaHost предоставляет игровой хостинг, VPS и выделенные серверы с anti-DDoS в каждом тарифе.",
+      "AlfaHost предоставляет игровой хостинг и VPS с anti-DDoS в каждом тарифе.",
     products: "Продукты",
     company: "Компания",
     legal: "Правовая информация",
     gameServers: "Игровые серверы",
     vps: "VPS",
-    dedicated: "Выделенные",
     antiddos: "Anti-DDoS",
     why: "Почему AlfaHost",
     faq: "FAQ",

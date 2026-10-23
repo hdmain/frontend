@@ -1,6 +1,7 @@
 .section {
-  padding: 4.5rem 0 0;
-  background: var(--panel-2);
+  position: relative;
+  padding: 4rem 0 0;
+  background: transparent;
 }
 
 .head {
@@ -13,6 +14,9 @@
 .toggle {
   display: inline-flex;
   border: 1px solid var(--line);
+  padding: .3rem;
+  border-radius: var(--radius-sm);
+  background: var(--panel);
   width: fit-content;
 }
 
@@ -24,8 +28,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--dim);
-  transition:
-    background 0.15s ease,
+  transition: background 0.15s ease,
     color 0.15s ease;
 }
 
@@ -47,24 +50,18 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
-  min-height: 17.5rem;
-  padding: 1.25rem;
-  background-color: var(--panel-2);
+  padding: 1.4rem;
+  min-height: 29rem;
   border: 1px solid var(--line);
-  border-left: 3px solid var(--red);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--surface-shadow);
   overflow: hidden;
-  transition:
-    border-color 0.15s ease,
-    transform 0.2s var(--ease);
+  transition: border-color .2s ease, transform .2s var(--ease);
 }
 
 .cardUnavailable .cardMedia::after {
-  background: linear-gradient(
-    180deg,
-    rgba(7, 7, 7, 0.28) 0%,
-    rgba(7, 7, 7, 0.48) 48%,
-    rgba(7, 7, 7, 0.88) 100%
-  );
+  background: color-mix(in srgb, var(--panel) 45%, transparent);
 }
 
 .card:hover {
@@ -74,12 +71,14 @@
 
 .cardMedia {
   position: absolute;
-  inset: 0;
+  inset: 0 0 auto;
+  height: 12rem;
   z-index: 0;
   background-color: var(--panel-2);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
   pointer-events: none;
 }
 
@@ -87,12 +86,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(7, 7, 7, 0.08) 0%,
-    rgba(7, 7, 7, 0.2) 48%,
-    rgba(7, 7, 7, 0.78) 100%
-  );
+  background: color-mix(in srgb, var(--panel) 20%, transparent);
 }
 
 .cardLink {
@@ -113,7 +107,6 @@
 }
 
 .cardSummary {
-  color: rgba(255, 255, 255, 0.92);
   font-size: 0.92rem;
   line-height: 1.45;
   margin-bottom: 0.85rem;
@@ -121,7 +114,9 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  color: var(--muted);
+  text-shadow: none;
+  margin-top: .75rem;
 }
 
 .titleRow {
@@ -136,14 +131,16 @@
   min-width: 2.4rem;
   padding: 0.28rem 0.45rem;
   border: 1px solid rgba(227, 9, 40, 0.85);
-  background: rgba(227, 9, 40, 0.88);
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
   text-align: center;
+  color: var(--red-hot);
+  background: var(--panel-2);
+  border-color: var(--line);
+  border-radius: 6px;
 }
 
 .available,
@@ -172,26 +169,25 @@
 }
 
 .disabledCta {
-  border-color: rgba(255, 255, 255, 0.35) !important;
-  color: rgba(255, 255, 255, 0.68) !important;
   cursor: not-allowed;
   pointer-events: none;
+  border-color: var(--line) !important;
+  color: var(--muted) !important;
 }
 
 .card h3 {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.1;
-  color: #fff;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.3;
+  color: var(--text);
 }
 
 .specs {
   display: grid;
   gap: 0.35rem;
+  padding-top: .75rem;
 }
 
 .specs div {
@@ -199,6 +195,8 @@
   justify-content: space-between;
   gap: 0.75rem;
   font-size: 0.9rem;
+  border-bottom: 1px solid var(--line);
+  padding: .45rem 0;
 }
 
 .specs dt {
@@ -260,9 +258,7 @@
 }
 
 .cut {
-  height: var(--cut);
-  background: var(--black);
-  clip-path: polygon(0 0, 100% 100%, 100% 0);
+  display: none;
 }
 
 @media (min-width: 720px) {
@@ -270,16 +266,13 @@
     grid-template-columns: 1fr auto;
     align-items: end;
   }
-
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .card {
     min-height: 19rem;
     padding: 1.4rem;
   }
-
   .amount {
     font-size: 2.15rem;
   }
@@ -290,4 +283,47 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
+}
+
+.tab, .tabOn {
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  text-transform: none;
+  border-radius: 7px;
+}
+
+.tab {
+  color: var(--muted);
+}
+
+.cardBody {
+  padding-top: 8.5rem;
+}
+
+.specs dt, .from, .period {
+  color: var(--muted);
+  text-shadow: none;
+}
+
+.specs dd, .amount {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.specs dt, .from {
+  font-family: var(--font-sans);
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+.available, .unavailable {
+  border-radius: 6px;
+}
+
+.card:focus-within {
+  border-color: var(--control-border);
+}
+
+.cta:focus-visible, .cardLink:focus-visible {
+  outline-offset: -4px;
 }
