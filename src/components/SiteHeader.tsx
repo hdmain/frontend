@@ -1,13 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import {
-  comingSoonPath,
-  isComingSoon,
-  localeHref,
-  type Locale,
-} from "@/i18n/config";
+import { localeHref, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { legalEntity } from "@/lib/legal";
 import { useSyncCurrencyLocale } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import LocaleControls from "./LocaleControls";
@@ -25,9 +21,7 @@ type Props = {
 export default function SiteHeader({ locale, t, path }: Props) {
   const [open, setOpen] = useState(false);
   const home = localeHref(locale);
-  const panelHref = isComingSoon()
-    ? comingSoonPath(locale)
-    : "mailto:support@alfahost.eu";
+  const panelHref = legalEntity.panel;
   useSyncCurrencyLocale(locale);
 
   const links = [
