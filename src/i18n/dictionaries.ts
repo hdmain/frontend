@@ -74,7 +74,7 @@ export type Dictionary = {
   offer: {
     eyebrow: string;
     title: string;
-    lead: string;
+    lead: string;
     from: string;
     perMonth: string;
     available: string;
@@ -301,7 +301,7 @@ const en: Dictionary = {
   offer: {
     eyebrow: "Explore the catalog",
     title: "Our offer",
-    lead: "Sample configurations across our hosting catalog.",
+    lead: "Sample configurations across our hosting catalog.",
     from: "From",
     perMonth: "/mo",
     available: "Available",
@@ -435,7 +435,7 @@ const en: Dictionary = {
       {
         name: "VPS",
         slug: "vps",
-        available: true,
+        available: false,
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
@@ -711,7 +711,7 @@ const pl: Dictionary = {
   offer: {
     eyebrow: "Poznaj ofertę",
     title: "Nasza oferta",
-    lead: "Przykładowe konfiguracje z naszego katalogu hostingu.",
+    lead: "Przykładowe konfiguracje z naszego katalogu hostingu.",
     from: "Od",
     perMonth: "/mies.",
     available: "Dostępne",
@@ -845,7 +845,7 @@ const pl: Dictionary = {
       {
         name: "VPS",
         slug: "vps",
-        available: true,
+        available: false,
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
@@ -1121,7 +1121,7 @@ const ru: Dictionary = {
   offer: {
     eyebrow: "Смотрите каталог",
     title: "Наши тарифы",
-    lead: "Примеры конфигураций из нашего каталога хостинга.",
+    lead: "Примеры конфигураций из нашего каталога хостинга.",
     from: "От",
     perMonth: "/мес.",
     available: "Доступно",
@@ -1255,7 +1255,7 @@ const ru: Dictionary = {
       {
         name: "VPS",
         slug: "vps",
-        available: true,
+        available: false,
         cpu: "Ryzen 9 5950X",
         ram: "DDR4",
         disk: "NVMe SSD",
