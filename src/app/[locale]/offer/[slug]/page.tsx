@@ -66,7 +66,7 @@ export default async function OfferPage({
 
   const t = getDictionary(locale);
   const others = t.offer.plans
-    .filter((p) => p.slug !== plan.slug && p.available)
+    .filter((p) => p.slug !== plan.slug && (p.available ?? true))
     .slice(0, 3);
 
   return (

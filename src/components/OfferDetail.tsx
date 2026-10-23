@@ -77,7 +77,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const description = offer?.description || plan.description;
   // Prefer API value even when empty (e.g. Discord plans hide CPU model).
   const cpu = offer ? (offer.cpu ?? "") : plan.cpu;
-  const available = offer?.available ?? plan.available ?? false;
+  const available = offer?.available ?? plan.available ?? true;
   const packages = offer?.packages ?? [];
   const formatRam = (ramGB: number) => {
     if (plan.slug === "vps-nat") {

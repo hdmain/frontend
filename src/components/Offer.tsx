@@ -31,7 +31,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
         <div className={styles.grid}>
           {t.plans.map((plan) => {
             const available =
-              currency?.prices[plan.slug]?.available ?? plan.available ?? false;
+              currency?.prices[plan.slug]?.available ?? plan.available ?? true;
             const href = localePath(locale, `offer/${plan.slug}`);
             const live = currency?.prices[plan.slug];
             const amount = live?.standard || plan.price;
