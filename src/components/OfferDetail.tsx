@@ -74,7 +74,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const title = offer?.name || plan.name;
   const summary = offer?.summary || plan.summary;
   const description = offer?.description || plan.description;
-  const available = offer?.available ?? plan.available ?? true;
+  const available = plan.available ?? true;
   const packages = offer?.packages ?? [];
   const formatRam = (ramGB: number) => {
     if (plan.slug === "vps-nat") {
