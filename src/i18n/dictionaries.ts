@@ -199,8 +199,8 @@ const en: Dictionary = {
     currency: "Currency",
   },
   hero: {
-    lede: "Fast VPS and game servers, with DDoS protection on every plan and a panel built for operators.",
-    ctaOffer: "Our offer",
+    lede: "VPS and game servers in Warsaw, with anti-DDoS on every plan.",
+    ctaOffer: "See the offer",
     ctaContact: "Contact",
     positivesLabel: "Why operators choose us",
     positives: [
@@ -218,7 +218,7 @@ const en: Dictionary = {
       },
     ],
     phrases: [
-      "Servers in Europe.",
+      "Hosting from Atman Warsaw.",
       "Game-ready nodes.",
       "DDoS protection included.",
     ],
@@ -609,8 +609,8 @@ const pl: Dictionary = {
     currency: "Waluta",
   },
   hero: {
-    lede: "Szybkie VPS-y i serwery gier, z ochroną DDoS w każdym planie i panelem stworzonym dla operatorów.",
-    ctaOffer: "Nasza oferta",
+    lede: "VPS-y i serwery gier w Warszawie, z anty-DDoS w każdym planie.",
+    ctaOffer: "Zobacz ofertę",
     ctaContact: "Kontakt",
     positivesLabel: "Dlaczego wybierają nas",
     positives: [
@@ -628,7 +628,7 @@ const pl: Dictionary = {
       },
     ],
     phrases: [
-      "Serwery w Europie.",
+      "Hosting z Atman Warsaw.",
       "Węzły gotowe na gry.",
       "Ochrona DDoS w cenie.",
     ],
@@ -1019,8 +1019,8 @@ const ru: Dictionary = {
     currency: "Валюта",
   },
   hero: {
-    lede: "Быстрые VPS и игровые серверы, с защитой от DDoS в каждом тарифе и панелью для операторов.",
-    ctaOffer: "Наши тарифы",
+    lede: "VPS и игровые серверы в Варшаве, с anti-DDoS в каждом тарифе.",
+    ctaOffer: "Смотреть тарифы",
     ctaContact: "Контакты",
     positivesLabel: "Почему выбирают нас",
     positives: [
@@ -1038,7 +1038,7 @@ const ru: Dictionary = {
       },
     ],
     phrases: [
-      "Серверы в Европе.",
+      "Хостинг из Atman Warsaw.",
       "Ноды для игр.",
       "DDoS-защита включена.",
     ],

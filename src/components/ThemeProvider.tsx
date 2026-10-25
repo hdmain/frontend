@@ -10,7 +10,7 @@ const ThemeContext = createContext<{ theme: Theme; toggleTheme: () => void }>({
 });
 
 function getThemeSnapshot(): Theme {
-  return window.localStorage.getItem("alfahost-theme") === "light" ? "light" : "dark";
+  return window.localStorage.getItem("alfahost-theme") === "dark" ? "dark" : "light";
 }
 
 function subscribeToTheme(onChange: () => void) {
@@ -27,7 +27,7 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-  const theme = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, (): Theme => "dark");
+  const theme = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, (): Theme => "light");
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;

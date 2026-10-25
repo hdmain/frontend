@@ -4,13 +4,13 @@ import Providers from "@/components/Providers";
 import "./globals.css";
 import { OG_IMAGE_FALLBACK, SITE_NAME, SITE_URL } from "@/lib/seo";
 
-import "@fontsource/oswald/500.css";
-import "@fontsource/oswald/600.css";
-import "@fontsource/oswald/700.css";
-import "@fontsource/ibm-plex-sans/400.css";
-import "@fontsource/ibm-plex-sans/500.css";
-import "@fontsource/ibm-plex-sans/600.css";
-import "@fontsource/ibm-plex-sans/700.css";
+import "@fontsource/syne/600.css";
+import "@fontsource/syne/700.css";
+import "@fontsource/syne/800.css";
+import "@fontsource/manrope/400.css";
+import "@fontsource/manrope/500.css";
+import "@fontsource/manrope/600.css";
+import "@fontsource/manrope/700.css";
 
 export const metadataBase = new URL(SITE_URL);
 
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#eceef1",
 };
 
 export default function RootLayout({

@@ -1,12 +1,7 @@
-"use client";
-
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import AnimatedContent from "./AnimatedContent";
-import BlurText from "./BlurText";
-import DecryptedText from "./DecryptedText";
+import { asset } from "@/lib/basePath";
 import { Icons } from "./Icons";
-import Typewriter from "./Typewriter";
 import styles from "./Hero.module.css";
 
 type Props = {
@@ -17,72 +12,26 @@ type Props = {
 export default function Hero({ t }: Props) {
   return (
     <section className={styles.hero} id="top">
-      <div className={styles.auroraWrap} aria-hidden />
-      <div className={`container ${styles.layout}`}>
-        <AnimatedContent
-          className={styles.copy}
-          distance={24}
-          direction="vertical"
-          duration={0.6}
-          ease="power3.out"
-          immediate
-        >
-          <h1 className={styles.brand}>
-            <DecryptedText
-              text="AlfaHost"
-              animateOn="view"
-              sequential
-              speed={40}
-              className={styles.brandText}
-              parentClassName={styles.brandText}
-            />
-            <span className={styles.brandShine}>.eu</span>
-          </h1>
-          <BlurText
-            text={t.phrases[0]}
-            className={styles.typed}
-            animateBy="words"
-            direction="top"
-            delay={110}
-            animationFrom={{ filter: "blur(6px)", opacity: 0, y: -12 }}
-          />
-          <p className={styles.typedSub}>
-            <Typewriter phrases={t.phrases.slice(1)} />
-          </p>
-          <p className={styles.lede}>{t.lede}</p>
-          <div className={styles.actions}>
-            <a className="btn btnPrimary" href="#offer">
-              {t.ctaOffer} {Icons.arrow}
-            </a>
-            <a className="btn btnGhost" href="#contact">
-              {t.ctaContact}
-            </a>
-          </div>
-        </AnimatedContent>
-
-        <AnimatedContent
-          className={styles.positives}
-          distance={24}
-          direction="vertical"
-          delay={0.06}
-          duration={0.65}
-          immediate
-        >
-          <aside aria-label={t.positivesLabel}>
-            <p className={styles.positivesLabel}>{t.positivesLabel}</p>
-            <ul className={styles.list}>
-              {t.positives.map((item, i) => (
-                <li key={item.title} className={styles.chip}>
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                  <div>
-                    <strong>{item.title}</strong>
-                    <p>{item.copy}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </AnimatedContent>
+      <div
+        className={styles.media}
+        style={{ backgroundImage: `url(${asset("/media/hero-dc.jpg")})` }}
+        aria-hidden
+      />
+      <div className={styles.scrim} aria-hidden />
+      <div className={`container ${styles.copy}`}>
+        <p className={styles.brand}>
+          AlfaHost<span>.eu</span>
+        </p>
+        <h1 className={styles.headline}>{t.phrases[0]}</h1>
+        <p className={styles.lede}>{t.lede}</p>
+        <div className={styles.actions}>
+          <a className={`btn btnPrimary ${styles.ctaPrimary}`} href="#offer">
+            {t.ctaOffer} {Icons.arrow}
+          </a>
+          <a className={`btn ${styles.ctaGhost}`} href="#contact">
+            {t.ctaContact}
+          </a>
+        </div>
       </div>
     </section>
   );
