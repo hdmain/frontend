@@ -18,7 +18,7 @@ export default function SiteFooter({ locale, t }: Props) {
         <div className={styles.brandCol}>
           <a href={localeHref(locale)} className={styles.brand}>
             <WolfMark className={styles.mark} />
-            <span>
+            <span className={styles.word}>
               AlfaHost<span>.eu</span>
             </span>
           </a>

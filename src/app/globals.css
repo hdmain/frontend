@@ -1,67 +1,71 @@
 :root {
   color-scheme: light;
-  --void: #eceef1;
-  --surface: #f7f8fa;
-  --ink: #12151a;
-  --muted: #5c6570;
-  --dim: #7a8490;
-  --accent: #c8102e;
-  --accent-deep: #9e0c24;
-  --line: rgba(18, 21, 26, 0.14);
-  --line-strong: rgba(18, 21, 26, 0.28);
+  --void: #f3f1ef;
+  --surface: #fffdfb;
+  --ink: #141414;
+  --muted: #5a5a5a;
+  --dim: #7a7a7a;
+  --accent: #c4001a;
+  --accent-hot: #e30928;
+  --accent-deep: #8a0012;
+  --line: rgba(20, 20, 20, 0.12);
+  --line-strong: rgba(20, 20, 20, 0.22);
+  --wolf: #c4001a;
   --hero-scrim: linear-gradient(
-    105deg,
-    rgba(10, 12, 16, 0.82) 0%,
-    rgba(10, 12, 16, 0.55) 48%,
-    rgba(10, 12, 16, 0.28) 100%
+    100deg,
+    rgba(8, 8, 8, 0.88) 0%,
+    rgba(8, 8, 8, 0.55) 42%,
+    rgba(8, 8, 8, 0.2) 100%
   );
-  --max: 1120px;
-  --nav-h: 4rem;
+  --max: 1140px;
+  --nav-h: 4.25rem;
   --font-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
   --font-sans: "Manrope", "Segoe UI", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --text: var(--ink);
   --black: var(--surface);
   --panel: #ffffff;
-  --panel-2: #f0f2f5;
+  --panel-2: #efecea;
   --red: var(--accent);
-  --red-hot: var(--accent);
+  --red-hot: var(--accent-hot);
   --red-deep: var(--accent-deep);
   --red-glow: transparent;
   --surface-shadow: none;
-  --radius: 4px;
+  --radius: 2px;
   --radius-sm: 2px;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --void: #101214;
-  --surface: #16181c;
-  --ink: #eef0f3;
-  --muted: #9aa3ad;
-  --dim: #6f7882;
-  --accent: #e11d3a;
-  --accent-deep: #c8102e;
-  --line: rgba(238, 240, 243, 0.12);
-  --line-strong: rgba(238, 240, 243, 0.24);
+  --void: #0c0c0c;
+  --surface: #121212;
+  --ink: #f2f2f2;
+  --muted: #a3a3a3;
+  --dim: #6b6b6b;
+  --accent: #e30928;
+  --accent-hot: #ff2d45;
+  --accent-deep: #c4001a;
+  --line: rgba(242, 242, 242, 0.12);
+  --line-strong: rgba(242, 242, 242, 0.22);
+  --wolf: #e30928;
   --hero-scrim: linear-gradient(
-    105deg,
-    rgba(8, 9, 11, 0.88) 0%,
-    rgba(8, 9, 11, 0.62) 48%,
-    rgba(8, 9, 11, 0.35) 100%
+    100deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.62) 42%,
+    rgba(0, 0, 0, 0.28) 100%
   );
   --text: var(--ink);
   --black: var(--surface);
-  --panel: #1a1d22;
-  --panel-2: #22262c;
+  --panel: #171717;
+  --panel-2: #1f1f1f;
   --red: var(--accent);
-  --red-hot: var(--accent);
+  --red-hot: var(--accent-hot);
   --red-deep: var(--accent-deep);
 }
 
 @media (min-width: 640px) {
   :root {
-    --nav-h: 4.5rem;
+    --nav-h: 4.75rem;
   }
 }
 
@@ -144,24 +148,32 @@ ol {
 }
 
 .eyebrow {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.1rem;
+  height: 2px;
+  background: var(--accent);
 }
 
 .sectionTitle {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 4.2vw, 2.75rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: 0.75rem;
-  text-transform: none;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  margin-bottom: 0.8rem;
 }
 
 .sectionLead {
@@ -177,17 +189,18 @@ ol {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 2.85rem;
-  padding: 0.7rem 1.25rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.35rem;
   border-radius: var(--radius);
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   transition:
     background 0.2s var(--ease),
     color 0.2s var(--ease),
-    border-color 0.2s var(--ease);
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease);
 }
 
 .btnPrimary {
@@ -197,9 +210,10 @@ ol {
 }
 
 .btnPrimary:hover {
-  background: var(--accent-deep);
-  border-color: var(--accent-deep);
+  background: var(--accent-hot);
+  border-color: var(--accent-hot);
   color: #fff;
+  transform: translateY(-1px);
 }
 
 .btnGhost {
@@ -216,11 +230,22 @@ ol {
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes wolfIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
 }
 

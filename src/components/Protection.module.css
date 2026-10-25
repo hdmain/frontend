@@ -1,57 +1,93 @@
 .section {
-  padding: 4.5rem 0;
-  border-top: 1px solid var(--line);
+  position: relative;
+  padding: 5rem 0;
+  background: #111;
+  color: #f2f2f2;
+  overflow: hidden;
+}
+
+.section :global(.eyebrow) {
+  color: var(--accent-hot);
+}
+
+.section :global(.eyebrow::before) {
+  background: var(--accent-hot);
+}
+
+.section :global(.sectionLead) {
+  color: rgba(242, 242, 242, 0.72);
 }
 
 .wrap {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 2.25rem;
 }
 
+.mark {
+  position: absolute;
+  right: -2rem;
+  top: -1rem;
+  width: min(42vw, 16rem);
+  color: var(--wolf);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.wolf {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 473 / 412 !important;
+}
+
 .head {
-  max-width: 38rem;
+  max-width: 40rem;
 }
 
 .body {
   display: grid;
-  gap: 2rem;
-  border-top: 1px solid var(--line);
-  padding-top: 2rem;
+  gap: 1.5rem;
 }
 
-.body h3 {
+.block {
+  padding: 1.35rem 0;
+  border-top: 1px solid rgba(242, 242, 242, 0.14);
+}
+
+.block h3 {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   margin-bottom: 0.65rem;
 }
 
-.body p,
-.body li {
-  color: var(--muted);
+.block p,
+.block li {
+  color: rgba(242, 242, 242, 0.72);
   line-height: 1.55;
-  max-width: 40rem;
+  max-width: 38rem;
 }
 
-.body ul {
+.block ul {
   display: grid;
   gap: 0.65rem;
 }
 
-.body li {
+.block li {
   padding-left: 1rem;
   position: relative;
 }
 
-.body li::before {
+.block li::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0.65rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  background: var(--accent);
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--accent-hot);
 }
 
 .stats {
@@ -62,32 +98,39 @@
 
 .stats div {
   padding-top: 0.85rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(242, 242, 242, 0.14);
 }
 
 .stats dt {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--dim);
-  margin-bottom: 0.25rem;
+  color: rgba(242, 242, 242, 0.5);
+  margin-bottom: 0.3rem;
 }
 
 .stats dd {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.9rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  color: #fff;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 860px) {
   .body {
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 3rem;
   }
 
   .stats {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .mark {
+    right: 0;
+    top: 0;
+    opacity: 0.22;
   }
 }

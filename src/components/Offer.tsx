@@ -25,7 +25,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
           <p className="sectionLead">{t.lead}</p>
         </header>
 
-        <ul className={styles.list}>
+        <ul className={styles.grid}>
           {t.plans.map((plan) => {
             const available = plan.available ?? true;
             const href = localePath(locale, `offer/${plan.slug}`);
@@ -35,42 +35,40 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
               <li key={plan.slug}>
                 <a
                   href={href}
-                  className={`${styles.row} ${!available ? styles.unavailableRow : ""}`}
+                  className={`${styles.card} ${!available ? styles.cardOff : ""}`}
                 >
                   <span
-                    className={styles.thumb}
+                    className={styles.media}
                     style={{
                       backgroundImage: `url(${asset(`/offers/${plan.slug}.jpg`)})`,
                     }}
                     aria-hidden
                   />
-                  <span className={styles.main}>
-                    <span className={styles.titleLine}>
+                  <span className={styles.body}>
+                    <span className={styles.top}>
                       <strong>{plan.name}</strong>
-                      <span
-                        className={available ? styles.available : styles.unavailable}
-                      >
+                      <span className={available ? styles.on : styles.off}>
                         {available ? t.available : t.unavailable}
                       </span>
                     </span>
                     <span className={styles.summary}>{plan.summary}</span>
-                    <span className={styles.specs}>
+                    <span className={styles.meta}>
                       <span>
-                        {t.ram}: {plan.ram}
+                        {t.ram} · {plan.ram}
                       </span>
                       <span>
-                        {t.disk}: {plan.disk}
+                        {t.disk} · {plan.disk}
                       </span>
                     </span>
-                  </span>
-                  <span className={styles.side}>
-                    <span className={styles.price}>
-                      <span className={styles.from}>{t.from}</span>
-                      <span className={styles.amount}>{amount}</span>
-                      <span className={styles.period}>{t.perMonth}</span>
-                    </span>
-                    <span className={styles.cta}>
-                      {available ? t.goToOffer : t.unavailable} {Icons.arrow}
+                    <span className={styles.foot}>
+                      <span className={styles.price}>
+                        <span className={styles.from}>{t.from}</span>
+                        <span className={styles.amount}>{amount}</span>
+                        <span className={styles.period}>{t.perMonth}</span>
+                      </span>
+                      <span className={styles.cta}>
+                        {available ? t.goToOffer : t.unavailable} {Icons.arrow}
+                      </span>
                     </span>
                   </span>
                 </a>

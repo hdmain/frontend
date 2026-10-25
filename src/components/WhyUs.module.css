@@ -1,67 +1,67 @@
 .section {
-  padding: 4.5rem 0;
+  padding: 5rem 0;
   background: var(--surface);
-  border-top: 1px solid var(--line);
-}
-
-.layout {
-  display: grid;
-  gap: 2.5rem;
 }
 
 .head {
   max-width: 34rem;
+  margin-bottom: 2.5rem;
 }
 
 .brand {
   color: var(--accent);
 }
 
-.list {
+.grid {
   display: grid;
-  gap: 0;
-  border-top: 1px solid var(--line);
+  gap: 1rem;
 }
 
 .item {
-  display: grid;
-  gap: 0.65rem;
-  padding: 1.35rem 0;
-  border-bottom: 1px solid var(--line);
+  position: relative;
+  padding: 1.4rem 1.25rem 1.4rem 1.35rem;
+  background: var(--void);
+  border-left: 3px solid var(--accent);
+}
+
+.index {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--dim);
 }
 
 .value {
   font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
   color: var(--accent);
+  margin-bottom: 0.45rem;
+  line-height: 1;
 }
 
 .item h3 {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
-.item p:last-child {
+.copy {
   color: var(--muted);
-  max-width: 36rem;
-  line-height: 1.55;
+  line-height: 1.5;
+  max-width: 28rem;
 }
 
-@media (min-width: 800px) {
-  .layout {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    align-items: start;
-    gap: 3rem;
-  }
-
-  .item {
-    grid-template-columns: 7.5rem 1fr;
-    gap: 1.25rem;
-    align-items: start;
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem;
   }
 }

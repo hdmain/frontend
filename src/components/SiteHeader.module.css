@@ -26,8 +26,10 @@
 }
 
 .mark {
-  width: 1.55rem;
-  height: 1.55rem;
+  width: 1.85rem;
+  height: auto;
+  aspect-ratio: 473 / 412;
+  color: var(--wolf);
 }
 
 .word span {

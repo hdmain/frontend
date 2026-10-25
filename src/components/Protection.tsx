@@ -1,4 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries";
+import WolfMark from "./WolfMark";
 import styles from "./Protection.module.css";
 
 type Props = { t: Dictionary["protection"] };
@@ -7,6 +8,9 @@ export default function Protection({ t }: Props) {
   return (
     <section className={styles.section} id="protection">
       <div className={`container ${styles.wrap}`}>
+        <div className={styles.mark} aria-hidden>
+          <WolfMark className={styles.wolf} />
+        </div>
         <header className={styles.head}>
           <span className="eyebrow">{t.eyebrow}</span>
           <h2 className="sectionTitle">{t.title}</h2>
@@ -14,7 +18,7 @@ export default function Protection({ t }: Props) {
         </header>
 
         <div className={styles.body}>
-          <article>
+          <article className={styles.block}>
             <h3>{t.card1Title}</h3>
             <p>{t.card1Body}</p>
             <dl className={styles.stats}>
@@ -28,8 +32,7 @@ export default function Protection({ t }: Props) {
               </div>
             </dl>
           </article>
-
-          <article>
+          <article className={styles.block}>
             <h3>{t.card2Title}</h3>
             <ul>
               {t.points.map((point) => (

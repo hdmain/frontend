@@ -14,11 +14,14 @@ export default function Services({ t }: Props) {
           <p className="sectionLead">{t.lead}</p>
         </header>
 
-        <div className={styles.grid}>
-          {t.items.map((service) => (
-            <article key={service.title} className={styles.block}>
-              <h3>{service.title}</h3>
-              <p className={styles.desc}>{service.desc}</p>
+        <div className={styles.stack}>
+          {t.items.map((service, i) => (
+            <article key={service.title} className={styles.row}>
+              <div className={styles.meta}>
+                <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+              </div>
               <ul className={styles.points}>
                 {service.points.map((point) => (
                   <li key={point}>
