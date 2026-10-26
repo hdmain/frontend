@@ -78,6 +78,16 @@ export type LegalDocument = {
   sections: LegalSection[];
 };
 
+function activityNotice(locale: Locale): string {
+  if (locale === "pl") {
+    return `AlfaHost jest prowadzone przez ${legalEntity.name} w ramach działalności nierejestrowanej w Polsce.`;
+  }
+  if (locale === "ru") {
+    return `AlfaHost ведёт ${legalEntity.name} в рамках незарегистрированной деятельности в Польше (działalność nierejestrowana).`;
+  }
+  return `AlfaHost is operated by ${legalEntity.name} as an unregistered activity in Poland (działalność nierejestrowana).`;
+}
+
 function entityLines(locale: Locale): string[] {
   const lines = [
     locale === "pl"
@@ -85,6 +95,7 @@ function entityLines(locale: Locale): string[] {
       : locale === "ru"
         ? `Администратор: ${legalEntity.name}`
         : `Controller: ${legalEntity.name}`,
+    activityNotice(locale),
   ];
   if (legalEntity.address) {
     lines.push(
@@ -124,7 +135,7 @@ function privacy(locale: Locale): LegalDocument {
       metaDescription:
         "Informacje o przetwarzaniu danych osobowych zgodnie z RODO w serwisach AlfaHost (alfahost.eu, cp.alfahost.eu).",
       title: "Polityka prywatności",
-      updated: "5 września 2026",
+      updated: "26 października 2026",
       sections: [
         {
           heading: "1. Administrator danych",
@@ -204,7 +215,7 @@ function privacy(locale: Locale): LegalDocument {
       metaDescription:
         "Информация об обработке персональных данных в соответствии с GDPR в сервисах AlfaHost (alfahost.eu, cp.alfahost.eu).",
       title: "Политика конфиденциальности",
-      updated: "5 сентября 2026",
+      updated: "26 октября 2026",
       sections: [
         {
           heading: "1. Контроллер данных",
@@ -281,7 +292,7 @@ function privacy(locale: Locale): LegalDocument {
     metaDescription:
       "How AlfaHost processes personal data under the GDPR for alfahost.eu and cp.alfahost.eu.",
     title: "Privacy Policy",
-    updated: "5 September 2026",
+    updated: "26 October 2026",
     sections: [
       {
         heading: "1. Data controller",
@@ -501,12 +512,13 @@ function terms(locale: Locale): LegalDocument {
       metaDescription:
         "Regulamin korzystania z serwisów AlfaHost, w tym panelu klienta i listy oczekujących.",
       title: "Regulamin serwisu",
-      updated: "5 września 2026",
+      updated: "26 października 2026",
       sections: [
         {
           heading: "1. Postanowienia ogólne",
           paragraphs: [
             `Serwisy internetowe alfahost.eu oraz cp.alfahost.eu (panel klienta), łącznie „Serwis”, prowadzone są przez ${legalEntity.name}. Kontakt: ${legalEntity.email}.`,
+            activityNotice(locale),
             "Niniejszy regulamin określa zasady korzystania z Serwisu, w tym z formularza listy oczekujących oraz panelu klienta, w okresie przed uruchomieniem sprzedaży usług hostingowych oraz po jego uruchomieniu w zakresie korzystania z panelu.",
           ],
         },
@@ -562,12 +574,13 @@ function terms(locale: Locale): LegalDocument {
       metaTitle: "Условия использования | AlfaHost",
       metaDescription: "Условия использования сервисов AlfaHost, включая панель клиента.",
       title: "Условия использования",
-      updated: "5 сентября 2026",
+      updated: "26 октября 2026",
       sections: [
         {
           heading: "1. Общие положения",
           paragraphs: [
             `Сервисы alfahost.eu и cp.alfahost.eu (панель клиента), совместно «Сервис», поддерживаются ${legalEntity.name}. Контакт: ${legalEntity.email}.`,
+            activityNotice(locale),
             "Настоящие условия регулируют использование Сервиса, включая форму списка ожидания и панель клиента, до запуска продаж и после запуска в части использования панели.",
           ],
         },
@@ -622,12 +635,13 @@ function terms(locale: Locale): LegalDocument {
     metaTitle: "Terms of Use | AlfaHost",
     metaDescription: "Terms of use for AlfaHost services, including the client panel.",
     title: "Terms of Use",
-    updated: "5 September 2026",
+    updated: "26 October 2026",
     sections: [
       {
         heading: "1. General",
         paragraphs: [
           `The websites alfahost.eu and cp.alfahost.eu (client panel), together the “Service”, are operated by ${legalEntity.name}. Contact: ${legalEntity.email}.`,
+          activityNotice(locale),
           "These terms govern use of the Service, including the waitlist form and the client panel, before hosting sales are launched and after launch insofar as the panel is used.",
         ],
       },
