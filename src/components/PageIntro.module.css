@@ -8,6 +8,8 @@
 .inner li { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .8rem; }
 .inner li svg { color: var(--accent); flex-shrink: 0; }
 .inner > a { margin-top: 32px; }
+.inner .back { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 25px; color: var(--muted); font-size: .8rem; transition: color .2s; }
+.back:hover { color: var(--accent); }
 .inner .status { display: inline-flex; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--accent); font-size: .8rem; margin-top: 18px; }
 .inner .location { display: flex; align-items: flex-start; gap: 8px; font-size: .8rem; margin-top: 18px; color: var(--ink); }
 .location svg { margin-top: 4px; flex-shrink: 0; color: var(--accent); }

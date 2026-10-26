@@ -1,7 +1,12 @@
 import type { Locale } from "@/i18n/config";
 
-export const siteSections = ["game-servers", "nat-vps", "vps", "infrastructure", "ddos-protection", "faq"] as const;
+export const siteSections = ["hosting", "game-servers", "nat-vps", "vps", "infrastructure", "ddos-protection", "faq"] as const;
 export type SiteSection = (typeof siteSections)[number];
+export const serviceNavigationCopy = {
+  pl: { viewAll: "Zobacz wszystkie", back: "Wróć do usług", catalog: "Pełna oferta" },
+  en: { viewAll: "View all", back: "Back to services", catalog: "All hosting offers" },
+  ru: { viewAll: "Смотреть все", back: "Назад к услугам", catalog: "Все предложения" },
+};
 export const serverLocationCopy: Record<Locale, string> = {
   pl: "Obecnie wszystkie nasze serwery znajdują się w Warszawie, w Polsce.",
   en: "All our servers are currently located in Warsaw, Poland.",
