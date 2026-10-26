@@ -1,4 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries";
+import { ShieldCheck } from "lucide-react";
 import styles from "./Protection.module.css";
 
 type Props = { t: Dictionary["protection"] };
@@ -8,7 +9,7 @@ export default function Protection({ t }: Props) {
     <section className={styles.section} id="protection">
       <div className={`container ${styles.wrap}`}>
         <header className={styles.head}>
-          <span className="eyebrow">{t.eyebrow}</span>
+          <div className={styles.shield} aria-hidden="true"><ShieldCheck size={68} strokeWidth={1} /></div>
           <h2 className="sectionTitle">{t.title}</h2>
           <p className="sectionLead">{t.lead}</p>
         </header>

@@ -1,0 +1,29 @@
+.spot {
+  position: relative;
+}
+
+.spot > * {
+  position: relative;
+  z-index: 1;
+}
+
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 30%),
+    color-mix(in srgb, var(--accent) 14%, transparent),
+    transparent 46%
+  );
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+}
+
+.spot:hover::before,
+.spot:focus-visible::before {
+  opacity: 1;
+}

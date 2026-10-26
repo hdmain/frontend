@@ -1,0 +1,21 @@
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; flex-shrink: 0; border: 1px solid transparent; border-radius: 6px; font: 600 .82rem var(--font-sans); cursor: pointer; transition: background .2s, border-color .2s, color .2s, transform .2s; }
+.button svg { flex-shrink: 0; pointer-events: none; }
+.button:active { transform: translateY(1px); }
+.button:focus-visible { outline: 2px solid var(--accent-hot); outline-offset: 4px; }
+.button:disabled, .button[data-disabled] { opacity: .45; pointer-events: none; }
+.primary { background: var(--accent); color: #fff; }
+.primary:hover { background: var(--accent-hot); }
+.outline { border-color: var(--line-strong); color: var(--ink); background: transparent; }
+.outline:hover, .ghost:hover { background: var(--panel-2); border-color: var(--muted); }
+.secondary { background: var(--panel-2); color: var(--ink); }
+.ghost { background: transparent; color: var(--ink); }
+.destructive { background: #b31b2e; color: white; }
+.link { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.md { min-height: 42px; padding: 10px 20px; }
+.xs { min-height: 28px; padding: 4px 10px; font-size: .7rem; }
+.sm { min-height: 36px; padding: 8px 14px; }
+.lg { min-height: 52px; padding: 15px 24px; }
+.icon { width: 42px; height: 42px; }
+.iconXs { width: 28px; height: 28px; }
+.iconSm { width: 36px; height: 36px; }
+.iconLg { width: 52px; height: 52px; }

@@ -95,6 +95,7 @@ export default function SiteFooter({ locale, t }: Props) {
         </div>
       </div>
 
+      <div className={`container ${styles.wordmark}`} aria-hidden="true">ALFAHOST<span>.</span></div>
       <div className={`container ${styles.bottom}`}>
         <p>
           © {new Date().getFullYear()} AlfaHost · {t.rights}

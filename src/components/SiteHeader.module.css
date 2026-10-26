@@ -1,145 +1,19 @@
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--void) 88%, transparent);
-  backdrop-filter: blur(10px);
-}
-
-.inner {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  min-height: var(--nav-h);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-right: auto;
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  font-size: 1.15rem;
-}
-
-.mark {
-  width: 1.85rem;
-  height: auto;
-  aspect-ratio: 473 / 412;
-  color: var(--wolf);
-}
-
-.word span {
-  color: var(--accent);
-}
-
-.desktop {
-  display: none;
-  align-items: center;
-  gap: 0.15rem;
-}
-
-.link {
-  padding: 0.45rem 0.65rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--muted);
-  border-radius: var(--radius);
-}
-
-.link:hover {
-  color: var(--ink);
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.desktopLocale {
-  display: none;
-}
-
-.panel {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.35rem;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.panel:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.themeToggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  color: var(--muted);
-}
-
-.themeToggle:hover {
-  color: var(--ink);
-  border-color: var(--line-strong);
-}
-
-.burger {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.mobile {
-  display: grid;
-  gap: 0.25rem;
-  padding: 0.5rem 1.25rem 1.25rem;
-  border-top: 1px solid var(--line);
-  background: var(--void);
-}
-
-.mobileLink {
-  padding: 0.75rem 0.35rem;
-  font-weight: 600;
-  border-bottom: 1px solid var(--line);
-}
-
-.mobileMeta {
-  display: grid;
-  gap: 0.75rem;
-  padding-top: 0.85rem;
-}
-
-@media (min-width: 960px) {
-  .desktop {
-    display: flex;
-  }
-
-  .desktopLocale {
-    display: block;
-  }
-
-  .burger {
-    display: none;
-  }
-
-  .mobile {
-    display: none;
-  }
-}
+.header { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--line); background: var(--void); }
+.inner { display: flex; align-items: center; gap: 24px; min-height: var(--nav-h); }
+.brand { display: inline-flex; align-items: center; gap: 10px; margin-right: auto; font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; letter-spacing: -.03em; white-space: nowrap; }
+.mark { width: 31px; height: auto; aspect-ratio: 473 / 412; color: var(--wolf); }
+.word span { color: var(--accent); }
+.desktop { display: none; align-items: center; gap: 20px; }
+.link { color: var(--muted); font-size: .72rem; font-weight: 500; white-space: nowrap; padding-block: 12px; transition: color .2s; }
+.link:hover { color: var(--ink); }
+.actions { display: flex; align-items: center; gap: 8px; }
+.desktopLocale { display: none; }
+.panel { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 10px 16px; border: 1px solid var(--line-strong); border-radius: 6px; font-size: .7rem; font-weight: 600; white-space: nowrap; transition: background .2s, border-color .2s; }
+.panel:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.themeToggle, .burger { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 38px; color: var(--muted); }
+.themeToggle:hover, .burger:hover { color: var(--accent-hot); }
+.mobile { display: grid; gap: 4px; padding: 8px 24px 24px; border-top: 1px solid var(--line); background: var(--void); max-height: calc(100svh - var(--nav-h)); overflow-y: auto; }
+.mobileLink { padding: 12px 0; font-size: .9rem; border-bottom: 1px solid var(--line); }
+.mobileMeta { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; }
+@media (min-width: 1180px) { .desktop { display: flex; } .desktopLocale { display: block; } .burger, .mobile { display: none; } }
+@media (max-width: 639px) { .actions .panel { display: none; } .inner { gap: 8px; } }

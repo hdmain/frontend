@@ -4,6 +4,7 @@ import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
 import { useOptionalCurrency } from "./CurrencyProvider";
+import SpotlightCard from "./effects/SpotlightCard";
 import { Icons } from "./Icons";
 import styles from "./Offer.module.css";
 
@@ -20,7 +21,6 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
     <section className={styles.section} id="offer">
       <div className="container">
         <header className={styles.head}>
-          <span className="eyebrow">{t.eyebrow}</span>
           <Heading className="sectionTitle">{t.title}</Heading>
           <p className="sectionLead">{t.lead}</p>
         </header>
@@ -33,7 +33,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
             const amount = live?.standard || plan.price;
             return (
               <li key={plan.slug}>
-                <a
+                <SpotlightCard
                   href={href}
                   className={`${styles.card} ${!available ? styles.cardOff : ""}`}
                 >
@@ -71,7 +71,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
                       </span>
                     </span>
                   </span>
-                </a>
+                </SpotlightCard>
               </li>
             );
           })}

@@ -1,78 +1,16 @@
-.section {
-  padding: 5rem 0;
-  background: var(--void);
-}
-
-.layout {
-  display: grid;
-  gap: 2rem;
-}
-
-.head {
-  max-width: 34rem;
-}
-
-.accent {
-  color: var(--accent);
-}
-
-.lead {
-  color: var(--muted);
-  margin-top: 0.35rem;
-}
-
-.list {
-  background: var(--surface);
-  border: 1px solid var(--line);
-}
-
-.item + .item {
-  border-top: 1px solid var(--line);
-}
-
-.button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.2rem 1.15rem;
-  text-align: left;
-}
-
-.q {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.mark {
-  flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent);
-  color: #fff;
-  font-size: 1.2rem;
-  line-height: 1;
-  font-weight: 700;
-}
-
-.answer {
-  padding: 0 1.15rem 1.2rem;
-  color: var(--muted);
-  max-width: 40rem;
-  line-height: 1.55;
-  animation: rise 0.35s var(--ease) both;
-}
-
-@media (min-width: 860px) {
-  .layout {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 3rem;
-    align-items: start;
-  }
-}
+.section { padding: 110px 0; }
+.layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: start; }
+.head { max-width: 25rem; }
+.accent { color: var(--accent); }
+.lead { margin-top: 20px; color: var(--muted); font-size: .88rem; line-height: 1.8; }
+.list { border-top: 1px solid var(--line); }
+.item { border-bottom: 1px solid var(--line); }
+.button { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 24px 0; gap: 20px; text-align: left; }
+.q { font-size: .88rem; font-weight: 600; line-height: 1.6; }
+.mark { display: grid; place-items: center; flex-shrink: 0; color: var(--muted); }
+.open .mark { color: var(--accent); }
+.panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .3s var(--ease), visibility .3s; }
+.open .panel { grid-template-rows: 1fr; visibility: visible; }
+.answer { overflow: hidden; min-height: 0; color: var(--muted); font-size: .83rem; line-height: 1.9; padding-right: 35px; }
+.open .answer { padding-bottom: 24px; }
+@media (max-width: 800px) { .section { padding: 75px 0; } .layout { grid-template-columns: 1fr; gap: 32px; } .head { max-width: 35rem; } }

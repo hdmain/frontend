@@ -1,17 +1,3 @@
-.page {
-  position: relative;
-  z-index: 1;
-  min-height: 100svh;
-  background: var(--void);
-}
-
-.stack {
-  position: relative;
-  z-index: 2;
-}
-
-@media (max-width: 959px) {
-  .stack {
-    z-index: 1;
-  }
-}
+.page { position: relative; min-height: 100svh; background: var(--void); }
+.page :global(section), .page :global(footer) { scroll-margin-top: calc(var(--nav-h) + 24px); }
+.stack { position: relative; }

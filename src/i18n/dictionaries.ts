@@ -218,7 +218,7 @@ const en: Dictionary = {
       },
     ],
     phrases: [
-      "Hosting from Atman Warsaw.",
+      "Power your next project.",
       "Game-ready nodes.",
       "DDoS protection included.",
     ],
@@ -628,7 +628,7 @@ const pl: Dictionary = {
       },
     ],
     phrases: [
-      "Hosting z Atman Warsaw.",
+      "Moc dla Twoich projektów.",
       "Węzły gotowe na gry.",
       "Ochrona DDoS w cenie.",
     ],
@@ -1038,7 +1038,7 @@ const ru: Dictionary = {
       },
     ],
     phrases: [
-      "Хостинг из Atman Warsaw.",
+      "Мощность для ваших проектов.",
       "Ноды для игр.",
       "DDoS-защита включена.",
     ],

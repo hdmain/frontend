@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import styles from "./Faq.module.css";
 
@@ -13,7 +14,6 @@ export default function Faq({ t }: Props) {
     <section className={styles.section} id="faq">
       <div className={`container ${styles.layout}`}>
         <header className={styles.head}>
-          <span className="eyebrow">{t.eyebrow}</span>
           <h2 className="sectionTitle">
             {t.titleBefore}{" "}
             <span className={styles.accent}>{t.titleAccent}</span>
@@ -30,14 +30,18 @@ export default function Faq({ t }: Props) {
                   type="button"
                   className={styles.button}
                   aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${i}`}
+                  id={`faq-question-${i}`}
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
                   <span className={styles.q}>{item.q}</span>
                   <span className={styles.mark} aria-hidden>
-                    {isOpen ? "−" : "+"}
+                    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
                   </span>
                 </button>
-                {isOpen ? <p className={styles.answer}>{item.a}</p> : null}
+                <div className={styles.panel} id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-question-${i}`} aria-hidden={!isOpen}>
+                  <p className={styles.answer}>{item.a}</p>
+                </div>
               </div>
             );
           })}

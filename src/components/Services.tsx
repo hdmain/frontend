@@ -1,4 +1,7 @@
 import type { Dictionary } from "@/i18n/dictionaries";
+import { Gamepad2, Server } from "lucide-react";
+import { asset } from "@/lib/basePath";
+import SpotlightCard from "./effects/SpotlightCard";
 import { Icons } from "./Icons";
 import styles from "./Services.module.css";
 
@@ -9,16 +12,17 @@ export default function Services({ t }: Props) {
     <section className={styles.section} id="services">
       <div className="container">
         <header className={styles.head}>
-          <span className="eyebrow">{t.eyebrow}</span>
           <h2 className="sectionTitle">{t.title}</h2>
           <p className="sectionLead">{t.lead}</p>
         </header>
 
         <div className={styles.stack}>
           {t.items.map((service, i) => (
-            <article key={service.title} className={styles.row}>
+            <SpotlightCard key={service.title} className={styles.card}>
+              <div className={styles.visual} style={{ backgroundImage: `url(${asset(i === 0 ? "/offers/minecraft.jpg" : "/media/hero-dc.jpg")})` }} aria-hidden="true">
+                {i === 0 ? <Gamepad2 size={32} strokeWidth={1.25} /> : <Server size={32} strokeWidth={1.25} />}
+              </div>
               <div className={styles.meta}>
-                <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
               </div>
@@ -33,7 +37,7 @@ export default function Services({ t }: Props) {
               <a className="btn btnGhost" href="#offer">
                 {t.learnMore} {Icons.arrow}
               </a>
-            </article>
+            </SpotlightCard>
           ))}
         </div>
       </div>
