@@ -9,6 +9,7 @@ type Props = {
   label: string;
   /** Template with `{count}`, e.g. "{count} reviews on Trustpilot" */
   reviewsTemplate: string;
+  compact?: boolean;
 };
 
 type TrustScore = {
@@ -62,7 +63,7 @@ async function loadScore(): Promise<TrustScore | null> {
   };
 }
 
-export default function TrustpilotBadge({ label, reviewsTemplate }: Props) {
+export default function TrustpilotBadge({ label, reviewsTemplate, compact = false }: Props) {
   const gradId = useId().replace(/:/g, "");
   const [score, setScore] = useState<TrustScore | null>(null);
 
@@ -86,7 +87,7 @@ export default function TrustpilotBadge({ label, reviewsTemplate }: Props) {
 
   return (
     <a
-      className={styles.badge}
+      className={`${styles.badge} ${compact ? styles.compact : ""}`}
       href={TRUSTPILOT_URL}
       target="_blank"
       rel="noopener noreferrer"

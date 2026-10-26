@@ -1,0 +1,13 @@
+.payments { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; padding-block: 24px; }
+.label { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: .75rem; }
+.label svg { color: var(--accent); flex-shrink: 0; }
+.methods { display: flex; flex-wrap: wrap; gap: 10px; }
+.methods li { display: inline-flex; align-items: baseline; gap: 7px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.methods strong { font-size: .8rem; color: var(--ink); font-weight: 650; }
+.methods span { font-size: .6rem; color: var(--muted); }
+.compact { padding: 0; gap: 10px 16px; }
+.compact .label { font-size: .65rem; }
+.compact .methods { gap: 14px; }
+.compact .methods li { padding: 0; border: 0; background: transparent; gap: 4px; }
+.compact .methods strong { font-size: .7rem; }
+.compact .methods span { font-size: .55rem; }

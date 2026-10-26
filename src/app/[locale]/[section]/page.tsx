@@ -9,6 +9,7 @@ import WhyUs from "@/components/WhyUs";
 import Protection from "@/components/Protection";
 import Faq from "@/components/Faq";
 import TechnologyMarquee from "@/components/TechnologyMarquee";
+import InfrastructureGallery from "@/components/InfrastructureGallery";
 import { isLocale, localeHref, localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isSiteSection, navigationCopy, serviceNavigationCopy, serverLocationCopy, siteSections, type SiteSection } from "@/lib/siteNavigation";
@@ -25,7 +26,7 @@ function pageContent(locale: Locale, section: SiteSection) {
   const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps"))!;
   if (section === "game-servers") return { title: n.games, lead: t.services.items[0].desc, image: "/offers/minecraft.jpg", points: t.services.items[0].points };
   if (section === "vps" || section === "nat-vps") return { title: plan.name, lead: plan.description, image: `/offers/${plan.slug}.jpg`, points: plan.highlights };
-  if (section === "infrastructure") return { title: n.infrastructure, lead: t.why.lead, image: "/media/hero-dc.jpg" };
+  if (section === "infrastructure") return { title: n.infrastructure, lead: t.why.lead, image: "/media/atman/waw1-181.jpg" };
   if (section === "ddos-protection") return { title: t.nav.antiddos, lead: t.protection.lead, image: "/media/hero-dc.jpg" };
   return { title: n.helpTitle, lead: t.faq.lead, image: "/media/hero-dc.jpg" };
 }
@@ -57,7 +58,7 @@ export default async function SectionPage({ params }: { params: Promise<{ locale
         {(section === "nat-vps" || section === "vps") && <OfferDetail locale={locale} t={t.offer} plan={plan} others={[]} showHero={false} />}
         {(section === "nat-vps" || section === "vps") && <section className={`container ${styles.productDetails}`}><div><h2 className="sectionTitle">{t.offer.includesTitle}</h2><p className="sectionLead">{plan.idealFor}</p></div><ul>{plan.includes.map((item) => <li key={item}>{item}</li>)}</ul></section>}
         {section === "game-servers" && <Protection t={t.protection} />}
-        {section === "infrastructure" && <><WhyUs t={t.why} /><TechnologyMarquee locale={locale} /></>}
+        {section === "infrastructure" && <><InfrastructureGallery locale={locale} /><WhyUs t={t.why} /><TechnologyMarquee locale={locale} /></>}
         {section === "ddos-protection" && <Protection t={t.protection} />}
         {(product || section === "faq") && <Faq t={t.faq} />}
         {section === "faq" && <div className={`container ${styles.pageActions}`}><a href="mailto:support@alfahost.eu" className="btn btnPrimary">{t.nav.contact}</a><a href="https://docs.alfahost.eu/" className="btn btnGhost">{t.footer.docs}</a></div>}

@@ -1,7 +1,8 @@
 import { localeHref, localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import TrustpilotBadge, { TRUSTPILOT_URL } from "./TrustpilotBadge";
+import TrustpilotBadge from "./TrustpilotBadge";
 import WolfMark from "./WolfMark";
+import PaymentMethods from "./PaymentMethods";
 import styles from "./SiteFooter.module.css";
 
 const DISCORD_URL = "https://dc.alfahost.eu";
@@ -22,11 +23,11 @@ export default function SiteFooter({ locale, t }: Props) {
               AlfaHost<span>.eu</span>
             </span>
           </a>
-          <p>{t.about}</p>
           <a className={styles.mail} href="mailto:support@alfahost.eu">
             support@alfahost.eu
           </a>
           <TrustpilotBadge
+            compact
             label={t.trustpilotCta}
             reviewsTemplate={t.trustpilotReviews}
           />
@@ -63,20 +64,8 @@ export default function SiteFooter({ locale, t }: Props) {
                 <a href="https://docs.alfahost.eu/">{t.docs}</a>
               </li>
               <li>
-                <a href="mailto:support@alfahost.eu">{t.contact}</a>
-              </li>
-              <li>
                 <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
                   {t.discord}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={TRUSTPILOT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t.trustpilot}
                 </a>
               </li>
             </ul>
@@ -100,6 +89,7 @@ export default function SiteFooter({ locale, t }: Props) {
 
       <div className={`container ${styles.wordmark}`} aria-hidden="true" data-motion-reveal>ALFAHOST<span>.</span></div>
       <div className={`container ${styles.bottom}`}>
+        <PaymentMethods locale={locale} compact />
         <p>
           © {new Date().getFullYear()} AlfaHost · {t.rights}
         </p>

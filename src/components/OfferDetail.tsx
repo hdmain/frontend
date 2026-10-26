@@ -11,6 +11,7 @@ import { legalEntity } from "@/lib/legal";
 import { offerPagePath, serverLocationCopy } from "@/lib/siteNavigation";
 import { useOptionalCurrency } from "./CurrencyProvider";
 import { Icons } from "./Icons";
+import PaymentMethods from "./PaymentMethods";
 import styles from "./OfferDetail.module.css";
 
 type ApiPackage = {
@@ -198,6 +199,8 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
           </div>
         )}
       </div>
+
+      <div className="container"><PaymentMethods locale={locale} /></div>
 
       {others.length > 0 ? (
         <div className={`container ${styles.others}`}>

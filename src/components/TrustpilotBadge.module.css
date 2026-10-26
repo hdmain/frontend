@@ -50,3 +50,10 @@
   font-size: 0.8rem;
   font-weight: 600;
 }
+
+.compact { margin-top: 0; padding: 0; border: 0; background: transparent; }
+.compact .logo { display: none; }
+.compact .row { display: flex; align-items: center; gap: 8px; }
+.compact .star { width: 13px; height: 13px; }
+.compact .score { font-size: .75rem; }
+.compact .meta { font-size: .65rem; font-weight: 500; }
