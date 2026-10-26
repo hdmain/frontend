@@ -2,7 +2,6 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { asset } from "@/lib/basePath";
 import { Icons } from "./Icons";
-import WolfMark from "./WolfMark";
 import styles from "./Hero.module.css";
 
 type Props = {
@@ -19,24 +18,19 @@ export default function Hero({ t }: Props) {
         aria-hidden
       />
       <div className={styles.scrim} aria-hidden />
-      <div className={`container ${styles.layout}`}>
-        <div className={styles.copy}>
-          <p className={styles.brand}>
-            AlfaHost<span>.eu</span>
-          </p>
-          <h1 className={styles.headline}>{t.phrases[0]}</h1>
-          <p className={styles.lede}>{t.lede}</p>
-          <div className={styles.actions}>
-            <a className="btn btnPrimary" href="#offer">
-              {t.ctaOffer} {Icons.arrow}
-            </a>
-            <a className={`btn ${styles.ctaGhost}`} href="#contact">
-              {t.ctaContact}
-            </a>
-          </div>
-        </div>
-        <div className={styles.mascot} aria-hidden>
-          <WolfMark className={styles.wolf} />
+      <div className={`container ${styles.copy}`}>
+        <p className={styles.brand}>
+          AlfaHost<span>.eu</span>
+        </p>
+        <h1 className={styles.headline}>{t.phrases[0]}</h1>
+        <p className={styles.lede}>{t.lede}</p>
+        <div className={styles.actions}>
+          <a className="btn btnPrimary" href="#offer">
+            {t.ctaOffer} {Icons.arrow}
+          </a>
+          <a className={`btn ${styles.ctaGhost}`} href="#contact">
+            {t.ctaContact}
+          </a>
         </div>
       </div>
     </section>

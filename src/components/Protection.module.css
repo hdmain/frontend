@@ -25,22 +25,6 @@
   gap: 2.25rem;
 }
 
-.mark {
-  position: absolute;
-  right: -2rem;
-  top: -1rem;
-  width: min(42vw, 16rem);
-  color: var(--wolf);
-  opacity: 0.18;
-  pointer-events: none;
-}
-
-.wolf {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 473 / 412 !important;
-}
-
 .head {
   max-width: 40rem;
 }
@@ -126,11 +110,5 @@
 
   .stats {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .mark {
-    right: 0;
-    top: 0;
-    opacity: 0.22;
   }
 }

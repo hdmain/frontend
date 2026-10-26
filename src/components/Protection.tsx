@@ -1,5 +1,4 @@
 import type { Dictionary } from "@/i18n/dictionaries";
-import WolfMark from "./WolfMark";
 import styles from "./Protection.module.css";
 
 type Props = { t: Dictionary["protection"] };
@@ -8,9 +7,6 @@ export default function Protection({ t }: Props) {
   return (
     <section className={styles.section} id="protection">
       <div className={`container ${styles.wrap}`}>
-        <div className={styles.mark} aria-hidden>
-          <WolfMark className={styles.wolf} />
-        </div>
         <header className={styles.head}>
           <span className="eyebrow">{t.eyebrow}</span>
           <h2 className="sectionTitle">{t.title}</h2>
