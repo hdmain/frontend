@@ -23,7 +23,7 @@ export default function Hero({ t }: Props) {
           <h1 className={styles.headline}>{words.join(" ")} <span>{last}</span></h1>
           <p className={styles.lede}>{t.lede}</p>
           <div className={styles.actions}>
-            <Button render={<a href="#offer" />} nativeButton={false} role="link" size="lg">{t.ctaOffer}<ArrowUpRight size={18} aria-hidden="true" /></Button>
+            <Button render={<a href="#services" />} nativeButton={false} role="link" size="lg">{t.ctaOffer}<ArrowUpRight size={18} aria-hidden="true" /></Button>
             <Button render={<a href="#contact" />} nativeButton={false} role="link" size="lg" variant="outline">{t.ctaContact}<ArrowUpRight size={18} aria-hidden="true" /></Button>
           </div>
         </div>

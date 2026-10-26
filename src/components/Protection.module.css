@@ -3,6 +3,11 @@
 .head { max-width: 30rem; }
 .shield { position: relative; display: grid; place-items: center; width: 120px; height: 120px; margin-bottom: 35px; border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 50%; color: var(--accent); }
 .shield::after { content: ""; position: absolute; inset: -18px; border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent); border-radius: 50%; }
+.shield { background: #09090b; }
+.logo { width: 52px; height: auto; object-fit: contain; }
+:global([data-theme="light"]) .shield { background: var(--surface); border-color: var(--line-strong); }
+:global([data-theme="light"]) .shield::after { border-color: var(--line); }
+:global([data-theme="light"]) .logo { filter: grayscale(1) brightness(.22); }
 .body { display: grid; gap: 36px; }
 .block h3 { font-family: var(--font-display); font-size: 1.2rem; line-height: 1.4; letter-spacing: -.02em; margin-bottom: 14px; }
 .block p, .block li { color: var(--muted); font-size: .83rem; line-height: 1.85; }

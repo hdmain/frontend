@@ -12,7 +12,8 @@
 .cols ul { display: grid; gap: 12px; }
 .cols a { color: var(--muted); font-size: .75rem; transition: color .2s; }
 .cols a:hover { color: var(--accent-hot); }
-.wordmark { font-family: var(--font-display); font-size: clamp(3.3rem, 14vw, 11rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.1; color: color-mix(in srgb, var(--ink) 12%, var(--surface)); user-select: none; padding-bottom: 25px; }
+.wordmark { font-family: var(--font-display); font-size: clamp(1.5rem, 9vw, 7rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.1; color: color-mix(in srgb, var(--ink) 12%, var(--surface)); user-select: none; padding-bottom: 25px; text-align: center; }
 .wordmark span { color: var(--accent); }
+:global([data-theme="light"]) .wordmark { color: #a3acb9; }
 .bottom { padding-top: 24px; border-top: 1px solid var(--line); color: var(--dim); font-size: .65rem; }
 @media (max-width: 800px) { .inner { grid-template-columns: 1fr; gap: 48px; padding-bottom: 48px; } .cols { gap: 18px; } }

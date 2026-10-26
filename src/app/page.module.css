@@ -1,3 +1,9 @@
 .page { position: relative; min-height: 100svh; background: var(--void); }
-.page :global(section), .page :global(footer) { scroll-margin-top: calc(var(--nav-h) + 24px); }
+.page :global(section), .page :global(footer) { scroll-margin-top: 24px; }
 .stack { position: relative; }
+.pageActions { display: flex; flex-wrap: wrap; gap: 12px; padding-block: 40px; }
+.productDetails { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 64px; border-top: 1px solid var(--line); }
+.productDetails ul { display: grid; gap: 16px; align-content: center; }
+.productDetails li { position: relative; padding-left: 20px; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+.productDetails li::before { content: ""; position: absolute; left: 0; top: .65em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+@media (max-width: 700px) { .productDetails { grid-template-columns: 1fr; gap: 24px; } }

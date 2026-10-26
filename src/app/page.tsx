@@ -1,12 +1,12 @@
 import Script from "next/script";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
-import Offer from "@/components/Offer";
 import Protection from "@/components/Protection";
 import Services from "@/components/Services";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import WhyUs from "@/components/WhyUs";
+import TechnologyMarquee from "@/components/TechnologyMarquee";
 import { localeHref } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_NAME, alternatesForLocale } from "@/lib/seo";
@@ -34,8 +34,8 @@ export default function RootPage() {
         <Hero t={t.hero} locale="en" />
         <div className={styles.stack}>
           <WhyUs t={t.why} />
-          <Services t={t.services} />
-          <Offer locale="en" t={t.offer} />
+          <TechnologyMarquee locale="en" />
+          <Services t={t.services} locale="en" />
           <Protection t={t.protection} />
           <Faq t={t.faq} />
         </div>

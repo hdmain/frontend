@@ -9,7 +9,11 @@
 .headline span { color: var(--accent); }
 .lede { max-width: 29rem; margin-top: 1.75rem; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.1rem); line-height: 1.8; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2.25rem; }
-:global([data-theme="light"]) .scene { opacity: .25; }
+:global([data-theme="light"]) .scene { opacity: 1; }
+:global([data-theme="light"]) .image { filter: grayscale(.75) brightness(1.1); }
+:global([data-theme="light"]) .scene::after { background: linear-gradient(90deg, var(--void) 0%, rgba(246, 247, 249, .97) 20%, rgba(246, 247, 249, .85) 44%, rgba(246, 247, 249, .25) 100%), linear-gradient(0deg, var(--void), transparent 45%), linear-gradient(180deg, var(--void), transparent 35%); }
+:global([data-theme="light"]) .light { mix-blend-mode: multiply; opacity: .12; animation: none; }
+:global([data-theme="light"]) .lede { color: #374354; }
 .scroll { position: absolute; bottom: 52px; left: 1.5rem; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--muted); transition: color .2s, border-color .2s; }
 .scroll:hover { color: var(--accent); border-color: var(--accent); }
 .benefitBar { border-block: 1px solid var(--line); background: var(--void); }

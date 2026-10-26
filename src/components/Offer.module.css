@@ -24,5 +24,8 @@
 .period { font-size: .65rem; color: var(--muted); }
 .cta { display: inline-flex; align-items: center; gap: 6px; max-width: 45%; font-size: .65rem; font-weight: 600; color: var(--accent-hot); }
 .cta svg { flex-shrink: 0; }
+:global([data-theme="light"]) .media::after { background: linear-gradient(0deg, var(--surface), transparent 40%); }
+:global([data-theme="light"]) .on { background: #edf7f0; border-color: #c7e2d1; }
+:global([data-theme="light"]) .off { background: var(--void); }
 @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .section { padding: 65px 0; } .grid { grid-template-columns: 1fr; } .media { min-height: 210px; } }

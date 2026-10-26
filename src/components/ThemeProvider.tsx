@@ -30,8 +30,10 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   const theme = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, (): Theme => "dark");
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
+    const preferredTheme = getThemeSnapshot();
+    document.documentElement.dataset.theme = preferredTheme;
+    document.documentElement.style.colorScheme = preferredTheme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", preferredTheme === "light" ? "#f6f7f9" : "#09090b");
   }, [theme]);
 
   const toggleTheme = () => {

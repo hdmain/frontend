@@ -79,6 +79,8 @@
 .catalog {
   padding-top: 2.25rem;
 }
+.location { display: flex; align-items: flex-start; gap: 8px; font-size: .8rem; color: #f4f5f7; line-height: 1.7; }
+.location svg { margin-top: 3px; flex-shrink: 0; }
 
 .loading,
 .fallback {
@@ -223,6 +225,8 @@
   color: var(--muted);
   font-weight: 600;
 }
+
+:global([data-theme="light"]) .otherMedia { opacity: .12; }
 
 @media (min-width: 760px) {
   .packageGrid {

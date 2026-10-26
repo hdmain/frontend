@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { MapPin } from "lucide-react";
 import type { Locale } from "@/i18n/config";
-import { localeHref, localePath } from "@/i18n/config";
+import { localePath } from "@/i18n/config";
 import type { Dictionary, OfferPlan } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
 import { papiBaseUrl } from "@/lib/currency";
 import { legalEntity } from "@/lib/legal";
+import { offerPagePath, serverLocationCopy } from "@/lib/siteNavigation";
 import { useOptionalCurrency } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import styles from "./OfferDetail.module.css";
@@ -40,9 +42,10 @@ type Props = {
   t: Dictionary["offer"];
   plan: OfferPlan;
   others: OfferPlan[];
+  showHero?: boolean;
 };
 
-export default function OfferDetail({ locale, t, plan, others }: Props) {
+export default function OfferDetail({ locale, t, plan, others, showHero = true }: Props) {
   const bg = asset(`/offers/${plan.slug}.jpg`);
   const currencyCtx = useOptionalCurrency();
   const currency = currencyCtx?.currency ?? "PLN";
@@ -87,23 +90,24 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
   const orderHref = legalEntity.panel;
 
   return (
-    <section className={styles.section}>
-      <div className={styles.hero}>
+    <section className={styles.section} id="offer">
+      {showHero && <div className={styles.hero}>
         <div
           className={styles.heroMedia}
           style={{ backgroundImage: `url(${bg})` }}
           aria-hidden
         />
         <div className={`container ${styles.heroInner}`}>
-          <a className={styles.back} href={localeHref(locale, "#offer")}>
+          <a className={styles.back} href={localePath(locale, plan.slug === "vps" ? "vps" : plan.slug === "vps-nat" ? "nat-vps" : "game-servers")}>
             ← {t.backToOffer}
           </a>
           <div className={styles.titleRow}>
             <h1>{title}</h1>
           </div>
           <p className={styles.summary}>{summary}</p>
+          <p className={styles.location}><MapPin size={16} aria-hidden="true" />{serverLocationCopy[locale]}</p>
         </div>
-      </div>
+      </div>}
 
       <div className={`container ${styles.catalog}`}>
         {loading ? (
@@ -206,7 +210,7 @@ export default function OfferDetail({ locale, t, plan, others }: Props) {
                 <a
                   key={item.slug}
                   className={styles.otherCard}
-                  href={localePath(locale, `offer/${item.slug}`)}
+                  href={localePath(locale, offerPagePath(item.slug))}
                 >
                   <span
                     className={styles.otherMedia}

@@ -3,6 +3,7 @@
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
+import { offerPagePath } from "@/lib/siteNavigation";
 import { useOptionalCurrency } from "./CurrencyProvider";
 import SpotlightCard from "./effects/SpotlightCard";
 import { Icons } from "./Icons";
@@ -28,7 +29,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
         <ul className={styles.grid}>
           {t.plans.map((plan) => {
             const available = plan.available ?? true;
-            const href = localePath(locale, `offer/${plan.slug}`);
+            const href = localePath(locale, offerPagePath(plan.slug));
             const live = currency?.prices[plan.slug];
             const amount = live?.standard || plan.price;
             return (

@@ -37,13 +37,16 @@ export default function SiteFooter({ locale, t }: Props) {
             <h2>{t.products}</h2>
             <ul>
               <li>
-                <a href={localeHref(locale, "#offer")}>{t.gameServers}</a>
+                <a href={localePath(locale, "game-servers")}>{t.gameServers}</a>
               </li>
               <li>
-                <a href={localeHref(locale, "#offer")}>{t.vps}</a>
+                <a href={localePath(locale, "vps")}>{t.vps}</a>
               </li>
               <li>
-                <a href={localeHref(locale, "#protection")}>{t.antiddos}</a>
+                <a href={localePath(locale, "nat-vps")}>VPS NAT</a>
+              </li>
+              <li>
+                <a href={localePath(locale, "ddos-protection")}>{t.antiddos}</a>
               </li>
             </ul>
           </div>
@@ -51,10 +54,10 @@ export default function SiteFooter({ locale, t }: Props) {
             <h2>{t.company}</h2>
             <ul>
               <li>
-                <a href={localeHref(locale, "#why")}>{t.why}</a>
+                <a href={localePath(locale, "infrastructure")}>{t.why}</a>
               </li>
               <li>
-                <a href={localeHref(locale, "#faq")}>{t.faq}</a>
+                <a href={localePath(locale, "faq")}>{t.faq}</a>
               </li>
               <li>
                 <a href="https://docs.alfahost.eu/">{t.docs}</a>
@@ -95,7 +98,7 @@ export default function SiteFooter({ locale, t }: Props) {
         </div>
       </div>
 
-      <div className={`container ${styles.wordmark}`} aria-hidden="true">ALFAHOST<span>.</span></div>
+      <div className={`container ${styles.wordmark}`} aria-hidden="true" data-motion-reveal>ALFAHOST<span>.</span></div>
       <div className={`container ${styles.bottom}`}>
         <p>
           © {new Date().getFullYear()} AlfaHost · {t.rights}

@@ -1,13 +1,14 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Gamepad2, Server } from "lucide-react";
 import { asset } from "@/lib/basePath";
+import { localePath, type Locale } from "@/i18n/config";
 import SpotlightCard from "./effects/SpotlightCard";
 import { Icons } from "./Icons";
 import styles from "./Services.module.css";
 
-type Props = { t: Dictionary["services"] };
+type Props = { t: Dictionary["services"]; locale?: Locale };
 
-export default function Services({ t }: Props) {
+export default function Services({ t, locale = "en" }: Props) {
   return (
     <section className={styles.section} id="services">
       <div className="container">
@@ -34,7 +35,7 @@ export default function Services({ t }: Props) {
                   </li>
                 ))}
               </ul>
-              <a className="btn btnGhost" href="#offer">
+              <a className="btn btnGhost" href={localePath(locale, i === 0 ? "game-servers" : "vps")}>
                 {t.learnMore} {Icons.arrow}
               </a>
             </SpotlightCard>

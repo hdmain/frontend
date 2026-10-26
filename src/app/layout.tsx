@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import Providers from "@/components/Providers";
 import "./globals.css";
+import "lenis/dist/lenis.css";
 import { OG_IMAGE_FALLBACK, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 import "@fontsource/syne/600.css";
@@ -100,6 +101,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script
+          id="theme-init"
+          dangerouslySetInnerHTML={{
+            __html: 'try{document.documentElement.dataset.theme=localStorage.getItem("alfahost-theme")==="light"?"light":"dark"}catch{}',
+          }}
+        />
+      </head>
       <body>
         <Providers>{children}</Providers>
         <Script

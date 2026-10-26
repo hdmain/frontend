@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries";
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { asset } from "@/lib/basePath";
 import styles from "./Protection.module.css";
 
 type Props = { t: Dictionary["protection"] };
@@ -9,7 +10,9 @@ export default function Protection({ t }: Props) {
     <section className={styles.section} id="protection">
       <div className={`container ${styles.wrap}`}>
         <header className={styles.head}>
-          <div className={styles.shield} aria-hidden="true"><ShieldCheck size={68} strokeWidth={1} /></div>
+          <div className={styles.shield}>
+            <Image src={asset("/media/pletx-icon.png")} alt="PletX" width={52} height={67} className={styles.logo} />
+          </div>
           <h2 className="sectionTitle">{t.title}</h2>
           <p className="sectionLead">{t.lead}</p>
         </header>

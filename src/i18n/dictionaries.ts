@@ -199,7 +199,7 @@ const en: Dictionary = {
     currency: "Currency",
   },
   hero: {
-    lede: "VPS and game servers in Warsaw, with anti-DDoS on every plan.",
+    lede: "All our servers are currently located in Warsaw, Poland, with anti-DDoS on every plan.",
     ctaOffer: "See the offer",
     ctaContact: "Contact",
     positivesLabel: "Why operators choose us",
@@ -227,11 +227,11 @@ const en: Dictionary = {
     eyebrow: "What we offer",
     title: "Our services",
     lead: "Game servers and VPS, all with protection in every plan.",
-    learnMore: "Learn more",
+    learnMore: "View offers",
     items: [
       {
         title: "Game Servers",
-        desc: "Minecraft, Rust, and more with instant deploy and anti-DDoS included.",
+        desc: "Minecraft, Rust, Palworld and Discord bots with instant deploy and anti-DDoS included.",
         points: [
           "Instant setup",
           "Anti-DDoS included",
@@ -609,7 +609,7 @@ const pl: Dictionary = {
     currency: "Waluta",
   },
   hero: {
-    lede: "VPS-y i serwery gier w Warszawie, z anty-DDoS w każdym planie.",
+    lede: "Obecnie wszystkie nasze serwery znajdują się w Warszawie, w Polsce. Anty-DDoS w każdym planie.",
     ctaOffer: "Zobacz ofertę",
     ctaContact: "Kontakt",
     positivesLabel: "Dlaczego wybierają nas",
@@ -637,11 +637,11 @@ const pl: Dictionary = {
     eyebrow: "Co oferujemy",
     title: "Nasze usługi",
     lead: "Serwery gier i VPS, ochrona w każdym planie.",
-    learnMore: "Dowiedz się więcej",
+    learnMore: "Zobacz ofertę",
     items: [
       {
         title: "Serwery gier",
-        desc: "Minecraft, Rust i więcej, natychmiastowe wdrożenie i anty-DDoS w cenie.",
+        desc: "Minecraft, Rust, Palworld i boty Discord z natychmiastowym startem i anty-DDoS w cenie.",
         points: [
           "Natychmiastowa konfiguracja",
           "Anty-DDoS w cenie",
@@ -1019,7 +1019,7 @@ const ru: Dictionary = {
     currency: "Валюта",
   },
   hero: {
-    lede: "VPS и игровые серверы в Варшаве, с anti-DDoS в каждом тарифе.",
+    lede: "Сейчас все наши серверы расположены в Варшаве, Польша. Anti-DDoS в каждом тарифе.",
     ctaOffer: "Смотреть тарифы",
     ctaContact: "Контакты",
     positivesLabel: "Почему выбирают нас",
@@ -1047,11 +1047,11 @@ const ru: Dictionary = {
     eyebrow: "Что мы предлагаем",
     title: "Наши услуги",
     lead: "Игровые серверы и VPS, защита в каждом тарифе.",
-    learnMore: "Подробнее",
+    learnMore: "Смотреть тарифы",
     items: [
       {
         title: "Игровые серверы",
-        desc: "Minecraft, Rust и другие, мгновенный деплой и anti-DDoS в цене.",
+        desc: "Minecraft, Rust, Palworld и Discord-боты с мгновенным запуском и anti-DDoS в цене.",
         points: [
           "Мгновенная настройка",
           "Anti-DDoS включён",

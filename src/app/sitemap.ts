@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales, type Locale } from "@/i18n/config";
 import { planSlugs } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/lib/seo";
+import { siteSections } from "@/lib/siteNavigation";
 
 export const dynamic = "force-static";
 
@@ -33,6 +34,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: locale === "en" ? 1 : 0.9,
       alternates: { languages: langAlternates(subpath) },
     });
+
+    for (const section of siteSections) {
+      entries.push({ url: `${SITE_URL}/${locale}/${section}/`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8, alternates: { languages: langAlternates(`${section}/`) } });
+    }
 
     for (const slug of planSlugs) {
       entries.push({

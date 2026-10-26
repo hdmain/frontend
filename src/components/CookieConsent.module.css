@@ -18,7 +18,7 @@
   background: var(--black);
   border: 1px solid var(--line);
   border-left: 3px solid var(--red);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--overlay-shadow);
 }
 
 .copy {

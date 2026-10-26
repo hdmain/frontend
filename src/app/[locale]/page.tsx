@@ -2,12 +2,12 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
-import Offer from "@/components/Offer";
 import Protection from "@/components/Protection";
 import Services from "@/components/Services";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import WhyUs from "@/components/WhyUs";
+import TechnologyMarquee from "@/components/TechnologyMarquee";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_NAME, absoluteUrl } from "@/lib/seo";
@@ -30,8 +30,8 @@ export default async function HomePage({
         <Hero t={t.hero} locale={locale} />
         <div className={styles.stack}>
           <WhyUs t={t.why} />
-          <Services t={t.services} />
-          <Offer locale={locale} t={t.offer} />
+          <TechnologyMarquee locale={locale} />
+          <Services t={t.services} locale={locale} />
           <Protection t={t.protection} />
           <Faq t={t.faq} />
         </div>
