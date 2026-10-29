@@ -1,13 +1,17 @@
 .footer { padding: 36px 0 18px; border-top: 1px solid var(--line); background: var(--surface); overflow: hidden; }
-.inner { display: grid; grid-template-columns: .9fr 2fr; gap: 40px; padding-bottom: 24px; }
+.inner { display: grid; grid-template-columns: minmax(196px, .9fr) 2fr; gap: 40px; padding-bottom: 24px; }
 .brandCol { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 0; }
 .brand { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; letter-spacing: -.03em; white-space: nowrap; }
 .mark { width: 27px; height: auto; aspect-ratio: 473 / 412; color: var(--wolf); }
 .word span { color: var(--accent); }
 .mail { font-size: .73rem; font-weight: 600; }
 .mail:hover { color: var(--accent); }
-.status { display: block; width: 238px; max-width: 100%; height: 61px; border: none; color-scheme: dark; }
-.trustbox { width: 238px; max-width: 100%; min-height: 52px; }
+/* Match the embeds' default scheme so transparent iframe canvases stay transparent. */
+.statusWrap { width: 196px; height: 50px; }
+.status { display: block; width: 238px; height: 61px; border: none; background: transparent; color-scheme: normal; transform: scale(.82); transform-origin: top left; }
+.trustbox { width: 196px; height: 43px; color-scheme: normal; }
+.trustbox > div { width: 238px; transform: scale(.82); transform-origin: top left; }
+.trustbox :global(iframe) { background: transparent; color-scheme: normal; }
 .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .cols h2 { font-size: .67rem; font-weight: 650; margin-bottom: 12px; color: var(--ink); }
 .cols ul { display: grid; gap: 7px; }

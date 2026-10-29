@@ -26,7 +26,8 @@ export default function SiteFooter({ locale, t }: Props) {
           <a className={styles.mail} href="mailto:support@alfahost.eu">
             support@alfahost.eu
           </a>
-          <iframe
+          <div className={styles.statusWrap}>
+            <iframe
             className={styles.status}
             src="https://alfahosteu.instatus.com/embed-status/969df8a0/dark-md"
             title={locale === "pl" ? "Status usług AlfaHost" : locale === "ru" ? "Статус сервисов AlfaHost" : "AlfaHost service status"}
@@ -34,7 +35,8 @@ export default function SiteFooter({ locale, t }: Props) {
             height="61"
             scrolling="no"
             loading="lazy"
-          />
+            />
+          </div>
           <div className={styles.trustbox}>
             <TrustpilotWidget />
           </div>
@@ -61,6 +63,9 @@ export default function SiteFooter({ locale, t }: Props) {
           <div>
             <h2>{t.company}</h2>
             <ul>
+              <li>
+                <a href={localePath(locale, "contact")}>{t.contact}</a>
+              </li>
               <li>
                 <a href={localePath(locale, "infrastructure")}>{t.why}</a>
               </li>

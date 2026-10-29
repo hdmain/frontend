@@ -63,7 +63,7 @@ export default function SiteHeader({ locale, t, path }: Props) {
       { title: n.help, links: [
         { label: t.faq, description: "", href: page("faq"), path: "faq", icon: CircleHelp },
         { label: locale === "pl" ? "Dokumentacja" : locale === "ru" ? "Документация" : "Documentation", description: "", href: "https://docs.alfahost.eu/", path: "", icon: BookOpen },
-        { label: t.contact, description: "support@alfahost.eu", href: "mailto:support@alfahost.eu", path: "", icon: Mail },
+        { label: t.contact, description: "support@alfahost.eu · admin@alfahost.eu", href: page("contact"), path: "contact", icon: Mail },
       ] },
     ] },
   ];

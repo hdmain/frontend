@@ -10,6 +10,8 @@ import Protection from "@/components/Protection";
 import Faq from "@/components/Faq";
 import TechnologyMarquee from "@/components/TechnologyMarquee";
 import InfrastructureGallery from "@/components/InfrastructureGallery";
+import ContactChannels from "@/components/ContactChannels";
+import { contactCopy } from "@/lib/contact";
 import { isLocale, localeHref, localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isSiteSection, navigationCopy, serviceNavigationCopy, serverLocationCopy, siteSections, type SiteSection } from "@/lib/siteNavigation";
@@ -22,6 +24,7 @@ export function generateStaticParams() { return siteSections.map((section) => ({
 function pageContent(locale: Locale, section: SiteSection) {
   const t = getDictionary(locale);
   const n = navigationCopy[locale];
+  if (section === "contact") return { title: contactCopy[locale].title, lead: contactCopy[locale].lead, image: "/media/hero-dc.jpg" };
   if (section === "hosting") return { title: serviceNavigationCopy[locale].catalog, lead: t.services.lead, image: "/media/hero-dc.jpg" };
   const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps"))!;
   if (section === "game-servers") return { title: n.games, lead: t.services.items[0].desc, image: "/offers/minecraft.jpg", points: t.services.items[0].points };
@@ -54,6 +57,7 @@ export default async function SectionPage({ params }: { params: Promise<{ locale
       <main>
         <PageIntro {...content} back={section === "game-servers" ? { href: localeHref(locale, "#services"), label: serviceNavigationCopy[locale].back } : undefined} location={product || section === "infrastructure" ? serverLocationCopy[locale] : undefined} status={section === "vps" && plan.available === false ? t.offer.unavailable : undefined} action={product ? { href: "#offer", label: section === "game-servers" ? n.chooseGame : section === "hosting" ? serviceNavigationCopy[locale].viewAll : n.configurations } : undefined} />
         {section === "hosting" && <Offer locale={locale} t={t.offer} />}
+        {section === "contact" && <ContactChannels locale={locale} />}
         {section === "game-servers" && <Offer locale={locale} t={gameOffer} />}
         {(section === "nat-vps" || section === "vps") && <OfferDetail locale={locale} t={t.offer} plan={plan} others={[]} showHero={false} />}
         {(section === "nat-vps" || section === "vps") && <section className={`container ${styles.productDetails}`}><div><h2 className="sectionTitle">{t.offer.includesTitle}</h2><p className="sectionLead">{plan.idealFor}</p></div><ul>{plan.includes.map((item) => <li key={item}>{item}</li>)}</ul></section>}

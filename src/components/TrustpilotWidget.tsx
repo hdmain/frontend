@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "./ThemeProvider";
 
 type TrustpilotWindow = Window & {
   Trustpilot?: { loadFromElement: (element: HTMLElement, forceReload: boolean) => void };
@@ -8,6 +9,7 @@ type TrustpilotWindow = Window & {
 
 export default function TrustpilotWidget() {
   const widgetRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const bootstrap = document.getElementById("trustpilot-bootstrap");
@@ -20,7 +22,7 @@ export default function TrustpilotWidget() {
     initialize();
     bootstrap?.addEventListener("load", initialize);
     return () => bootstrap?.removeEventListener("load", initialize);
-  }, []);
+  }, [theme]);
 
   return (
     <div
@@ -31,6 +33,7 @@ export default function TrustpilotWidget() {
       data-businessunit-id="6ad54f32dea7b17b7f05e359"
       data-style-height="52px"
       data-style-width="100%"
+      data-theme={theme}
     >
       <a href="https://www.trustpilot.com/review/alfahost.eu" target="_blank" rel="noopener noreferrer">
         Trustpilot

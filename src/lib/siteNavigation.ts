@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 
-export const siteSections = ["hosting", "game-servers", "nat-vps", "vps", "infrastructure", "ddos-protection", "faq"] as const;
+export const siteSections = ["hosting", "game-servers", "nat-vps", "vps", "infrastructure", "ddos-protection", "faq", "contact"] as const;
 export type SiteSection = (typeof siteSections)[number];
 export const serviceNavigationCopy = {
   pl: { viewAll: "Zobacz wszystkie", back: "Wróć do usług", catalog: "Pełna oferta" },
