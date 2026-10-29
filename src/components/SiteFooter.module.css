@@ -7,6 +7,7 @@
 .mail { font-size: .73rem; font-weight: 600; }
 .mail:hover { color: var(--accent); }
 .status { display: block; width: 238px; max-width: 100%; height: 61px; border: none; color-scheme: dark; }
+.trustbox { width: 238px; max-width: 100%; min-height: 52px; }
 .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .cols h2 { font-size: .67rem; font-weight: 650; margin-bottom: 12px; color: var(--ink); }
 .cols ul { display: grid; gap: 7px; }

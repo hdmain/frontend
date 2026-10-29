@@ -2,6 +2,7 @@ import { localeHref, localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import WolfMark from "./WolfMark";
 import PaymentMethods from "./PaymentMethods";
+import TrustpilotWidget from "./TrustpilotWidget";
 import styles from "./SiteFooter.module.css";
 
 const DISCORD_URL = "https://dc.alfahost.eu";
@@ -34,6 +35,9 @@ export default function SiteFooter({ locale, t }: Props) {
             scrolling="no"
             loading="lazy"
           />
+          <div className={styles.trustbox}>
+            <TrustpilotWidget />
+          </div>
         </div>
 
         <div className={styles.cols}>

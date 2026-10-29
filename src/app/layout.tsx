@@ -103,6 +103,11 @@ export default function RootLayout({
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <script
+          id="trustpilot-bootstrap"
+          src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          async
+        />
+        <script
           id="theme-init"
           dangerouslySetInnerHTML={{
             __html: 'try{document.documentElement.dataset.theme=localStorage.getItem("alfahost-theme")==="light"?"light":"dark"}catch{}',
