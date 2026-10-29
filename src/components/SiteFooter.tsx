@@ -1,6 +1,5 @@
 import { localeHref, localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import TrustpilotBadge from "./TrustpilotBadge";
 import WolfMark from "./WolfMark";
 import PaymentMethods from "./PaymentMethods";
 import styles from "./SiteFooter.module.css";
@@ -26,10 +25,14 @@ export default function SiteFooter({ locale, t }: Props) {
           <a className={styles.mail} href="mailto:support@alfahost.eu">
             support@alfahost.eu
           </a>
-          <TrustpilotBadge
-            compact
-            label={t.trustpilotCta}
-            reviewsTemplate={t.trustpilotReviews}
+          <iframe
+            className={styles.status}
+            src="https://alfahosteu.instatus.com/embed-status/969df8a0/dark-md"
+            title={locale === "pl" ? "Status usług AlfaHost" : locale === "ru" ? "Статус сервисов AlfaHost" : "AlfaHost service status"}
+            width="238"
+            height="61"
+            scrolling="no"
+            loading="lazy"
           />
         </div>
 

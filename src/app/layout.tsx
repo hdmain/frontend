@@ -123,7 +123,6 @@ export default function RootLayout({
                   name: SITE_NAME,
                   url: SITE_URL,
                   logo: `${SITE_URL}/icon-512.png`,
-                  sameAs: ["https://www.trustpilot.com/review/alfahost.eu"],
                   contactPoint: {
                     "@type": "ContactPoint",
                     email: "support@alfahost.eu",
