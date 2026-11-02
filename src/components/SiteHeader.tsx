@@ -47,7 +47,8 @@ export default function SiteHeader({ locale, t, path }: Props) {
       { title: n.products, links: [
         { label: n.games, description: n.gamesDesc, href: page("game-servers"), path: "game-servers", icon: Gamepad2 },
         { label: n.nat, description: n.natDesc, href: page("nat-vps"), path: "nat-vps", icon: Network },
-        { label: n.vps, description: n.vpsDesc, href: page("vps"), path: "vps", icon: Server },
+        { label: "VPS DE", description: locale === "pl" ? "Niemcy · AMD EPYC · SSD" : locale === "ru" ? "Германия · AMD EPYC · SSD" : "Germany · AMD EPYC · SSD", href: page("offer/vps-kvm-de"), path: "offer/vps-kvm-de", icon: Server },
+        { label: "VPS NL", description: locale === "pl" ? "Holandia · Intel i9 · SSD" : locale === "ru" ? "Нидерланды · Intel i9 · SSD" : "The Netherlands · Intel i9 · SSD", href: page("offer/vps-kvm-nl"), path: "offer/vps-kvm-nl", icon: Server },
         { label: locale === "pl" ? "Serwery dedykowane" : locale === "ru" ? "Выделенные серверы" : "Dedicated servers", description: "Ryzen / Xeon", href: page("offer/dedicated"), path: "offer/dedicated", icon: Server },
       ] },
     ] },

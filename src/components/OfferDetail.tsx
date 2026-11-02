@@ -89,7 +89,9 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
     return `${ramGB} GB`;
   };
 
-  const orderHref = legalEntity.panel;
+  const contactOnly = plan.slug === "dedicated";
+  const contactLabel = locale === "pl" ? "Skontaktuj się" : locale === "ru" ? "Связаться с нами" : "Contact us";
+  const orderHref = contactOnly ? localePath(locale, "contact") : legalEntity.panel;
 
   return (
     <section className={styles.section} id="offer">
@@ -174,7 +176,7 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
                   </ul>
                   {available ? (
                     <a className={`btn btnPrimary ${styles.buy}`} href={orderHref}>
-                      {t.buyPackage} {Icons.arrow}
+                      {contactOnly ? contactLabel : t.buyPackage} {Icons.arrow}
                     </a>
                   ) : (
                     <span className={`btn btnGhost ${styles.buy}`} aria-disabled="true">
@@ -190,7 +192,7 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
             <p>{description}</p>
             {available ? (
               <a className="btn btnPrimary" href={orderHref}>
-                {t.orderNow} {Icons.arrow}
+                {contactOnly ? contactLabel : t.orderNow} {Icons.arrow}
               </a>
             ) : (
               <span className="btn btnGhost" aria-disabled="true">

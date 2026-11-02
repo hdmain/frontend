@@ -10,8 +10,8 @@ const names: Record<Locale, Record<Country, string>> = {
 
 export default function LocationFlags({ location, locale }: { location: string; locale: Locale }) {
   const countries: Country[] = location === "vps" ? ["de", "nl"]
-    : location === "vps-kvm-de" ? ["de"]
-    : location === "vps-kvm-nl" ? ["nl"]
+    : location === "vps-kvm-de" || location === "offer/vps-kvm-de" ? ["de"]
+    : location === "vps-kvm-nl" || location === "offer/vps-kvm-nl" ? ["nl"]
     : location === "dedicated" || location === "offer/dedicated" ? ["eu"] : ["pl"];
 
   return <span className={styles.flags}>{countries.map((country) => (

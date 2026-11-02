@@ -10,6 +10,8 @@ const slugsByPath: Record<string, string[]> = {
   "game-servers": ["minecraft", "rust", "palworld", "discord"],
   "nat-vps": ["vps-nat"],
   vps: ["vps-kvm-de", "vps-kvm-nl"],
+  "offer/vps-kvm-de": ["vps-kvm-de"],
+  "offer/vps-kvm-nl": ["vps-kvm-nl"],
   "offer/dedicated": ["dedicated"],
 };
 const labels = {
