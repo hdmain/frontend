@@ -4,7 +4,9 @@ const base = (process.env.NEXT_PUBLIC_PAPI_URL || "https://papi.alfahost.eu").re
 async function read(path) {
   const response = await fetch(`${base}${path}`, { signal: AbortSignal.timeout(20000) });
   if (!response.ok) throw new Error(`${path}: ${response.status}`);
-  return response.json();
+  return JSON.parse(await response.text(), (_key, value) =>
+    typeof value === "string" ? value.replace(/\u2014/g, "-") : value,
+  );
 }
 
 const entries = await Promise.all(["en", "pl", "ru"].map(async (locale) => {

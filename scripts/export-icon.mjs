@@ -132,7 +132,7 @@ async function fitSquare(size, format, padRatio = 0.06) {
 }
 
 for (const size of sizes) {
-  // Gallery exports — slightly larger mark
+  // Gallery exports - slightly larger mark
   await fs.promises.writeFile(
     path.join(pngDir, `alfahost-icon-${size}.png`),
     await fitSquare(size, "png", 0.05),

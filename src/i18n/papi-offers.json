@@ -50,7 +50,7 @@
       "available": true,
       "category": "game",
       "cpu": "",
-      "description": "Node.js, Python, Bun or Deno with predictable resources — from tiny bots to heavy fleets.",
+      "description": "Node.js, Python, Bun or Deno with predictable resources - from tiny bots to heavy fleets.",
       "from": {
         "standard": 1.99,
         "standard_formatted": "1.99 zł"
@@ -103,7 +103,7 @@
       },
       "name": "VPS KVM · Germany",
       "slug": "vps-kvm-de",
-      "summary": "Dedicated KVM VPS in Frankfurt — public IPv4, 1 Gbit/s, anti-DDoS.",
+      "summary": "Dedicated KVM VPS in Frankfurt - public IPv4, 1 Gbit/s, anti-DDoS.",
       "ram": [
         8,
         96
@@ -126,7 +126,7 @@
       },
       "name": "VPS KVM · Netherlands",
       "slug": "vps-kvm-nl",
-      "summary": "Dedicated KVM VPS in the Netherlands — public IPv4, 1 Gbit/s.",
+      "summary": "Dedicated KVM VPS in the Netherlands - public IPv4, 1 Gbit/s.",
       "ram": [
         4,
         64
@@ -236,7 +236,7 @@
       "available": true,
       "category": "game",
       "cpu": "",
-      "description": "Node.js, Python, Bun lub Deno z przewidywalnymi zasobami — od małych botów po duże floty.",
+      "description": "Node.js, Python, Bun lub Deno z przewidywalnymi zasobami - od małych botów po duże floty.",
       "from": {
         "standard": 1.99,
         "standard_formatted": "1.99 zł"
@@ -289,7 +289,7 @@
       },
       "name": "VPS KVM · Niemcy",
       "slug": "vps-kvm-de",
-      "summary": "Dedykowany KVM VPS we Frankfurcie — publiczne IPv4, 1 Gbit/s, anti-DDoS.",
+      "summary": "Dedykowany KVM VPS we Frankfurcie - publiczne IPv4, 1 Gbit/s, anti-DDoS.",
       "ram": [
         8,
         96
@@ -312,7 +312,7 @@
       },
       "name": "VPS KVM · Holandia",
       "slug": "vps-kvm-nl",
-      "summary": "Dedykowany KVM VPS w Holandii — publiczne IPv4, 1 Gbit/s.",
+      "summary": "Dedykowany KVM VPS w Holandii - publiczne IPv4, 1 Gbit/s.",
       "ram": [
         4,
         64
@@ -422,7 +422,7 @@
       "available": true,
       "category": "game",
       "cpu": "",
-      "description": "Node.js, Python, Bun или Deno с предсказуемыми ресурсами — от маленьких ботов до крупных флотов.",
+      "description": "Node.js, Python, Bun или Deno с предсказуемыми ресурсами - от маленьких ботов до крупных флотов.",
       "from": {
         "standard": 1.99,
         "standard_formatted": "1.99 zł"
@@ -475,7 +475,7 @@
       },
       "name": "VPS KVM · Германия",
       "slug": "vps-kvm-de",
-      "summary": "Выделенный KVM VPS во Франкфурте — публичный IPv4, 1 Gbit/s, anti-DDoS.",
+      "summary": "Выделенный KVM VPS во Франкфурте - публичный IPv4, 1 Gbit/s, anti-DDoS.",
       "ram": [
         8,
         96
@@ -498,7 +498,7 @@
       },
       "name": "VPS KVM · Нидерланды",
       "slug": "vps-kvm-nl",
-      "summary": "Выделенный KVM VPS в Нидерландах — публичный IPv4, 1 Gbit/s.",
+      "summary": "Выделенный KVM VPS в Нидерландах - публичный IPv4, 1 Gbit/s.",
       "ram": [
         4,
         64

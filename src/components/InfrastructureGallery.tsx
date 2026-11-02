@@ -26,7 +26,7 @@ export default function InfrastructureGallery({ locale }: { locale: Locale }) {
         <div className={styles.grid}>
           {photos.map((photo, index) => (
             <figure key={photo.file} className={styles.photo}>
-              <a href={asset(`/media/atman/${photo.file}`)} target="_blank" rel="noopener noreferrer" className={styles.frame} aria-label={`${t.captions[index]} — ${t.open}`}>
+              <a href={asset(`/media/atman/${photo.file}`)} target="_blank" rel="noopener noreferrer" className={styles.frame} aria-label={`${t.captions[index]} - ${t.open}`}>
                 <Image src={asset(`/media/atman/${photo.file}`)} width={photo.width} height={photo.height} sizes={index === 0 ? "(max-width: 1240px) 100vw, 1176px" : "(max-width: 640px) 100vw, (max-width: 900px) 50vw, 400px"} alt={t.captions[index]} />
                 <span className={styles.expand} aria-hidden="true"><ArrowUpRight size={19} /></span>
               </a>

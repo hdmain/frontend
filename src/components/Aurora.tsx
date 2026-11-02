@@ -150,7 +150,7 @@ export default function Aurora(props: AuroraProps) {
     if (!ctn) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Probe first — ogl logs a console error if we construct Renderer without WebGL2.
+    // Probe first - ogl logs a console error if we construct Renderer without WebGL2.
     if (reducedMotion || !canUseWebGL2()) {
       ctn.style.background = FALLBACK_BG;
       return;

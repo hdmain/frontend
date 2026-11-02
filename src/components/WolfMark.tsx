@@ -6,7 +6,7 @@ type Props = {
   size?: number;
 };
 
-/** Brand mark from /icon.svg — color via currentColor (CSS). */
+/** Brand mark from /icon.svg - color via currentColor (CSS). */
 export default function WolfMark({ className, size }: Props) {
   const src = asset("/icon.svg");
 

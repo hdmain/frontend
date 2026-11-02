@@ -438,7 +438,7 @@ const en: Dictionary = {
         ram: "8–96 GB",
         disk: "75–500 GB SSD",
         price: "€5.50",
-        summary: "Dedicated KVM VPS in Frankfurt — public IPv4, 1 Gbit/s, anti-DDoS.",
+        summary: "Dedicated KVM VPS in Frankfurt - public IPv4, 1 Gbit/s, anti-DDoS.",
         description:
           "Retail list prices from the upstream catalog. Full root, public IPv4 and filtering on every plan.",
         idealFor: "Production apps, panels and backends in DE.",
@@ -463,7 +463,7 @@ const en: Dictionary = {
         ram: "4–64 GB",
         disk: "75–400 GB SSD",
         price: "€3.99",
-        summary: "Dedicated KVM VPS in the Netherlands — public IPv4, 1 Gbit/s.",
+        summary: "Dedicated KVM VPS in the Netherlands - public IPv4, 1 Gbit/s.",
         description:
           "Retail list prices from the upstream catalog. Full root and public IPv4.",
         idealFor: "Latency-sensitive apps and services in NL.",
@@ -869,7 +869,7 @@ const pl: Dictionary = {
         ram: "8–96 GB",
         disk: "75–500 GB SSD",
         price: "€5.50",
-        summary: "Dedykowany KVM VPS we Frankfurcie — publiczne IPv4, 1 Gbit/s, anti-DDoS.",
+        summary: "Dedykowany KVM VPS we Frankfurcie - publiczne IPv4, 1 Gbit/s, anti-DDoS.",
         description:
           "Ceny katalogowe 1:1 z upstreamu. Pełny root, publiczne IPv4 i filtrowanie w każdym planie.",
         idealFor: "Aplikacje produkcyjne, panele i backendy w DE.",
@@ -894,7 +894,7 @@ const pl: Dictionary = {
         ram: "4–64 GB",
         disk: "75–400 GB SSD",
         price: "€3.99",
-        summary: "Dedykowany KVM VPS w Holandii — publiczne IPv4, 1 Gbit/s.",
+        summary: "Dedykowany KVM VPS w Holandii - publiczne IPv4, 1 Gbit/s.",
         description:
           "Ceny katalogowe 1:1 z upstreamu. Pełny root i publiczne IPv4.",
         idealFor: "Usługi wrażliwe na opóźnienia w NL.",
@@ -1300,7 +1300,7 @@ const ru: Dictionary = {
         ram: "8–96 GB",
         disk: "75–500 GB SSD",
         price: "€5.50",
-        summary: "Выделенный KVM VPS во Франкфурте — публичный IPv4, 1 Gbit/s, anti-DDoS.",
+        summary: "Выделенный KVM VPS во Франкфурте - публичный IPv4, 1 Gbit/s, anti-DDoS.",
         description:
           "Розничные цены 1:1 с upstream. Полный root, публичный IPv4 и фильтрация в каждом тарифе.",
         idealFor: "Продакшен-приложения, панели и бэкенды в DE.",
@@ -1325,7 +1325,7 @@ const ru: Dictionary = {
         ram: "4–64 GB",
         disk: "75–400 GB SSD",
         price: "€3.99",
-        summary: "Выделенный KVM VPS в Нидерландах — публичный IPv4, 1 Gbit/s.",
+        summary: "Выделенный KVM VPS в Нидерландах - публичный IPv4, 1 Gbit/s.",
         description:
           "Розничные цены 1:1 с upstream. Полный root и публичный IPv4.",
         idealFor: "Сервисы, чувствительные к задержке, в NL.",

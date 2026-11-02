@@ -63,7 +63,9 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
           `${papiBaseUrl()}/v1/offers/${plan.slug}?lang=${locale}&currency=${currency}`,
         );
         if (!res.ok) throw new Error(`papi ${res.status}`);
-        const data = (await res.json()) as { offer: ApiOffer };
+        const data = JSON.parse(await res.text(), (_key, value: unknown) =>
+          typeof value === "string" ? value.replace(/\u2014/g, "-") : value,
+        ) as { offer: ApiOffer };
         if (!cancelled) setOffer(data.offer);
       } catch {
         if (!cancelled) setOffer(null);
@@ -165,9 +167,9 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
                     ) : null}
                     <li>
                       <span>{t.antiddos}</span>
-                      <strong>{pkg.antiddos ? "✓" : "—"}</strong>
+                      <strong>{pkg.antiddos ? "✓" : "-"}</strong>
                     </li>
-                    {pkg.players && pkg.players !== "—" && pkg.players !== "-" ? (
+                    {pkg.players && pkg.players !== "-" ? (
                       <li>
                         <span>{t.players}</span>
                         <strong>{pkg.players}</strong>

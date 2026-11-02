@@ -23,7 +23,7 @@ export function localeFromTag(tag: string): Locale | null {
 
 /**
  * Pick locale from browser language preferences.
- * Works in the browser only — falls back to defaultLocale on server.
+ * Works in the browser only - falls back to defaultLocale on server.
  */
 export function detectBrowserLocale(
   languages: readonly string[] = [],
@@ -58,7 +58,7 @@ export function comingSoonPath(locale: Locale): string {
   return localePath(locale, comingSoonSubpath);
 }
 
-/** Launch / waitlist mode is retired — site is live. */
+/** Launch / waitlist mode is retired - site is live. */
 export function isComingSoon(): boolean {
   return false;
 }
