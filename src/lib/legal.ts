@@ -510,29 +510,31 @@ function terms(locale: Locale): LegalDocument {
       id: "terms",
       metaTitle: "Regulamin | AlfaHost",
       metaDescription:
-        "Regulamin korzystania z serwisów AlfaHost, w tym panelu klienta i listy oczekujących.",
+        "Zasady korzystania z serwisów AlfaHost, bieżącej oferty hostingowej i panelu klienta.",
       title: "Regulamin serwisu",
-      updated: "26 października 2026",
+      updated: "2 listopada 2026",
       sections: [
         {
           heading: "1. Postanowienia ogólne",
           paragraphs: [
             `Serwisy internetowe alfahost.eu oraz cp.alfahost.eu (panel klienta), łącznie „Serwis”, prowadzone są przez ${legalEntity.name}. Kontakt: ${legalEntity.email}.`,
             activityNotice(locale),
-            "Niniejszy regulamin określa zasady korzystania z Serwisu, w tym z formularza listy oczekujących oraz panelu klienta, w okresie przed uruchomieniem sprzedaży usług hostingowych oraz po jego uruchomieniu w zakresie korzystania z panelu.",
+            "Niniejszy regulamin określa zasady korzystania ze strony internetowej, bieżącej oferty hostingowej oraz panelu klienta. Serwis prezentuje aktualne usługi i umożliwia przejście do panelu w celu złożenia zamówienia.",
           ],
         },
         {
-          heading: "2. Charakter oferty",
+          heading: "2. Oferta, ceny i dostępność",
           paragraphs: [
-            "Opublikowane ceny, pakiety i opisy usług mają charakter informacyjny i mogą ulec zmianie przed oficjalnym startem sprzedaży. Do czasu uruchomienia platformy nie dochodzi do zawarcia umowy o świadczenie usług hostingowych poprzez Serwis.",
+            "Serwis przedstawia bieżącą ofertę usług hostingowych. Oznaczenie dostępności dotyczy danej oferty; dostępność konkretnej konfiguracji należy sprawdzić przy składaniu zamówienia.",
+            "Cena oznaczona jako „od” dotyczy najtańszej dostępnej konfiguracji w danej kategorii. Przed złożeniem zamówienia należy sprawdzić wybraną konfigurację, łączną cenę, walutę, okres rozliczeniowy i warunki zamówienia w panelu klienta. Zmiana cen na stronie nie zmienia automatycznie wcześniej uzgodnionych warunków zamówienia.",
           ],
         },
         {
-          heading: "3. Lista oczekujących",
+          heading: "3. Zamówienia i kontakt",
           paragraphs: [
-            "Zapis na listę oczekujących wymaga podania prawidłowego adresu e-mail, przejścia weryfikacji Cap oraz wyrażenia zgody na przetwarzanie danych zgodnie z Polityką prywatności.",
-            "Promocja startowa (m.in. rabat na pierwsze zamówienie) zostanie przekazana zarejestrowanym osobom zgodnie z zasadami ogłoszonymi przy starcie. AlfaHost zastrzega prawo do zmiany szczegółów promocji z ważnych przyczyn organizacyjnych lub prawnych.",
+            "Przyciski zakupu przy usługach prowadzą do panelu cp.alfahost.eu, gdzie odbywa się proces składania zamówienia. Samo przejście do panelu nie oznacza złożenia zamówienia ani dokonania płatności. Warunki świadczenia wybranej usługi należy sprawdzić przed potwierdzeniem zamówienia.",
+            "W przypadku serwerów dedykowanych przycisk „Skontaktuj się” prowadzi do strony kontaktowej. Konfiguracja, dostępność, cena i warunki takiej usługi wymagają indywidualnego uzgodnienia przed zamówieniem.",
+            `Pytania dotyczące oferty i zamówień można kierować na adres ${legalEntity.email}.`,
           ],
         },
         {
@@ -544,7 +546,7 @@ function terms(locale: Locale): LegalDocument {
         {
           heading: "5. Odpowiedzialność",
           paragraphs: [
-            "W najszerszym zakresie dopuszczalnym przez prawo AlfaHost nie ponosi odpowiedzialności za przerwy w dostępności Serwisu spowodowane siłą wyższą, pracami serwisowymi lub działaniem osób trzecich. Treści informacyjne Serwisu nie stanowią oferty w rozumieniu Kodeksu cywilnego, o ile nie wskazano inaczej.",
+            "W najszerszym zakresie dopuszczalnym przez prawo AlfaHost nie ponosi odpowiedzialności za przerwy w dostępności Serwisu spowodowane siłą wyższą, pracami serwisowymi lub działaniem osób trzecich. Postanowienia regulaminu nie ograniczają praw konsumentów wynikających z bezwzględnie obowiązujących przepisów prawa.",
           ],
         },
         {
@@ -572,29 +574,31 @@ function terms(locale: Locale): LegalDocument {
     return {
       id: "terms",
       metaTitle: "Условия использования | AlfaHost",
-      metaDescription: "Условия использования сервисов AlfaHost, включая панель клиента.",
+      metaDescription: "Правила использования сайта AlfaHost, актуальных предложений хостинга и панели клиента.",
       title: "Условия использования",
-      updated: "26 октября 2026",
+      updated: "2 ноября 2026",
       sections: [
         {
           heading: "1. Общие положения",
           paragraphs: [
             `Сервисы alfahost.eu и cp.alfahost.eu (панель клиента), совместно «Сервис», поддерживаются ${legalEntity.name}. Контакт: ${legalEntity.email}.`,
             activityNotice(locale),
-            "Настоящие условия регулируют использование Сервиса, включая форму списка ожидания и панель клиента, до запуска продаж и после запуска в части использования панели.",
+            "Настоящие условия регулируют использование сайта, актуальных предложений хостинга и панели клиента. Сервис показывает действующие услуги и позволяет перейти в панель для оформления заказа.",
           ],
         },
         {
-          heading: "2. Характер предложений",
+          heading: "2. Предложения, цены и доступность",
           paragraphs: [
-            "Опубликованные цены и описания носят информационный характер и могут измениться до официального старта. До запуска платформы через Сервис не заключается договор на хостинг-услуги.",
+            "Сервис представляет актуальные предложения хостинга. Отметка о доступности относится к соответствующему предложению; доступность конкретной конфигурации необходимо проверить при оформлении заказа.",
+            "Цена с пометкой «от» относится к самой дешёвой доступной конфигурации в категории. Перед оформлением заказа следует проверить конфигурацию, полную стоимость, валюту, расчётный период и условия заказа в панели клиента. Изменение цен на сайте автоматически не меняет ранее согласованные условия заказа.",
           ],
         },
         {
-          heading: "3. Список ожидания",
+          heading: "3. Заказы и связь с нами",
           paragraphs: [
-            "Для записи необходимы корректный e-mail, прохождение Cap и согласие на обработку данных согласно Политике конфиденциальности.",
-            "Стартовая акция будет направлена зарегистрированным пользователям по правилам, объявленным при запуске.",
+            "Кнопки покупки услуг ведут в панель cp.alfahost.eu, где оформляется заказ. Сам переход в панель не означает оформления заказа или оплаты. Условия предоставления выбранной услуги следует проверить перед подтверждением заказа.",
+            "Для выделенных серверов кнопка «Связаться с нами» ведёт на страницу контактов. Конфигурация, доступность, цена и условия такой услуги согласовываются индивидуально до оформления заказа.",
+            `Вопросы о предложениях и заказах можно направлять на ${legalEntity.email}.`,
           ],
         },
         {
@@ -606,7 +610,7 @@ function terms(locale: Locale): LegalDocument {
         {
           heading: "5. Ответственность",
           paragraphs: [
-            "В максимально допустимой законом степени AlfaHost не несёт ответственности за перерывы, вызванные непреодолимой силой, обслуживанием или действиями третьих лиц.",
+            "В максимально допустимой законом степени AlfaHost не несёт ответственности за перерывы, вызванные непреодолимой силой, обслуживанием или действиями третьих лиц. Настоящие условия не ограничивают обязательные права потребителей, установленные законом.",
           ],
         },
         {
@@ -633,29 +637,31 @@ function terms(locale: Locale): LegalDocument {
   return {
     id: "terms",
     metaTitle: "Terms of Use | AlfaHost",
-    metaDescription: "Terms of use for AlfaHost services, including the client panel.",
+    metaDescription: "Terms for using the AlfaHost website, current hosting offers and client panel.",
     title: "Terms of Use",
-    updated: "26 October 2026",
+    updated: "2 November 2026",
     sections: [
       {
         heading: "1. General",
         paragraphs: [
           `The websites alfahost.eu and cp.alfahost.eu (client panel), together the “Service”, are operated by ${legalEntity.name}. Contact: ${legalEntity.email}.`,
           activityNotice(locale),
-          "These terms govern use of the Service, including the waitlist form and the client panel, before hosting sales are launched and after launch insofar as the panel is used.",
+          "These terms govern use of the website, current hosting offers and client panel. The Service presents current services and provides access to the panel to place an order.",
         ],
       },
       {
-        heading: "2. Nature of the offer",
+        heading: "2. Offers, prices and availability",
         paragraphs: [
-          "Published prices, packages and descriptions are informational and may change before official sales launch. Until the platform goes live, no hosting service contract is concluded via the Service.",
+          "The Service presents current hosting offers. An availability label applies to the relevant offer; availability of a particular configuration should be checked when placing an order.",
+          "A price marked ‘from’ refers to the lowest-priced available configuration in that category. Before placing an order, check the selected configuration, total price, currency, billing period and order terms in the client panel. Changes to website prices do not automatically change previously agreed order terms.",
         ],
       },
       {
-        heading: "3. Waitlist",
+        heading: "3. Orders and enquiries",
         paragraphs: [
-          "Joining the waitlist requires a valid email address, Cap verification and consent to data processing under the Privacy Policy.",
-          "The launch promotion (including any first-order discount) will be communicated to registered users under the rules announced at launch. AlfaHost may adjust promotion details for organisational or legal reasons.",
+          "Purchase buttons for services lead to cp.alfahost.eu, where orders are placed. Opening the panel does not itself place an order or make a payment. Review the terms for the selected service before confirming an order.",
+          "For dedicated servers, the ‘Contact us’ button leads to the contact page. Configuration, availability, price and service terms must be agreed individually before ordering.",
+          `Questions about offers and orders can be sent to ${legalEntity.email}.`,
         ],
       },
       {
@@ -667,7 +673,7 @@ function terms(locale: Locale): LegalDocument {
       {
         heading: "5. Liability",
         paragraphs: [
-          "To the fullest extent permitted by law, AlfaHost is not liable for downtime caused by force majeure, maintenance or third-party acts. Informational content does not constitute a binding commercial offer unless expressly stated.",
+          "To the fullest extent permitted by law, AlfaHost is not liable for downtime caused by force majeure, maintenance or third-party acts. These terms do not limit mandatory statutory consumer rights.",
         ],
       },
       {
