@@ -26,9 +26,10 @@ function pageContent(locale: Locale, section: SiteSection) {
   const n = navigationCopy[locale];
   if (section === "contact") return { title: contactCopy[locale].title, lead: contactCopy[locale].lead, image: "/media/hero-dc.jpg" };
   if (section === "hosting") return { title: serviceNavigationCopy[locale].catalog, lead: t.services.lead, image: "/media/hero-dc.jpg" };
-  const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps"))!;
+  const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps-kvm-de"))!;
   if (section === "game-servers") return { title: n.games, lead: t.services.items[0].desc, image: "/offers/minecraft.jpg", points: t.services.items[0].points };
-  if (section === "vps" || section === "nat-vps") return { title: plan.name, lead: plan.description, image: `/offers/${plan.slug}.jpg`, points: plan.highlights };
+  if (section === "vps") return { title: n.vps, lead: n.vpsDesc, image: "/offers/vps.jpg", points: plan.highlights };
+  if (section === "nat-vps") return { title: plan.name, lead: plan.description, image: `/offers/${plan.slug}.jpg`, points: plan.highlights };
   if (section === "infrastructure") return { title: n.infrastructure, lead: t.why.lead, image: "/media/atman/waw1-181.jpg" };
   if (section === "ddos-protection") return { title: t.nav.antiddos, lead: t.protection.lead, image: "/media/hero-dc.jpg" };
   return { title: n.helpTitle, lead: t.faq.lead, image: "/media/hero-dc.jpg" };
@@ -47,20 +48,22 @@ export default async function SectionPage({ params }: { params: Promise<{ locale
   const t = getDictionary(locale);
   const n = navigationCopy[locale];
   const content = pageContent(locale, section);
-  const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps"))!;
+  const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps-kvm-de"))!;
   const product = section === "hosting" || section === "game-servers" || section === "nat-vps" || section === "vps";
   const gameOffer = { ...t.offer, title: n.chooseGame, lead: n.gamesDesc, plans: t.offer.plans.filter((item) => ["minecraft", "rust", "palworld", "discord"].includes(item.slug)) };
+  const kvmOffer = { ...t.offer, title: n.vps, lead: n.vpsDesc, plans: t.offer.plans.filter((item) => item.slug === "vps-kvm-de" || item.slug === "vps-kvm-nl") };
 
   return (
     <div className={styles.page}>
       <SiteHeader locale={locale} t={t.nav} path={section} />
       <main>
-        <PageIntro {...content} back={section === "game-servers" ? { href: localeHref(locale, "#services"), label: serviceNavigationCopy[locale].back } : undefined} location={product || section === "infrastructure" ? serverLocationCopy[locale] : undefined} status={section === "vps" && plan.available === false ? t.offer.unavailable : undefined} action={product ? { href: "#offer", label: section === "game-servers" ? n.chooseGame : section === "hosting" ? serviceNavigationCopy[locale].viewAll : n.configurations } : undefined} />
+        <PageIntro {...content} back={section === "game-servers" ? { href: localeHref(locale, "#services"), label: serviceNavigationCopy[locale].back } : undefined} location={product || section === "infrastructure" ? serverLocationCopy[locale] : undefined} status={undefined} action={product ? { href: "#offer", label: section === "game-servers" ? n.chooseGame : section === "hosting" ? serviceNavigationCopy[locale].viewAll : n.configurations } : undefined} />
         {section === "hosting" && <Offer locale={locale} t={t.offer} />}
         {section === "contact" && <ContactChannels locale={locale} />}
         {section === "game-servers" && <Offer locale={locale} t={gameOffer} />}
-        {(section === "nat-vps" || section === "vps") && <OfferDetail locale={locale} t={t.offer} plan={plan} others={[]} showHero={false} />}
-        {(section === "nat-vps" || section === "vps") && <section className={`container ${styles.productDetails}`}><div><h2 className="sectionTitle">{t.offer.includesTitle}</h2><p className="sectionLead">{plan.idealFor}</p></div><ul>{plan.includes.map((item) => <li key={item}>{item}</li>)}</ul></section>}
+        {section === "vps" && <Offer locale={locale} t={kvmOffer} />}
+        {section === "nat-vps" && <OfferDetail locale={locale} t={t.offer} plan={plan} others={[]} showHero={false} />}
+        {section === "nat-vps" && <section className={`container ${styles.productDetails}`}><div><h2 className="sectionTitle">{t.offer.includesTitle}</h2><p className="sectionLead">{plan.idealFor}</p></div><ul>{plan.includes.map((item) => <li key={item}>{item}</li>)}</ul></section>}
         {section === "game-servers" && <Protection t={t.protection} />}
         {section === "infrastructure" && <><InfrastructureGallery locale={locale} /><WhyUs t={t.why} /><TechnologyMarquee locale={locale} /></>}
         {section === "ddos-protection" && <Protection t={t.protection} />}

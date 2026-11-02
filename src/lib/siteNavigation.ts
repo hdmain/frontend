@@ -23,5 +23,7 @@ export function isSiteSection(value: string): value is SiteSection {
 }
 
 export function offerPagePath(slug: string) {
-  return slug === "vps-nat" ? "nat-vps" : slug === "vps" ? "vps" : `offer/${slug}`;
+  if (slug === "vps-nat") return "nat-vps";
+  if (slug === "vps" || slug === "vps-kvm-de" || slug === "vps-kvm-nl") return `offer/${slug === "vps" ? "vps-kvm-de" : slug}`;
+  return `offer/${slug}`;
 }
