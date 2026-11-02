@@ -1,4 +1,5 @@
 import type { Locale } from "./config";
+import papiOffers from "./papi-offers.json";
 
 export type OfferPlan = {
   name: string;
@@ -196,7 +197,7 @@ const en: Dictionary = {
     currency: "Currency",
   },
   hero: {
-    lede: "All our servers are currently located in Warsaw, Poland, with anti-DDoS on every plan.",
+    lede: "Game servers and NAT VPS in Poland. KVM VPS in Germany and the Netherlands, with anti-DDoS included.",
     ctaOffer: "See the offer",
     ctaContact: "Contact",
     positivesLabel: "Why operators choose us",
@@ -291,7 +292,7 @@ const en: Dictionary = {
       {
         value: "Atman",
         title: "Warsaw Tier III+ data centre",
-        copy: "All our hardware lives in one DC, Atman Warsaw, with redundant power and network for continuous operation.",
+        copy: "Our Polish game and NAT VPS nodes run at Atman Warsaw. KVM VPS is available in Germany and the Netherlands.",
       },
     ],
   },
@@ -523,7 +524,7 @@ const en: Dictionary = {
       },
       {
         q: "Where are the servers?",
-        a: "Our servers run in a single Tier III+ data centre, Atman in Warsaw, Poland, with redundant power and network.",
+        a: "Game servers and NAT VPS run in Warsaw, Poland. KVM VPS is available in Frankfurt, Germany, and in the Netherlands. Dedicated servers are located in the EU.",
       },
     ],
   },
@@ -627,7 +628,7 @@ const pl: Dictionary = {
     currency: "Waluta",
   },
   hero: {
-    lede: "Obecnie wszystkie nasze serwery znajdują się w Warszawie, w Polsce. Anty-DDoS w każdym planie.",
+    lede: "Serwery gier i VPS NAT w Polsce. VPS KVM w Niemczech i Holandii, z anty-DDoS w cenie.",
     ctaOffer: "Zobacz ofertę",
     ctaContact: "Kontakt",
     positivesLabel: "Dlaczego wybierają nas",
@@ -722,7 +723,7 @@ const pl: Dictionary = {
       {
         value: "Atman",
         title: "DC Tier III+ w Warszawie",
-        copy: "Cały sprzęt trzymamy w jednym centrum danych, Atman w Warszawie, z redundantnym zasilaniem i siecią pod ciągłą pracę.",
+        copy: "Polskie węzły gier i VPS NAT działają w Atman w Warszawie. VPS KVM jest dostępny w Niemczech i Holandii.",
       },
     ],
   },
@@ -954,7 +955,7 @@ const pl: Dictionary = {
       },
       {
         q: "Gdzie są serwery?",
-        a: "Korzystamy z jednego centrum danych Tier III+ - Atman w Warszawie, z redundantnym zasilaniem i siecią.",
+        a: "Serwery gier i VPS NAT działają w Warszawie, w Polsce. VPS KVM jest dostępny we Frankfurcie w Niemczech oraz w Holandii. Serwery dedykowane znajdują się w UE.",
       },
     ],
   },
@@ -1058,7 +1059,7 @@ const ru: Dictionary = {
     currency: "Валюта",
   },
   hero: {
-    lede: "Сейчас все наши серверы расположены в Варшаве, Польша. Anti-DDoS в каждом тарифе.",
+    lede: "Игровые серверы и NAT VPS в Польше. KVM VPS в Германии и Нидерландах, с защитой от DDoS в цене.",
     ctaOffer: "Смотреть тарифы",
     ctaContact: "Контакты",
     positivesLabel: "Почему выбирают нас",
@@ -1153,7 +1154,7 @@ const ru: Dictionary = {
       {
         value: "Atman",
         title: "ДЦ Tier III+ в Варшаве",
-        copy: "Всё железо в одном дата-центре, Atman в Варшаве, с резервным питанием и сетью для непрерывной работы.",
+        copy: "Польские игровые ноды и NAT VPS работают в Atman в Варшаве. KVM VPS доступны в Германии и Нидерландах.",
       },
     ],
   },
@@ -1385,7 +1386,7 @@ const ru: Dictionary = {
       },
       {
         q: "Где находятся серверы?",
-        a: "Мы используем один дата-центр Tier III+ - Atman в Варшаве, с резервным питанием и сетью.",
+        a: "Игровые серверы и NAT VPS работают в Варшаве, Польша. KVM VPS доступны во Франкфурте, Германия, и в Нидерландах. Выделенные серверы находятся в ЕС.",
       },
     ],
   },
@@ -1469,10 +1470,44 @@ const ru: Dictionary = {
 
 const dictionaries: Record<Locale, Dictionary> = { en, pl, ru };
 
-export const planSlugs = en.offer.plans.map((p) => p.slug);
+export const planSlugs = papiOffers.en.map((offer) => offer.slug);
 
 export function getDictionary(locale: Locale): Dictionary {
-  return dictionaries[locale];
+  const dictionary = dictionaries[locale];
+  const range = (values: number[]) => values[0] === values[1] ? `${values[0]}` : `${values[0]}–${values[1]}`;
+  const plans: OfferPlan[] = papiOffers[locale].map((offer) => {
+    const editorial = dictionary.offer.plans.find((plan) => plan.slug === offer.slug);
+    const kvm = offer.slug.startsWith("vps-kvm-");
+    const description = kvm ? ({
+      pl: "Serwer KVM z pełnym dostępem root, publicznym adresem IPv4, dyskiem SSD i portem 1 Gbit/s.",
+      en: "KVM server with full root access, a public IPv4 address, SSD storage and a 1 Gbit/s port.",
+      ru: "Сервер KVM с полным root-доступом, публичным IPv4, SSD и портом 1 Гбит/с.",
+    })[locale] : offer.description;
+    const ram = `${range(offer.ram)} GB`;
+    const disk = `${range(offer.disk)} GB${kvm ? " SSD" : ""}`;
+    return {
+      idealFor: offer.summary,
+      highlights: [offer.cpu, ram, disk].filter(Boolean),
+      includes: [ram, disk],
+      ...editorial,
+      name: offer.name, slug: offer.slug, available: offer.available,
+      cpu: offer.cpu, ram, disk, price: offer.from.standard_formatted,
+      summary: offer.summary, description,
+      ...(offer.slug === "vps-nat" ? {
+        highlights: ({
+          pl: ["Dostęp do sieci przez NAT", "20 portów publicznych", `Do ${offer.ram[1]} GB RAM`, `Do ${offer.maxVcpu} vCPU`, `Dysk do ${offer.disk[1]} GB`],
+          en: ["NAT network access", "20 public ports", `Up to ${offer.ram[1]} GB RAM`, `Up to ${offer.maxVcpu} vCPU`, `Up to ${offer.disk[1]} GB storage`],
+          ru: ["Доступ к сети через NAT", "20 публичных портов", `До ${offer.ram[1]} ГБ RAM`, `До ${offer.maxVcpu} vCPU`, `Диск до ${offer.disk[1]} ГБ`],
+        })[locale],
+        includes: ({
+          pl: ["Dostęp root", "Ochrona anty-DDoS", `${offer.packageCount} konfiguracji`, "Ubuntu 24.04, Ubuntu 22.04, Debian 12"],
+          en: ["Root access", "Anti-DDoS protection", `${offer.packageCount} configurations`, "Ubuntu 24.04, Ubuntu 22.04, Debian 12"],
+          ru: ["Root-доступ", "Защита от DDoS", `${offer.packageCount} конфигураций`, "Ubuntu 24.04, Ubuntu 22.04, Debian 12"],
+        })[locale],
+      } : {}),
+    };
+  });
+  return { ...dictionary, offer: { ...dictionary.offer, plans } };
 }
 
 export function getPlan(locale: Locale, slug: string): OfferPlan | undefined {

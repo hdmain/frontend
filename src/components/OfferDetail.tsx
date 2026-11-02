@@ -8,7 +8,7 @@ import type { Dictionary, OfferPlan } from "@/i18n/dictionaries";
 import { asset } from "@/lib/basePath";
 import { papiBaseUrl } from "@/lib/currency";
 import { legalEntity } from "@/lib/legal";
-import { offerPagePath, serverLocationCopy } from "@/lib/siteNavigation";
+import { offerImage, offerLocation, offerPagePath } from "@/lib/siteNavigation";
 import { useOptionalCurrency } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import PaymentMethods from "./PaymentMethods";
@@ -47,7 +47,7 @@ type Props = {
 };
 
 export default function OfferDetail({ locale, t, plan, others, showHero = true }: Props) {
-  const bg = asset(`/offers/${plan.slug}.jpg`);
+  const bg = asset(offerImage(plan.slug));
   const currencyCtx = useOptionalCurrency();
   const currency = currencyCtx?.currency ?? "PLN";
   const [offer, setOffer] = useState<ApiOffer | null>(null);
@@ -78,14 +78,14 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
 
   const title = offer?.name || plan.name;
   const summary = offer?.summary || plan.summary;
-  const description = offer?.description || plan.description;
-  const available = plan.available ?? true;
+  const description = plan.slug.startsWith("vps-kvm-") ? plan.description : offer?.description || plan.description;
+  const available = offer?.available ?? currencyCtx?.prices[plan.slug]?.available ?? plan.available ?? true;
   const packages = offer?.packages ?? [];
   const formatRam = (ramGB: number) => {
     if (plan.slug === "vps-nat") {
       return ramGB < 1 ? `${Math.round(ramGB * 1024)} MB` : `${ramGB} GB`;
     }
-    return `${ramGB} GB DDR4`;
+    return `${ramGB} GB`;
   };
 
   const orderHref = legalEntity.panel;
@@ -99,14 +99,14 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
           aria-hidden
         />
         <div className={`container ${styles.heroInner}`}>
-          <a className={styles.back} href={localePath(locale, plan.slug === "vps" ? "vps" : plan.slug === "vps-nat" ? "nat-vps" : "game-servers")}>
+          <a className={styles.back} href={localePath(locale, plan.slug.startsWith("vps-kvm-") ? "vps" : plan.slug === "vps-nat" ? "nat-vps" : plan.slug === "dedicated" ? "hosting" : "game-servers")}>
             ← {t.backToOffer}
           </a>
           <div className={styles.titleRow}>
             <h1>{title}</h1>
           </div>
           <p className={styles.summary}>{summary}</p>
-          <p className={styles.location}><MapPin size={16} aria-hidden="true" />{serverLocationCopy[locale]}</p>
+          <p className={styles.location}><MapPin size={16} aria-hidden="true" />{offerLocation(locale, plan.slug)}</p>
         </div>
       </div>}
 
@@ -139,7 +139,7 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
                     <li>
                       <span>{t.disk}</span>
                       <strong>
-                        {pkg.disk_gb} GB{plan.slug === "vps-nat" ? "" : " NVMe"}
+                        {pkg.disk_gb} GB{plan.slug.startsWith("vps-kvm-") ? " SSD" : ["minecraft", "rust", "palworld", "discord"].includes(plan.slug) ? " NVMe" : ""}
                       </strong>
                     </li>
                     {pkg.backups > 0 ? (
@@ -156,13 +156,13 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
                     ) : null}
                     {pkg.ports > 0 ? (
                       <li>
-                        <span>{plan.slug === "vps-nat" ? t.publicPorts : t.ports}</span>
-                        <strong>{pkg.ports}</strong>
+                        <span>{plan.slug.startsWith("vps-kvm-") ? "IPv4" : plan.slug === "vps-nat" ? t.publicPorts : t.ports}</span>
+                        <strong>{plan.slug.startsWith("vps-kvm-") ? "✓" : pkg.ports}</strong>
                       </li>
                     ) : null}
                     <li>
                       <span>{t.antiddos}</span>
-                      <strong>✓</strong>
+                      <strong>{pkg.antiddos ? "✓" : "—"}</strong>
                     </li>
                     {pkg.players && pkg.players !== "—" && pkg.players !== "-" ? (
                       <li>
@@ -218,7 +218,7 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
                   <span
                     className={styles.otherMedia}
                     style={{
-                      backgroundImage: `url(${asset(`/offers/${item.slug}.jpg`)})`,
+                      backgroundImage: `url(${asset(offerImage(item.slug))})`,
                     }}
                     aria-hidden
                   />

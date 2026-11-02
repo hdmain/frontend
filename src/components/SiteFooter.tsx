@@ -56,6 +56,9 @@ export default function SiteFooter({ locale, t }: Props) {
                 <a href={localePath(locale, "nat-vps")}>VPS NAT</a>
               </li>
               <li>
+                <a href={localePath(locale, "offer/dedicated")}>{locale === "pl" ? "Serwery dedykowane" : locale === "ru" ? "Выделенные серверы" : "Dedicated servers"}</a>
+              </li>
+              <li>
                 <a href={localePath(locale, "ddos-protection")}>{t.antiddos}</a>
               </li>
             </ul>

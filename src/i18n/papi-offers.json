@@ -1,0 +1,560 @@
+{
+  "en": [
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Run Vanilla, Paper, Purpur, Fabric or modpacks on high-clock Ryzen CPUs.",
+      "from": {
+        "standard": 8,
+        "standard_formatted": "8 zł"
+      },
+      "name": "Minecraft",
+      "slug": "minecraft",
+      "summary": "Fast Minecraft nodes with instant deploy and anti-DDoS included.",
+      "ram": [
+        2,
+        24
+      ],
+      "disk": [
+        10,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 6
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "High single-thread performance for entity-heavy maps and Oxide plugins.",
+      "from": {
+        "standard": 39,
+        "standard_formatted": "39 zł"
+      },
+      "name": "Rust",
+      "slug": "rust",
+      "summary": "Stable Rust hosting tuned for wipe nights and high player counts.",
+      "ram": [
+        8,
+        24
+      ],
+      "disk": [
+        40,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "",
+      "description": "Node.js, Python, Bun or Deno with predictable resources — from tiny bots to heavy fleets.",
+      "from": {
+        "standard": 1.99,
+        "standard_formatted": "1.99 zł"
+      },
+      "name": "Discord Bot",
+      "slug": "discord",
+      "summary": "Always-on VPS slices for Discord bots and small apps.",
+      "ram": [
+        0.5,
+        8
+      ],
+      "disk": [
+        1,
+        20
+      ],
+      "maxVcpu": 200,
+      "packageCount": 6
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "",
+      "description": "A compact virtual server with 20 public ports for small applications, test environments and services that do not require a dedicated public IPv4 address.",
+      "from": {
+        "standard": 4.99,
+        "standard_formatted": "4.99 zł"
+      },
+      "name": "VPS NAT",
+      "slug": "vps-nat",
+      "summary": "Affordable NAT VPS with 20 public ports for lightweight services and private projects.",
+      "ram": [
+        0.5,
+        6
+      ],
+      "disk": [
+        5,
+        50
+      ],
+      "maxVcpu": 2,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "AMD EPYC 7551P",
+      "description": "Retail list prices from the upstream catalog. Full root, public IPv4 and PletX filtering.",
+      "from": {
+        "standard": 24.3,
+        "standard_formatted": "24.30 zł"
+      },
+      "name": "VPS KVM · Germany",
+      "slug": "vps-kvm-de",
+      "summary": "Dedicated KVM VPS in Frankfurt — public IPv4, 1 Gbit/s, anti-DDoS.",
+      "ram": [
+        8,
+        96
+      ],
+      "disk": [
+        75,
+        500
+      ],
+      "maxVcpu": 18,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "Intel i9-10900K",
+      "description": "Retail list prices from the upstream catalog. Full root and public IPv4.",
+      "from": {
+        "standard": 17.63,
+        "standard_formatted": "17.63 zł"
+      },
+      "name": "VPS KVM · Netherlands",
+      "slug": "vps-kvm-nl",
+      "summary": "Dedicated KVM VPS in the Netherlands — public IPv4, 1 Gbit/s.",
+      "ram": [
+        4,
+        64
+      ],
+      "disk": [
+        75,
+        400
+      ],
+      "maxVcpu": 14,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Sized for smooth multiplayer, quick saves and always-on filtering.",
+      "from": {
+        "standard": 52,
+        "standard_formatted": "52 zł"
+      },
+      "name": "Palworld",
+      "slug": "palworld",
+      "summary": "Palworld slots with RAM headroom for busy multiplayer worlds.",
+      "ram": [
+        8,
+        24
+      ],
+      "disk": [
+        40,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "dedicated",
+      "cpu": "Ryzen / Xeon",
+      "description": "Full hardware dedication with remote management in EU datacenter.",
+      "from": {
+        "standard": 211,
+        "standard_formatted": "211 zł"
+      },
+      "name": "Dedicated",
+      "slug": "dedicated",
+      "summary": "Bare-metal machines for high-load communities and custom stacks.",
+      "ram": [
+        32,
+        256
+      ],
+      "disk": [
+        500,
+        4000
+      ],
+      "maxVcpu": 24,
+      "packageCount": 4
+    }
+  ],
+  "pl": [
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Uruchamiaj Vanilla, Paper, Purpur, Fabric lub modpacki na Ryzenach z wysokim taktowaniem.",
+      "from": {
+        "standard": 8,
+        "standard_formatted": "8 zł"
+      },
+      "name": "Minecraft",
+      "slug": "minecraft",
+      "summary": "Szybkie serwery Minecraft z natychmiastowym wdrożeniem i anti-DDoS.",
+      "ram": [
+        2,
+        24
+      ],
+      "disk": [
+        10,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 6
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Wysoka wydajność single-thread pod mapy i pluginy Oxide.",
+      "from": {
+        "standard": 39,
+        "standard_formatted": "39 zł"
+      },
+      "name": "Rust",
+      "slug": "rust",
+      "summary": "Stabilny hosting Rust pod wipe'y i dużą liczbę graczy.",
+      "ram": [
+        8,
+        24
+      ],
+      "disk": [
+        40,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "",
+      "description": "Node.js, Python, Bun lub Deno z przewidywalnymi zasobami — od małych botów po duże floty.",
+      "from": {
+        "standard": 1.99,
+        "standard_formatted": "1.99 zł"
+      },
+      "name": "Discord Bot",
+      "slug": "discord",
+      "summary": "VPS pod boty Discord i małe aplikacje.",
+      "ram": [
+        0.5,
+        8
+      ],
+      "disk": [
+        1,
+        20
+      ],
+      "maxVcpu": 200,
+      "packageCount": 6
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "",
+      "description": "Kompaktowy serwer wirtualny z 20 publicznymi portami pod małe aplikacje, środowiska testowe i usługi, które nie wymagają własnego publicznego adresu IPv4.",
+      "from": {
+        "standard": 4.99,
+        "standard_formatted": "4.99 zł"
+      },
+      "name": "VPS NAT",
+      "slug": "vps-nat",
+      "summary": "Ekonomiczny VPS NAT z 20 publicznymi portami do lekkich usług i prywatnych projektów.",
+      "ram": [
+        0.5,
+        6
+      ],
+      "disk": [
+        5,
+        50
+      ],
+      "maxVcpu": 2,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "AMD EPYC 7551P",
+      "description": "Ceny katalogowe 1:1 z upstreamu. Pełny root, publiczne IPv4 i filtrowanie PletX.",
+      "from": {
+        "standard": 24.3,
+        "standard_formatted": "24.30 zł"
+      },
+      "name": "VPS KVM · Niemcy",
+      "slug": "vps-kvm-de",
+      "summary": "Dedykowany KVM VPS we Frankfurcie — publiczne IPv4, 1 Gbit/s, anti-DDoS.",
+      "ram": [
+        8,
+        96
+      ],
+      "disk": [
+        75,
+        500
+      ],
+      "maxVcpu": 18,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "Intel i9-10900K",
+      "description": "Ceny katalogowe 1:1 z upstreamu. Pełny root i publiczne IPv4.",
+      "from": {
+        "standard": 17.63,
+        "standard_formatted": "17.63 zł"
+      },
+      "name": "VPS KVM · Holandia",
+      "slug": "vps-kvm-nl",
+      "summary": "Dedykowany KVM VPS w Holandii — publiczne IPv4, 1 Gbit/s.",
+      "ram": [
+        4,
+        64
+      ],
+      "disk": [
+        75,
+        400
+      ],
+      "maxVcpu": 14,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Pod płynny multiplayer, szybkie save'y i stałe filtrowanie.",
+      "from": {
+        "standard": 52,
+        "standard_formatted": "52 zł"
+      },
+      "name": "Palworld",
+      "slug": "palworld",
+      "summary": "Sloty Palworld z zapasem RAM pod ruchliwe światy.",
+      "ram": [
+        8,
+        24
+      ],
+      "disk": [
+        40,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "dedicated",
+      "cpu": "Ryzen / Xeon",
+      "description": "Cały sprzęt na wyłączność z remote management w EU.",
+      "from": {
+        "standard": 211,
+        "standard_formatted": "211 zł"
+      },
+      "name": "Dedykowane",
+      "slug": "dedicated",
+      "summary": "Maszyny bare-metal pod duże sieci i własne stacki.",
+      "ram": [
+        32,
+        256
+      ],
+      "disk": [
+        500,
+        4000
+      ],
+      "maxVcpu": 24,
+      "packageCount": 4
+    }
+  ],
+  "ru": [
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Vanilla, Paper, Purpur, Fabric или модпаки на высокочастотных Ryzen.",
+      "from": {
+        "standard": 8,
+        "standard_formatted": "8 zł"
+      },
+      "name": "Minecraft",
+      "slug": "minecraft",
+      "summary": "Быстрые ноды Minecraft с мгновенным деплоем и anti-DDoS.",
+      "ram": [
+        2,
+        24
+      ],
+      "disk": [
+        10,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 6
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Высокая single-thread производительность под Oxide.",
+      "from": {
+        "standard": 39,
+        "standard_formatted": "39 zł"
+      },
+      "name": "Rust",
+      "slug": "rust",
+      "summary": "Стабильный Rust-хостинг для вайпов и онлайна.",
+      "ram": [
+        8,
+        24
+      ],
+      "disk": [
+        40,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "",
+      "description": "Node.js, Python, Bun или Deno с предсказуемыми ресурсами — от маленьких ботов до крупных флотов.",
+      "from": {
+        "standard": 1.99,
+        "standard_formatted": "1.99 zł"
+      },
+      "name": "Discord Bot",
+      "slug": "discord",
+      "summary": "VPS для Discord-ботов и небольших приложений.",
+      "ram": [
+        0.5,
+        8
+      ],
+      "disk": [
+        1,
+        20
+      ],
+      "maxVcpu": 200,
+      "packageCount": 6
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "",
+      "description": "Компактный виртуальный сервер с 20 публичными портами для небольших приложений, тестовых сред и сервисов, которым не нужен собственный публичный IPv4-адрес.",
+      "from": {
+        "standard": 4.99,
+        "standard_formatted": "4.99 zł"
+      },
+      "name": "VPS NAT",
+      "slug": "vps-nat",
+      "summary": "Доступный VPS NAT с 20 публичными портами для лёгких сервисов и личных проектов.",
+      "ram": [
+        0.5,
+        6
+      ],
+      "disk": [
+        5,
+        50
+      ],
+      "maxVcpu": 2,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "AMD EPYC 7551P",
+      "description": "Розничные цены 1:1 с upstream. Полный root, публичный IPv4 и фильтрация PletX.",
+      "from": {
+        "standard": 24.3,
+        "standard_formatted": "24.30 zł"
+      },
+      "name": "VPS KVM · Германия",
+      "slug": "vps-kvm-de",
+      "summary": "Выделенный KVM VPS во Франкфурте — публичный IPv4, 1 Gbit/s, anti-DDoS.",
+      "ram": [
+        8,
+        96
+      ],
+      "disk": [
+        75,
+        500
+      ],
+      "maxVcpu": 18,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "Intel i9-10900K",
+      "description": "Розничные цены 1:1 с upstream. Полный root и публичный IPv4.",
+      "from": {
+        "standard": 17.63,
+        "standard_formatted": "17.63 zł"
+      },
+      "name": "VPS KVM · Нидерланды",
+      "slug": "vps-kvm-nl",
+      "summary": "Выделенный KVM VPS в Нидерландах — публичный IPv4, 1 Gbit/s.",
+      "ram": [
+        4,
+        64
+      ],
+      "disk": [
+        75,
+        400
+      ],
+      "maxVcpu": 14,
+      "packageCount": 8
+    },
+    {
+      "available": true,
+      "category": "game",
+      "cpu": "Ryzen 9 5900X",
+      "description": "Для плавного мультиплеера и быстрых сохранений.",
+      "from": {
+        "standard": 52,
+        "standard_formatted": "52 zł"
+      },
+      "name": "Palworld",
+      "slug": "palworld",
+      "summary": "Слоты Palworld с запасом RAM.",
+      "ram": [
+        8,
+        24
+      ],
+      "disk": [
+        40,
+        120
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "dedicated",
+      "cpu": "Ryzen / Xeon",
+      "description": "Полное железо с remote management в EU.",
+      "from": {
+        "standard": 211,
+        "standard_formatted": "211 zł"
+      },
+      "name": "Dedicated",
+      "slug": "dedicated",
+      "summary": "Bare-metal для высоких нагрузок и своих стеков.",
+      "ram": [
+        32,
+        256
+      ],
+      "disk": [
+        500,
+        4000
+      ],
+      "maxVcpu": 24,
+      "packageCount": 4
+    }
+  ]
+}

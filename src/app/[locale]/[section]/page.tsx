@@ -14,7 +14,7 @@ import ContactChannels from "@/components/ContactChannels";
 import { contactCopy } from "@/lib/contact";
 import { isLocale, localeHref, localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { isSiteSection, navigationCopy, serviceNavigationCopy, serverLocationCopy, siteSections, type SiteSection } from "@/lib/siteNavigation";
+import { isSiteSection, navigationCopy, offerLocation, serviceNavigationCopy, serverLocationCopy, siteSections, type SiteSection } from "@/lib/siteNavigation";
 import { alternatesForLocale, canonicalForLocale, ogLocale, SITE_NAME } from "@/lib/seo";
 import styles from "../../page.module.css";
 
@@ -57,7 +57,7 @@ export default async function SectionPage({ params }: { params: Promise<{ locale
     <div className={styles.page}>
       <SiteHeader locale={locale} t={t.nav} path={section} />
       <main>
-        <PageIntro {...content} back={section === "game-servers" ? { href: localeHref(locale, "#services"), label: serviceNavigationCopy[locale].back } : undefined} location={product || section === "infrastructure" ? serverLocationCopy[locale] : undefined} status={undefined} action={product ? { href: "#offer", label: section === "game-servers" ? n.chooseGame : section === "hosting" ? serviceNavigationCopy[locale].viewAll : n.configurations } : undefined} />
+        <PageIntro {...content} back={section === "game-servers" ? { href: localeHref(locale, "#services"), label: serviceNavigationCopy[locale].back } : undefined} location={section === "nat-vps" || section === "game-servers" || section === "infrastructure" ? offerLocation(locale, "vps-nat") : product ? serverLocationCopy[locale] : undefined} status={undefined} action={product ? { href: "#offer", label: section === "game-servers" ? n.chooseGame : section === "hosting" ? serviceNavigationCopy[locale].viewAll : n.configurations } : undefined} />
         {section === "hosting" && <Offer locale={locale} t={t.offer} />}
         {section === "contact" && <ContactChannels locale={locale} />}
         {section === "game-servers" && <Offer locale={locale} t={gameOffer} />}

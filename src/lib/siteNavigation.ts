@@ -8,14 +8,24 @@ export const serviceNavigationCopy = {
   ru: { viewAll: "Смотреть все", back: "Назад к услугам", catalog: "Все предложения" },
 };
 export const serverLocationCopy: Record<Locale, string> = {
-  pl: "Obecnie wszystkie nasze serwery znajdują się w Warszawie, w Polsce.",
-  en: "All our servers are currently located in Warsaw, Poland.",
-  ru: "Сейчас все наши серверы расположены в Варшаве, Польша.",
+  pl: "Serwery gier i VPS NAT w Polsce. VPS KVM w Niemczech i Holandii.",
+  en: "Game servers and NAT VPS in Poland. KVM VPS in Germany and the Netherlands.",
+  ru: "Игровые серверы и NAT VPS в Польше. KVM VPS в Германии и Нидерландах.",
 };
+export function offerImage(slug: string) {
+  return `/offers/${slug.startsWith("vps-kvm-") ? "vps" : slug}.jpg`;
+}
+export function offerLocation(locale: Locale, slug: string) {
+  const country = slug === "vps-kvm-de" ? { pl: "Frankfurt, Niemcy", en: "Frankfurt, Germany", ru: "Франкфурт, Германия" }
+    : slug === "vps-kvm-nl" ? { pl: "Holandia", en: "The Netherlands", ru: "Нидерланды" }
+    : slug === "dedicated" ? { pl: "Unia Europejska", en: "European Union", ru: "Европейский союз" }
+    : { pl: "Warszawa, Polska", en: "Warsaw, Poland", ru: "Варшава, Польша" };
+  return country[locale];
+}
 export const navigationCopy = {
-  pl: { about: "O nas", help: "Pomoc", products: "Hosting", infrastructure: "Infrastruktura", legal: "Informacje prawne", games: "Serwery gier", nat: "VPS NAT", vps: "VPS", gamesDesc: "Minecraft, Rust, Palworld i boty Discord", natDesc: "Małe projekty i środowiska testowe", vpsDesc: "KVM, NVMe i pełny dostęp root", infrastructureDesc: "Sprzęt i centrum danych w Warszawie", ddosDesc: "Ochrona PletX w każdym planie", configurations: "Wybierz konfigurację", chooseGame: "Wybierz grę lub bota", helpTitle: "Jak możemy pomóc?", home: "Strona główna", navigation: "Nawigacja główna" },
-  en: { about: "About us", help: "Support", products: "Hosting", infrastructure: "Infrastructure", legal: "Legal", games: "Game servers", nat: "NAT VPS", vps: "VPS", gamesDesc: "Minecraft, Rust, Palworld and Discord bots", natDesc: "Small projects and test environments", vpsDesc: "KVM, NVMe and full root access", infrastructureDesc: "Hardware and our Warsaw data centre", ddosDesc: "PletX protection on every plan", configurations: "Choose a configuration", chooseGame: "Choose a game or bot", helpTitle: "How can we help?", home: "Home", navigation: "Primary navigation" },
-  ru: { about: "О нас", help: "Поддержка", products: "Хостинг", infrastructure: "Инфраструктура", legal: "Правовая информация", games: "Игровые серверы", nat: "NAT VPS", vps: "VPS", gamesDesc: "Minecraft, Rust, Palworld и Discord-боты", natDesc: "Небольшие проекты и тестовые среды", vpsDesc: "KVM, NVMe и полный root-доступ", infrastructureDesc: "Оборудование и дата-центр в Варшаве", ddosDesc: "Защита PletX в каждом тарифе", configurations: "Выбрать конфигурацию", chooseGame: "Выберите игру или бота", helpTitle: "Как мы можем помочь?", home: "Главная", navigation: "Основная навигация" },
+  pl: { about: "O nas", help: "Pomoc", products: "Hosting", infrastructure: "Infrastruktura", legal: "Informacje prawne", games: "Serwery gier", nat: "VPS NAT", vps: "VPS", gamesDesc: "Minecraft, Rust, Palworld i boty Discord", natDesc: "Małe projekty i środowiska testowe", vpsDesc: "KVM w Niemczech i Holandii, SSD i root", infrastructureDesc: "Sprzęt i centrum danych w Warszawie", ddosDesc: "Ochrona PletX w każdym planie", configurations: "Wybierz konfigurację", chooseGame: "Wybierz grę lub bota", helpTitle: "Jak możemy pomóc?", home: "Strona główna", navigation: "Nawigacja główna" },
+  en: { about: "About us", help: "Support", products: "Hosting", infrastructure: "Infrastructure", legal: "Legal", games: "Game servers", nat: "NAT VPS", vps: "VPS", gamesDesc: "Minecraft, Rust, Palworld and Discord bots", natDesc: "Small projects and test environments", vpsDesc: "KVM in Germany and the Netherlands, SSD and root", infrastructureDesc: "Hardware and our Warsaw data centre", ddosDesc: "PletX protection on every plan", configurations: "Choose a configuration", chooseGame: "Choose a game or bot", helpTitle: "How can we help?", home: "Home", navigation: "Primary navigation" },
+  ru: { about: "О нас", help: "Поддержка", products: "Хостинг", infrastructure: "Инфраструктура", legal: "Правовая информация", games: "Игровые серверы", nat: "NAT VPS", vps: "VPS", gamesDesc: "Minecraft, Rust, Palworld и Discord-боты", natDesc: "Небольшие проекты и тестовые среды", vpsDesc: "KVM в Германии и Нидерландах, SSD и root", infrastructureDesc: "Оборудование и дата-центр в Варшаве", ddosDesc: "Защита PletX в каждом тарифе", configurations: "Выбрать конфигурацию", chooseGame: "Выберите игру или бота", helpTitle: "Как мы можем помочь?", home: "Главная", navigation: "Основная навигация" },
 } satisfies Record<Locale, Record<string, string>>;
 
 export function isSiteSection(value: string): value is SiteSection {

@@ -46,6 +46,7 @@ export default function SiteHeader({ locale, t, path }: Props) {
         { label: n.games, description: n.gamesDesc, href: page("game-servers"), path: "game-servers", icon: Gamepad2 },
         { label: n.nat, description: n.natDesc, href: page("nat-vps"), path: "nat-vps", icon: Network },
         { label: n.vps, description: n.vpsDesc, href: page("vps"), path: "vps", icon: Server },
+        { label: locale === "pl" ? "Serwery dedykowane" : locale === "ru" ? "Выделенные серверы" : "Dedicated servers", description: "Ryzen / Xeon", href: page("offer/dedicated"), path: "offer/dedicated", icon: Server },
       ] },
     ] },
     { id: "about", label: n.about, sections: [

@@ -1,6 +1,7 @@
 import { ArrowUpRight, Mail, MessageCircle, Settings2 } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import { contactCopy } from "@/lib/contact";
+import CopyEmailButton from "./CopyEmailButton";
 import styles from "./ContactChannels.module.css";
 
 export default function ContactChannels({ locale }: { locale: Locale }) {
@@ -14,12 +15,15 @@ export default function ContactChannels({ locale }: { locale: Locale }) {
     <section className={`container ${styles.section}`} aria-label={t.title}>
       <div className={styles.grid}>
         {channels.map(({ title, description, label, href, icon: Icon }) => (
-          <a key={href} href={href} className={styles.card} {...(href.startsWith("https:") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+          <article key={href} className={styles.card}>
             <Icon className={styles.icon} size={26} strokeWidth={1.5} aria-hidden="true" />
             <h2>{title}</h2>
             <p>{description}</p>
-            <span>{label}<ArrowUpRight size={17} aria-hidden="true" /></span>
-          </a>
+            <div className={styles.actions}>
+              <a href={href} {...(href.startsWith("https:") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{label}<ArrowUpRight size={17} aria-hidden="true" /></a>
+              {href.startsWith("mailto:") && <CopyEmailButton email={label} locale={locale} />}
+            </div>
+          </article>
         ))}
       </div>
       <div className={styles.resources}>
