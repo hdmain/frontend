@@ -27,7 +27,7 @@ function pageContent(locale: Locale, section: SiteSection) {
   if (section === "contact") return { title: contactCopy[locale].title, lead: contactCopy[locale].lead, image: "/media/hero-dc.jpg" };
   if (section === "hosting") return { title: serviceNavigationCopy[locale].catalog, lead: t.services.lead, image: "/media/hero-dc.jpg" };
   const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps-kvm-de"))!;
-  if (section === "game-servers") return { title: n.games, lead: t.services.items[0].desc, image: "/offers/minecraft.jpg", points: t.services.items[0].points };
+  if (section === "game-servers") return { title: n.games, lead: t.services.items[0].desc, image: "/media/game-servers-hero.webp", points: t.services.items[0].points };
   if (section === "vps") return { title: n.vps, lead: n.vpsDesc, image: "/offers/vps.jpg", points: plan.highlights };
   if (section === "nat-vps") return { title: plan.name, lead: plan.description, image: `/offers/${plan.slug}.jpg`, points: plan.highlights };
   if (section === "infrastructure") return { title: n.infrastructure, lead: t.why.lead, image: "/media/atman/waw1-181.jpg" };

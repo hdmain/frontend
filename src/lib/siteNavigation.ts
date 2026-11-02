@@ -13,7 +13,8 @@ export const serverLocationCopy: Record<Locale, string> = {
   ru: "Игровые серверы и NAT VPS в Польше. KVM VPS в Германии и Нидерландах.",
 };
 export function offerImage(slug: string) {
-  return `/offers/${slug.startsWith("vps-kvm-") ? "vps" : slug}.jpg`;
+  if (slug === "vps-kvm-de" || slug === "vps-kvm-nl") return `/offers/${slug}.webp`;
+  return `/offers/${slug}.jpg`;
 }
 export function offerLocation(locale: Locale, slug: string) {
   const country = slug === "vps-kvm-de" ? { pl: "Frankfurt, Niemcy", en: "Frankfurt, Germany", ru: "Франкфурт, Германия" }

@@ -47,7 +47,8 @@ type PricesResponse = {
 export function CurrencyProvider({ children }: { children: ReactNode }) {
   const [currency, setCurrencyState] = useState<Currency>(defaultCurrency);
   const [locale, setLocale] = useState<Locale | null>(null);
-  const [prices, setPrices] = useState<Record<string, PlanPrices>>({});
+  const [priceData, setPriceData] = useState<{ currency: Currency; prices: Record<string, PlanPrices> } | null>(null);
+  const prices = priceData?.currency === currency ? priceData.prices : {};
   const [ready, setReady] = useState(false);
 
   const syncLocale = useCallback((next: Locale) => {
@@ -73,9 +74,9 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
             standard: plan.formatted.standard[currency] ?? "",
           };
         }
-        setPrices(map);
+        setPriceData({ currency, prices: map });
       } catch {
-        if (!cancelled) setPrices({});
+        if (!cancelled) setPriceData(null);
       } finally {
         if (!cancelled) setReady(true);
       }

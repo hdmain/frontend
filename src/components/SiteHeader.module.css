@@ -21,6 +21,8 @@
 .menuLink > span { display: grid; gap: 4px; }
 .menuLink strong { font-weight: 550; font-size: .8rem; }
 .menuLink small { font-size: .67rem; line-height: 1.5; color: var(--muted); }
+.menuLabel { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.menuLink .menuPrice { color: var(--accent); font-family: var(--font-price); font-size: .8rem; font-weight: 600; font-variant-numeric: lining-nums tabular-nums; letter-spacing: 0; line-height: 1.4; white-space: nowrap; }
 .menuLink:hover, .menuLink[aria-current="page"] { background: var(--panel-2); }
 .menuArrow { margin-left: auto; opacity: 0; transition: opacity .2s; }
 .menuLink:hover .menuArrow { opacity: 1; }

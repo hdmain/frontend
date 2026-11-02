@@ -12,6 +12,8 @@ import { Icons } from "./Icons";
 import LocaleControls from "./LocaleControls";
 import ThemeToggle from "./ThemeToggle";
 import WolfMark from "./WolfMark";
+import MenuStartingPrice from "./MenuStartingPrice";
+import LocationFlags from "./LocationFlags";
 import styles from "./SiteHeader.module.css";
 
 type Props = { locale: Locale; t: Dictionary["nav"]; path?: string };
@@ -100,7 +102,7 @@ export default function SiteHeader({ locale, t, path }: Props) {
                       <ul>{section.links.map((item) => {
                         const Icon = item.icon;
                         return <li key={item.href}><Link href={item.href} className={styles.menuLink} aria-current={item.path && path === item.path ? "page" : undefined} onClick={close}>
-                          <Icon size={18} strokeWidth={1.5} aria-hidden="true" /><span><strong>{item.label}</strong>{item.description && <small>{item.description}</small>}</span><ArrowUpRight size={13} className={styles.menuArrow} aria-hidden="true" />
+                          <Icon size={18} strokeWidth={1.5} aria-hidden="true" /><span><strong className={styles.menuLabel}>{group.id === "products" && <LocationFlags location={item.path} locale={locale} />}{item.label}</strong>{item.description && <small>{item.description}</small>}{group.id === "products" && <MenuStartingPrice path={item.path} locale={locale} />}</span><ArrowUpRight size={13} className={styles.menuArrow} aria-hidden="true" />
                         </Link></li>;
                       })}</ul>
                     </div>

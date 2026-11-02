@@ -1,0 +1,2 @@
+.flags { display: inline-flex; align-items: center; gap: 4px; vertical-align: middle; flex-shrink: 0; }
+.flag { display: block; width: 21px; height: 14px; border-radius: 2px; box-shadow: 0 0 0 1px var(--line-strong); overflow: hidden; }

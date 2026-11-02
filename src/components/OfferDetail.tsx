@@ -13,6 +13,7 @@ import { useOptionalCurrency } from "./CurrencyProvider";
 import { Icons } from "./Icons";
 import PaymentMethods from "./PaymentMethods";
 import styles from "./OfferDetail.module.css";
+import LocationFlags from "./LocationFlags";
 
 type ApiPackage = {
   id: string;
@@ -106,7 +107,7 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
             <h1>{title}</h1>
           </div>
           <p className={styles.summary}>{summary}</p>
-          <p className={styles.location}><MapPin size={16} aria-hidden="true" />{offerLocation(locale, plan.slug)}</p>
+          <p className={styles.location}><LocationFlags location={plan.slug} locale={locale} /><MapPin size={16} aria-hidden="true" />{offerLocation(locale, plan.slug)}</p>
         </div>
       </div>}
 

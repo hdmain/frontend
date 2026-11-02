@@ -123,10 +123,12 @@
 }
 
 .packagePrice strong {
-  font-family: var(--font-display);
+  font-family: var(--font-price);
   font-size: 1.65rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
 }
 
 .packagePrice span {
@@ -223,6 +225,8 @@
 
 .otherCard > span:last-child {
   color: var(--muted);
+  font-family: var(--font-price);
+  font-variant-numeric: lining-nums tabular-nums;
   font-weight: 600;
 }
 

@@ -8,6 +8,7 @@ import { useOptionalCurrency } from "./CurrencyProvider";
 import SpotlightCard from "./effects/SpotlightCard";
 import { Icons } from "./Icons";
 import styles from "./Offer.module.css";
+import LocationFlags from "./LocationFlags";
 
 type Props = {
   locale: Locale;
@@ -47,7 +48,7 @@ export default function Offer({ locale, t, headingLevel: Heading = "h2" }: Props
                   />
                   <span className={styles.body}>
                     <span className={styles.top}>
-                      <strong>{plan.name}</strong>
+                      <strong><LocationFlags location={plan.slug} locale={locale} /> {plan.name}</strong>
                       <span className={available ? styles.on : styles.off}>
                         {available ? t.available : t.unavailable}
                       </span>

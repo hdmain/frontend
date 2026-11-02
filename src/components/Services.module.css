@@ -6,7 +6,7 @@
 .card { position: relative; display: flex; flex-direction: column; gap: 24px; padding: 0 32px 32px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--void); transition: border-color .25s; }
 .card:hover { border-color: var(--line-strong); }
 .card .price { position: absolute; top: 20px; right: 20px; z-index: 2; display: flex; align-items: baseline; gap: 5px; max-width: calc(100% - 40px); padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font-variant-numeric: tabular-nums; }
-.price strong { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
+.price strong { font-family: var(--font-price); font-size: 1.15rem; font-weight: 600; letter-spacing: 0; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
 .price span { font-size: .7rem; color: var(--muted); }
 .visual { min-height: 200px; margin: 0 -32px; padding: 26px 32px; background-size: cover; background-position: center; position: relative; isolation: isolate; color: #eee; }
 .visual::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(0deg, var(--void), #09090b33); }
