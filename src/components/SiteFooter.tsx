@@ -66,6 +66,7 @@ export default function SiteFooter({ locale, t }: Props) {
           <div>
             <h2>{t.company}</h2>
             <ul>
+              <li><a href={localePath(locale, "brand-assets")}>{locale === "pl" ? "Materiały marki" : locale === "ru" ? "Материалы бренда" : "Brand assets"}</a></li>
               <li>
                 <a href={localePath(locale, "contact")}>{t.contact}</a>
               </li>

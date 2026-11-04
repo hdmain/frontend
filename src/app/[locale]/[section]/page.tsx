@@ -1,3 +1,4 @@
+import BrandAssets, { brandCopy } from "@/components/BrandAssets";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
@@ -24,6 +25,7 @@ export function generateStaticParams() { return siteSections.map((section) => ({
 function pageContent(locale: Locale, section: SiteSection) {
   const t = getDictionary(locale);
   const n = navigationCopy[locale];
+  if (section === "brand-assets") return { ...brandCopy[locale], image: "/media/hero-dc.jpg" };
   if (section === "contact") return { title: contactCopy[locale].title, lead: contactCopy[locale].lead, image: "/media/hero-dc.jpg" };
   if (section === "hosting") return { title: serviceNavigationCopy[locale].catalog, lead: t.services.lead, image: "/media/hero-dc.jpg" };
   const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps-kvm-de"))!;
@@ -60,6 +62,7 @@ export default async function SectionPage({ params }: { params: Promise<{ locale
         <PageIntro {...content} back={section === "game-servers" ? { href: localeHref(locale, "#services"), label: serviceNavigationCopy[locale].back } : undefined} location={section === "nat-vps" || section === "game-servers" || section === "infrastructure" ? offerLocation(locale, "vps-nat") : product ? serverLocationCopy[locale] : undefined} status={undefined} action={product ? { href: "#offer", label: section === "game-servers" ? n.chooseGame : section === "hosting" ? serviceNavigationCopy[locale].viewAll : n.configurations } : undefined} />
         {section === "hosting" && <Offer locale={locale} t={t.offer} />}
         {section === "contact" && <ContactChannels locale={locale} />}
+        {section === "brand-assets" && <BrandAssets locale={locale} />}
         {section === "game-servers" && <Offer locale={locale} t={gameOffer} />}
         {section === "vps" && <Offer locale={locale} t={kvmOffer} />}
         {section === "nat-vps" && <OfferDetail locale={locale} t={t.offer} plan={plan} others={[]} showHero={false} />}
