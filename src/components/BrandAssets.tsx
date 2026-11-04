@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { asset } from "@/lib/basePath";
 import styles from "./BrandAssets.module.css";
 import additionalAssets from "@/lib/brand-assets.json";
+import { localePath } from "@/i18n/config";
 
 const categoryLabels = {
   pl: ["Hosted by", "Serwer działa na", "Materiały dla partnerów", "Grafiki ofertowe", "Szablony postów", "Discord", "Podgląd linku"],
@@ -18,9 +19,14 @@ export const brandCopy = {
 
 export default function BrandAssets({ locale }: { locale: Locale }) {
   const t = brandCopy[locale];
+  const language = locale === "pl" ? "pl" : "en";
   return <section className={`container ${styles.section}`}>
     <a className="btn btnPrimary" href={asset("/brand-assets/ALFAHOST-Brand-Assets.zip")} download>{t.download}</a>
-    {Object.entries(additionalAssets).map(([group, items], index) => <div key={group} className={styles.group}>
+    <nav className={styles.languages} aria-label={locale === "pl" ? "Język materiałów" : "Asset language"}>
+      <a href={localePath("pl", "brand-assets")} className="btn btnGhost" aria-current={language === "pl" ? "page" : undefined}>PL / PLN</a>
+      <a href={localePath("en", "brand-assets")} className="btn btnGhost" aria-current={language === "en" ? "page" : undefined}>EN / USD</a>
+    </nav>
+    {Object.entries(additionalAssets[language]).map(([group, items], index) => <div key={group} className={styles.group}>
       <h2>{categoryLabels[locale][index]}</h2>
       <div className={styles.grid}>{items.map(({ name, path }) => <article className={styles.card} key={path}>
         <div className={`${styles.preview} ${name.endsWith("light") || name.endsWith("black") ? styles.light : styles.dark}`}>

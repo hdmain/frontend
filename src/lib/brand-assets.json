@@ -1,112 +1,226 @@
 {
-  "01-hosted-by": [
-    {
-      "name": "alfahost-dark",
-      "path": "/brand-assets/v2/exports/01-hosted-by/alfahost-dark"
-    },
-    {
-      "name": "alfahost-light",
-      "path": "/brand-assets/v2/exports/01-hosted-by/alfahost-light"
-    },
-    {
-      "name": "alfahost-transparent-white",
-      "path": "/brand-assets/v2/exports/01-hosted-by/alfahost-transparent-white"
-    },
-    {
-      "name": "alfahost-transparent-black",
-      "path": "/brand-assets/v2/exports/01-hosted-by/alfahost-transparent-black"
-    }
-  ],
-  "02-serwer-dziala-na": [
-    {
-      "name": "alfahost-dark",
-      "path": "/brand-assets/v2/exports/02-serwer-dziala-na/alfahost-dark"
-    },
-    {
-      "name": "alfahost-light",
-      "path": "/brand-assets/v2/exports/02-serwer-dziala-na/alfahost-light"
-    },
-    {
-      "name": "alfahost-transparent-white",
-      "path": "/brand-assets/v2/exports/02-serwer-dziala-na/alfahost-transparent-white"
-    },
-    {
-      "name": "alfahost-transparent-black",
-      "path": "/brand-assets/v2/exports/02-serwer-dziala-na/alfahost-transparent-black"
-    }
-  ],
-  "03-partnerzy": [
-    {
-      "name": "baner-728x90",
-      "path": "/brand-assets/v2/exports/03-partnerzy/baner-728x90"
-    },
-    {
-      "name": "baner-1200x400",
-      "path": "/brand-assets/v2/exports/03-partnerzy/baner-1200x400"
-    },
-    {
-      "name": "partner-1080x1080",
-      "path": "/brand-assets/v2/exports/03-partnerzy/partner-1080x1080"
-    }
-  ],
-  "04-oferty": [
-    {
-      "name": "minecraft-1080x1080",
-      "path": "/brand-assets/v2/exports/04-oferty/minecraft-1080x1080"
-    },
-    {
-      "name": "vps-kvm-1080x1080",
-      "path": "/brand-assets/v2/exports/04-oferty/vps-kvm-1080x1080"
-    },
-    {
-      "name": "hosting-stron-1080x1080",
-      "path": "/brand-assets/v2/exports/04-oferty/hosting-stron-1080x1080"
-    }
-  ],
-  "05-posty-szablony": [
-    {
-      "name": "promocja-1080x1080",
-      "path": "/brand-assets/v2/exports/05-posty-szablony/promocja-1080x1080"
-    },
-    {
-      "name": "nowa-usluga-1080x1080",
-      "path": "/brand-assets/v2/exports/05-posty-szablony/nowa-usluga-1080x1080"
-    },
-    {
-      "name": "komunikat-techniczny-1080x1080",
-      "path": "/brand-assets/v2/exports/05-posty-szablony/komunikat-techniczny-1080x1080"
-    }
-  ],
-  "06-discord": [
-    {
-      "name": "baner-960x540",
-      "path": "/brand-assets/v2/exports/06-discord/baner-960x540"
-    },
-    {
-      "name": "ikona-512x512",
-      "path": "/brand-assets/v2/exports/06-discord/ikona-512x512"
-    },
-    {
-      "name": "naglowek-oferta-960x240",
-      "path": "/brand-assets/v2/exports/06-discord/naglowek-oferta-960x240"
-    },
-    {
-      "name": "naglowek-pomoc-960x240",
-      "path": "/brand-assets/v2/exports/06-discord/naglowek-pomoc-960x240"
-    },
-    {
-      "name": "naglowek-regulamin-960x240",
-      "path": "/brand-assets/v2/exports/06-discord/naglowek-regulamin-960x240"
-    },
-    {
-      "name": "naglowek-status-uslug-960x240",
-      "path": "/brand-assets/v2/exports/06-discord/naglowek-status-uslug-960x240"
-    }
-  ],
-  "07-podglad-linku": [
-    {
-      "name": "og-1200x630",
-      "path": "/brand-assets/v2/exports/07-podglad-linku/og-1200x630"
-    }
-  ]
+  "pl": {
+    "01-hosted-by": [
+      {
+        "name": "alfahost-dark",
+        "path": "/brand-assets/localized/PL/exports/01-hosted-by/alfahost-dark"
+      },
+      {
+        "name": "alfahost-light",
+        "path": "/brand-assets/localized/PL/exports/01-hosted-by/alfahost-light"
+      },
+      {
+        "name": "alfahost-transparent-black",
+        "path": "/brand-assets/localized/PL/exports/01-hosted-by/alfahost-transparent-black"
+      },
+      {
+        "name": "alfahost-transparent-white",
+        "path": "/brand-assets/localized/PL/exports/01-hosted-by/alfahost-transparent-white"
+      }
+    ],
+    "02-serwer-dziala-na": [
+      {
+        "name": "alfahost-dark",
+        "path": "/brand-assets/localized/PL/exports/02-serwer-dziala-na/alfahost-dark"
+      },
+      {
+        "name": "alfahost-light",
+        "path": "/brand-assets/localized/PL/exports/02-serwer-dziala-na/alfahost-light"
+      },
+      {
+        "name": "alfahost-transparent-black",
+        "path": "/brand-assets/localized/PL/exports/02-serwer-dziala-na/alfahost-transparent-black"
+      },
+      {
+        "name": "alfahost-transparent-white",
+        "path": "/brand-assets/localized/PL/exports/02-serwer-dziala-na/alfahost-transparent-white"
+      }
+    ],
+    "03-partnerzy": [
+      {
+        "name": "baner-1200x400",
+        "path": "/brand-assets/localized/PL/exports/03-partnerzy/baner-1200x400"
+      },
+      {
+        "name": "baner-728x90",
+        "path": "/brand-assets/localized/PL/exports/03-partnerzy/baner-728x90"
+      },
+      {
+        "name": "partner-1080x1080",
+        "path": "/brand-assets/localized/PL/exports/03-partnerzy/partner-1080x1080"
+      }
+    ],
+    "04-oferty": [
+      {
+        "name": "hosting-stron-1080x1080",
+        "path": "/brand-assets/localized/PL/exports/04-oferty/hosting-stron-1080x1080"
+      },
+      {
+        "name": "minecraft-1080x1080",
+        "path": "/brand-assets/localized/PL/exports/04-oferty/minecraft-1080x1080"
+      },
+      {
+        "name": "vps-kvm-1080x1080",
+        "path": "/brand-assets/localized/PL/exports/04-oferty/vps-kvm-1080x1080"
+      }
+    ],
+    "05-posty-szablony": [
+      {
+        "name": "komunikat-techniczny-1080x1080",
+        "path": "/brand-assets/localized/PL/exports/05-posty-szablony/komunikat-techniczny-1080x1080"
+      },
+      {
+        "name": "nowa-usluga-1080x1080",
+        "path": "/brand-assets/localized/PL/exports/05-posty-szablony/nowa-usluga-1080x1080"
+      },
+      {
+        "name": "promocja-1080x1080",
+        "path": "/brand-assets/localized/PL/exports/05-posty-szablony/promocja-1080x1080"
+      }
+    ],
+    "06-discord": [
+      {
+        "name": "baner-960x540",
+        "path": "/brand-assets/localized/PL/exports/06-discord/baner-960x540"
+      },
+      {
+        "name": "ikona-512x512",
+        "path": "/brand-assets/localized/PL/exports/06-discord/ikona-512x512"
+      },
+      {
+        "name": "naglowek-oferta-960x240",
+        "path": "/brand-assets/localized/PL/exports/06-discord/naglowek-oferta-960x240"
+      },
+      {
+        "name": "naglowek-pomoc-960x240",
+        "path": "/brand-assets/localized/PL/exports/06-discord/naglowek-pomoc-960x240"
+      },
+      {
+        "name": "naglowek-regulamin-960x240",
+        "path": "/brand-assets/localized/PL/exports/06-discord/naglowek-regulamin-960x240"
+      },
+      {
+        "name": "naglowek-status-uslug-960x240",
+        "path": "/brand-assets/localized/PL/exports/06-discord/naglowek-status-uslug-960x240"
+      }
+    ],
+    "07-podglad-linku": [
+      {
+        "name": "og-1200x630",
+        "path": "/brand-assets/localized/PL/exports/07-podglad-linku/og-1200x630"
+      }
+    ]
+  },
+  "en": {
+    "01-hosted-by": [
+      {
+        "name": "alfahost-dark",
+        "path": "/brand-assets/localized/EN/exports/01-hosted-by/alfahost-dark"
+      },
+      {
+        "name": "alfahost-light",
+        "path": "/brand-assets/localized/EN/exports/01-hosted-by/alfahost-light"
+      },
+      {
+        "name": "alfahost-transparent-black",
+        "path": "/brand-assets/localized/EN/exports/01-hosted-by/alfahost-transparent-black"
+      },
+      {
+        "name": "alfahost-transparent-white",
+        "path": "/brand-assets/localized/EN/exports/01-hosted-by/alfahost-transparent-white"
+      }
+    ],
+    "02-server-runs-on": [
+      {
+        "name": "alfahost-dark",
+        "path": "/brand-assets/localized/EN/exports/02-server-runs-on/alfahost-dark"
+      },
+      {
+        "name": "alfahost-light",
+        "path": "/brand-assets/localized/EN/exports/02-server-runs-on/alfahost-light"
+      },
+      {
+        "name": "alfahost-transparent-black",
+        "path": "/brand-assets/localized/EN/exports/02-server-runs-on/alfahost-transparent-black"
+      },
+      {
+        "name": "alfahost-transparent-white",
+        "path": "/brand-assets/localized/EN/exports/02-server-runs-on/alfahost-transparent-white"
+      }
+    ],
+    "03-partners": [
+      {
+        "name": "banner-1200x400",
+        "path": "/brand-assets/localized/EN/exports/03-partners/banner-1200x400"
+      },
+      {
+        "name": "banner-728x90",
+        "path": "/brand-assets/localized/EN/exports/03-partners/banner-728x90"
+      },
+      {
+        "name": "partner-1080x1080",
+        "path": "/brand-assets/localized/EN/exports/03-partners/partner-1080x1080"
+      }
+    ],
+    "04-offers": [
+      {
+        "name": "minecraft-1080x1080",
+        "path": "/brand-assets/localized/EN/exports/04-offers/minecraft-1080x1080"
+      },
+      {
+        "name": "vps-kvm-1080x1080",
+        "path": "/brand-assets/localized/EN/exports/04-offers/vps-kvm-1080x1080"
+      },
+      {
+        "name": "website-hosting-1080x1080",
+        "path": "/brand-assets/localized/EN/exports/04-offers/website-hosting-1080x1080"
+      }
+    ],
+    "05-post-templates": [
+      {
+        "name": "new-service-1080x1080",
+        "path": "/brand-assets/localized/EN/exports/05-post-templates/new-service-1080x1080"
+      },
+      {
+        "name": "promotion-1080x1080",
+        "path": "/brand-assets/localized/EN/exports/05-post-templates/promotion-1080x1080"
+      },
+      {
+        "name": "service-notice-1080x1080",
+        "path": "/brand-assets/localized/EN/exports/05-post-templates/service-notice-1080x1080"
+      }
+    ],
+    "06-discord": [
+      {
+        "name": "banner-960x540",
+        "path": "/brand-assets/localized/EN/exports/06-discord/banner-960x540"
+      },
+      {
+        "name": "header-plans-960x240",
+        "path": "/brand-assets/localized/EN/exports/06-discord/header-plans-960x240"
+      },
+      {
+        "name": "header-service-status-960x240",
+        "path": "/brand-assets/localized/EN/exports/06-discord/header-service-status-960x240"
+      },
+      {
+        "name": "header-support-960x240",
+        "path": "/brand-assets/localized/EN/exports/06-discord/header-support-960x240"
+      },
+      {
+        "name": "header-terms-960x240",
+        "path": "/brand-assets/localized/EN/exports/06-discord/header-terms-960x240"
+      },
+      {
+        "name": "icon-512x512",
+        "path": "/brand-assets/localized/EN/exports/06-discord/icon-512x512"
+      }
+    ],
+    "07-link-preview": [
+      {
+        "name": "og-1200x630",
+        "path": "/brand-assets/localized/EN/exports/07-link-preview/og-1200x630"
+      }
+    ]
+  }
 }
