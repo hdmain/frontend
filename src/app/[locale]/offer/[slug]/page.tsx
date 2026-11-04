@@ -35,8 +35,9 @@ export async function generateMetadata({
   if (!plan) return {};
   const locale = raw as Locale;
   const subpath = `offer/${slug}`;
+  const name = slug.startsWith("vps-kvm-") ? "VPS KVM" : plan.name;
   return {
-    title: `${plan.name} hosting - AlfaHost`,
+    title: `${name} hosting - AlfaHost`,
     description: plan.summary,
     alternates: {
       canonical: canonicalForLocale(locale, subpath),
@@ -46,7 +47,7 @@ export async function generateMetadata({
       type: "website",
       locale: ogLocale(locale),
       siteName: SITE_NAME,
-      title: `${plan.name} hosting - AlfaHost`,
+      title: `${name} hosting - AlfaHost`,
       description: plan.summary,
       images: [`${SITE_URL}/icon-512.png`],
     },

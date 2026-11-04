@@ -79,7 +79,7 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
     };
   }, [plan.slug, locale, currency]);
 
-  const title = offer?.name || plan.name;
+  const title = plan.slug.startsWith("vps-kvm-") ? "VPS KVM" : offer?.name || plan.name;
   const summary = offer?.summary || plan.summary;
   const description = plan.slug.startsWith("vps-kvm-") ? plan.description : offer?.description || plan.description;
   const available = offer?.available ?? currencyCtx?.prices[plan.slug]?.available ?? plan.available ?? true;
