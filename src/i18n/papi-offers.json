@@ -71,6 +71,29 @@
     },
     {
       "available": true,
+      "category": "app",
+      "cpu": "",
+      "description": "qBittorrent WebUI seedbox on Calagopus - download, seed and manage torrents from the panel.",
+      "from": {
+        "standard": 9.99,
+        "standard_formatted": "9.99 zł"
+      },
+      "name": "Torrent Box",
+      "slug": "torrent-box",
+      "summary": "qBittorrent WebUI seedbox with anti-DDoS included.",
+      "ram": [
+        1,
+        8
+      ],
+      "disk": [
+        5,
+        40
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
       "category": "vps",
       "cpu": "",
       "description": "A compact virtual server with 20 public ports for small applications, test environments and services that do not require a dedicated public IPv4 address.",
@@ -98,8 +121,8 @@
       "cpu": "AMD EPYC 7551P",
       "description": "Retail list prices from the upstream catalog. Full root, public IPv4 and PletX filtering.",
       "from": {
-        "standard": 24.3,
-        "standard_formatted": "24.30 zł"
+        "standard": 24.15,
+        "standard_formatted": "24.15 zł"
       },
       "name": "VPS KVM · Germany",
       "slug": "vps-kvm-de",
@@ -121,8 +144,8 @@
       "cpu": "Intel i9-10900K",
       "description": "Retail list prices from the upstream catalog. Full root and public IPv4.",
       "from": {
-        "standard": 17.63,
-        "standard_formatted": "17.63 zł"
+        "standard": 17.52,
+        "standard_formatted": "17.52 zł"
       },
       "name": "VPS KVM · Netherlands",
       "slug": "vps-kvm-nl",
@@ -257,6 +280,29 @@
     },
     {
       "available": true,
+      "category": "app",
+      "cpu": "",
+      "description": "Seedbox qBittorrent z WebUI na Calagopus - pobieraj, seeduj i zarządzaj torrentami z panelu.",
+      "from": {
+        "standard": 9.99,
+        "standard_formatted": "9.99 zł"
+      },
+      "name": "Torrent Box",
+      "slug": "torrent-box",
+      "summary": "Seedbox qBittorrent z WebUI i anti-DDoS w cenie.",
+      "ram": [
+        1,
+        8
+      ],
+      "disk": [
+        5,
+        40
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
       "category": "vps",
       "cpu": "",
       "description": "Kompaktowy serwer wirtualny z 20 publicznymi portami pod małe aplikacje, środowiska testowe i usługi, które nie wymagają własnego publicznego adresu IPv4.",
@@ -284,8 +330,8 @@
       "cpu": "AMD EPYC 7551P",
       "description": "Ceny katalogowe 1:1 z upstreamu. Pełny root, publiczne IPv4 i filtrowanie PletX.",
       "from": {
-        "standard": 24.3,
-        "standard_formatted": "24.30 zł"
+        "standard": 24.15,
+        "standard_formatted": "24.15 zł"
       },
       "name": "VPS KVM · Niemcy",
       "slug": "vps-kvm-de",
@@ -307,8 +353,8 @@
       "cpu": "Intel i9-10900K",
       "description": "Ceny katalogowe 1:1 z upstreamu. Pełny root i publiczne IPv4.",
       "from": {
-        "standard": 17.63,
-        "standard_formatted": "17.63 zł"
+        "standard": 17.52,
+        "standard_formatted": "17.52 zł"
       },
       "name": "VPS KVM · Holandia",
       "slug": "vps-kvm-nl",
@@ -443,6 +489,29 @@
     },
     {
       "available": true,
+      "category": "app",
+      "cpu": "",
+      "description": "Сидбокс qBittorrent с WebUI на Calagopus - скачивание, раздача и управление торрентами из панели.",
+      "from": {
+        "standard": 9.99,
+        "standard_formatted": "9.99 zł"
+      },
+      "name": "Torrent Box",
+      "slug": "torrent-box",
+      "summary": "Сидбокс qBittorrent с WebUI и anti-DDoS.",
+      "ram": [
+        1,
+        8
+      ],
+      "disk": [
+        5,
+        40
+      ],
+      "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
       "category": "vps",
       "cpu": "",
       "description": "Компактный виртуальный сервер с 20 публичными портами для небольших приложений, тестовых сред и сервисов, которым не нужен собственный публичный IPv4-адрес.",
@@ -470,8 +539,8 @@
       "cpu": "AMD EPYC 7551P",
       "description": "Розничные цены 1:1 с upstream. Полный root, публичный IPv4 и фильтрация PletX.",
       "from": {
-        "standard": 24.3,
-        "standard_formatted": "24.30 zł"
+        "standard": 24.15,
+        "standard_formatted": "24.15 zł"
       },
       "name": "VPS KVM · Германия",
       "slug": "vps-kvm-de",
@@ -493,8 +562,8 @@
       "cpu": "Intel i9-10900K",
       "description": "Розничные цены 1:1 с upstream. Полный root и публичный IPv4.",
       "from": {
-        "standard": 17.63,
-        "standard_formatted": "17.63 zł"
+        "standard": 17.52,
+        "standard_formatted": "17.52 zł"
       },
       "name": "VPS KVM · Нидерланды",
       "slug": "vps-kvm-nl",

@@ -9,6 +9,7 @@ const names: Record<Locale, Record<Country, string>> = {
 };
 
 export default function LocationFlags({ location, locale }: { location: string; locale: Locale }) {
+  if (location === "torrent-box" || location === "offer/torrent-box") return null;
   const countries: Country[] = location === "vps" ? ["de", "nl"]
     : location === "vps-kvm-de" || location === "offer/vps-kvm-de" ? ["de"]
     : location === "vps-kvm-nl" || location === "offer/vps-kvm-nl" ? ["nl"]

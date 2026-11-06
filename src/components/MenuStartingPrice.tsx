@@ -13,6 +13,7 @@ const slugsByPath: Record<string, string[]> = {
   "offer/vps-kvm-de": ["vps-kvm-de"],
   "offer/vps-kvm-nl": ["vps-kvm-nl"],
   "offer/dedicated": ["dedicated"],
+  "offer/torrent-box": ["torrent-box"],
 };
 const labels = {
   pl: { from: "Od", period: "/mies." },

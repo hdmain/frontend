@@ -104,14 +104,14 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
           aria-hidden
         />
         <div className={`container ${styles.heroInner}`}>
-          <a className={styles.back} href={localePath(locale, plan.slug.startsWith("vps-kvm-") ? "vps" : plan.slug === "vps-nat" ? "nat-vps" : plan.slug === "dedicated" ? "hosting" : "game-servers")}>
+          <a className={styles.back} href={localePath(locale, plan.slug.startsWith("vps-kvm-") ? "vps" : plan.slug === "vps-nat" ? "nat-vps" : ["dedicated", "torrent-box"].includes(plan.slug) ? "hosting" : "game-servers")}>
             ← {t.backToOffer}
           </a>
           <div className={styles.titleRow}>
             <h1>{title}</h1>
           </div>
           <p className={styles.summary}>{summary}</p>
-          <p className={styles.location}><LocationFlags location={plan.slug} locale={locale} /><MapPin size={16} aria-hidden="true" />{offerLocation(locale, plan.slug)}</p>
+          {offerLocation(locale, plan.slug) && <p className={styles.location}><LocationFlags location={plan.slug} locale={locale} /><MapPin size={16} aria-hidden="true" />{offerLocation(locale, plan.slug)}</p>}
         </div>
       </div>}
 
