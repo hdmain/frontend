@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import OfferDetail from "@/components/OfferDetail";
+import TorrentBoxContent, { torrentCopy } from "@/components/TorrentBoxContent";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { isLocale, locales, type Locale } from "@/i18n/config";
@@ -36,9 +37,11 @@ export async function generateMetadata({
   const locale = raw as Locale;
   const subpath = `offer/${slug}`;
   const name = slug.startsWith("vps-kvm-") ? "VPS KVM" : plan.name;
+  const title = slug === "torrent-box" ? torrentCopy[locale].title : `${name} hosting - AlfaHost`;
+  const description = slug === "torrent-box" ? torrentCopy[locale].description : plan.summary;
   return {
-    title: `${name} hosting - AlfaHost`,
-    description: plan.summary,
+    title,
+    description,
     alternates: {
       canonical: canonicalForLocale(locale, subpath),
       languages: alternatesForLocale(locale, subpath),
@@ -47,9 +50,9 @@ export async function generateMetadata({
       type: "website",
       locale: ogLocale(locale),
       siteName: SITE_NAME,
-      title: `${name} hosting - AlfaHost`,
-      description: plan.summary,
-      images: [`${SITE_URL}/icon-512.png`],
+      title,
+      description,
+      images: [`${SITE_URL}${slug === "torrent-box" ? "/offers/torrent-box.webp" : "/icon-512.png"}`],
     },
   };
 }
@@ -84,6 +87,7 @@ export default async function OfferPage({
           plan={plan}
           others={others}
         />
+        {slug === "torrent-box" && <TorrentBoxContent locale={locale} />}
       </main>
       <SiteFooter locale={locale} t={t.footer} />
     </div>

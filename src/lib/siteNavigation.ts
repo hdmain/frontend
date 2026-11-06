@@ -18,7 +18,7 @@ export function offerImage(slug: string) {
   return `/offers/${slug}.jpg`;
 }
 export function offerLocation(locale: Locale, slug: string) {
-  if (slug === "torrent-box") return "";
+  if (slug === "torrent-box") return { pl: "Polska", en: "Poland", ru: "Польша" }[locale];
   const country = slug === "vps-kvm-de" ? { pl: "Frankfurt, Niemcy", en: "Frankfurt, Germany", ru: "Франкфурт, Германия" }
     : slug === "vps-kvm-nl" ? { pl: "Holandia", en: "The Netherlands", ru: "Нидерланды" }
     : slug === "dedicated" ? { pl: "Unia Europejska", en: "European Union", ru: "Европейский союз" }

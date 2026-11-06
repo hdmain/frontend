@@ -1,0 +1,13 @@
+.section { padding-block: 56px 88px; }
+.intro { max-width: 78ch; color: var(--muted); line-height: 1.85; }
+.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; padding-block: 40px; }
+.grid h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.grid p, .faq p { color: var(--muted); font-size: .9rem; line-height: 1.8; }
+.faq { max-width: 880px; }
+.faq h2 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 24px; }
+.faq details { border-top: 1px solid var(--line); padding-block: 20px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.faq p { margin-top: 16px; }
+.actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; gap: 24px; } }
