@@ -62,6 +62,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
       try {
         const res = await fetch(
           `${papiBaseUrl()}/v1/prices?currency=${currency}`,
+          { cache: "no-store" },
         );
         if (!res.ok) throw new Error(`papi ${res.status}`);
         const data = (await res.json()) as PricesResponse;

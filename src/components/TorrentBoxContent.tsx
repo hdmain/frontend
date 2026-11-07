@@ -9,12 +9,14 @@ export const torrentCopy = {
     heading: "TorrentBox: Twój seedbox w przeglądarce",
     intro: "TorrentBox hosting to usługa do pobierania i seedowania plików na zdalnym serwerze. AlfaHost Torrent Box udostępnia qBittorrent WebUI, dzięki któremu zarządzasz zadaniami z przeglądarki. Pliki i zadania działają po stronie serwera, więc własny komputer nie musi pozostawać włączony podczas transferu.",
     sections: [
+      { title: "Videoplayer w wyższych pakietach", text: "Pakiety Plus, Pro i Ultra zawierają odtwarzacz wideo. Pakiet Starter nie obejmuje tego dodatku. Wybierz wyższy pakiet, jeśli chcesz korzystać z videoplayera w swojej usłudze Torrent Box." },
       { title: "qBittorrent z WebUI", text: "Dodawaj zadania, obserwuj postęp pobierania i zarządzaj seedowaniem przez interfejs qBittorrent. WebUI pozwala obsługiwać usługę bez instalowania klienta torrent na każdym urządzeniu, z którego korzystasz." },
       { title: "Do czego przyda się seedbox?", text: "Do dystrybucji własnych plików, udostępniania otwartych zbiorów danych oraz pobierania i seedowania obrazów systemów Linux. Zasoby Torrent Box możesz dobrać do liczby aktywnych zadań i rozmiaru przechowywanych plików." },
       { title: "Jak wybrać pakiet?", text: "Zacznij od pojemności dysku potrzebnej na pliki. Większy RAM i przydział CPU przydadzą się przy większej liczbie zadań. Porównaj aktualne konfiguracje powyżej: ich ceny, zasoby i liczbę kopii zapasowych pobieramy z bieżącej oferty." },
     ],
     faqTitle: "Pytania o Torrent Box",
     faq: [
+      { q: "Które pakiety mają videoplayer?", a: "Odtwarzacz wideo jest dostępny w pakietach Plus, Pro i Ultra. Nie jest dostępny w pakiecie Starter." },
       { q: "Czy TorrentBox i seedbox to to samo?", a: "Seedbox to zdalny serwer do pobierania i seedowania torrentów. Torrent Box jest nazwą tej usługi w AlfaHost i korzysta z qBittorrent z interfejsem WebUI." },
       { q: "Gdzie znajdują się serwery Torrent Box?", a: "Serwery Torrent Box AlfaHost znajdują się w Polsce." },
       { q: "Czy muszę mieć cały czas włączony komputer?", a: "Nie. Zadania obsługuje zdalny serwer. Przeglądarka służy do zarządzania nimi przez WebUI." },
@@ -28,11 +30,13 @@ export const torrentCopy = {
     heading: "TorrentBox: manage your seedbox in a browser",
     intro: "TorrentBox hosting lets you download and seed files on a remote server. AlfaHost Torrent Box provides qBittorrent WebUI so you can manage tasks from your browser. Transfers run on the server, so your own computer does not need to stay switched on while files are transferring.",
     sections: [
+      { title: "Video player in higher packages", text: "Plus, Pro and Ultra include a video player. The Starter package does not include this extra. Choose a higher package if you want the video player with your Torrent Box service." },
       { title: "qBittorrent WebUI", text: "Add tasks, monitor downloads and manage seeding through qBittorrent. The browser interface lets you manage the service without installing a torrent client on every device you use." },
       { title: "What can you use a seedbox for?", text: "Distribute your own files, share open datasets, or download and seed Linux images. Choose resources according to the number of active tasks and the size of the files you keep." },
       { title: "Choosing a package", text: "Start with the storage capacity your files need. More RAM and CPU allocation can help with larger numbers of tasks. Compare the current packages above for live prices, resources and backup counts." },
     ], faqTitle: "Torrent Box questions",
     faq: [
+      { q: "Which packages include the video player?", a: "The video player is included with Plus, Pro and Ultra. It is not included with Starter." },
       { q: "Are TorrentBox and seedbox the same thing?", a: "A seedbox is a remote server for downloading and seeding torrents. Torrent Box is AlfaHost's service using qBittorrent with WebUI." },
       { q: "Where are the servers located?", a: "AlfaHost Torrent Box servers are located in Poland." },
       { q: "Does my computer need to stay switched on?", a: "No. The remote server runs your tasks. Your browser provides access to WebUI to manage them." },
@@ -46,11 +50,13 @@ export const torrentCopy = {
     heading: "TorrentBox: управляйте seedbox в браузере",
     intro: "TorrentBox позволяет скачивать и раздавать файлы на удалённом сервере. AlfaHost Torrent Box предоставляет qBittorrent WebUI для управления заданиями через браузер. Передача файлов выполняется на сервере, поэтому ваш компьютер не должен оставаться включённым во время загрузки.",
     sections: [
+      { title: "Видеоплеер в старших тарифах", text: "Тарифы Plus, Pro и Ultra включают видеоплеер. В тарифе Starter это дополнение недоступно. Выберите старший тариф, если вам нужен видеоплеер в Torrent Box." },
       { title: "qBittorrent WebUI", text: "Добавляйте задания, следите за загрузкой и управляйте раздачами через qBittorrent. Веб-интерфейс позволяет работать без установки торрент-клиента на каждое устройство." },
       { title: "Для чего нужен seedbox?", text: "Для распространения собственных файлов, открытых наборов данных и образов Linux. Выбирайте ресурсы с учётом числа активных заданий и размера хранимых файлов." },
       { title: "Как выбрать тариф?", text: "Начните с объёма диска для ваших файлов. Дополнительные RAM и CPU пригодятся при большем количестве заданий. Сравните актуальные цены, ресурсы и количество резервных копий в тарифах выше." },
     ], faqTitle: "Вопросы о Torrent Box",
     faq: [
+      { q: "В каких тарифах есть видеоплеер?", a: "Видеоплеер включён в Plus, Pro и Ultra. В тарифе Starter он недоступен." },
       { q: "TorrentBox и seedbox - одно и то же?", a: "Seedbox - удалённый сервер для скачивания и раздачи торрентов. Torrent Box - услуга AlfaHost на основе qBittorrent с WebUI." },
       { q: "Где находятся серверы?", a: "Серверы Torrent Box AlfaHost находятся в Польше." },
       { q: "Нужно ли держать компьютер включённым?", a: "Нет. Задания выполняются на удалённом сервере. Браузер нужен для управления через WebUI." },

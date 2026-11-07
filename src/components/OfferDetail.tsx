@@ -27,6 +27,11 @@ type ApiPackage = {
   ports: number;
   players: string;
   antiddos: boolean;
+  videoplayer?: boolean;
+  in_stock?: boolean;
+  sold_out?: boolean;
+  price_sale_formatted?: string;
+  discounted?: boolean;
   price_formatted: string;
 };
 
@@ -61,6 +66,7 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
       try {
         const res = await fetch(
           `${papiBaseUrl()}/v1/offers/${plan.slug}?lang=${locale}&currency=${currency}`,
+          { cache: "no-store" },
         );
         if (!res.ok) throw new Error(`papi ${res.status}`);
         const data = JSON.parse(await res.text(), (_key, value: unknown) =>
@@ -94,6 +100,11 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
   const contactOnly = plan.slug === "dedicated";
   const contactLabel = locale === "pl" ? "Skontaktuj się" : locale === "ru" ? "Связаться с нами" : "Contact us";
   const orderHref = contactOnly ? localePath(locale, "contact") : legalEntity.panel;
+  const stockText = {
+    pl: { sold: "Wyprzedane", available: "Dostępne" },
+    en: { sold: "Sold out", available: "In stock" },
+    ru: { sold: "Распродано", available: "В наличии" },
+  }[locale];
 
   return (
     <section className={styles.section} id="offer">
@@ -121,11 +132,15 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
         ) : packages.length > 0 ? (
           <div className={styles.packageGrid}>
             {packages.map((pkg) => {
-              const price = pkg.price_formatted;
+              const price = pkg.discounted && pkg.price_sale_formatted ? pkg.price_sale_formatted : pkg.price_formatted;
+              const soldOut = pkg.sold_out === true || pkg.in_stock === false;
+              const packageAvailable = available && !soldOut;
+              const hasStockStatus = typeof pkg.in_stock === "boolean" || typeof pkg.sold_out === "boolean";
               return (
                 <article key={pkg.id} className={styles.packageCard}>
                   <div className={styles.packageHead}>
                     <h2>{pkg.name}</h2>
+                    {hasStockStatus && <span className={`${styles.stock} ${packageAvailable ? styles.inStock : styles.soldOut}`}>{packageAvailable ? stockText.available : soldOut ? stockText.sold : t.unavailable}</span>}
                     <p>{pkg.tagline}</p>
                   </div>
                   <p className={styles.packagePrice}>
@@ -133,6 +148,10 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
                     <span>{t.perMonth}</span>
                   </p>
                   <ul className={styles.packageSpecs}>
+                    {plan.slug === "torrent-box" && <li>
+                      <span>{locale === "pl" ? "Odtwarzacz wideo" : locale === "ru" ? "Видеоплеер" : "Video player"}</span>
+                      <strong>{(pkg.videoplayer ?? ["plus", "pro", "ultra"].includes(pkg.id)) ? "✓" : "-"}</strong>
+                    </li>}
                     <li>
                       <span>{t.cpu}</span>
                       <strong>{pkg.vcpu}</strong>
@@ -176,13 +195,13 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
                       </li>
                     ) : null}
                   </ul>
-                  {available ? (
+                  {packageAvailable ? (
                     <a className={`btn btnPrimary ${styles.buy}`} href={orderHref}>
                       {contactOnly ? contactLabel : t.buyPackage} {Icons.arrow}
                     </a>
                   ) : (
                     <span className={`btn btnGhost ${styles.buy}`} aria-disabled="true">
-                      {t.unavailable}
+                      {soldOut ? stockText.sold : t.unavailable}
                     </span>
                   )}
                 </article>

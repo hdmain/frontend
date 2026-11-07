@@ -109,6 +109,9 @@
   letter-spacing: -0.02em;
   margin-bottom: 0.35rem;
 }
+.stock { display: inline-flex; align-items: center; border: 1px solid var(--line); padding: 4px 8px; border-radius: 5px; font-size: .72rem; font-weight: 600; margin-bottom: 10px; }
+.inStock { color: var(--success); }
+.soldOut { color: var(--muted); background: var(--surface); }
 
 .packageHead p {
   color: var(--muted);
