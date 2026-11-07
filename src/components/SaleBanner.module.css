@@ -1,0 +1,8 @@
+.banner { background: var(--accent-deep); color: #fff; border-bottom: 1px solid #ffffff26; }
+.inner { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px 24px; padding-block: 12px; }
+.inner strong { display: inline-flex; align-items: center; gap: 9px; font-size: .8rem; font-weight: 600; }
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+.links a { display: inline-flex; align-items: center; gap: 5px; font-size: .78rem; text-decoration: underline; text-underline-offset: 4px; }
+.links a:hover { text-decoration-thickness: 2px; }
+.links a:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+@media (max-width: 600px) { .inner { align-items: flex-start; flex-direction: column; } .links { justify-content: flex-start; } }

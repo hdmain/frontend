@@ -1,6 +1,7 @@
 import Script from "next/script";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
+import SaleBanner from "@/components/SaleBanner";
 import Protection from "@/components/Protection";
 import Services from "@/components/Services";
 import SiteFooter from "@/components/SiteFooter";
@@ -30,6 +31,7 @@ export default function RootPage() {
   return (
     <div className={styles.page}>
       <SiteHeader locale="en" t={t.nav} />
+      <SaleBanner locale="en" />
       <main>
         <Hero t={t.hero} locale="en" />
         <div className={styles.stack}>

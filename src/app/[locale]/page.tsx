@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
+import SaleBanner from "@/components/SaleBanner";
 import Protection from "@/components/Protection";
 import Services from "@/components/Services";
 import SiteFooter from "@/components/SiteFooter";
@@ -10,7 +11,6 @@ import WhyUs from "@/components/WhyUs";
 import TechnologyMarquee from "@/components/TechnologyMarquee";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { SITE_NAME, absoluteUrl } from "@/lib/seo";
 import styles from "../page.module.css";
 
 export default async function HomePage({
@@ -26,6 +26,7 @@ export default async function HomePage({
   return (
     <div className={styles.page}>
       <SiteHeader locale={locale} t={t.nav} />
+      <SaleBanner locale={locale} />
       <main>
         <Hero t={t.hero} locale={locale} />
         <div className={styles.stack}>
