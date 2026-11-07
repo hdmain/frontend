@@ -94,6 +94,7 @@
 }
 
 .packageCard {
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
@@ -101,6 +102,7 @@
   display: grid;
   gap: 1rem;
 }
+.saleBanner { margin: -1.25rem -1.25rem 0; padding: 10px 20px; background: var(--accent); color: #fff; text-align: center; font-size: .8rem; font-weight: 700; letter-spacing: .02em; }
 
 .packageHead h2 {
   font-family: var(--font-display);
@@ -111,7 +113,6 @@
 }
 .discount { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 6px; font-family: var(--font-price); font-variant-numeric: tabular-nums; }
 .discount del { color: var(--muted); font-size: .95rem; }
-.discount span { color: var(--accent); border: 1px solid var(--accent); border-radius: 5px; padding: 2px 7px; font-size: .7rem; font-weight: 600; }
 .salePrice strong { color: var(--accent); }
 
 .packageHead p {

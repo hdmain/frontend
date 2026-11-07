@@ -141,12 +141,13 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
               const packageAvailable = available && !soldOut;
               return (
                 <article key={pkg.id} className={styles.packageCard}>
+                  {onSale && <div className={styles.saleBanner}>{stockText.sale}</div>}
                   <div className={styles.packageHead}>
                     <h2>{pkg.name}</h2>
                     <p>{pkg.tagline}</p>
                   </div>
                   <div>
-                  {onSale && <p className={styles.discount}><del aria-label={stockText.regular}>{regularPrice}</del><span>{stockText.sale}</span></p>}
+                  {onSale && <p className={styles.discount}><del aria-label={stockText.regular}>{regularPrice}</del></p>}
                   <p className={`${styles.packagePrice} ${onSale ? styles.salePrice : ""}`}>
                     <strong>{price}</strong>
                     <span>{t.perMonth}</span>
