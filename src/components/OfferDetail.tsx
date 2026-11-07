@@ -103,9 +103,9 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
   const contactLabel = locale === "pl" ? "Skontaktuj się" : locale === "ru" ? "Связаться с нами" : "Contact us";
   const orderHref = contactOnly ? localePath(locale, "contact") : legalEntity.panel;
   const stockText = {
-    pl: { sold: "Sold out", sale: "Obniżka", regular: "Cena regularna" },
-    en: { sold: "Sold out", sale: "Sale", regular: "Regular price" },
-    ru: { sold: "Sold out", sale: "Скидка", regular: "Обычная цена" },
+    pl: { sold: "Sold out", regular: "Cena regularna" },
+    en: { sold: "Sold out", regular: "Regular price" },
+    ru: { sold: "Sold out", regular: "Обычная цена" },
   }[locale];
 
   return (
@@ -140,10 +140,10 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
               const soldOut = pkg.sold_out === true || pkg.in_stock === false;
               const packageAvailable = available && !soldOut;
               return (
-                <article key={pkg.id} className={styles.packageCard}>
-                  {onSale && <div className={styles.saleBanner}>{stockText.sale}</div>}
+                <article key={pkg.id} className={`${styles.packageCard} ${soldOut ? styles.packageSoldOut : ""}`}>
                   <div className={styles.packageHead}>
                     <h2>{pkg.name}</h2>
+                    {soldOut && <span className={styles.soldOutLabel}>{stockText.sold}</span>}
                     <p>{pkg.tagline}</p>
                   </div>
                   <div>

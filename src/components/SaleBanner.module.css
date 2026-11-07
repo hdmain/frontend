@@ -1,8 +1,12 @@
-.banner { background: var(--accent-deep); color: #fff; border-bottom: 1px solid #ffffff26; }
-.inner { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px 24px; padding-block: 12px; }
-.inner strong { display: inline-flex; align-items: center; gap: 9px; font-size: .8rem; font-weight: 600; }
-.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
-.links a { display: inline-flex; align-items: center; gap: 5px; font-size: .78rem; text-decoration: underline; text-underline-offset: 4px; }
-.links a:hover { text-decoration-thickness: 2px; }
-.links a:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
-@media (max-width: 600px) { .inner { align-items: flex-start; flex-direction: column; } .links { justify-content: flex-start; } }
+.banner { position: relative; isolation: isolate; background: var(--surface); color: var(--ink); border-bottom: 1px solid var(--line); overflow: hidden; }
+.banner::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%, color-mix(in srgb, var(--accent) 5%, transparent)); }
+.inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px 24px; padding-block: 16px; }
+.copy { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px; }
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); border-radius: 6px; color: var(--accent-hot); font-size: .72rem; font-weight: 650; }
+.copy p { font-size: .8rem; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.links a { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 7px; padding: 8px 12px; background: var(--surface); font-size: .76rem; font-weight: 600; transition: border-color .2s, color .2s; }
+.links a:hover { border-color: var(--accent); color: var(--accent-hot); }
+.links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 600px) { .inner { align-items: flex-start; flex-direction: column; } .copy { align-items: flex-start; flex-direction: column; gap: 8px; } }
+@media (prefers-reduced-motion: reduce) { .links a { transition: none; } }

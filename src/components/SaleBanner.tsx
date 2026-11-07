@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Tag } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import { localePath, type Locale } from "@/i18n/config";
 import { papiBaseUrl } from "@/lib/currency";
 import { offerPagePath } from "@/lib/siteNavigation";
@@ -10,9 +10,9 @@ import styles from "./SaleBanner.module.css";
 type DiscountOffer = { slug: string; name: string };
 type Package = { discounted?: boolean; price_sale?: number; price_list?: number; price?: number; in_stock?: boolean; sold_out?: boolean };
 const copy = {
-  pl: { title: "Obniżki na wybrane pakiety", link: "Sprawdź ofertę" },
-  en: { title: "Selected packages are on sale", link: "View offer" },
-  ru: { title: "Скидки на отдельные тарифы", link: "Смотреть предложение" },
+  pl: { title: "Oferta specjalna", description: "Wybrane pakiety w lepszej cenie.", link: "Sprawdź ofertę" },
+  en: { title: "Special offers", description: "Selected packages at a better price.", link: "View offer" },
+  ru: { title: "Специальное предложение", description: "Отдельные тарифы по выгодной цене.", link: "Смотреть предложение" },
 };
 
 export default function SaleBanner({ locale }: { locale: Locale }) {
@@ -46,7 +46,7 @@ export default function SaleBanner({ locale }: { locale: Locale }) {
   const t = copy[locale];
   return <aside className={styles.banner} aria-label={t.title}>
     <div className={`container ${styles.inner}`}>
-      <strong><Tag size={17} aria-hidden="true" />{t.title}</strong>
+      <div className={styles.copy}><span className={styles.badge}><Sparkles size={15} aria-hidden="true" />{t.title}</span><p>{t.description}</p></div>
       <div className={styles.links}>{result.offers.map((offer) => <a key={offer.slug} href={localePath(locale, offerPagePath(offer.slug))} aria-label={`${t.link}: ${offer.name}`}>{offer.name}<ArrowUpRight size={15} aria-hidden="true" /></a>)}</div>
     </div>
   </aside>;

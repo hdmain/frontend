@@ -102,7 +102,6 @@
   display: grid;
   gap: 1rem;
 }
-.saleBanner { margin: -1.25rem -1.25rem 0; padding: 10px 20px; background: var(--accent); color: #fff; text-align: center; font-size: .8rem; font-weight: 700; letter-spacing: .02em; }
 
 .packageHead h2 {
   font-family: var(--font-display);
@@ -111,6 +110,9 @@
   letter-spacing: -0.02em;
   margin-bottom: 0.35rem;
 }
+.packageSoldOut { border-color: var(--accent); }
+.soldOutLabel { display: inline-flex; border: 1px solid var(--accent); border-radius: 5px; padding: 4px 8px; margin-bottom: 10px; color: var(--accent-hot); font-size: .75rem; font-weight: 600; }
+.packageSoldOut .buy { color: var(--muted); cursor: not-allowed; }
 .discount { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 6px; font-family: var(--font-price); font-variant-numeric: tabular-nums; }
 .discount del { color: var(--muted); font-size: .95rem; }
 .salePrice strong { color: var(--accent); }
