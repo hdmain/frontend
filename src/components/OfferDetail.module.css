@@ -109,9 +109,10 @@
   letter-spacing: -0.02em;
   margin-bottom: 0.35rem;
 }
-.stock { display: inline-flex; align-items: center; border: 1px solid var(--line); padding: 4px 8px; border-radius: 5px; font-size: .72rem; font-weight: 600; margin-bottom: 10px; }
-.inStock { color: var(--success); }
-.soldOut { color: var(--muted); background: var(--surface); }
+.discount { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 6px; font-family: var(--font-price); font-variant-numeric: tabular-nums; }
+.discount del { color: var(--muted); font-size: .95rem; }
+.discount span { color: var(--accent); border: 1px solid var(--accent); border-radius: 5px; padding: 2px 7px; font-size: .7rem; font-weight: 600; }
+.salePrice strong { color: var(--accent); }
 
 .packageHead p {
   color: var(--muted);

@@ -14,6 +14,7 @@ import { Icons } from "./Icons";
 import PaymentMethods from "./PaymentMethods";
 import styles from "./OfferDetail.module.css";
 import LocationFlags from "./LocationFlags";
+import { numericPrice } from "@/lib/prices";
 
 type ApiPackage = {
   id: string;
@@ -31,6 +32,7 @@ type ApiPackage = {
   in_stock?: boolean;
   sold_out?: boolean;
   price_sale_formatted?: string;
+  price_list_formatted?: string;
   discounted?: boolean;
   price_formatted: string;
 };
@@ -101,9 +103,9 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
   const contactLabel = locale === "pl" ? "Skontaktuj się" : locale === "ru" ? "Связаться с нами" : "Contact us";
   const orderHref = contactOnly ? localePath(locale, "contact") : legalEntity.panel;
   const stockText = {
-    pl: { sold: "Wyprzedane", available: "Dostępne" },
-    en: { sold: "Sold out", available: "In stock" },
-    ru: { sold: "Распродано", available: "В наличии" },
+    pl: { sold: "Sold out", sale: "Obniżka", regular: "Cena regularna" },
+    en: { sold: "Sold out", sale: "Sale", regular: "Regular price" },
+    ru: { sold: "Sold out", sale: "Скидка", regular: "Обычная цена" },
   }[locale];
 
   return (
@@ -132,21 +134,24 @@ export default function OfferDetail({ locale, t, plan, others, showHero = true }
         ) : packages.length > 0 ? (
           <div className={styles.packageGrid}>
             {packages.map((pkg) => {
-              const price = pkg.discounted && pkg.price_sale_formatted ? pkg.price_sale_formatted : pkg.price_formatted;
+              const regularPrice = pkg.price_list_formatted || pkg.price_formatted;
+              const onSale = pkg.discounted === true && !!pkg.price_sale_formatted && numericPrice(pkg.price_sale_formatted) < numericPrice(regularPrice);
+              const price = onSale ? pkg.price_sale_formatted : pkg.price_formatted;
               const soldOut = pkg.sold_out === true || pkg.in_stock === false;
               const packageAvailable = available && !soldOut;
-              const hasStockStatus = typeof pkg.in_stock === "boolean" || typeof pkg.sold_out === "boolean";
               return (
                 <article key={pkg.id} className={styles.packageCard}>
                   <div className={styles.packageHead}>
                     <h2>{pkg.name}</h2>
-                    {hasStockStatus && <span className={`${styles.stock} ${packageAvailable ? styles.inStock : styles.soldOut}`}>{packageAvailable ? stockText.available : soldOut ? stockText.sold : t.unavailable}</span>}
                     <p>{pkg.tagline}</p>
                   </div>
-                  <p className={styles.packagePrice}>
+                  <div>
+                  {onSale && <p className={styles.discount}><del aria-label={stockText.regular}>{regularPrice}</del><span>{stockText.sale}</span></p>}
+                  <p className={`${styles.packagePrice} ${onSale ? styles.salePrice : ""}`}>
                     <strong>{price}</strong>
                     <span>{t.perMonth}</span>
                   </p>
+                  </div>
                   <ul className={styles.packageSpecs}>
                     {plan.slug === "torrent-box" && <li>
                       <span>{locale === "pl" ? "Odtwarzacz wideo" : locale === "ru" ? "Видеоплеер" : "Video player"}</span>
