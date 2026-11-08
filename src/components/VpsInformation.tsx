@@ -1,4 +1,6 @@
-import { Check, Monitor, Terminal } from "lucide-react";
+import { Check } from "lucide-react";
+import Image from "next/image";
+import { asset } from "@/lib/basePath";
 import type { Locale } from "@/i18n/config";
 import { localePath } from "@/i18n/config";
 import styles from "./VpsInformation.module.css";
@@ -59,7 +61,10 @@ export default function VpsInformation({ locale }: { locale: Locale }) {
     <h2 className="sectionTitle">{t.title}</h2><p className={styles.lead}>{t.lead}</p>
     <div className={styles.features}>{t.features.map((item) => <article key={item.title}><h3><Check size={18} aria-hidden="true" />{item.title}</h3><p>{item.text}</p></article>)}</div>
     <div className={styles.systems}><h2>{t.osTitle}</h2><p className={styles.lead}>{t.osLead}</p>
-      <ul>{systems.map((system) => { const Icon = system.name.startsWith("Windows") ? Monitor : Terminal; return <li key={system.id} data-os-id={system.id}><Icon size={20} aria-hidden="true" /><span>{system.name}</span></li>; })}</ul>
+      <ul>{systems.map((system) => {
+        const logo = system.name.startsWith("Ubuntu") ? "ubuntu" : system.name.startsWith("Debian") ? "debian" : system.name.startsWith("Rocky") ? "rockylinux" : system.name.startsWith("Alma") ? "almalinux" : "windows";
+        return <li key={system.id} data-os-id={system.id}><span className={styles.osIcon}><Image src={asset(`/brands/${logo}.svg`)} alt="" width={24} height={24} /></span><span>{system.name}</span></li>;
+      })}</ul>
     </div>
     <div className={styles.actions}><a href={localePath(locale, "vps")} className="btn btnGhost">{t.compare}</a><a href={localePath(locale, "contact")} className="btn btnPrimary">{t.contact}</a></div>
   </section>;

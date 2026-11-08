@@ -6,3 +6,5 @@ https://github.com/simple-icons/simple-icons/tree/develop/icons
 Simple Icons is distributed under CC0. Brand marks remain the property of their respective owners. Their inclusion identifies hardware, protection or operating systems in AlfaHost's existing catalog and does not imply endorsement or a partnership.
 
 PletX's icon is stored in ../media/pletx-icon.png and comes from its official website, https://pletx.net/.
+
+Rocky Linux and AlmaLinux SVGs are also sourced from Simple Icons. The Windows asset is a code-drawn four-pane mark. OS icons identify the available operating systems and do not imply endorsement.
