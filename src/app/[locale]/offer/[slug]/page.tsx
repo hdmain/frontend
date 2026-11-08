@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import OfferDetail from "@/components/OfferDetail";
+import VpsInformation from "@/components/VpsInformation";
 import TorrentBoxContent, { torrentCopy } from "@/components/TorrentBoxContent";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
@@ -88,6 +89,7 @@ export default async function OfferPage({
           others={others}
         />
         {slug === "torrent-box" && <TorrentBoxContent locale={locale} />}
+        {slug.startsWith("vps-kvm-") && <VpsInformation locale={locale} />}
       </main>
       <SiteFooter locale={locale} t={t.footer} />
     </div>

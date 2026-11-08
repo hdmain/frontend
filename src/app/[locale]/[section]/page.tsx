@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import PageIntro from "@/components/PageIntro";
 import Offer from "@/components/Offer";
 import OfferDetail from "@/components/OfferDetail";
+import VpsInformation from "@/components/VpsInformation";
 import WhyUs from "@/components/WhyUs";
 import Protection from "@/components/Protection";
 import Faq from "@/components/Faq";
@@ -65,6 +66,7 @@ export default async function SectionPage({ params }: { params: Promise<{ locale
         {section === "brand-assets" && <BrandAssets locale={locale} />}
         {section === "game-servers" && <Offer locale={locale} t={gameOffer} />}
         {section === "vps" && <Offer locale={locale} t={kvmOffer} />}
+        {section === "vps" && <VpsInformation locale={locale} />}
         {section === "nat-vps" && <OfferDetail locale={locale} t={t.offer} plan={plan} others={[]} showHero={false} />}
         {section === "nat-vps" && <section className={`container ${styles.productDetails}`}><div><h2 className="sectionTitle">{t.offer.includesTitle}</h2><p className="sectionLead">{plan.idealFor}</p></div><ul>{plan.includes.map((item) => <li key={item}>{item}</li>)}</ul></section>}
         {section === "game-servers" && <Protection t={t.protection} />}
