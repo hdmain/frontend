@@ -1,28 +1,24 @@
-# AlfaHost
+AlfaHost
 
-> EU hosting for game servers, Discord bots, NAT VPS and KVM VPS. Anti-DDoS included on every plan. Order in the client panel at https://cp.alfahost.eu.
+EU hosting for game servers, Discord bots, NAT VPS and KVM VPS. Anti-DDoS included on every plan. Order in the client panel: https://cp.alfahost.eu
 
-AlfaHost (alfahost.eu) sells managed game hosting and virtual servers. Game servers and NAT VPS run in Warsaw, Poland (Atman Tier III+). KVM VPS is available in Frankfurt (Germany) and the Netherlands. Protection is always-on via PletX (10+ Tbps filtration capacity). Primary currency in the panel is PLN. Payments: BLIK, Bitcoin (BTC), Litecoin (LTC).
+Website: https://alfahost.eu
+Client panel: https://cp.alfahost.eu
+Docs: https://docs.alfahost.eu
+Discord: https://dc.alfahost.eu
+Support: support@alfahost.eu
 
-For full product specs, plans, OS images, Minecraft engines and FAQ, use the detailed file below.
+Game servers and NAT VPS run in Warsaw, Poland (Atman Tier III+). KVM VPS is available in Frankfurt, Germany and in the Netherlands. Protection is always-on via PletX. Panel currency is PLN. Payments: BLIK, Bitcoin (BTC), Litecoin (LTC).
 
-## Docs
+Full product knowledge (plans, engines, OS images, FAQ):
+https://alfahost.eu/llm-more.txt
 
-- [Full product knowledge](https://alfahost.eu/llm-more.txt): Complete public catalog — plans, engines, OS images, locations, payments, support
-- [Documentation](https://docs.alfahost.eu/): SSH, SFTP, RDP, first steps, NAT VPS limits
-- [Client panel](https://cp.alfahost.eu/): Register, wallet top-up, buy and manage services
-
-## Products
-
-- [Game servers](https://alfahost.eu/en/game-servers/): Minecraft, Rust, Palworld, Discord bots
-- [VPS NAT](https://alfahost.eu/en/nat-vps/): Shared public IP, 20 dedicated ports, root SSH (Warsaw)
-- [VPS KVM](https://alfahost.eu/en/vps/): Dedicated KVM with public IPv4 in DE and NL
-- [Anti-DDoS](https://alfahost.eu/en/ddos-protection/): Included filtering overview
-- [FAQ](https://alfahost.eu/en/faq/): Common pre-order questions
-
-## Optional
-
-- [Discord](https://dc.alfahost.eu): Community and support
-- [Contact](https://alfahost.eu/en/contact/): support@alfahost.eu
-- [Terms](https://alfahost.eu/en/terms/): Terms of use
-- [Privacy](https://alfahost.eu/en/privacy/): Privacy policy
+Product pages:
+Game servers - https://alfahost.eu/en/game-servers/
+VPS NAT - https://alfahost.eu/en/nat-vps/
+VPS KVM - https://alfahost.eu/en/vps/
+Anti-DDoS - https://alfahost.eu/en/ddos-protection/
+FAQ - https://alfahost.eu/en/faq/
+Contact - https://alfahost.eu/en/contact/
+Terms - https://alfahost.eu/en/terms/
+Privacy - https://alfahost.eu/en/privacy/
