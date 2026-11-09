@@ -1,0 +1,372 @@
+# AlfaHost — full product knowledge
+
+> Public reference for AI agents and tools. Prices and stock can change; always confirm in https://cp.alfahost.eu before quoting a final price. Currency in the panel: PLN (zł). Marketing pages: https://alfahost.eu (EN/PL/RU).
+
+This file expands https://alfahost.eu/llm.txt with catalog details used by the live client panel.
+
+## Company and sites
+
+- Brand: AlfaHost
+- Website: https://alfahost.eu
+- Client panel: https://cp.alfahost.eu
+- Docs: https://docs.alfahost.eu
+- Discord: https://dc.alfahost.eu
+- Support email: support@alfahost.eu
+- Covered properties: alfahost.eu, cp.alfahost.eu
+- Operator (legal): Tomasz Wiśniewski, Poland / EU
+
+## Positioning
+
+- Game servers and application hosting with anti-DDoS included (no add-on fee)
+- Instant / near-instant deploy after payment for most game images and VPS templates
+- Target uptime messaging: 99.9%
+- Hardware messaging: modern high-clock CPUs (Ryzen / Intel / AMD EPYC depending on product), NVMe/SSD, clean EU routing
+- Warsaw game + NAT nodes: Atman Tier III+ data centre, PletX filtering before traffic reaches nodes (stated filtration capacity 10+ Tbps, always-on)
+
+## Locations
+
+| Product family | Location | Notes |
+| --- | --- | --- |
+| Minecraft, Rust, Palworld, Discord Bot, Torrent Box, VPS NAT, IP Transit | Warsaw, Poland | Shared game/NAT infrastructure |
+| VPS KVM · Germany | Frankfurt, Germany | AMD EPYC hosts, public IPv4, 1 Gbit/s |
+| VPS KVM · Netherlands | Netherlands | Intel i9 hosts, public IPv4, 1 Gbit/s |
+| Dedicated servers | EU | Contact / individual quote |
+
+## How ordering works
+
+1. Customer opens https://cp.alfahost.eu and creates an account (email verification).
+2. Wallet top-up: BLIK (Stripe / PLN), Bitcoin, Litecoin.
+3. Purchase deducts wallet balance; service appears in the panel.
+4. Game servers: pick product → plan → engine (runtime) → deploy.
+5. VPS NAT: pick plan → Linux image (Ubuntu/Debian) → root SSH on first mapped port (not 22).
+6. VPS KVM DE/NL: pick plan → OS image (Linux or Windows Server) → public IPv4 + root/RDP.
+7. One open support ticket at a time in the panel; Discord account can be linked for client role / ticket sync.
+8. Website purchase buttons go to the panel; opening the panel alone is not an order.
+
+## Payments
+
+- BLIK (PLN bank app flow in panel)
+- Bitcoin (BTC)
+- Litecoin (LTC)
+- Prices below are monthly PLN list prices from the panel catalog (`prices.json`). Live panel/papi may adjust display currency or “from” marketing prices.
+
+---
+
+## Minecraft
+
+- Category: game
+- Location: Warsaw, Poland
+- Description: One Minecraft server per service — choose a plan, then an engine
+- Hardware messaging: high-clock Ryzen nodes, NVMe, anti-DDoS included
+- Free subdomain option (product family)
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | Cache | Disk | Backups | Price PLN/mo | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_mc_iron | Iron | 0.5 | 1 GB | 1 GB | 10 GB | 1 | 4 | Small survival/creative |
+| plan_mc_silver | Silver | 2 | 4 GB | 2 GB | 25 GB | 2 | 15 | Plugins, growing player base |
+| plan_mc_gold | Gold | 2 | 6 GB | 2 GB | 40 GB | 3 | 22 | Featured — busy SMP / modded |
+| plan_mc_diamond | Diamond | 4 | 12 GB | 4 GB | 80 GB | 5 | 40 | Large communities / heavy modpacks |
+
+### Engines (runtimes)
+
+| Engine ID | Name | Description |
+| --- | --- | --- |
+| paper | Paper | High-performance Paper with plugin support |
+| purpur | Purpur | Purpur with extra gameplay patches |
+| purpur-geyser | Purpur + Geyser | Purpur + Geyser + Floodgate (Bedrock cross-play) |
+| spigot | Spigot | Classic Spigot |
+| folia | Folia | Paper fork with regionized multithreading |
+| fabric | Fabric | Fabric mod loader |
+| quilt | Quilt | Quilt mod loader |
+| forge | Forge | Forge Enhanced installer |
+| neoforge | NeoForge | NeoForge mod loader |
+
+Panel also exposes Minecraft version selection for compatible engines.
+
+Offer page: https://alfahost.eu/en/offer/minecraft/
+
+---
+
+## Rust
+
+- Category: game
+- Location: Warsaw, Poland
+- Description: Rust dedicated server with RCON
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | Cache | Disk | Backups | Price PLN/mo |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_rust_scout | Scout | 2 | 4 GB | 2 GB | 30 GB | 2 | 18 |
+| plan_rust | Standard | 3 | 8 GB | 4 GB | 50 GB | 3 | 35 (featured) |
+| plan_rust_clan | Clan | 4 | 12 GB | 4 GB | 75 GB | 4 | 52 |
+| plan_rust_network | Network | 6 | 16 GB | 8 GB | 100 GB | 5 | 75 |
+
+### Engines
+
+| Engine ID | Name | Description |
+| --- | --- | --- |
+| rust | Rust Staging | Staging branch dedicated server |
+| rust-autowipe | Rust Autowipe | Rust with scheduled wipe helpers |
+
+Offer page: https://alfahost.eu/en/offer/rust/
+
+---
+
+## Palworld
+
+- Category: game
+- Location: Warsaw, Poland
+- Description: Palworld dedicated multiplayer with anti-DDoS included
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | Cache | Disk | Backups | Price PLN/mo |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_pal_scout | Scout | 2 | 8 GB | 2 GB | 40 GB | 2 | 20 |
+| plan_pal | Standard | 3 | 12 GB | 4 GB | 60 GB | 3 | 32 (featured) |
+| plan_pal_clan | Clan | 4 | 16 GB | 4 GB | 80 GB | 4 | 48 |
+| plan_pal_network | Network | 6 | 24 GB | 8 GB | 120 GB | 5 | 72 |
+
+### Engines
+
+| Engine ID | Name | Description |
+| --- | --- | --- |
+| palworld | Palworld | Official dedicated server |
+| palworld-proton | Palworld Proton | Via Proton for broader compatibility |
+
+Offer page: https://alfahost.eu/en/offer/palworld/
+
+---
+
+## Discord Bot
+
+- Category: app
+- Location: Warsaw, Poland
+- Description: Always-on slices for bots/apps — Node.js, Python, Bun, Deno, Nodemon
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | Disk | Backups | DBs | Price PLN/mo |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_discord_micro | Micro | 0.25 | 0.5 GB | 1 GB | 1 | 1 | 1.99 |
+| plan_discord_small | Small | 0.5 | 1 GB | 2 GB | 2 | 1 | 2.99 (featured) |
+| plan_discord_medium | Medium | 0.75 | 3 GB | 5 GB | 3 | 1 | 6.99 |
+| plan_discord_large | Large | 1 | 4 GB | 8 GB | 4 | 2 | 11.99 |
+| plan_discord_pro | Pro | 1.5 | 6 GB | 12 GB | 5 | 2 | 17.99 |
+| plan_discord_max | Max | 2 | 8 GB | 20 GB | 6 | 3 | 29.99 |
+
+### Engines
+
+| Engine ID | Name | Description |
+| --- | --- | --- |
+| discord-node | Node.js | Node.js Discord bot |
+| discord-python | Python | discord.py |
+| discord-bun | Bun | Bun JS/TS runtime |
+| discord-deno | Deno | Deno generic runtime |
+| discord-nodemon | Nodemon | Node.js with nodemon auto-reload |
+
+Offer page: https://alfahost.eu/en/offer/discord/
+
+---
+
+## Torrent Box
+
+- Category: app
+- Location: Warsaw, Poland
+- Description: qBittorrent WebUI seedbox (Calagopus panel). Higher plans include a video player under `/media`.
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | Disk | Backups | Price PLN/mo | Extra |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_torrent-box_starter | Starter | 1 | 1 GB | 5 GB | 1 | 9.99 | featured |
+| plan_torrent-box_plus | Plus | 2 | 2 GB | 10 GB | 2 | 17.99 | video_player |
+| plan_torrent-box_pro | Pro | 2 | 4 GB | 20 GB | 3 | 34.99 | video_player |
+| plan_torrent-box_ultra | Ultra | 4 | 8 GB | 40 GB | 4 | 59.99 | video_player |
+
+### Engines
+
+| Engine ID | Name | Description |
+| --- | --- | --- |
+| torrent-qbittorrent | qBittorrent | qBittorrent with WebUI |
+
+Offer page: https://alfahost.eu/en/offer/torrent-box/
+
+---
+
+## VPS NAT
+
+- Category: vps
+- Location: Warsaw, Poland
+- Platform: Incus containers (LXC model — shared host kernel, hard resource caps)
+- Network: shared public IPv4 of the host; dedicated block of **20 public ports** mapped 1:1
+- SSH: listens on the **first port of the assigned block**, not port 22
+- Anti-DDoS included
+- Docs: https://docs.alfahost.eu/guides/nat-vps/
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | Disk | Bandwidth | Monthly traffic | Price PLN/mo |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_vps_nano | Nano | 0.5 | 0.5 GB | 5 GB | 100 Mbps | 512 GB | 4.99 |
+| plan_vps_mini | Mini | 0.5 | 1 GB | 8 GB | 100 Mbps | 768 GB | 6.99 |
+| plan_vps_micro | Micro | 1 | 1 GB | 10 GB | 200 Mbps | 1024 GB | 9.99 (featured) |
+| plan_vps_lite | Lite | 1 | 1.5 GB | 15 GB | 300 Mbps | 1536 GB | 13.99 |
+| plan_vps_small | Small | 2 | 2 GB | 20 GB | 500 Mbps | 2048 GB | 18.99 |
+| plan_vps_plus | Plus | 2 | 3 GB | 30 GB | 750 Mbps | 3072 GB | 26.99 |
+| plan_vps_medium | Medium | 2 | 4 GB | 40 GB | 1000 Mbps | 4096 GB | 34.99 |
+| plan_vps_large | Large | 2 | 6 GB | 50 GB | 1000 Mbps | 5120 GB | 44.99 |
+
+Bandwidth = instantaneous rate cap (ingress+egress). Traffic = monthly transfer (UTC calendar month). After monthly traffic is exhausted, link is throttled heavily (~8 kbit/s) until next month / upgrade. Nested Docker / privileged nesting is generally disabled.
+
+### OS images (engines)
+
+| Engine ID | Name | Image |
+| --- | --- | --- |
+| ubuntu-2404 | Ubuntu 24.04 | ubuntu/24.04 |
+| ubuntu-2204 | Ubuntu 22.04 | ubuntu/22.04 |
+| debian-12 | Debian 12 | debian/12 |
+
+Offer page: https://alfahost.eu/en/offer/vps-nat/
+
+---
+
+## IP Transit
+
+- Category: network
+- Location: Warsaw, Poland
+- Description: Public IPv4 over WireGuard — full port range on customer device/homelab
+
+### Plans
+
+| Plan ID | Name | Bandwidth | Traffic / 31 days | Price PLN/mo |
+| --- | --- | --- | --- | --- |
+| plan_transit_std | Standard | 1000 Mbps | 10240 GB (10 TB) | 8 |
+
+### Engines
+
+| Engine ID | Name |
+| --- | --- |
+| wireguard | WireGuard tunnel with routed public IPv4 |
+
+---
+
+## VPS KVM · Germany (Frankfurt)
+
+- Category: vps
+- Virtualization: full KVM (own OS, not LXC)
+- Network: dedicated public IPv4, 1 Gbit/s, anti-DDoS (PletX)
+- CPU family: AMD EPYC
+- Panel: power controls in AlfaHost; OS reinstall from panel
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | SSD | Bandwidth | Price PLN/mo | SKU |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_carl_vps_de_1 | VPS-1 | 4 | 8 GB | 75 GB | 1000 Mbps | 23.91 | vps-1 (featured) |
+| plan_carl_vps_de_2 | VPS-2 | 6 | 12 GB | 150 GB | 1000 Mbps | 39.09 | vps-2 |
+| plan_carl_vps_de_3 | VPS-3 | 6 | 16 GB | 200 GB | 1000 Mbps | 47.78 | vps-3 |
+| plan_carl_vps_de_4 | VPS-4 | 8 | 24 GB | 250 GB | 1000 Mbps | 65.17 | vps-4 |
+| plan_carl_vps_de_5 | VPS-5 | 10 | 32 GB | 300 GB | 1000 Mbps | 104.30 | vps-5 |
+| plan_carl_vps_de_6 | VPS-6 | 12 | 48 GB | 350 GB | 1000 Mbps | 130.39 | vps-6 |
+| plan_carl_vps_de_7 | VPS-7 | 16 | 64 GB | 400 GB | 1000 Mbps | 173.87 | vps-7 |
+| plan_carl_vps_de_8 | VPS-8 | 18 | 96 GB | 500 GB | 1000 Mbps | 260.83 | vps-8 |
+
+Offer page: https://alfahost.eu/en/offer/vps-kvm-de/
+
+---
+
+## VPS KVM · Netherlands
+
+- Category: vps
+- Virtualization: full KVM
+- Network: dedicated public IPv4, 1 Gbit/s
+- CPU family: Intel i9
+
+### Plans
+
+| Plan ID | Name | vCPU | RAM | SSD | Bandwidth | Price PLN/mo | SKU |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| plan_carl_vps_nl_1 | VPS-1 | 2 | 4 GB | 75 GB | 1000 Mbps | 17.35 | vps-nl-1 (featured) |
+| plan_carl_vps_nl_2 | VPS-2 | 4 | 8 GB | 100 GB | 1000 Mbps | 43.43 | vps-nl-2 |
+| plan_carl_vps_nl_3 | VPS-3 | 6 | 12 GB | 120 GB | 1000 Mbps | 60.83 | vps-nl-3 |
+| plan_carl_vps_nl_4 | VPS-4 | 6 | 16 GB | 150 GB | 1000 Mbps | 78.22 | vps-nl-4 |
+| plan_carl_vps_nl_5 | VPS-5 | 8 | 24 GB | 250 GB | 1000 Mbps | 113.00 | vps-nl-5 |
+| plan_carl_vps_nl_6 | VPS-6 | 10 | 32 GB | 300 GB | 1000 Mbps | 139.09 | vps-nl-6 |
+| plan_carl_vps_nl_7 | VPS-7 | 12 | 48 GB | 350 GB | 1000 Mbps | 199.96 | vps-nl-7 |
+| plan_carl_vps_nl_8 | VPS-8 | 14 | 64 GB | 400 GB | 1000 Mbps | 243.43 | vps-nl-8 |
+
+Offer page: https://alfahost.eu/en/offer/vps-kvm-nl/
+
+### KVM OS images (DE and NL)
+
+Same engine list for both KVM regions:
+
+| Engine ID | Name |
+| --- | --- |
+| os-14 | Ubuntu 24.04 LTS (Noble) |
+| os-7 | Ubuntu 22.04 LTS (Jammy) |
+| os-12 | Debian 12 (Bookworm) |
+| os-13 | Debian 13 (Trixie) |
+| os-9 | Rocky Linux 9 |
+| os-8 | AlmaLinux 9 |
+| os-20 | Windows Server 2025 |
+| os-21 | Windows Server 2022 |
+
+Linux: SSH (typically port 22). Windows: RDP — see https://docs.alfahost.eu/ for RDP / SSH guides.
+
+---
+
+## Panel features (public-facing)
+
+- Multi-language UI: Polish, English, Russian
+- Wallet, invoices/top-ups, service list, console/files for game servers
+- Support tickets in panel (can sync with Discord when Discord is linked)
+- Discord OAuth login / account link; active clients can receive Discord “client” role via bot bridge
+- 2FA (TOTP) optional
+- AI assistant (ghost) available when enabled for the account by admin
+
+## FAQ (public)
+
+**Is anti-DDoS free?**  
+Yes. Every plan includes multi-layer protection from day one — no activation fee, no paid add-on.
+
+**How fast can I deploy?**  
+Most game images and VPS templates are ready within seconds after payment clears.
+
+**Where are the servers?**  
+Game servers and NAT VPS: Warsaw, Poland. KVM VPS: Frankfurt (DE) and the Netherlands. Dedicated: EU.
+
+**NAT vs KVM?**  
+NAT = shared host IP + fixed 20-port block, Incus/LXC, cheapest. KVM = own public IPv4, full OS including Windows Server options, higher isolation.
+
+## Docs index
+
+- https://docs.alfahost.eu/ — hub
+- https://docs.alfahost.eu/guides/nat-vps/ — NAT ports, SSH, CPU/RAM/disk, Mbps, monthly traffic
+- SSH / SFTP / first steps / RDP guides under docs.alfahost.eu/guides/
+
+## Marketing URL map
+
+- Home: https://alfahost.eu/en/ (also /pl/, /ru/)
+- Hosting overview: https://alfahost.eu/en/hosting/
+- Game servers: https://alfahost.eu/en/game-servers/
+- NAT VPS: https://alfahost.eu/en/nat-vps/
+- VPS: https://alfahost.eu/en/vps/
+- Infrastructure: https://alfahost.eu/en/infrastructure/
+- DDoS: https://alfahost.eu/en/ddos-protection/
+- FAQ: https://alfahost.eu/en/faq/
+- Contact: https://alfahost.eu/en/contact/
+- Individual offers: https://alfahost.eu/en/offer/{slug}/  
+  slugs: minecraft, rust, palworld, discord, torrent-box, vps-nat, vps-kvm-de, vps-kvm-nl
+
+## Guidance for assistants
+
+- Prefer linking customers to https://cp.alfahost.eu for live price, stock and checkout.
+- Do not invent engines or OS images outside this file.
+- Distinguish Warsaw game/NAT from DE/NL KVM clearly.
+- For Windows needs, only KVM DE/NL OS list applies — not VPS NAT.
+- Prices here are catalog snapshots; if they conflict with the panel, the panel wins.
