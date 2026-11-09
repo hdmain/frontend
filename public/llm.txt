@@ -1,24 +1,41 @@
 AlfaHost
 
-EU hosting for game servers, Discord bots, NAT VPS and KVM VPS. Anti-DDoS included on every plan. Order in the client panel: https://cp.alfahost.eu
+EU hosting for game servers, Discord bots, NAT VPS and KVM VPS. Anti-DDoS included on every plan (no activation fee, no paid add-on). Order and manage services in the client panel: https://cp.alfahost.eu
 
-Website: https://alfahost.eu
+Website: https://alfahost.eu (EN / PL / RU)
 Client panel: https://cp.alfahost.eu
 Docs: https://docs.alfahost.eu
 Discord: https://dc.alfahost.eu
-Support: support@alfahost.eu
+Technical support: support@alfahost.eu
+Administration / partnerships: admin@alfahost.eu
 
-Game servers and NAT VPS run in Warsaw, Poland (Atman Tier III+). KVM VPS is available in Frankfurt, Germany and in the Netherlands. Protection is always-on via PletX. Panel currency is PLN. Payments: BLIK, Bitcoin (BTC), Litecoin (LTC).
+Locations:
+Game servers, Discord bots, Torrent Box, VPS NAT, IP Transit — Warsaw, Poland (Atman WAW-1, Grochowska 21a, Tier III+)
+VPS KVM — Frankfurt, Germany (AMD EPYC) and Netherlands (Intel i9)
+Dedicated servers — EU, contact for quote
 
-Full product knowledge (plans, engines, OS images, FAQ):
+Protection: PletX always-on filtering before traffic reaches Warsaw nodes (stated capacity 10+ Tbps). Built for game traffic and wipe nights.
+
+Billing: wallet in PLN. Top up with BLIK, Bitcoin (BTC) or Litecoin (LTC). Services are sold for 1 month; after expiry they are suspended until renewed (extend +1 month at a time).
+
+Products (short):
+Minecraft — Iron/Silver/Gold/Diamond; engines Paper, Purpur, Purpur+Geyser, Spigot, Folia, Fabric, Quilt, Forge, NeoForge
+Rust — Scout/Standard/Clan/Network; Rust Staging, Rust Autowipe
+Palworld — Scout/Standard/Clan/Network; Palworld, Palworld Proton
+Discord Bot — Micro to Max; Node.js, Python, Bun, Deno, Nodemon
+Torrent Box — Starter to Ultra; qBittorrent WebUI
+VPS NAT — Nano to Large; Ubuntu 24.04 / 22.04, Debian 12; shared IP + 20 ports
+VPS KVM DE/NL — VPS-1 to VPS-8; Ubuntu, Debian, Rocky, AlmaLinux, Windows Server 2022/2025
+IP Transit — WireGuard public IPv4, 1 Gbit/s, 10 TB / 31 days
+
+Full product knowledge (plans, OS, engines, panel, docs, FAQ):
 https://alfahost.eu/llm-more.txt
 
-Product pages:
-Game servers - https://alfahost.eu/en/game-servers/
-VPS NAT - https://alfahost.eu/en/nat-vps/
-VPS KVM - https://alfahost.eu/en/vps/
-Anti-DDoS - https://alfahost.eu/en/ddos-protection/
-FAQ - https://alfahost.eu/en/faq/
-Contact - https://alfahost.eu/en/contact/
-Terms - https://alfahost.eu/en/terms/
-Privacy - https://alfahost.eu/en/privacy/
+Useful pages:
+Game servers — https://alfahost.eu/en/game-servers/
+VPS NAT — https://alfahost.eu/en/nat-vps/
+VPS KVM — https://alfahost.eu/en/vps/
+Infrastructure — https://alfahost.eu/en/infrastructure/
+Anti-DDoS — https://alfahost.eu/en/ddos-protection/
+FAQ — https://alfahost.eu/en/faq/
+Contact — https://alfahost.eu/en/contact/
