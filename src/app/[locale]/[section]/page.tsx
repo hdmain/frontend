@@ -31,7 +31,7 @@ function pageContent(locale: Locale, section: SiteSection) {
   if (section === "hosting") return { title: serviceNavigationCopy[locale].catalog, lead: t.services.lead, image: "/media/hero-dc.jpg" };
   const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps-kvm-de"))!;
   if (section === "game-servers") return { title: n.games, lead: t.services.items[0].desc, image: "/media/game-servers-hero.webp", points: t.services.items[0].points };
-  if (section === "vps") return { title: n.vps, lead: n.vpsDesc, image: "/offers/vps.jpg", points: plan.highlights };
+  if (section === "vps") return { title: n.vps, lead: n.vpsDesc, image: "/media/hero-dc.jpg", points: plan.highlights };
   if (section === "nat-vps") return { title: plan.name, lead: plan.description, image: `/offers/${plan.slug}.jpg`, points: plan.highlights };
   if (section === "infrastructure") return { title: n.infrastructure, lead: t.why.lead, image: "/media/atman/waw1-181.jpg" };
   if (section === "ddos-protection") return { title: t.nav.antiddos, lead: t.protection.lead, image: "/media/hero-dc.jpg" };
@@ -54,7 +54,7 @@ export default async function SectionPage({ params }: { params: Promise<{ locale
   const plan = t.offer.plans.find((item) => item.slug === (section === "nat-vps" ? "vps-nat" : "vps-kvm-de"))!;
   const product = section === "hosting" || section === "game-servers" || section === "nat-vps" || section === "vps";
   const gameOffer = { ...t.offer, title: n.chooseGame, lead: n.gamesDesc, plans: t.offer.plans.filter((item) => ["minecraft", "rust", "palworld", "discord"].includes(item.slug)) };
-  const kvmOffer = { ...t.offer, title: n.vps, lead: n.vpsDesc, plans: t.offer.plans.filter((item) => item.slug === "vps-kvm-de" || item.slug === "vps-kvm-nl") };
+  const kvmOffer = { ...t.offer, title: n.vps, lead: n.vpsDesc, plans: t.offer.plans.filter((item) => item.slug.startsWith("vps-kvm-")) };
 
   return (
     <div className={styles.page}>

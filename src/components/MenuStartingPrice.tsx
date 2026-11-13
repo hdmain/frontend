@@ -9,7 +9,8 @@ import styles from "./SiteHeader.module.css";
 const slugsByPath: Record<string, string[]> = {
   "game-servers": ["minecraft", "rust", "palworld", "discord"],
   "nat-vps": ["vps-nat"],
-  vps: ["vps-kvm-de", "vps-kvm-nl"],
+  vps: ["vps-kvm-pl", "vps-kvm-de", "vps-kvm-nl"],
+  "offer/vps-kvm-pl": ["vps-kvm-pl"],
   "offer/vps-kvm-de": ["vps-kvm-de"],
   "offer/vps-kvm-nl": ["vps-kvm-nl"],
   "offer/dedicated": ["dedicated"],

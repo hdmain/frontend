@@ -121,8 +121,8 @@
       "cpu": "AMD EPYC 7551P",
       "description": "Retail list prices from the upstream catalog. Full root, public IPv4 and PletX filtering.",
       "from": {
-        "standard": 24.15,
-        "standard_formatted": "24.15 zł"
+        "standard": 18.21,
+        "standard_formatted": "18.21 zł"
       },
       "name": "VPS KVM · Germany",
       "slug": "vps-kvm-de",
@@ -144,8 +144,8 @@
       "cpu": "Intel i9-10900K",
       "description": "Retail list prices from the upstream catalog. Full root and public IPv4.",
       "from": {
-        "standard": 17.52,
-        "standard_formatted": "17.52 zł"
+        "standard": 13.18,
+        "standard_formatted": "13.18 zł"
       },
       "name": "VPS KVM · Netherlands",
       "slug": "vps-kvm-nl",
@@ -182,6 +182,29 @@
         120
       ],
       "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "Intel Xeon E3-1225 v6 @ 3.30GHz",
+      "description": "Full root KVM on a local Poland node (4× Intel Xeon E3-1225 v6 @ 3.30GHz). Public IPv4 and Anti-DDoS port filters included.",
+      "from": {
+        "standard": 12,
+        "standard_formatted": "12 zł"
+      },
+      "name": "VPS KVM · Poland",
+      "slug": "vps-kvm-pl",
+      "summary": "Dedicated KVM VPS in Poland - public IPv4, Anti-DDoS, Intel Xeon E3-1225 v6.",
+      "ram": [
+        2,
+        8
+      ],
+      "disk": [
+        20,
+        80
+      ],
+      "maxVcpu": 4,
       "packageCount": 4
     },
     {
@@ -330,8 +353,8 @@
       "cpu": "AMD EPYC 7551P",
       "description": "Ceny katalogowe 1:1 z upstreamu. Pełny root, publiczne IPv4 i filtrowanie PletX.",
       "from": {
-        "standard": 24.15,
-        "standard_formatted": "24.15 zł"
+        "standard": 18.21,
+        "standard_formatted": "18.21 zł"
       },
       "name": "VPS KVM · Niemcy",
       "slug": "vps-kvm-de",
@@ -353,8 +376,8 @@
       "cpu": "Intel i9-10900K",
       "description": "Ceny katalogowe 1:1 z upstreamu. Pełny root i publiczne IPv4.",
       "from": {
-        "standard": 17.52,
-        "standard_formatted": "17.52 zł"
+        "standard": 13.18,
+        "standard_formatted": "13.18 zł"
       },
       "name": "VPS KVM · Holandia",
       "slug": "vps-kvm-nl",
@@ -391,6 +414,29 @@
         120
       ],
       "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "Intel Xeon E3-1225 v6 @ 3.30GHz",
+      "description": "Pełny root KVM na lokalnym nodzie w Polsce (4× Intel Xeon E3-1225 v6 @ 3.30GHz). Publiczne IPv4 i filtry Anti-DDoS w cenie.",
+      "from": {
+        "standard": 12,
+        "standard_formatted": "12 zł"
+      },
+      "name": "VPS KVM · Polska",
+      "slug": "vps-kvm-pl",
+      "summary": "Dedykowany KVM VPS w Polsce - publiczne IPv4, Anti-DDoS, Intel Xeon E3-1225 v6.",
+      "ram": [
+        2,
+        8
+      ],
+      "disk": [
+        20,
+        80
+      ],
+      "maxVcpu": 4,
       "packageCount": 4
     },
     {
@@ -539,8 +585,8 @@
       "cpu": "AMD EPYC 7551P",
       "description": "Розничные цены 1:1 с upstream. Полный root, публичный IPv4 и фильтрация PletX.",
       "from": {
-        "standard": 24.15,
-        "standard_formatted": "24.15 zł"
+        "standard": 18.21,
+        "standard_formatted": "18.21 zł"
       },
       "name": "VPS KVM · Германия",
       "slug": "vps-kvm-de",
@@ -562,8 +608,8 @@
       "cpu": "Intel i9-10900K",
       "description": "Розничные цены 1:1 с upstream. Полный root и публичный IPv4.",
       "from": {
-        "standard": 17.52,
-        "standard_formatted": "17.52 zł"
+        "standard": 13.18,
+        "standard_formatted": "13.18 zł"
       },
       "name": "VPS KVM · Нидерланды",
       "slug": "vps-kvm-nl",
@@ -600,6 +646,29 @@
         120
       ],
       "maxVcpu": 400,
+      "packageCount": 4
+    },
+    {
+      "available": true,
+      "category": "vps",
+      "cpu": "Intel Xeon E3-1225 v6 @ 3.30GHz",
+      "description": "Полный root KVM на локальной ноде в Польше (4× Intel Xeon E3-1225 v6 @ 3.30GHz). Публичный IPv4 и Anti-DDoS в комплекте.",
+      "from": {
+        "standard": 12,
+        "standard_formatted": "12 zł"
+      },
+      "name": "VPS KVM · Польша",
+      "slug": "vps-kvm-pl",
+      "summary": "Выделенный KVM VPS в Польше - публичный IPv4, Anti-DDoS, Intel Xeon E3-1225 v6.",
+      "ram": [
+        2,
+        8
+      ],
+      "disk": [
+        20,
+        80
+      ],
+      "maxVcpu": 4,
       "packageCount": 4
     },
     {

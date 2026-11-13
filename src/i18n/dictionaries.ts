@@ -1477,7 +1477,7 @@ export function getDictionary(locale: Locale): Dictionary {
   const range = (values: number[]) => values[0] === values[1] ? `${values[0]}` : `${values[0]}–${values[1]}`;
   const plans: OfferPlan[] = papiOffers[locale].map((offer) => {
     const editorial = dictionary.offer.plans.find((plan) => plan.slug === offer.slug);
-    const kvm = offer.slug.startsWith("vps-kvm-");
+    const kvm = ["vps-kvm-de", "vps-kvm-nl"].includes(offer.slug);
     const description = kvm ? ({
       pl: "Serwer KVM z pełnym dostępem root, publicznym adresem IPv4, dyskiem SSD i portem 1 Gbit/s.",
       en: "KVM server with full root access, a public IPv4 address, SSD storage and a 1 Gbit/s port.",

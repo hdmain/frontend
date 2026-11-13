@@ -89,7 +89,7 @@ export default async function OfferPage({
           others={others}
         />
         {slug === "torrent-box" && <TorrentBoxContent locale={locale} />}
-        {slug.startsWith("vps-kvm-") && <VpsInformation locale={locale} />}
+        {slug.startsWith("vps-kvm-") && <VpsInformation locale={locale} slug={slug} />}
       </main>
       <SiteFooter locale={locale} t={t.footer} />
     </div>
