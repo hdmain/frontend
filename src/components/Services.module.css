@@ -2,7 +2,7 @@
 .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 38px; }
 .head > div { max-width: 40rem; }
 .viewAll { flex-shrink: 0; }
-.stack { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .card { position: relative; display: flex; flex-direction: column; gap: 24px; padding: 0 32px 32px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--void); transition: border-color .25s; }
 .card:hover { border-color: var(--line-strong); }
 .card .price { position: absolute; top: 20px; right: 20px; z-index: 2; display: flex; align-items: baseline; gap: 5px; max-width: calc(100% - 40px); padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font-variant-numeric: tabular-nums; }
@@ -13,7 +13,7 @@
 .visual svg { position: absolute; bottom: 20px; color: var(--accent-hot); }
 .meta h3 { font-family: var(--font-display); font-size: 1.65rem; letter-spacing: -.03em; margin-bottom: 12px; }
 .meta p { max-width: 40ch; color: var(--muted); font-size: .88rem; line-height: 1.8; }
-.points { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; margin-block: 4px 8px; }
+.points { display: grid; grid-template-columns: 1fr; gap: 14px 18px; margin-block: 4px 8px; }
 .points li { display: flex; gap: 8px; align-items: flex-start; font-size: .75rem; color: var(--muted); }
 .points span { display: inline-flex; color: var(--accent); margin-top: 2px; }
 .card :global(.btn) { align-self: flex-start; margin-top: auto; font-size: .78rem; }
@@ -21,4 +21,5 @@
 :global([data-theme="light"]) .card { background: var(--surface); }
 :global([data-theme="light"]) .visual::after { background: linear-gradient(0deg, rgba(12, 18, 28, .7), transparent 70%); }
 :global([data-theme="light"]) .visual svg { color: #fff; }
-@media (max-width: 700px) { .section { padding: 65px 0; } .stack { grid-template-columns: 1fr; } .card { padding-inline: 24px; } .visual { margin-inline: -24px; padding-inline: 24px; } }
+@media (max-width: 1000px) { .stack { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .section { padding: 65px 0; } .card { padding-inline: 24px; } .visual { margin-inline: -24px; padding-inline: 24px; } }

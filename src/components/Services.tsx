@@ -1,6 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import { getDictionary } from "@/i18n/dictionaries";
-import { Gamepad2, Network, ArrowUpRight } from "lucide-react";
+import { Gamepad2, Network, Server, ArrowUpRight } from "lucide-react";
 import { asset } from "@/lib/basePath";
 import { localePath, type Locale } from "@/i18n/config";
 import { serviceNavigationCopy } from "@/lib/siteNavigation";
@@ -15,7 +15,17 @@ export default function Services({ t, locale = "en" }: Props) {
   const offer = getDictionary(locale).offer;
   const nat = offer.plans.find((plan) => plan.slug === "vps-nat")!;
   const games = offer.plans.filter((plan) => ["minecraft", "rust", "palworld", "discord"].includes(plan.slug) && (plan.available ?? true));
-  const services = t.items.map((service, index) => index === 1 ? { ...service, title: nat.name, desc: nat.summary, points: nat.highlights.slice(0, 4) } : service);
+  const kvm = offer.plans.filter((plan) => plan.slug.startsWith("vps-kvm-") && (plan.available ?? true));
+  const kvmCopy = {
+    pl: { title: "VPS KVM", desc: "Serwery wirtualne w Polsce, Niemczech i Holandii. Dobierz zasoby oraz system do swoich aplikacji.", points: ["Wirtualizacja KVM", "Pełny dostęp administracyjny", "Publiczne IPv4", "Dyski SSD"] },
+    en: { title: "KVM VPS", desc: "Virtual servers in Poland, Germany and the Netherlands. Choose resources and an operating system for your applications.", points: ["KVM virtualisation", "Full administrative access", "Public IPv4", "SSD storage"] },
+    ru: { title: "KVM VPS", desc: "Виртуальные серверы в Польше, Германии и Нидерландах. Выберите ресурсы и систему для ваших приложений.", points: ["Виртуализация KVM", "Полный административный доступ", "Публичный IPv4", "SSD-диски"] },
+  }[locale];
+  const services = [
+    { ...t.items[0], plans: games, image: "/offers/minecraft.jpg", path: "game-servers", icon: Gamepad2 },
+    { title: nat.name, desc: nat.summary, points: nat.highlights.slice(0, 4), plans: [nat], image: "/offers/vps-nat.jpg", path: "nat-vps", icon: Network },
+    { ...kvmCopy, plans: kvm, image: "/offers/vps.jpg", path: "vps", icon: Server },
+  ];
   return (
     <section className={styles.section} id="services">
       <div className="container">
@@ -25,11 +35,11 @@ export default function Services({ t, locale = "en" }: Props) {
         </header>
 
         <div className={styles.stack}>
-          {services.map((service, i) => (
+          {services.map((service) => (
             <SpotlightCard key={service.title} className={styles.card}>
-              <ServicePrice plans={i === 0 ? games : [nat]} from={offer.from} period={offer.perMonth} />
-              <div className={styles.visual} style={{ backgroundImage: `url(${asset(i === 0 ? "/offers/minecraft.jpg" : "/offers/vps-nat.jpg")})` }} aria-hidden="true">
-                {i === 0 ? <Gamepad2 size={32} strokeWidth={1.25} /> : <Network size={32} strokeWidth={1.25} />}
+              <ServicePrice plans={service.plans} from={offer.from} period={offer.perMonth} />
+              <div className={styles.visual} style={{ backgroundImage: `url(${asset(service.image)})` }} aria-hidden="true">
+                <service.icon size={32} strokeWidth={1.25} />
               </div>
               <div className={styles.meta}>
                 <h3>{service.title}</h3>
@@ -43,7 +53,7 @@ export default function Services({ t, locale = "en" }: Props) {
                   </li>
                 ))}
               </ul>
-              <a className="btn btnGhost" href={localePath(locale, i === 0 ? "game-servers" : "nat-vps")}>
+              <a className="btn btnGhost" href={localePath(locale, service.path)}>
                 {t.learnMore} {Icons.arrow}
               </a>
             </SpotlightCard>

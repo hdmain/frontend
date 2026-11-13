@@ -47,7 +47,6 @@ export default function SiteHeader({ locale, t, path }: Props) {
       { title: n.products, links: [
         { label: n.games, description: n.gamesDesc, href: page("game-servers"), path: "game-servers", icon: Gamepad2 },
         { label: n.nat, description: n.natDesc, href: page("nat-vps"), path: "nat-vps", icon: Network },
-        { label: "Torrent Box", description: "qBittorrent · WebUI", href: page("offer/torrent-box"), path: "offer/torrent-box", icon: Server },
         { label: "VPS PL", description: "Polska · Intel Xeon · SSD", href: page("offer/vps-kvm-pl"), path: "offer/vps-kvm-pl", icon: Server },
         { label: "VPS DE", description: locale === "pl" ? "Niemcy · AMD EPYC · SSD" : locale === "ru" ? "Германия · AMD EPYC · SSD" : "Germany · AMD EPYC · SSD", href: page("offer/vps-kvm-de"), path: "offer/vps-kvm-de", icon: Server },
         { label: "VPS NL", description: locale === "pl" ? "Holandia · Intel i9 · SSD" : locale === "ru" ? "Нидерланды · Intel i9 · SSD" : "The Netherlands · Intel i9 · SSD", href: page("offer/vps-kvm-nl"), path: "offer/vps-kvm-nl", icon: Server },
